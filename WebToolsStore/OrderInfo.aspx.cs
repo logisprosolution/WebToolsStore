@@ -166,6 +166,7 @@ namespace WebToolsStore
                     unit_name = ConvertHelper.InitialValueDB(row, "unit_name"),
                     //seq = seq1,
                 };
+
                 IngredientList_Save.Add(item);
             }
             IngredientList_Show = IngredientList_Save;
