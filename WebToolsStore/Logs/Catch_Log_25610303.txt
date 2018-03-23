@@ -1,0 +1,255 @@
+
+Log Entry : 0:36:16 3 มีนาคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 0:37:10 3 มีนาคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 0:37:24 3 มีนาคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 1:54:47 3 มีนาคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 2:17:10 3 มีนาคม 2561
+  :
+Exception Message:Procedure or function 'udp_USR_Role_Submenu_sel' expects parameter '@role_id', which was not supplied.
+-------------------------------
+
+Log Entry : 2:18:05 3 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'System.Char' does not contain a property with the name 'role_id'.
+-------------------------------
+
+Log Entry : 2:21:20 3 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'System.Char' does not contain a property with the name 'role_id'.
+-------------------------------
+
+Log Entry : 2:23:16 3 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'System.Char' does not contain a property with the name 'role_id'.
+-------------------------------
+
+Log Entry : 2:29:10 3 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'System.Char' does not contain a property with the name 'role_id'.
+-------------------------------
+
+Log Entry : 2:29:31 3 มีนาคม 2561
+  :
+Exception Message:Specified cast is not valid.
+-------------------------------
+
+Log Entry : 2:32:35 3 มีนาคม 2561
+  :
+Exception Message:Specified cast is not valid.
+-------------------------------
+
+Log Entry : 2:57:08 3 มีนาคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_ups'.
+-------------------------------
+
+Log Entry : 2:58:25 3 มีนาคม 2561
+  :
+Exception Message:The formal parameter "@submenu_id" was not declared as an OUTPUT parameter, but the actual parameter passed in requested output.
+-------------------------------
+
+Log Entry : 3:00:45 3 มีนาคม 2561
+  :
+Exception Message:Procedure or function udp_USR_Role_Submenu_ups has too many arguments specified.
+-------------------------------
+
+Log Entry : 3:09:32 3 มีนาคม 2561
+  :
+Exception Message:The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_USR_Role_Submenu_USR_Submenu". The conflict occurred in database "WebToolsStore", table "dbo.USR_Submenu", column 'submenu_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 3:13:47 3 มีนาคม 2561
+  :
+Exception Message:Procedure or function 'udp_USR_Role_Submenu_ups' expects parameter '@submenu_id', which was not supplied.
+-------------------------------
+
+Log Entry : 3:14:22 3 มีนาคม 2561
+  :
+Exception Message:The formal parameter "@submenu_id" was not declared as an OUTPUT parameter, but the actual parameter passed in requested output.
+-------------------------------
+
+Log Entry : 3:22:31 3 มีนาคม 2561
+  :
+Exception Message:Procedure or function udp_USR_Role_Submenu_ups has too many arguments specified.
+-------------------------------
+
+Log Entry : 3:30:18 3 มีนาคม 2561
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 3:35:38 3 มีนาคม 2561
+  :
+Exception Message:Cannot insert the value NULL into column 'role_id', table 'WebToolsStore.dbo.USR_Role_Submenu'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 3:36:56 3 มีนาคม 2561
+  :
+Exception Message:Cannot insert the value NULL into column 'role_id', table 'WebToolsStore.dbo.USR_Role_Submenu'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 3:38:13 3 มีนาคม 2561
+  :
+Exception Message:Violation of PRIMARY KEY constraint 'PK_USR_Role_Submenu'. Cannot insert duplicate key in object 'dbo.USR_Role_Submenu'. The duplicate key value is (1, 1).
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 3:39:41 3 มีนาคม 2561
+  :
+Exception Message:Violation of PRIMARY KEY constraint 'PK_USR_Role_Submenu'. Cannot insert duplicate key in object 'dbo.USR_Role_Submenu'. The duplicate key value is (1, 1).
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 3:43:00 3 มีนาคม 2561
+  :
+Exception Message:Violation of PRIMARY KEY constraint 'PK_USR_Role_Submenu'. Cannot insert duplicate key in object 'dbo.USR_Role_Submenu'. The duplicate key value is (1, 1).
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 5:55:11 3 มีนาคม 2561
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 6:19:53 3 มีนาคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_ups'.
+-------------------------------
+
+Log Entry : 6:20:14 3 มีนาคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_ups'.
+-------------------------------
+
+Log Entry : 6:25:42 3 มีนาคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_ups'.
+-------------------------------
+
+Log Entry : 6:30:32 3 มีนาคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_ups'.
+-------------------------------
+
+Log Entry : 6:34:51 3 มีนาคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_ups'.
+-------------------------------
+
+Log Entry : 6:37:23 3 มีนาคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_ups'.
+-------------------------------
+
+Log Entry : 6:37:34 3 มีนาคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_ups'.
+-------------------------------
+
+Log Entry : 6:44:45 3 มีนาคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_del'.
+-------------------------------
+
+Log Entry : 6:46:30 3 มีนาคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_del'.
+-------------------------------
+
+Log Entry : 6:49:19 3 มีนาคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_del'.
+-------------------------------
+
+Log Entry : 8:14:54 3 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 8:15:19 3 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 8:16:12 3 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 8:17:00 3 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 8:17:36 3 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 8:21:14 3 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 8:22:27 3 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 8:56:07 3 มีนาคม 2561
+  :
+Exception Message:Procedure or function udp_USR_Role_Submenu_ups has too many arguments specified.
+-------------------------------
+
+Log Entry : 17:59:15 3 มีนาคม 2561
+  :
+Exception Message:A field or property with the name 'name' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 18:01:06 3 มีนาคม 2561
+  :
+Exception Message:A field or property with the name 'name' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 18:31:16 3 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'user_profile_id'.
+-------------------------------
+
+Log Entry : 18:32:28 3 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'user_profile_id'.
+-------------------------------
+
+Log Entry : 18:32:49 3 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'user_profile_id'.
+-------------------------------
+
+Log Entry : 18:37:37 3 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'user_profile_id'.
+-------------------------------

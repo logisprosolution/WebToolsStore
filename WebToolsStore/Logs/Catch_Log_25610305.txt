@@ -1,0 +1,108 @@
+
+Log Entry : 4:10:05 5 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.USR_User_Role' does not contain a property with the name 'user_profile_id'.
+-------------------------------
+
+Log Entry : 4:14:38 5 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.USR_User_Role' does not contain a property with the name 'user_profile_id'.
+-------------------------------
+
+Log Entry : 4:17:22 5 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.USR_User_Role' does not contain a property with the name 'user_profile_id'.
+-------------------------------
+
+Log Entry : 4:19:28 5 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.USR_User_Role' does not contain a property with the name 'user_profile_id'.
+-------------------------------
+
+Log Entry : 4:21:21 5 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.USR_User_Role' does not contain a property with the name 'user_profile_id'.
+-------------------------------
+
+Log Entry : 4:21:42 5 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.USR_User_Role' does not contain a property with the name 'user_profile_id'.
+-------------------------------
+
+Log Entry : 17:38:23 5 มีนาคม 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_USR_User_Role_USR_Role". The conflict occurred in database "WebToolsStore", table "dbo.USR_Role", column 'role_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 19:16:58 5 มีนาคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 19:17:12 5 มีนาคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 19:19:41 5 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 19:24:45 5 มีนาคม 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_USR_User_Role_USR_Role". The conflict occurred in database "WebToolsStore", table "dbo.USR_Role", column 'role_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 19:30:32 5 มีนาคม 2561
+  :
+Exception Message:There is no row at position 0.
+-------------------------------
+
+Log Entry : 21:56:43 5 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 21:58:56 5 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 22:10:40 5 มีนาคม 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_USR_User_Role_USR_Role". The conflict occurred in database "WebToolsStore", table "dbo.USR_Role", column 'role_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 22:12:23 5 มีนาคม 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_USR_User_Role_USR_Role". The conflict occurred in database "WebToolsStore", table "dbo.USR_Role", column 'role_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 22:14:04 5 มีนาคม 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_USR_User_Role_USR_Role". The conflict occurred in database "WebToolsStore", table "dbo.USR_Role", column 'role_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 22:15:51 5 มีนาคม 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_USR_User_Role_USR_Role". The conflict occurred in database "WebToolsStore", table "dbo.USR_Role", column 'role_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 23:05:35 5 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 23:06:19 5 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------

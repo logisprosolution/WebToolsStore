@@ -1,0 +1,15 @@
+
+Log Entry : 22:56:46 20 กุมภาพันธ์ 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_lst'.
+-------------------------------
+
+Log Entry : 23:01:33 20 กุมภาพันธ์ 2561
+  :
+Exception Message:Procedure udp_USR_User_Role_lst has no parameters and arguments were supplied.
+-------------------------------
+
+Log Entry : 23:08:50 20 กุมภาพันธ์ 2561
+  :
+Exception Message:Could not find stored procedure 'udp_URS_Role_sel'.
+-------------------------------

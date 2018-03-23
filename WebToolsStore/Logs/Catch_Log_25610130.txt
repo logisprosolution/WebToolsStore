@@ -1,0 +1,30 @@
+
+Log Entry : 17:34:24 30 มกราคม 2561
+  :
+Exception Message:Column 'header_deposit' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 17:37:43 30 มกราคม 2561
+  :
+Exception Message:Column 'header_deposit' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 17:42:50 30 มกราคม 2561
+  :
+Exception Message:Procedure or function 'udp_DOC_Header_ups' expects parameter '@header_warehouse_from', which was not supplied.
+-------------------------------
+
+Log Entry : 17:58:53 30 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'name' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 17:59:09 30 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'name' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 21:48:44 30 มกราคม 2561
+  :
+Exception Message:Procedure or function udp_DOC_Header_ups has too many arguments specified.
+-------------------------------

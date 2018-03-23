@@ -1,0 +1,105 @@
+
+Log Entry : 3:15:54 12 มีนาคม 2561
+  :
+Exception Message:Unable to cast object of type 'System.Web.UI.WebControls.GridViewRow' to type 'System.IConvertible'.
+-------------------------------
+
+Log Entry : 3:45:17 12 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 3:49:18 12 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 4:02:28 12 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.DOC_Detail' does not contain a property with the name 'hdfProID'.
+-------------------------------
+
+Log Entry : 4:17:18 12 มีนาคม 2561
+  :
+Exception Message:A field or property with the name 'product_price_code' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 4:20:17 12 มีนาคม 2561
+  :
+Exception Message:A field or property with the name 'product_price_code' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 7:02:29 12 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 7:03:24 12 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 10:49:02 12 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 10:49:41 12 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 10:51:13 12 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 11:12:09 12 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:02:59 12 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:05:23 12 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:06:39 12 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:18:44 12 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:30:19 12 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:31:01 12 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:38:25 12 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:39:15 12 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:40:35 12 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------

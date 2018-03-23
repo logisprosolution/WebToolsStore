@@ -1,0 +1,76 @@
+
+Log Entry : 0:00:25 22 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 0:04:13 22 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 0:04:18 22 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:23:42 22 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:26:52 22 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 3:32:04 22 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'product_code' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 7:26:15 22 มกราคม 2561
+  :
+Exception Message:Column 'is_del' does not belong to table SelectProductIngredient.
+-------------------------------
+
+Log Entry : 7:26:33 22 มกราคม 2561
+  :
+Exception Message:Column 'create_date' does not belong to table SelectProductIngredient.
+-------------------------------
+
+Log Entry : 7:26:34 22 มกราคม 2561
+  :
+Exception Message:Column 'create_date' does not belong to table SelectProductIngredient.
+-------------------------------
+
+Log Entry : 7:28:38 22 มกราคม 2561
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 7:34:33 22 มกราคม 2561
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 7:40:36 22 มกราคม 2561
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 14:41:31 22 มกราคม 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_MAS_Product_MAS_Subcategories". The conflict occurred in database "WebToolsStore", table "dbo.MAS_Subcategories", column 'subcategories_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 16:35:39 22 มกราคม 2561
+  :
+Exception Message:Method not found: 'Void WebToolsStore.Data.MAS_Ingredient.set_product_unit(System.Nullable`1<Int32>)'.
+-------------------------------
+
+Log Entry : 16:58:51 22 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'unit_name' was not found on the selected data source.
+-------------------------------

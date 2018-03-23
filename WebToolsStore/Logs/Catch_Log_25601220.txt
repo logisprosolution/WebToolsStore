@@ -1,0 +1,5 @@
+
+Log Entry : 20:41:58 20 ธันวาคม 2560
+  :
+Exception Message:Procedure udp_MAS_Product_lst has no parameters and arguments were supplied.
+-------------------------------

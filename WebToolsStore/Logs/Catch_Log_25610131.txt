@@ -1,0 +1,99 @@
+
+Log Entry : 0:05:15 31 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'product_code' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 0:19:15 31 มกราคม 2561
+  :
+Exception Message:Value cannot be null.
+Parameter name: container
+-------------------------------
+
+Log Entry : 18:41:57 31 มกราคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 18:42:00 31 มกราคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 18:42:07 31 มกราคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 18:42:44 31 มกราคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 18:55:59 31 มกราคม 2561
+  :
+Exception Message:Procedure or function 'udp_SelectPrice_sel' expects parameter '@product_id', which was not supplied.
+-------------------------------
+
+Log Entry : 19:01:20 31 มกราคม 2561
+  :
+Exception Message:Column 'product_name' does not belong to table SelectProduct.
+-------------------------------
+
+Log Entry : 19:04:02 31 มกราคม 2561
+  :
+Exception Message:Column 'unit_name' does not belong to table SelectProduct.
+-------------------------------
+
+Log Entry : 19:55:42 31 มกราคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 19:55:47 31 มกราคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 19:58:22 31 มกราคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 21:20:52 31 มกราคม 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 23:05:42 31 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 23:05:55 31 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 23:07:43 31 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 23:28:08 31 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 23:29:41 31 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------

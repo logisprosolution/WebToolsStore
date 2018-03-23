@@ -1,0 +1,5 @@
+
+Log Entry : 20:15:39 30 พฤศจิกายน 2560
+  :
+Exception Message:Procedure or function 'udp_USR_Title_ups' expects parameter '@create_date', which was not supplied.
+-------------------------------

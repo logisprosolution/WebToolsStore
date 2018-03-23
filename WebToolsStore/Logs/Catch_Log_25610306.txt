@@ -1,0 +1,210 @@
+
+Log Entry : 2:45:30 6 มีนาคม 2561
+  :
+Exception Message:โหลดรายงานไม่สำเร็จ
+Error InnerException.:System.Runtime.InteropServices.COMException (0x80004005): The system cannot find the file specified.
+   at CrystalDecisions.ReportAppServer.ClientDoc.ReportClientDocumentClass.Open(Object& DocumentPath, Int32 Options)
+   at CrystalDecisions.ReportAppServer.ReportClientDocumentWrapper.Open(Object& DocumentPath, Int32 Options)
+   at CrystalDecisions.ReportAppServer.ReportClientDocumentWrapper.EnsureDocumentIsOpened()
+-------------------------------
+
+Log Entry : 2:46:53 6 มีนาคม 2561
+  :
+Exception Message:โหลดรายงานไม่สำเร็จ
+Error InnerException.:System.Runtime.InteropServices.COMException (0x80004005): The system cannot find the file specified.
+   at CrystalDecisions.ReportAppServer.ClientDoc.ReportClientDocumentClass.Open(Object& DocumentPath, Int32 Options)
+   at CrystalDecisions.ReportAppServer.ReportClientDocumentWrapper.Open(Object& DocumentPath, Int32 Options)
+   at CrystalDecisions.ReportAppServer.ReportClientDocumentWrapper.EnsureDocumentIsOpened()
+-------------------------------
+
+Log Entry : 2:47:22 6 มีนาคม 2561
+  :
+Exception Message:Procedure or function 'up_Report_TransAll_sel' expects parameter '@product_price_id', which was not supplied.
+-------------------------------
+
+Log Entry : 2:47:39 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 2:48:39 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 2:49:16 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 2:49:42 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:03:28 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:18:53 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:19:24 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:29:57 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:30:11 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:30:50 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:35:10 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:35:24 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:37:40 6 มีนาคม 2561
+  :
+Exception Message:Procedure or function 'up_Report_TransAll_sel' expects parameter '@wareHouseID', which was not supplied.
+-------------------------------
+
+Log Entry : 3:37:48 6 มีนาคม 2561
+  :
+Exception Message:Procedure or function 'up_Report_TransAll_sel' expects parameter '@wareHouseID', which was not supplied.
+-------------------------------
+
+Log Entry : 3:39:22 6 มีนาคม 2561
+  :
+Exception Message:Procedure or function 'up_Report_TransAll_sel' expects parameter '@wareHouseID', which was not supplied.
+-------------------------------
+
+Log Entry : 3:40:15 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:42:55 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:45:54 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 3:49:21 6 มีนาคม 2561
+  :
+Exception Message:Error converting data type nvarchar to date.
+-------------------------------
+
+Log Entry : 3:50:12 6 มีนาคม 2561
+  :
+Exception Message:The conversion of a nvarchar data type to a datetime data type resulted in an out-of-range value.
+-------------------------------
+
+Log Entry : 4:25:22 6 มีนาคม 2561
+  :
+Exception Message:Error converting data type nvarchar to datetime.
+-------------------------------
+
+Log Entry : 4:26:13 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 4:28:23 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 4:29:12 6 มีนาคม 2561
+  :
+Exception Message:Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 4:30:16 6 มีนาคม 2561
+  :
+Exception Message:ไม่มีค่าพารามิเตอร์
+Error InnerException.:System.Runtime.InteropServices.COMException (0x8004100E): ไม่มีค่าพารามิเตอร์
+   at CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   at CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+-------------------------------
+
+Log Entry : 4:31:36 6 มีนาคม 2561
+  :
+Exception Message:ไม่มีค่าพารามิเตอร์
+Error InnerException.:System.Runtime.InteropServices.COMException (0x8004100E): ไม่มีค่าพารามิเตอร์
+   at CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   at CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+-------------------------------
+
+Log Entry : 4:57:26 6 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:13:24 6 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:18:42 6 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:20:16 6 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:22:18 6 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:23:40 6 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:28:05 6 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 6:51:04 6 มีนาคม 2561
+  :
+Exception Message:Conversion failed when converting date and/or time from character string.
+-------------------------------
+
+Log Entry : 7:04:29 6 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 10:42:26 6 มีนาคม 2561
+  :
+Exception Message:A transport-level error has occurred when sending the request to the server. (provider: Shared Memory Provider, error: 0 - No process is on the other end of the pipe.)
+Error InnerException.:System.ComponentModel.Win32Exception (0x80004005): No process is on the other end of the pipe
+-------------------------------

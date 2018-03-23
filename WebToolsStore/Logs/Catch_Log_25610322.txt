@@ -1,0 +1,60 @@
+
+Log Entry : 0:35:47 22 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 1:00:43 22 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 1:11:13 22 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 1:29:03 22 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 18:11:42 22 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 18:30:57 22 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 18:31:16 22 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 18:31:37 22 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 18:40:12 22 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 18:45:01 22 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 19:05:44 22 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 19:15:02 22 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------

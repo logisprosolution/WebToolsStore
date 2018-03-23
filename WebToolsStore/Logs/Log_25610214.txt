@@ -1,0 +1,14 @@
+
+Log Entry : 13:53:08 14 กุมภาพันธ์ 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------
+
+Log Entry : 16:02:33 14 กุมภาพันธ์ 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: 38
+-------------------------------

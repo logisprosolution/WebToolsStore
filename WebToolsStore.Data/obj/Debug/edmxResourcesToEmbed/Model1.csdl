@@ -1,0 +1,2327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebToolsStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DOC_Detail">
+    <Key>
+      <PropertyRef Name="detail_id" />
+    </Key>
+    <Property Name="detail_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="header_id" Type="Int32" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="product_price_id" Type="Int32" />
+    <Property Name="product_price_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_price_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="unit_id" Type="Int32" />
+    <Property Name="unit_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="detail_qty" Type="Int32" />
+    <Property Name="detail_price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="detail_discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="detail_total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="detail_status" Type="Int32" />
+    <Property Name="detail_remark" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="detail_warehouse" Type="Int32" />
+    <Property Name="used_qty" Type="Int32" />
+    <NavigationProperty Name="DOC_Header" Relationship="Self.FK_DOC_Detail_DOC_Header" FromRole="DOC_Detail" ToRole="DOC_Header" />
+    <NavigationProperty Name="MAS_Product" Relationship="Self.FK_DOC_Detail_MAS_Product" FromRole="DOC_Detail" ToRole="MAS_Product" />
+    <NavigationProperty Name="MAS_Product_Price" Relationship="Self.FK_DOC_Detail_MAS_Product_Price" FromRole="DOC_Detail" ToRole="MAS_Product_Price" />
+    <Property Name="unit_value" Type="Int32" />
+    <NavigationProperty Name="DOC_Detail_Ingredient" Relationship="WebToolsStoreModel.FK_DOC_Detail_Ingredient_DOC_Detail" FromRole="DOC_Detail" ToRole="DOC_Detail_Ingredient" />
+    <NavigationProperty Name="MAS_Warehouse" Relationship="WebToolsStoreModel.FK_DOC_Detail_MAS_Warehouse" FromRole="DOC_Detail" ToRole="MAS_Warehouse" />
+  </EntityType>
+  <EntityType Name="DOC_Doctype">
+    <Key>
+      <PropertyRef Name="doctype_id" />
+    </Key>
+    <Property Name="doctype_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="doctype_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="doctype_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="DOC_SubDocType" Relationship="Self.FK_DOC_SubDocType_DOC_DocType" FromRole="DOC_Doctype" ToRole="DOC_SubDocType" />
+  </EntityType>
+  <EntityType Name="DOC_Header">
+    <Key>
+      <PropertyRef Name="header_id" />
+    </Key>
+    <Property Name="header_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="header_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="header_date" Type="DateTime" Precision="0" />
+    <Property Name="header_date_from" Type="DateTime" Precision="0" />
+    <Property Name="header_date_to" Type="DateTime" Precision="0" />
+    <Property Name="header_supplier_id" Type="Int32" />
+    <Property Name="header_supplier_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="header_customer_id" Type="Int32" />
+    <Property Name="header_customer_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="header_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="header_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="header_status" Type="Int32" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <Property Name="subDocTypeID" Type="Int32" />
+    <Property Name="vat_id" Type="Int32" />
+    <Property Name="payment_id" Type="Int32" />
+    <Property Name="payment_date" Type="DateTime" Precision="3" />
+    <Property Name="header_warehouse_from" Type="Int32" />
+    <Property Name="header_warehouse_to" Type="Int32" />
+    <Property Name="header_total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="header_receive" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="header_discout" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="header_vat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="header_net" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="header_deposit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="header_refund" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="header_ref" Type="Int32" />
+    <NavigationProperty Name="DOC_Detail" Relationship="Self.FK_DOC_Detail_DOC_Header" FromRole="DOC_Header" ToRole="DOC_Detail" />
+    <NavigationProperty Name="DOC_SubDocType" Relationship="Self.FK_DOC_Header_DOC_SubDocType" FromRole="DOC_Header" ToRole="DOC_SubDocType" />
+  </EntityType>
+  <EntityType Name="DOC_Product_Move">
+    <Key>
+      <PropertyRef Name="detail_id" />
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="detail_id" Type="Int32" Nullable="false" />
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="unit_id" Type="Int32" />
+    <Property Name="unit_value" Type="Int32" />
+    <Property Name="detail_qty" Type="Int32" />
+    <Property Name="product_price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="product_cost" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="prduct_vat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="warehouse_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DOC_Status">
+    <Key>
+      <PropertyRef Name="status_id" />
+    </Key>
+    <Property Name="status_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="status_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="status_value" Type="Int32" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="status_group" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DOC_SubDocType">
+    <Key>
+      <PropertyRef Name="subDocTypeID" />
+    </Key>
+    <Property Name="subDocTypeID" Type="Int32" Nullable="false" />
+    <Property Name="subDocTypeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="subDocTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="doctype_id" Type="Int32" Nullable="false" />
+    <Property Name="seq" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="create_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <Property Name="update_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DOC_Doctype" Relationship="Self.FK_DOC_SubDocType_DOC_DocType" FromRole="DOC_SubDocType" ToRole="DOC_Doctype" />
+    <NavigationProperty Name="DOC_Header" Relationship="Self.FK_DOC_Header_DOC_SubDocType" FromRole="DOC_SubDocType" ToRole="DOC_Header" />
+  </EntityType>
+  <EntityType Name="MAS_Categories">
+    <Key>
+      <PropertyRef Name="categories_id" />
+    </Key>
+    <Property Name="categories_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categories_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="categories_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="categories_index" Type="Double" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="MAS_Subcategories" Relationship="Self.FK_MAS_Subcategories_MAS_Categories" FromRole="MAS_Categories" ToRole="MAS_Subcategories" />
+  </EntityType>
+  <EntityType Name="MAS_Country">
+    <Key>
+      <PropertyRef Name="countryID" />
+    </Key>
+    <Property Name="countryID" Type="Int32" Nullable="false" />
+    <Property Name="countryCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="countryNameTH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="countryNameEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <Property Name="isDeleted" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="create_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <Property Name="update_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MAS_Province" Relationship="Self.FK_MAS_Province_MAS_Country" FromRole="MAS_Country" ToRole="MAS_Province" />
+  </EntityType>
+  <EntityType Name="MAS_Customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="customer_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="customer_tel1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="customer_tel2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="customer_fax" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="customer_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="customer_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="customer_subdistict" Type="Int32" />
+    <Property Name="customer_distict" Type="Int32" />
+    <Property Name="customer_province" Type="Int32" />
+    <Property Name="customer_zipcode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MAS_District">
+    <Key>
+      <PropertyRef Name="districtID" />
+    </Key>
+    <Property Name="districtID" Type="Int32" Nullable="false" />
+    <Property Name="districtCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="districtNameTH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="districtNameEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="zipCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="geographyID" Type="Int32" />
+    <Property Name="provinceID" Type="Int32" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <Property Name="isDeleted" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="create_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <Property Name="update_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MAS_Province" Relationship="Self.FK_MAS_District_MAS_Province" FromRole="MAS_District" ToRole="MAS_Province" />
+    <NavigationProperty Name="MAS_SubDistrict" Relationship="Self.FK_MAS_SubDistrict_MAS_District" FromRole="MAS_District" ToRole="MAS_SubDistrict" />
+  </EntityType>
+  <EntityType Name="MAS_Geography">
+    <Key>
+      <PropertyRef Name="geographyID" />
+    </Key>
+    <Property Name="geographyID" Type="Int32" Nullable="false" />
+    <Property Name="geographyCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="geographyNameTH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="geographyNameEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <Property Name="isDeleted" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="create_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <Property Name="update_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MAS_Province" Relationship="Self.FK_MAS_Province_MAS_Geography" FromRole="MAS_Geography" ToRole="MAS_Province" />
+  </EntityType>
+  <EntityType Name="MAS_Ingredient">
+    <Key>
+      <PropertyRef Name="ingredient_id" />
+    </Key>
+    <Property Name="ingredient_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ingredient_product" Type="Int32" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="product_unit" Type="Int32" />
+    <Property Name="product_qty" Type="Int32" />
+    <Property Name="is_default" Type="Boolean" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="MAS_Product" Relationship="Self.FK_MAS_Ingredient_MAS_Product" FromRole="MAS_Ingredient" ToRole="MAS_Product" />
+  </EntityType>
+  <EntityType Name="MAS_Product">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="product_pic" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <Property Name="subcategories_id" Type="Int32" />
+    <Property Name="warehouse_default" Type="Int32" />
+    <Property Name="product_unit" Type="Int32" />
+    <NavigationProperty Name="DOC_Detail" Relationship="Self.FK_DOC_Detail_MAS_Product" FromRole="MAS_Product" ToRole="DOC_Detail" />
+    <NavigationProperty Name="MAS_Ingredient" Relationship="Self.FK_MAS_Ingredient_MAS_Product" FromRole="MAS_Product" ToRole="MAS_Ingredient" />
+    <NavigationProperty Name="MAS_Subcategories" Relationship="Self.FK_MAS_Product_MAS_Subcategories" FromRole="MAS_Product" ToRole="MAS_Subcategories" />
+    <NavigationProperty Name="MAS_Product_Price" Relationship="Self.FK_MAS_Product_Price_MAS_Product" FromRole="MAS_Product" ToRole="MAS_Product_Price" />
+  </EntityType>
+  <EntityType Name="MAS_Product_Price">
+    <Key>
+      <PropertyRef Name="product_price_id" />
+    </Key>
+    <Property Name="product_price_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_price_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="product_price_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="unit_id" Type="Int32" Nullable="false" />
+    <Property Name="cost" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="price_Cash" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="price_Credit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="price_CashExtra" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <Property Name="product_id" Type="Int32" />
+    <NavigationProperty Name="DOC_Detail" Relationship="Self.FK_DOC_Detail_MAS_Product_Price" FromRole="MAS_Product_Price" ToRole="DOC_Detail" />
+    <NavigationProperty Name="MAS_Product" Relationship="Self.FK_MAS_Product_Price_MAS_Product" FromRole="MAS_Product_Price" ToRole="MAS_Product" />
+    <NavigationProperty Name="MAS_Unit" Relationship="Self.FK_MAS_Product_Price_MAS_Unit" FromRole="MAS_Product_Price" ToRole="MAS_Unit" />
+  </EntityType>
+  <EntityType Name="MAS_Province">
+    <Key>
+      <PropertyRef Name="provinceID" />
+    </Key>
+    <Property Name="provinceID" Type="Int32" Nullable="false" />
+    <Property Name="provinceCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="provinceNameTH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="provinceNameEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="countryID" Type="Int32" />
+    <Property Name="geographyID" Type="Int32" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <Property Name="isDeleted" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="create_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <Property Name="update_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MAS_Country" Relationship="Self.FK_MAS_Province_MAS_Country" FromRole="MAS_Province" ToRole="MAS_Country" />
+    <NavigationProperty Name="MAS_District" Relationship="Self.FK_MAS_District_MAS_Province" FromRole="MAS_Province" ToRole="MAS_District" />
+    <NavigationProperty Name="MAS_Geography" Relationship="Self.FK_MAS_Province_MAS_Geography" FromRole="MAS_Province" ToRole="MAS_Geography" />
+  </EntityType>
+  <EntityType Name="MAS_Subcategories">
+    <Key>
+      <PropertyRef Name="subcategories_id" />
+    </Key>
+    <Property Name="subcategories_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="subcategories_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="subcategories_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="subcategories_index" Type="Double" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="categories_id" Type="Int32" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="MAS_Categories" Relationship="Self.FK_MAS_Subcategories_MAS_Categories" FromRole="MAS_Subcategories" ToRole="MAS_Categories" />
+    <NavigationProperty Name="MAS_Product" Relationship="Self.FK_MAS_Product_MAS_Subcategories" FromRole="MAS_Subcategories" ToRole="MAS_Product" />
+  </EntityType>
+  <EntityType Name="MAS_SubDistrict">
+    <Key>
+      <PropertyRef Name="subDistrictID" />
+    </Key>
+    <Property Name="subDistrictID" Type="Int32" Nullable="false" />
+    <Property Name="subDistrictCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="subDistrictNameTH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="subDistrictNameEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="districtID" Type="Int32" />
+    <Property Name="provinceID" Type="Int32" />
+    <Property Name="geographyID" Type="Int32" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <Property Name="isDeleted" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="create_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <Property Name="update_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MAS_District" Relationship="Self.FK_MAS_SubDistrict_MAS_District" FromRole="MAS_SubDistrict" ToRole="MAS_District" />
+  </EntityType>
+  <EntityType Name="MAS_Supplier">
+    <Key>
+      <PropertyRef Name="supplier_id" />
+    </Key>
+    <Property Name="supplier_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="supplier_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="supplier_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="supplier_tel1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="supplier_tel2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="supplier_fax" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="supplier_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="supplier_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="supplier_subdistict" Type="Int32" />
+    <Property Name="supplier_distict" Type="Int32" />
+    <Property Name="supplier_province" Type="Int32" />
+    <Property Name="supplier_zipcode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MAS_Unit">
+    <Key>
+      <PropertyRef Name="unit_id" />
+    </Key>
+    <Property Name="unit_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="unit_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="unit_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="unit_value" Type="Int32" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="MAS_Product_Price" Relationship="Self.FK_MAS_Product_Price_MAS_Unit" FromRole="MAS_Unit" ToRole="MAS_Product_Price" />
+  </EntityType>
+  <EntityType Name="MAS_Warehouse">
+    <Key>
+      <PropertyRef Name="warehouse_id" />
+    </Key>
+    <Property Name="warehouse_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="warehouse_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="warehouse_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="warehouse_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="warehouse_tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="warehouse_contact" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="DOC_Detail" Relationship="WebToolsStoreModel.FK_DOC_Detail_MAS_Warehouse" FromRole="MAS_Warehouse" ToRole="DOC_Detail" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="USR_Menu">
+    <Key>
+      <PropertyRef Name="menu_id" />
+    </Key>
+    <Property Name="menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="menu_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="menu_name_eng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="menu_name_thai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="menu_url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="menu_index" Type="Int32" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="USR_Submenu" Relationship="Self.FK_USR_Submenu_USR_Menu" FromRole="USR_Menu" ToRole="USR_Submenu" />
+  </EntityType>
+  <EntityType Name="USR_Role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="role_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="role_value" Type="Int32" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="USR_Role_Submenu" Relationship="Self.FK_USR_Role_Submenu_USR_Role" FromRole="USR_Role" ToRole="USR_Role_Submenu" />
+    <NavigationProperty Name="USR_User_Role" Relationship="Self.FK_USR_User_Role_USR_Role" FromRole="USR_Role" ToRole="USR_User_Role" />
+  </EntityType>
+  <EntityType Name="USR_Role_Submenu">
+    <Key>
+      <PropertyRef Name="role_id" />
+      <PropertyRef Name="submenu_id" />
+    </Key>
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+    <Property Name="submenu_id" Type="Int32" Nullable="false" />
+    <Property Name="is_view" Type="Boolean" />
+    <Property Name="is_add" Type="Boolean" />
+    <Property Name="is_edit" Type="Boolean" />
+    <Property Name="is_delete" Type="Boolean" />
+    <Property Name="is_search" Type="Boolean" />
+    <NavigationProperty Name="USR_Role" Relationship="Self.FK_USR_Role_Submenu_USR_Role" FromRole="USR_Role_Submenu" ToRole="USR_Role" />
+    <NavigationProperty Name="USR_Submenu" Relationship="Self.FK_USR_Role_Submenu_USR_Submenu" FromRole="USR_Role_Submenu" ToRole="USR_Submenu" />
+  </EntityType>
+  <EntityType Name="USR_Submenu">
+    <Key>
+      <PropertyRef Name="submenu_id" />
+    </Key>
+    <Property Name="submenu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="submenu_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="submenu_name_eng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="submenu_name_thai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="submenu_url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="submenu_index" Type="Int32" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="menu_id" Type="Int32" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="USR_Menu" Relationship="Self.FK_USR_Submenu_USR_Menu" FromRole="USR_Submenu" ToRole="USR_Menu" />
+    <NavigationProperty Name="USR_Role_Submenu" Relationship="Self.FK_USR_Role_Submenu_USR_Submenu" FromRole="USR_Submenu" ToRole="USR_Role_Submenu" />
+  </EntityType>
+  <EntityType Name="USR_Title">
+    <Key>
+      <PropertyRef Name="title_id" />
+    </Key>
+    <Property Name="title_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="title_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="USR_User_Profile" Relationship="Self.FK_USR_User_Profile_USR_Title" FromRole="USR_Title" ToRole="USR_User_Profile" />
+  </EntityType>
+  <EntityType Name="USR_User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_namedis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_type" Type="Int32" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="USR_User_Role" Relationship="Self.FK_USR_User_Role_USR_User" FromRole="USR_User" ToRole="USR_User_Role" />
+  </EntityType>
+  <EntityType Name="USR_User_Profile">
+    <Key>
+      <PropertyRef Name="user_profile_id" />
+    </Key>
+    <Property Name="user_profile_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title_id" Type="Int32" />
+    <Property Name="emp_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="age" Type="Int32" />
+    <Property Name="bithdate" Type="DateTime" Precision="0" />
+    <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="subdistict" Type="Int32" />
+    <Property Name="distict" Type="Int32" />
+    <Property Name="province" Type="Int32" />
+    <Property Name="zipcode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="card" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="pic" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="pic_filename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="USR_Title" Relationship="Self.FK_USR_User_Profile_USR_Title" FromRole="USR_User_Profile" ToRole="USR_Title" />
+  </EntityType>
+  <EntityType Name="USR_User_Role">
+    <Key>
+      <PropertyRef Name="running_id" />
+    </Key>
+    <Property Name="running_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="USR_Role" Relationship="Self.FK_USR_User_Role_USR_Role" FromRole="USR_User_Role" ToRole="USR_Role" />
+    <NavigationProperty Name="USR_User" Relationship="Self.FK_USR_User_Role_USR_User" FromRole="USR_User_Role" ToRole="USR_User" />
+  </EntityType>
+  <EntityType Name="v_detailStatus">
+    <Key>
+      <PropertyRef Name="StatusID" />
+      <PropertyRef Name="detail_status" />
+    </Key>
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="detail_status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_Payment">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+      <PropertyRef Name="PaymentNameTH" />
+    </Key>
+    <Property Name="PaymentID" Type="Int32" Nullable="false" />
+    <Property Name="PaymentNameTH" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_transAll">
+    <Key>
+      <PropertyRef Name="header_id" />
+      <PropertyRef Name="PaymentNameTH" />
+      <PropertyRef Name="detail_id" />
+    </Key>
+    <Property Name="header_id" Type="Int32" Nullable="false" />
+    <Property Name="header_customer_id" Type="Int32" />
+    <Property Name="header_customer_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="header_supplier_id" Type="Int32" />
+    <Property Name="header_supplier_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="header_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="header_date" Type="DateTime" Precision="0" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="header_total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_discout" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_vat" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_net" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_receive" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_deposit" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_refund" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="doctype_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="detail_discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="detail_price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="detail_qty" Type="Int32" />
+    <Property Name="detail_total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="unit_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_price_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="header_date_from" Type="DateTime" Precision="0" />
+    <Property Name="header_date_to" Type="DateTime" Precision="0" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="product_price_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="used_qty" Type="Int32" />
+    <Property Name="PaymentNameTH" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="doctype_id" Type="Int32" Nullable="false" />
+    <Property Name="header_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="detail_id" Type="Int32" Nullable="false" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="subDocTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="subDocTypeID" Type="Int32" />
+    <Property Name="warehouse_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="detail_warehouse" Type="Int32" />
+    <Property Name="payment_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="v_vatType">
+    <Key>
+      <PropertyRef Name="vatTypeID" />
+      <PropertyRef Name="vatTypeNameTH" />
+    </Key>
+    <Property Name="vatTypeID" Type="Int32" Nullable="false" />
+    <Property Name="vatTypeNameTH" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DOC_Detail_DOC_Header">
+    <End Role="DOC_Header" Type="Self.DOC_Header" Multiplicity="0..1" />
+    <End Role="DOC_Detail" Type="Self.DOC_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOC_Header">
+        <PropertyRef Name="header_id" />
+      </Principal>
+      <Dependent Role="DOC_Detail">
+        <PropertyRef Name="header_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOC_Detail_MAS_Product">
+    <End Role="MAS_Product" Type="Self.MAS_Product" Multiplicity="0..1" />
+    <End Role="DOC_Detail" Type="Self.DOC_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="DOC_Detail">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOC_Detail_MAS_Product_Price">
+    <End Role="MAS_Product_Price" Type="Self.MAS_Product_Price" Multiplicity="0..1" />
+    <End Role="DOC_Detail" Type="Self.DOC_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Product_Price">
+        <PropertyRef Name="product_price_id" />
+      </Principal>
+      <Dependent Role="DOC_Detail">
+        <PropertyRef Name="product_price_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOC_SubDocType_DOC_DocType">
+    <End Role="DOC_Doctype" Type="Self.DOC_Doctype" Multiplicity="1" />
+    <End Role="DOC_SubDocType" Type="Self.DOC_SubDocType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOC_Doctype">
+        <PropertyRef Name="doctype_id" />
+      </Principal>
+      <Dependent Role="DOC_SubDocType">
+        <PropertyRef Name="doctype_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOC_Header_DOC_SubDocType">
+    <End Role="DOC_SubDocType" Type="Self.DOC_SubDocType" Multiplicity="0..1" />
+    <End Role="DOC_Header" Type="Self.DOC_Header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOC_SubDocType">
+        <PropertyRef Name="subDocTypeID" />
+      </Principal>
+      <Dependent Role="DOC_Header">
+        <PropertyRef Name="subDocTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Subcategories_MAS_Categories">
+    <End Role="MAS_Categories" Type="Self.MAS_Categories" Multiplicity="0..1" />
+    <End Role="MAS_Subcategories" Type="Self.MAS_Subcategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Categories">
+        <PropertyRef Name="categories_id" />
+      </Principal>
+      <Dependent Role="MAS_Subcategories">
+        <PropertyRef Name="categories_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Province_MAS_Country">
+    <End Role="MAS_Country" Type="Self.MAS_Country" Multiplicity="0..1" />
+    <End Role="MAS_Province" Type="Self.MAS_Province" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Country">
+        <PropertyRef Name="countryID" />
+      </Principal>
+      <Dependent Role="MAS_Province">
+        <PropertyRef Name="countryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_District_MAS_Province">
+    <End Role="MAS_Province" Type="Self.MAS_Province" Multiplicity="0..1" />
+    <End Role="MAS_District" Type="Self.MAS_District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Province">
+        <PropertyRef Name="provinceID" />
+      </Principal>
+      <Dependent Role="MAS_District">
+        <PropertyRef Name="provinceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_SubDistrict_MAS_District">
+    <End Role="MAS_District" Type="Self.MAS_District" Multiplicity="0..1" />
+    <End Role="MAS_SubDistrict" Type="Self.MAS_SubDistrict" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_District">
+        <PropertyRef Name="districtID" />
+      </Principal>
+      <Dependent Role="MAS_SubDistrict">
+        <PropertyRef Name="districtID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Province_MAS_Geography">
+    <End Role="MAS_Geography" Type="Self.MAS_Geography" Multiplicity="0..1" />
+    <End Role="MAS_Province" Type="Self.MAS_Province" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Geography">
+        <PropertyRef Name="geographyID" />
+      </Principal>
+      <Dependent Role="MAS_Province">
+        <PropertyRef Name="geographyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Ingredient_MAS_Product">
+    <End Role="MAS_Product" Type="Self.MAS_Product" Multiplicity="0..1" />
+    <End Role="MAS_Ingredient" Type="Self.MAS_Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="MAS_Ingredient">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Product_MAS_Subcategories">
+    <End Role="MAS_Subcategories" Type="Self.MAS_Subcategories" Multiplicity="0..1" />
+    <End Role="MAS_Product" Type="Self.MAS_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Subcategories">
+        <PropertyRef Name="subcategories_id" />
+      </Principal>
+      <Dependent Role="MAS_Product">
+        <PropertyRef Name="subcategories_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Product_Price_MAS_Product">
+    <End Role="MAS_Product" Type="Self.MAS_Product" Multiplicity="0..1" />
+    <End Role="MAS_Product_Price" Type="Self.MAS_Product_Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="MAS_Product_Price">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Product_Price_MAS_Unit">
+    <End Role="MAS_Unit" Type="Self.MAS_Unit" Multiplicity="1" />
+    <End Role="MAS_Product_Price" Type="Self.MAS_Product_Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Unit">
+        <PropertyRef Name="unit_id" />
+      </Principal>
+      <Dependent Role="MAS_Product_Price">
+        <PropertyRef Name="unit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_Submenu_USR_Menu">
+    <End Role="USR_Menu" Type="Self.USR_Menu" Multiplicity="0..1" />
+    <End Role="USR_Submenu" Type="Self.USR_Submenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_Menu">
+        <PropertyRef Name="menu_id" />
+      </Principal>
+      <Dependent Role="USR_Submenu">
+        <PropertyRef Name="menu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_Role_Submenu_USR_Role">
+    <End Role="USR_Role" Type="Self.USR_Role" Multiplicity="1" />
+    <End Role="USR_Role_Submenu" Type="Self.USR_Role_Submenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_Role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="USR_Role_Submenu">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_User_Role_USR_Role">
+    <End Role="USR_Role" Type="Self.USR_Role" Multiplicity="1" />
+    <End Role="USR_User_Role" Type="Self.USR_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_Role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="USR_User_Role">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_Role_Submenu_USR_Submenu">
+    <End Role="USR_Submenu" Type="Self.USR_Submenu" Multiplicity="1" />
+    <End Role="USR_Role_Submenu" Type="Self.USR_Role_Submenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_Submenu">
+        <PropertyRef Name="submenu_id" />
+      </Principal>
+      <Dependent Role="USR_Role_Submenu">
+        <PropertyRef Name="submenu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_User_Profile_USR_Title">
+    <End Role="USR_Title" Type="Self.USR_Title" Multiplicity="0..1" />
+    <End Role="USR_User_Profile" Type="Self.USR_User_Profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_Title">
+        <PropertyRef Name="title_id" />
+      </Principal>
+      <Dependent Role="USR_User_Profile">
+        <PropertyRef Name="title_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_User_Role_USR_User">
+    <End Role="USR_User" Type="Self.USR_User" Multiplicity="1" />
+    <End Role="USR_User_Role" Type="Self.USR_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="USR_User_Role">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DOC_Detail" EntityType="Self.DOC_Detail" />
+    <EntitySet Name="DOC_Doctype" EntityType="Self.DOC_Doctype" />
+    <EntitySet Name="DOC_Header" EntityType="Self.DOC_Header" />
+    <EntitySet Name="DOC_Product_Move" EntityType="Self.DOC_Product_Move" />
+    <EntitySet Name="DOC_Status" EntityType="Self.DOC_Status" />
+    <EntitySet Name="DOC_SubDocType" EntityType="Self.DOC_SubDocType" />
+    <EntitySet Name="MAS_Categories" EntityType="Self.MAS_Categories" />
+    <EntitySet Name="MAS_Country" EntityType="Self.MAS_Country" />
+    <EntitySet Name="MAS_Customer" EntityType="Self.MAS_Customer" />
+    <EntitySet Name="MAS_District" EntityType="Self.MAS_District" />
+    <EntitySet Name="MAS_Geography" EntityType="Self.MAS_Geography" />
+    <EntitySet Name="MAS_Ingredient" EntityType="Self.MAS_Ingredient" />
+    <EntitySet Name="MAS_Product" EntityType="Self.MAS_Product" />
+    <EntitySet Name="MAS_Product_Price" EntityType="Self.MAS_Product_Price" />
+    <EntitySet Name="MAS_Province" EntityType="Self.MAS_Province" />
+    <EntitySet Name="MAS_Subcategories" EntityType="Self.MAS_Subcategories" />
+    <EntitySet Name="MAS_SubDistrict" EntityType="Self.MAS_SubDistrict" />
+    <EntitySet Name="MAS_Supplier" EntityType="Self.MAS_Supplier" />
+    <EntitySet Name="MAS_Unit" EntityType="Self.MAS_Unit" />
+    <EntitySet Name="MAS_Warehouse" EntityType="Self.MAS_Warehouse" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="USR_Menu" EntityType="Self.USR_Menu" />
+    <EntitySet Name="USR_Role" EntityType="Self.USR_Role" />
+    <EntitySet Name="USR_Role_Submenu" EntityType="Self.USR_Role_Submenu" />
+    <EntitySet Name="USR_Submenu" EntityType="Self.USR_Submenu" />
+    <EntitySet Name="USR_Title" EntityType="Self.USR_Title" />
+    <EntitySet Name="USR_User" EntityType="Self.USR_User" />
+    <EntitySet Name="USR_User_Profile" EntityType="Self.USR_User_Profile" />
+    <EntitySet Name="USR_User_Role" EntityType="Self.USR_User_Role" />
+    <EntitySet Name="v_detailStatus" EntityType="Self.v_detailStatus" />
+    <EntitySet Name="v_Payment" EntityType="Self.v_Payment" />
+    <EntitySet Name="v_transAll" EntityType="Self.v_transAll" />
+    <EntitySet Name="v_vatType" EntityType="Self.v_vatType" />
+    <AssociationSet Name="FK_DOC_Detail_DOC_Header" Association="Self.FK_DOC_Detail_DOC_Header">
+      <End Role="DOC_Header" EntitySet="DOC_Header" />
+      <End Role="DOC_Detail" EntitySet="DOC_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOC_Detail_MAS_Product" Association="Self.FK_DOC_Detail_MAS_Product">
+      <End Role="MAS_Product" EntitySet="MAS_Product" />
+      <End Role="DOC_Detail" EntitySet="DOC_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOC_Detail_MAS_Product_Price" Association="Self.FK_DOC_Detail_MAS_Product_Price">
+      <End Role="MAS_Product_Price" EntitySet="MAS_Product_Price" />
+      <End Role="DOC_Detail" EntitySet="DOC_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOC_SubDocType_DOC_DocType" Association="Self.FK_DOC_SubDocType_DOC_DocType">
+      <End Role="DOC_Doctype" EntitySet="DOC_Doctype" />
+      <End Role="DOC_SubDocType" EntitySet="DOC_SubDocType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOC_Header_DOC_SubDocType" Association="Self.FK_DOC_Header_DOC_SubDocType">
+      <End Role="DOC_SubDocType" EntitySet="DOC_SubDocType" />
+      <End Role="DOC_Header" EntitySet="DOC_Header" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Subcategories_MAS_Categories" Association="Self.FK_MAS_Subcategories_MAS_Categories">
+      <End Role="MAS_Categories" EntitySet="MAS_Categories" />
+      <End Role="MAS_Subcategories" EntitySet="MAS_Subcategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Province_MAS_Country" Association="Self.FK_MAS_Province_MAS_Country">
+      <End Role="MAS_Country" EntitySet="MAS_Country" />
+      <End Role="MAS_Province" EntitySet="MAS_Province" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_District_MAS_Province" Association="Self.FK_MAS_District_MAS_Province">
+      <End Role="MAS_Province" EntitySet="MAS_Province" />
+      <End Role="MAS_District" EntitySet="MAS_District" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_SubDistrict_MAS_District" Association="Self.FK_MAS_SubDistrict_MAS_District">
+      <End Role="MAS_District" EntitySet="MAS_District" />
+      <End Role="MAS_SubDistrict" EntitySet="MAS_SubDistrict" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Province_MAS_Geography" Association="Self.FK_MAS_Province_MAS_Geography">
+      <End Role="MAS_Geography" EntitySet="MAS_Geography" />
+      <End Role="MAS_Province" EntitySet="MAS_Province" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Ingredient_MAS_Product" Association="Self.FK_MAS_Ingredient_MAS_Product">
+      <End Role="MAS_Product" EntitySet="MAS_Product" />
+      <End Role="MAS_Ingredient" EntitySet="MAS_Ingredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Product_MAS_Subcategories" Association="Self.FK_MAS_Product_MAS_Subcategories">
+      <End Role="MAS_Subcategories" EntitySet="MAS_Subcategories" />
+      <End Role="MAS_Product" EntitySet="MAS_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Product_Price_MAS_Product" Association="Self.FK_MAS_Product_Price_MAS_Product">
+      <End Role="MAS_Product" EntitySet="MAS_Product" />
+      <End Role="MAS_Product_Price" EntitySet="MAS_Product_Price" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Product_Price_MAS_Unit" Association="Self.FK_MAS_Product_Price_MAS_Unit">
+      <End Role="MAS_Unit" EntitySet="MAS_Unit" />
+      <End Role="MAS_Product_Price" EntitySet="MAS_Product_Price" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_Submenu_USR_Menu" Association="Self.FK_USR_Submenu_USR_Menu">
+      <End Role="USR_Menu" EntitySet="USR_Menu" />
+      <End Role="USR_Submenu" EntitySet="USR_Submenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_Role_Submenu_USR_Role" Association="Self.FK_USR_Role_Submenu_USR_Role">
+      <End Role="USR_Role" EntitySet="USR_Role" />
+      <End Role="USR_Role_Submenu" EntitySet="USR_Role_Submenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_User_Role_USR_Role" Association="Self.FK_USR_User_Role_USR_Role">
+      <End Role="USR_Role" EntitySet="USR_Role" />
+      <End Role="USR_User_Role" EntitySet="USR_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_Role_Submenu_USR_Submenu" Association="Self.FK_USR_Role_Submenu_USR_Submenu">
+      <End Role="USR_Submenu" EntitySet="USR_Submenu" />
+      <End Role="USR_Role_Submenu" EntitySet="USR_Role_Submenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_User_Profile_USR_Title" Association="Self.FK_USR_User_Profile_USR_Title">
+      <End Role="USR_Title" EntitySet="USR_Title" />
+      <End Role="USR_User_Profile" EntitySet="USR_User_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_User_Role_USR_User" Association="Self.FK_USR_User_Role_USR_User">
+      <End Role="USR_User" EntitySet="USR_User" />
+      <End Role="USR_User_Role" EntitySet="USR_User_Role" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(WebToolsStoreModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(WebToolsStoreModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="udp_DOC_Detail_del">
+      <Parameter Name="detail_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Detail_lst" ReturnType="Collection(WebToolsStoreModel.udp_DOC_Detail_lst_Result)" />
+    <FunctionImport Name="udp_DOC_Detail_sel" ReturnType="Collection(WebToolsStoreModel.udp_DOC_Detail_sel_Result)">
+      <Parameter Name="header_id" Mode="In" Type="Int32" />
+      <Parameter Name="detail_status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Detail_ups">
+      <Parameter Name="detail_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="header_id" Mode="In" Type="Int32" />
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+      <Parameter Name="product_price_id" Mode="In" Type="Int32" />
+      <Parameter Name="product_price_code" Mode="In" Type="String" />
+      <Parameter Name="product_price_name" Mode="In" Type="String" />
+      <Parameter Name="unit_id" Mode="In" Type="Int32" />
+      <Parameter Name="unit_name" Mode="In" Type="String" />
+      <Parameter Name="detail_qty" Mode="In" Type="Int32" />
+      <Parameter Name="detail_price" Mode="In" Type="Decimal" />
+      <Parameter Name="detail_discount" Mode="In" Type="Decimal" />
+      <Parameter Name="detail_total" Mode="In" Type="Decimal" />
+      <Parameter Name="detail_status" Mode="In" Type="Int32" />
+      <Parameter Name="detail_remark" Mode="In" Type="String" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="used_qty" Mode="In" Type="Int32" />
+      <Parameter Name="detail_warehouse" Mode="In" Type="Int32" />
+      <Parameter Name="subDocTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="unit_value" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Doctype_del">
+      <Parameter Name="doctype_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Doctype_lst" ReturnType="Collection(WebToolsStoreModel.udp_DOC_Doctype_lst_Result)" />
+    <FunctionImport Name="udp_DOC_Doctype_sel" ReturnType="Collection(WebToolsStoreModel.udp_DOC_Doctype_sel_Result)">
+      <Parameter Name="doctype_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Header_del">
+      <Parameter Name="header_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Header_lst">
+      <Parameter Name="searchText" Mode="In" Type="String" />
+      <Parameter Name="subdoctype_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Header_sel">
+      <Parameter Name="header_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Header_ups">
+      <Parameter Name="header_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="header_code" Mode="In" Type="String" />
+      <Parameter Name="header_date" Mode="In" Type="DateTime" />
+      <Parameter Name="header_date_from" Mode="In" Type="DateTime" />
+      <Parameter Name="header_date_to" Mode="In" Type="DateTime" />
+      <Parameter Name="header_supplier_id" Mode="In" Type="Int32" />
+      <Parameter Name="header_supplier_name" Mode="In" Type="String" />
+      <Parameter Name="header_customer_id" Mode="In" Type="Int32" />
+      <Parameter Name="header_customer_name" Mode="In" Type="String" />
+      <Parameter Name="header_address" Mode="In" Type="String" />
+      <Parameter Name="header_remark" Mode="In" Type="String" />
+      <Parameter Name="header_status" Mode="In" Type="Int32" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+      <Parameter Name="subDocTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="vat_id" Mode="In" Type="Int32" />
+      <Parameter Name="payment_id" Mode="In" Type="Int32" />
+      <Parameter Name="payment_date" Mode="In" Type="DateTime" />
+      <Parameter Name="header_warehouse_from" Mode="In" Type="Int32" />
+      <Parameter Name="header_warehouse_to" Mode="In" Type="Int32" />
+      <Parameter Name="header_total" Mode="In" Type="Decimal" />
+      <Parameter Name="header_receive" Mode="In" Type="Decimal" />
+      <Parameter Name="header_discout" Mode="In" Type="Decimal" />
+      <Parameter Name="header_vat" Mode="In" Type="Decimal" />
+      <Parameter Name="header_net" Mode="In" Type="Decimal" />
+      <Parameter Name="header_deposit" Mode="In" Type="Decimal" />
+      <Parameter Name="header_refund" Mode="In" Type="Decimal" />
+      <Parameter Name="header_ref" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Product_Move_del">
+      <Parameter Name="detail_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Product_Move_lst" ReturnType="Collection(WebToolsStoreModel.udp_DOC_Product_Move_lst_Result)" />
+    <FunctionImport Name="udp_DOC_Product_Move_sel" ReturnType="Collection(WebToolsStoreModel.udp_DOC_Product_Move_sel_Result)">
+      <Parameter Name="detail_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Product_Move_ups">
+      <Parameter Name="detail_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+      <Parameter Name="unit_id" Mode="In" Type="Int32" />
+      <Parameter Name="unit_value" Mode="In" Type="Int32" />
+      <Parameter Name="detail_qty" Mode="In" Type="Int32" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Status_del">
+      <Parameter Name="status_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Status_lst" ReturnType="Collection(WebToolsStoreModel.udp_DOC_Status_lst_Result)" />
+    <FunctionImport Name="udp_DOC_Status_sel" ReturnType="Collection(WebToolsStoreModel.udp_DOC_Status_sel_Result)">
+      <Parameter Name="status_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_DOC_Status_ups">
+      <Parameter Name="status_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="status_name" Mode="In" Type="String" />
+      <Parameter Name="status_value" Mode="In" Type="Int32" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Categories_del">
+      <Parameter Name="categories_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Categories_lst" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Categories_lst_Result)">
+      <Parameter Name="searchText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Categories_sel" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Categories_sel_Result)">
+      <Parameter Name="categories_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Categories_ups">
+      <Parameter Name="categories_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="categories_code" Mode="In" Type="String" />
+      <Parameter Name="categories_name" Mode="In" Type="String" />
+      <Parameter Name="categories_index" Mode="In" Type="Double" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Customer_del">
+      <Parameter Name="customer_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Customer_lst" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Customer_lst_Result)">
+      <Parameter Name="searchText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Customer_sel" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Customer_sel_Result)">
+      <Parameter Name="customer_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Customer_ups">
+      <Parameter Name="customer_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="customer_code" Mode="In" Type="String" />
+      <Parameter Name="customer_name" Mode="In" Type="String" />
+      <Parameter Name="customer_tel1" Mode="In" Type="String" />
+      <Parameter Name="customer_tel2" Mode="In" Type="String" />
+      <Parameter Name="customer_fax" Mode="In" Type="String" />
+      <Parameter Name="customer_email" Mode="In" Type="String" />
+      <Parameter Name="customer_address" Mode="In" Type="String" />
+      <Parameter Name="customer_subdistict" Mode="In" Type="Int32" />
+      <Parameter Name="customer_distict" Mode="In" Type="Int32" />
+      <Parameter Name="customer_province" Mode="In" Type="Int32" />
+      <Parameter Name="customer_zipcode" Mode="In" Type="String" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Ingredient_del">
+      <Parameter Name="ingredient_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Ingredient_lst" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Ingredient_lst_Result)" />
+    <FunctionImport Name="udp_MAS_Ingredient_sel" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Ingredient_sel_Result)">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Ingredient_ups">
+      <Parameter Name="ingredient_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+      <Parameter Name="ingredient_product" Mode="In" Type="Int32" />
+      <Parameter Name="product_unit" Mode="In" Type="String" />
+      <Parameter Name="product_qty" Mode="In" Type="String" />
+      <Parameter Name="is_default" Mode="In" Type="Boolean" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Product_del">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Product_lst" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Product_lst_Result)">
+      <Parameter Name="searchText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Product_Price_del">
+      <Parameter Name="product_price_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Product_Price_lst" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Product_Price_lst_Result)">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Product_Price_sel" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Product_Price_sel_Result)">
+      <Parameter Name="product_price_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Product_Price_ups">
+      <Parameter Name="product_price_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="product_price_code" Mode="In" Type="String" />
+      <Parameter Name="product_price_name" Mode="In" Type="String" />
+      <Parameter Name="unit_id" Mode="In" Type="Int32" />
+      <Parameter Name="cost" Mode="In" Type="Decimal" />
+      <Parameter Name="price_Cash" Mode="In" Type="Decimal" />
+      <Parameter Name="price_Credit" Mode="In" Type="Decimal" />
+      <Parameter Name="price_CashExtra" Mode="In" Type="Decimal" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="categories_id" Mode="In" Type="Int32" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Product_sel" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Product_sel_Result)">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Product_ups">
+      <Parameter Name="product_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="product_code" Mode="In" Type="String" />
+      <Parameter Name="product_name" Mode="In" Type="String" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+      <Parameter Name="subcategories_id" Mode="In" Type="Int32" />
+      <Parameter Name="warehouse_default" Mode="In" Type="Int32" />
+      <Parameter Name="product_unit" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Subcategories_del">
+      <Parameter Name="subcategories_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Subcategories_lst" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Subcategories_lst_Result)">
+      <Parameter Name="categories_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Subcategories_sel" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Subcategories_sel_Result)">
+      <Parameter Name="subcategories_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Subcategories_ups">
+      <Parameter Name="subcategories_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="subcategories_code" Mode="In" Type="String" />
+      <Parameter Name="subcategories_name" Mode="In" Type="String" />
+      <Parameter Name="subcategories_index" Mode="In" Type="Double" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="categories_id" Mode="In" Type="Int32" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Supplier_del">
+      <Parameter Name="supplier_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Supplier_lst" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Supplier_lst_Result)">
+      <Parameter Name="searchText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Supplier_sel" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Supplier_sel_Result)">
+      <Parameter Name="supplier_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Supplier_ups">
+      <Parameter Name="supplier_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="supplier_code" Mode="In" Type="String" />
+      <Parameter Name="supplier_name" Mode="In" Type="String" />
+      <Parameter Name="supplier_tel1" Mode="In" Type="String" />
+      <Parameter Name="supplier_tel2" Mode="In" Type="String" />
+      <Parameter Name="supplier_fax" Mode="In" Type="String" />
+      <Parameter Name="supplier_email" Mode="In" Type="String" />
+      <Parameter Name="supplier_address" Mode="In" Type="String" />
+      <Parameter Name="supplier_subdistict" Mode="In" Type="Int32" />
+      <Parameter Name="supplier_distict" Mode="In" Type="Int32" />
+      <Parameter Name="supplier_province" Mode="In" Type="Int32" />
+      <Parameter Name="supplier_zipcode" Mode="In" Type="String" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Unit_del">
+      <Parameter Name="unit_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Unit_lst" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Unit_lst_Result)">
+      <Parameter Name="searchText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Unit_sel" ReturnType="Collection(WebToolsStoreModel.udp_MAS_Unit_sel_Result)">
+      <Parameter Name="unit_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MAS_Unit_ups">
+      <Parameter Name="unit_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="unit_code" Mode="In" Type="String" />
+      <Parameter Name="unit_name" Mode="In" Type="String" />
+      <Parameter Name="unit_value" Mode="In" Type="Int32" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_MaxID_Categories" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="udp_MaxID_Customer" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="udp_MaxID_Product" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="udp_MaxID_Product_Price" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="udp_MaxID_Subcategories" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="udp_MaxID_Supplier" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="udp_MaxID_Title" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="udp_MaxID_Unit" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="udp_MaxID_User" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="udp_SelectAddress_Customer" ReturnType="Collection(String)">
+      <Parameter Name="customer_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_SelectAddress_Supplier" ReturnType="Collection(String)">
+      <Parameter Name="supplier_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_SelectDetail_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectDetail_sel_Result)">
+      <Parameter Name="header_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_SelectDocBookink_sel">
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="Customer_Id" Mode="In" Type="Int32" />
+      <Parameter Name="SearchDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="udp_SelectDocCus_sel">
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="Customer_Id" Mode="In" Type="Int32" />
+      <Parameter Name="SearchDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_SelectDocSup_sel">
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="Supplyer_Id" Mode="In" Type="Int32" />
+      <Parameter Name="SearchDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="udp_SelectIngredient_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectIngredient_sel_Result)">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_SelectPrice_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectPrice_sel_Result)">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_SelectProduct_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectProduct_sel_Result)">
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="Categories_Id" Mode="In" Type="Int32" />
+      <Parameter Name="SubCategories_Id" Mode="In" Type="Int32" />
+      <Parameter Name="WareHouseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_SelectProductPrice_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectProductPrice_sel_Result)">
+      <Parameter Name="product_price_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_SelectUser_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectUser_sel_Result)">
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+      <Parameter Name="SearchName" Mode="In" Type="String" />
+      <Parameter Name="SearchLastname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_sysdiagrams_lst" ReturnType="Collection(WebToolsStoreModel.udp_sysdiagrams_lst_Result)" />
+    <FunctionImport Name="udp_sysdiagrams_sel" ReturnType="Collection(WebToolsStoreModel.udp_sysdiagrams_sel_Result)">
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Menu_del">
+      <Parameter Name="menu_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Menu_lst" />
+    <FunctionImport Name="udp_USR_Menu_sel">
+      <Parameter Name="menu_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Menu_ups">
+      <Parameter Name="menu_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="menu_code" Mode="In" Type="String" />
+      <Parameter Name="menu_name_eng" Mode="In" Type="String" />
+      <Parameter Name="menu_name_thai" Mode="In" Type="String" />
+      <Parameter Name="menu_value" Mode="In" Type="Int32" />
+      <Parameter Name="menu_index" Mode="In" Type="Int32" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Role_del">
+      <Parameter Name="role_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Role_lst" ReturnType="Collection(WebToolsStoreModel.udp_USR_Role_lst_Result)">
+      <Parameter Name="searchText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Role_sel" ReturnType="Collection(WebToolsStoreModel.udp_USR_Role_sel_Result)">
+      <Parameter Name="role_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Role_Submenu_lst" ReturnType="Collection(WebToolsStoreModel.udp_USR_Role_Submenu_lst_Result)" />
+    <FunctionImport Name="udp_USR_Role_Submenu_sel" ReturnType="Collection(WebToolsStoreModel.udp_USR_Role_Submenu_sel_Result)">
+      <Parameter Name="role_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Role_Submenu_ups">
+      <Parameter Name="role_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="submenu_id" Mode="In" Type="Int32" />
+      <Parameter Name="is_view" Mode="In" Type="Boolean" />
+      <Parameter Name="is_add" Mode="In" Type="Boolean" />
+      <Parameter Name="is_edit" Mode="In" Type="Boolean" />
+      <Parameter Name="is_delete" Mode="In" Type="Boolean" />
+      <Parameter Name="is_search" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Role_ups">
+      <Parameter Name="role_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="role_code" Mode="In" Type="String" />
+      <Parameter Name="role_name" Mode="In" Type="String" />
+      <Parameter Name="role_value" Mode="In" Type="Int32" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Submenu_del">
+      <Parameter Name="submenu_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Submenu_lst" />
+    <FunctionImport Name="udp_USR_Submenu_sel">
+      <Parameter Name="submenu_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Submenu_ups">
+      <Parameter Name="submenu_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="submenu_code" Mode="In" Type="String" />
+      <Parameter Name="submenu_name_eng" Mode="In" Type="String" />
+      <Parameter Name="submenu_name_thai" Mode="In" Type="String" />
+      <Parameter Name="submenu_value" Mode="In" Type="Int32" />
+      <Parameter Name="submenu_index" Mode="In" Type="Int32" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="menu_id" Mode="In" Type="Int32" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Title_del">
+      <Parameter Name="title_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Title_lst" ReturnType="Collection(WebToolsStoreModel.udp_USR_Title_lst_Result)">
+      <Parameter Name="searchText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Title_sel" ReturnType="Collection(WebToolsStoreModel.udp_USR_Title_sel_Result)">
+      <Parameter Name="title_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_Title_ups">
+      <Parameter Name="title_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="title_code" Mode="In" Type="String" />
+      <Parameter Name="title_name" Mode="In" Type="String" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_User_del">
+      <Parameter Name="user_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_User_lst" ReturnType="Collection(WebToolsStoreModel.udp_USR_User_lst_Result)">
+      <Parameter Name="searchText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_User_Profile_del">
+      <Parameter Name="user_profile_id" Mode="In" Type="Int32" />
+      <Parameter Name="user_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_User_Profile_lst" ReturnType="Collection(WebToolsStoreModel.udp_USR_User_Profile_lst_Result)">
+      <Parameter Name="searchText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_User_Profile_sel" ReturnType="Collection(WebToolsStoreModel.udp_USR_User_Profile_sel_Result)">
+      <Parameter Name="user_profile_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_User_Profile_ups">
+      <Parameter Name="user_profile_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="title_id" Mode="In" Type="Int32" />
+      <Parameter Name="emp_code" Mode="In" Type="String" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="lastname" Mode="In" Type="String" />
+      <Parameter Name="age" Mode="In" Type="Int32" />
+      <Parameter Name="bithdate" Mode="In" Type="DateTime" />
+      <Parameter Name="tel" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="subdistict" Mode="In" Type="Int32" />
+      <Parameter Name="distict" Mode="In" Type="Int32" />
+      <Parameter Name="province" Mode="In" Type="Int32" />
+      <Parameter Name="zipcode" Mode="In" Type="String" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="card" Mode="In" Type="String" />
+      <Parameter Name="pic" Mode="In" Type="Binary" />
+      <Parameter Name="pic_filename" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_User_Role_del">
+      <Parameter Name="user_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_User_Role_lst" ReturnType="Collection(WebToolsStoreModel.udp_USR_User_Role_lst_Result)" />
+    <FunctionImport Name="udp_USR_User_Role_sel" ReturnType="Collection(WebToolsStoreModel.udp_USR_User_Role_sel_Result)">
+      <Parameter Name="role_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_User_Role_ups">
+      <Parameter Name="running_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="role_id" Mode="In" Type="Int32" />
+      <Parameter Name="user_id" Mode="In" Type="Int32" />
+      <Parameter Name="user_name" Mode="In" Type="String" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_User_sel" ReturnType="Collection(WebToolsStoreModel.udp_USR_User_sel_Result)">
+      <Parameter Name="user_profile_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="udp_USR_User_ups">
+      <Parameter Name="user_id" Mode="InOut" Type="Int32" />
+      <Parameter Name="user_name" Mode="In" Type="String" />
+      <Parameter Name="user_namedis" Mode="In" Type="String" />
+      <Parameter Name="user_password" Mode="In" Type="String" />
+      <Parameter Name="user_type" Mode="In" Type="Int32" />
+      <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
+      <Parameter Name="is_del" Mode="In" Type="Boolean" />
+      <Parameter Name="create_date" Mode="In" Type="DateTime" />
+      <Parameter Name="create_by" Mode="In" Type="Int32" />
+      <Parameter Name="update_date" Mode="In" Type="DateTime" />
+      <Parameter Name="update_by" Mode="In" Type="Int32" />
+      <Parameter Name="user_profile_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="up_login_login_sel_byID" ReturnType="Collection(WebToolsStoreModel.up_login_login_sel_byID_Result)">
+      <Parameter Name="user_name" Mode="In" Type="String" />
+      <Parameter Name="user_password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="up_Report_Bill_sel">
+      <Parameter Name="header_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="up_Report_TransAll_sel">
+      <Parameter Name="DocTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="wareHouseID" Mode="In" Type="Int32" />
+      <Parameter Name="productID" Mode="In" Type="Int32" />
+      <Parameter Name="SubDocTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="header_date_from" Mode="In" Type="String" />
+      <Parameter Name="header_date_to" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="DOC_Detail_Ingredient" EntityType="WebToolsStoreModel.DOC_Detail_Ingredient" />
+    <AssociationSet Name="FK_DOC_Detail_Ingredient_DOC_Detail" Association="WebToolsStoreModel.FK_DOC_Detail_Ingredient_DOC_Detail">
+      <End Role="DOC_Detail" EntitySet="DOC_Detail" />
+      <End Role="DOC_Detail_Ingredient" EntitySet="DOC_Detail_Ingredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOC_Detail_MAS_Warehouse" Association="WebToolsStoreModel.FK_DOC_Detail_MAS_Warehouse">
+      <End Role="MAS_Warehouse" EntitySet="MAS_Warehouse" />
+      <End Role="DOC_Detail" EntitySet="DOC_Detail" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="udp_DOC_Detail_lst_Result">
+    <Property Type="Int32" Name="detail_id" Nullable="false" />
+    <Property Type="Int32" Name="header_id" Nullable="true" />
+    <Property Type="Int32" Name="product_id" Nullable="true" />
+    <Property Type="Int32" Name="product_price_id" Nullable="true" />
+    <Property Type="String" Name="product_price_name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="unit_id" Nullable="true" />
+    <Property Type="String" Name="unit_name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="detail_qty" Nullable="true" />
+    <Property Type="Decimal" Name="detail_price" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="detail_discount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="detail_total" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="detail_status" Nullable="true" />
+    <Property Type="String" Name="detail_remark" Nullable="true" MaxLength="300" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_DOC_Detail_sel_Result">
+    <Property Type="Int32" Name="detail_id" Nullable="false" />
+    <Property Type="Int32" Name="header_id" Nullable="true" />
+    <Property Type="Int32" Name="product_id" Nullable="true" />
+    <Property Type="Int32" Name="product_price_id" Nullable="true" />
+    <Property Type="String" Name="product_price_code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="product_price_name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="unit_id" Nullable="true" />
+    <Property Type="String" Name="unit_name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="detail_qty" Nullable="true" />
+    <Property Type="Decimal" Name="detail_price" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="detail_discount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="detail_total" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="detail_status" Nullable="true" />
+    <Property Type="String" Name="detail_remark" Nullable="true" MaxLength="300" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="Int32" Name="detail_warehouse" Nullable="true" />
+    <Property Type="Int32" Name="used_qty" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_DOC_Doctype_lst_Result">
+    <Property Type="Int32" Name="doctype_id" Nullable="false" />
+    <Property Type="String" Name="doctype_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="doctype_name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_DOC_Doctype_sel_Result">
+    <Property Type="Int32" Name="doctype_id" Nullable="false" />
+    <Property Type="String" Name="doctype_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="doctype_name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_DOC_Product_Move_lst_Result">
+    <Property Type="Int32" Name="detail_id" Nullable="false" />
+    <Property Type="Int32" Name="product_id" Nullable="false" />
+    <Property Type="Int32" Name="unit_id" Nullable="true" />
+    <Property Type="Int32" Name="unit_value" Nullable="true" />
+    <Property Type="Int32" Name="detail_qty" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="udp_DOC_Product_Move_sel_Result">
+    <Property Type="Int32" Name="detail_id" Nullable="false" />
+    <Property Type="Int32" Name="product_id" Nullable="false" />
+    <Property Type="Int32" Name="unit_id" Nullable="true" />
+    <Property Type="Int32" Name="unit_value" Nullable="true" />
+    <Property Type="Int32" Name="detail_qty" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="udp_DOC_Status_lst_Result">
+    <Property Type="Int32" Name="status_id" Nullable="false" />
+    <Property Type="String" Name="status_name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="status_value" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_DOC_Status_sel_Result">
+    <Property Type="Int32" Name="status_id" Nullable="false" />
+    <Property Type="String" Name="status_name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="status_value" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Categories_lst_Result">
+    <Property Type="Int32" Name="categories_id" Nullable="false" />
+    <Property Type="String" Name="categories_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="categories_name" Nullable="false" MaxLength="100" />
+    <Property Type="Double" Name="categories_index" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Categories_sel_Result">
+    <Property Type="Int32" Name="categories_id" Nullable="false" />
+    <Property Type="String" Name="categories_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="categories_name" Nullable="false" MaxLength="100" />
+    <Property Type="Double" Name="categories_index" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Customer_lst_Result">
+    <Property Type="Int32" Name="customer_id" Nullable="false" />
+    <Property Type="String" Name="customer_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="customer_name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="customer_tel1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="customer_tel2" Nullable="true" />
+    <Property Type="String" Name="customer_fax" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="customer_email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_address" Nullable="true" />
+    <Property Type="Int32" Name="customer_subdistict" Nullable="true" />
+    <Property Type="Int32" Name="customer_distict" Nullable="true" />
+    <Property Type="Int32" Name="customer_province" Nullable="true" />
+    <Property Type="String" Name="customer_zipcode" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Customer_sel_Result">
+    <Property Type="Int32" Name="customer_id" Nullable="false" />
+    <Property Type="String" Name="customer_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="customer_name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="customer_tel1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="customer_tel2" Nullable="true" />
+    <Property Type="String" Name="customer_fax" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="customer_email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customer_address" Nullable="true" />
+    <Property Type="Int32" Name="customer_subdistict" Nullable="true" />
+    <Property Type="Int32" Name="customer_distict" Nullable="true" />
+    <Property Type="Int32" Name="customer_province" Nullable="true" />
+    <Property Type="String" Name="customer_zipcode" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Ingredient_lst_Result">
+    <Property Type="Int32" Name="ingredient_id" Nullable="false" />
+    <Property Type="Int32" Name="product_id" Nullable="true" />
+    <Property Type="Int32" Name="ingredient_product" Nullable="true" />
+    <Property Type="Int32" Name="product_unit" Nullable="true" />
+    <Property Type="Int32" Name="product_qty" Nullable="true" />
+    <Property Type="Boolean" Name="is_default" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Ingredient_sel_Result">
+    <Property Type="Int32" Name="ingredient_id" Nullable="false" />
+    <Property Type="Int32" Name="ingredient_product" Nullable="true" />
+    <Property Type="Int32" Name="product_id" Nullable="true" />
+    <Property Type="Int32" Name="product_unit" Nullable="true" />
+    <Property Type="Int32" Name="product_qty" Nullable="true" />
+    <Property Type="Boolean" Name="is_default" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+    <Property Type="String" Name="product_code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="product_name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="unit_name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Product_lst_Result">
+    <Property Type="Int32" Name="product_id" Nullable="false" />
+    <Property Type="String" Name="product_code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="product_name" Nullable="true" MaxLength="200" />
+    <Property Type="Binary" Name="product_pic" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+    <Property Type="String" Name="subcategories_name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="categories_name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="product_unit" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Product_Price_lst_Result">
+    <Property Type="Int32" Name="product_price_id" Nullable="false" />
+    <Property Type="String" Name="product_price_code" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="product_price_name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="unit_id" Nullable="false" />
+    <Property Type="Decimal" Name="cost" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_Cash" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_Credit" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_CashExtra" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+    <Property Type="Int32" Name="product_id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Product_Price_sel_Result">
+    <Property Type="Int32" Name="product_price_id" Nullable="false" />
+    <Property Type="String" Name="product_price_code" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="product_price_name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="unit_id" Nullable="false" />
+    <Property Type="Decimal" Name="cost" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_Cash" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_Credit" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_CashExtra" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+    <Property Type="Int32" Name="product_id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Product_sel_Result">
+    <Property Type="Int32" Name="product_id" Nullable="false" />
+    <Property Type="String" Name="product_code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="product_name" Nullable="true" MaxLength="200" />
+    <Property Type="Binary" Name="product_pic" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+    <Property Type="Int32" Name="subcategories_id" Nullable="true" />
+    <Property Type="Int32" Name="warehouse_default" Nullable="true" />
+    <Property Type="Int32" Name="product_unit" Nullable="true" />
+    <Property Type="Int32" Name="categories_id" Nullable="true" />
+    <Property Type="String" Name="categories_name" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Subcategories_lst_Result">
+    <Property Type="Int32" Name="subcategories_id" Nullable="false" />
+    <Property Type="String" Name="subcategories_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="subcategories_name" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="subcategories_index" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="categories_id" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Subcategories_sel_Result">
+    <Property Type="Int32" Name="subcategories_id" Nullable="false" />
+    <Property Type="String" Name="subcategories_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="subcategories_name" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="subcategories_index" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Int32" Name="categories_id" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Supplier_lst_Result">
+    <Property Type="Int32" Name="supplier_id" Nullable="false" />
+    <Property Type="String" Name="supplier_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="supplier_name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="supplier_tel1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="supplier_tel2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="supplier_fax" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="supplier_email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="supplier_address" Nullable="true" />
+    <Property Type="Int32" Name="supplier_subdistict" Nullable="true" />
+    <Property Type="Int32" Name="supplier_distict" Nullable="true" />
+    <Property Type="Int32" Name="supplier_province" Nullable="true" />
+    <Property Type="String" Name="supplier_zipcode" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Supplier_sel_Result">
+    <Property Type="Int32" Name="supplier_id" Nullable="false" />
+    <Property Type="String" Name="supplier_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="supplier_name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="supplier_tel1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="supplier_tel2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="supplier_fax" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="supplier_email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="supplier_address" Nullable="true" />
+    <Property Type="Int32" Name="supplier_subdistict" Nullable="true" />
+    <Property Type="Int32" Name="supplier_distict" Nullable="true" />
+    <Property Type="Int32" Name="supplier_province" Nullable="true" />
+    <Property Type="String" Name="supplier_zipcode" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Unit_lst_Result">
+    <Property Type="Int32" Name="unit_id" Nullable="false" />
+    <Property Type="String" Name="unit_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="unit_name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="unit_value" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_MAS_Unit_sel_Result">
+    <Property Type="Int32" Name="unit_id" Nullable="false" />
+    <Property Type="String" Name="unit_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="unit_name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="unit_value" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_SelectDetail_sel_Result">
+    <Property Type="Int32" Name="product_price_id" Nullable="true" />
+    <Property Type="String" Name="product_price_code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="product_price_name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="unit_name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="detail_qty" Nullable="true" />
+    <Property Type="Int32" Name="detail_id" Nullable="false" />
+    <Property Type="Int32" Name="product_id" Nullable="true" />
+    <Property Type="Int32" Name="header_id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_SelectIngredient_sel_Result">
+    <Property Type="Int32" Name="product_id" Nullable="false" />
+    <Property Type="String" Name="product_code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="product_name" Nullable="true" MaxLength="200" />
+    <Property Type="Binary" Name="product_pic" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+    <Property Type="Int32" Name="subcategories_id" Nullable="true" />
+    <Property Type="Int32" Name="warehouse_default" Nullable="true" />
+    <Property Type="Int32" Name="product_unit" Nullable="true" />
+    <Property Type="String" Name="unit_name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="udp_SelectPrice_sel_Result">
+    <Property Type="Int32" Name="product_price_id" Nullable="false" />
+    <Property Type="String" Name="product_price_code" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="product_price_name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="unit_id" Nullable="false" />
+    <Property Type="Decimal" Name="cost" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_Cash" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_Credit" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_CashExtra" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+    <Property Type="Int32" Name="product_id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_SelectProduct_sel_Result">
+    <Property Type="Int32" Name="product_id" Nullable="false" />
+    <Property Type="String" Name="product_code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="product_name" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="product_unit" Nullable="true" />
+    <Property Type="String" Name="subcategories_name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="categories_name" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="udp_SelectProductPrice_sel_Result">
+    <Property Type="Int32" Name="product_price_id" Nullable="false" />
+    <Property Type="String" Name="product_price_code" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="product_price_name" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="unit_id" Nullable="false" />
+    <Property Type="Decimal" Name="cost" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_Cash" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_Credit" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="price_CashExtra" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="product_id" Nullable="false" />
+    <Property Type="String" Name="product_code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="product_name" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="String" Name="unit_name" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="productPrice" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="udp_SelectUser_sel_Result">
+    <Property Type="Int32" Name="user_profile_id" Nullable="false" />
+    <Property Type="Int32" Name="title_id" Nullable="true" />
+    <Property Type="String" Name="emp_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="lastname" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="age" Nullable="true" />
+    <Property Type="DateTime" Name="bithdate" Nullable="true" />
+    <Property Type="String" Name="tel" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" />
+    <Property Type="Int32" Name="subdistict" Nullable="true" />
+    <Property Type="Int32" Name="distict" Nullable="true" />
+    <Property Type="Int32" Name="province" Nullable="true" />
+    <Property Type="String" Name="zipcode" Nullable="true" MaxLength="6" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="String" Name="card" Nullable="true" MaxLength="10" />
+    <Property Type="Binary" Name="pic" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="pic_filename" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="udp_sysdiagrams_lst_Result">
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" />
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_sysdiagrams_sel_Result">
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" />
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_Role_lst_Result">
+    <Property Type="Int32" Name="role_id" Nullable="false" />
+    <Property Type="String" Name="role_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="role_name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="role_value" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_Role_sel_Result">
+    <Property Type="Int32" Name="role_id" Nullable="false" />
+    <Property Type="String" Name="role_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="role_name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="role_value" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_Role_Submenu_lst_Result">
+    <Property Type="Int32" Name="role_id" Nullable="false" />
+    <Property Type="Int32" Name="submenu_id" Nullable="false" />
+    <Property Type="Boolean" Name="is_view" Nullable="true" />
+    <Property Type="Boolean" Name="is_add" Nullable="true" />
+    <Property Type="Boolean" Name="is_edit" Nullable="true" />
+    <Property Type="Boolean" Name="is_delete" Nullable="true" />
+    <Property Type="Boolean" Name="is_search" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_Role_Submenu_sel_Result">
+    <Property Type="Int32" Name="role_id" Nullable="false" />
+    <Property Type="Int32" Name="submenu_id" Nullable="false" />
+    <Property Type="Boolean" Name="is_view" Nullable="true" />
+    <Property Type="Boolean" Name="is_add" Nullable="true" />
+    <Property Type="Boolean" Name="is_edit" Nullable="true" />
+    <Property Type="Boolean" Name="is_delete" Nullable="true" />
+    <Property Type="Boolean" Name="is_search" Nullable="true" />
+    <Property Type="Int32" Name="submenu_id1" Nullable="false" />
+    <Property Type="String" Name="submenu_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="submenu_name_eng" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="submenu_name_thai" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="submenu_url" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="submenu_index" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Int32" Name="menu_id" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_Title_lst_Result">
+    <Property Type="Int32" Name="title_id" Nullable="false" />
+    <Property Type="String" Name="title_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="title_name" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_Title_sel_Result">
+    <Property Type="Int32" Name="title_id" Nullable="false" />
+    <Property Type="String" Name="title_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="title_name" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_User_lst_Result">
+    <Property Type="Int32" Name="user_id" Nullable="false" />
+    <Property Type="String" Name="user_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_namedis" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="user_type" Nullable="true" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_User_Profile_lst_Result">
+    <Property Type="Int32" Name="user_profile_id" Nullable="false" />
+    <Property Type="Int32" Name="title_id" Nullable="true" />
+    <Property Type="String" Name="emp_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="firstname" Nullable="true" MaxLength="252" />
+    <Property Type="Int32" Name="age" Nullable="true" />
+    <Property Type="DateTime" Name="bithdate" Nullable="true" />
+    <Property Type="String" Name="tel" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" />
+    <Property Type="Int32" Name="subdistict" Nullable="true" />
+    <Property Type="Int32" Name="distict" Nullable="true" />
+    <Property Type="Int32" Name="province" Nullable="true" />
+    <Property Type="String" Name="zipcode" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="String" Name="card" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="user_id" Nullable="false" />
+    <Property Type="String" Name="user_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_namedis" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="user_type" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled1" Nullable="true" />
+    <Property Type="Boolean" Name="is_del1" Nullable="true" />
+    <Property Type="DateTime" Name="create_date1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by1" Nullable="true" />
+    <Property Type="DateTime" Name="update_date1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by1" Nullable="true" />
+    <Property Type="String" Name="title_name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_User_Profile_sel_Result">
+    <Property Type="Int32" Name="user_profile_id" Nullable="false" />
+    <Property Type="Int32" Name="title_id" Nullable="true" />
+    <Property Type="String" Name="emp_code" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="lastname" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="age" Nullable="true" />
+    <Property Type="DateTime" Name="bithdate" Nullable="true" />
+    <Property Type="String" Name="tel" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" />
+    <Property Type="Int32" Name="subdistict" Nullable="true" />
+    <Property Type="Int32" Name="distict" Nullable="true" />
+    <Property Type="Int32" Name="province" Nullable="true" />
+    <Property Type="String" Name="zipcode" Nullable="true" MaxLength="6" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+    <Property Type="String" Name="description" Nullable="true" />
+    <Property Type="String" Name="card" Nullable="true" MaxLength="10" />
+    <Property Type="Binary" Name="pic" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="pic_filename" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="user_id" Nullable="false" />
+    <Property Type="String" Name="user_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_namedis" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="user_type" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled1" Nullable="true" />
+    <Property Type="Boolean" Name="is_del1" Nullable="true" />
+    <Property Type="DateTime" Name="create_date1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by1" Nullable="true" />
+    <Property Type="DateTime" Name="update_date1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by1" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_User_Role_lst_Result">
+    <Property Type="Int32" Name="role_id" Nullable="false" />
+    <Property Type="Int32" Name="user_id" Nullable="false" />
+    <Property Type="String" Name="user_name" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="String" Name="is_enabled" Nullable="false" MaxLength="10" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_User_Role_sel_Result">
+    <Property Type="Int32" Name="running_id" Nullable="false" />
+    <Property Type="Int32" Name="role_id" Nullable="false" />
+    <Property Type="Int32" Name="user_id" Nullable="false" />
+    <Property Type="String" Name="user_name" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+    <Property Type="Int32" Name="user_id1" Nullable="false" />
+    <Property Type="String" Name="user_name1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_namedis" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="user_type" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled1" Nullable="true" />
+    <Property Type="Boolean" Name="is_del1" Nullable="true" />
+    <Property Type="DateTime" Name="create_date1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by1" Nullable="true" />
+    <Property Type="DateTime" Name="update_date1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by1" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="udp_USR_User_sel_Result">
+    <Property Type="Int32" Name="user_id" Nullable="false" />
+    <Property Type="String" Name="user_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_namedis" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="user_type" Nullable="true" />
+    <Property Type="Boolean" Name="is_enabled" Nullable="true" />
+    <Property Type="Boolean" Name="is_del" Nullable="true" />
+    <Property Type="DateTime" Name="create_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="create_by" Nullable="true" />
+    <Property Type="DateTime" Name="update_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="update_by" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="up_login_login_sel_byID_Result">
+    <Property Type="Int32" Name="user_id" Nullable="false" />
+    <Property Type="String" Name="user_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="user_namedis" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="user_profile_id" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="DOC_Detail_Ingredient">
+    <Key>
+      <PropertyRef Name="running" />
+    </Key>
+    <Property Name="running" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="detail_id" Type="Int32" Nullable="false" />
+    <Property Name="ingredient_id" Type="Int32" Nullable="false" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="product_unit" Type="Int32" />
+    <Property Name="product_qty" Type="Int32" />
+    <Property Name="is_del" Type="Boolean" />
+    <Property Name="create_date" Type="DateTime" Precision="3" />
+    <Property Name="create_by" Type="Int32" />
+    <Property Name="update_date" Type="DateTime" Precision="3" />
+    <Property Name="update_by" Type="Int32" />
+    <NavigationProperty Name="DOC_Detail" Relationship="WebToolsStoreModel.FK_DOC_Detail_Ingredient_DOC_Detail" FromRole="DOC_Detail_Ingredient" ToRole="DOC_Detail" />
+  </EntityType>
+  <Association Name="FK_DOC_Detail_Ingredient_DOC_Detail">
+    <End Type="WebToolsStoreModel.DOC_Detail" Role="DOC_Detail" Multiplicity="1" />
+    <End Type="WebToolsStoreModel.DOC_Detail_Ingredient" Role="DOC_Detail_Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOC_Detail">
+        <PropertyRef Name="detail_id" />
+      </Principal>
+      <Dependent Role="DOC_Detail_Ingredient">
+        <PropertyRef Name="detail_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOC_Detail_MAS_Warehouse">
+    <End Type="WebToolsStoreModel.MAS_Warehouse" Role="MAS_Warehouse" Multiplicity="0..1" />
+    <End Type="WebToolsStoreModel.DOC_Detail" Role="DOC_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Warehouse">
+        <PropertyRef Name="warehouse_id" />
+      </Principal>
+      <Dependent Role="DOC_Detail">
+        <PropertyRef Name="detail_warehouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

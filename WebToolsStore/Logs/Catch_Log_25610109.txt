@@ -1,0 +1,70 @@
+
+Log Entry : 1:16:12 9 มกราคม 2561
+  :
+Exception Message:Invalid column name 'distict'.
+-------------------------------
+
+Log Entry : 1:17:11 9 มกราคม 2561
+  :
+Exception Message:Invalid column name 'distict'.
+-------------------------------
+
+Log Entry : 1:25:47 9 มกราคม 2561
+  :
+Exception Message:Invalid column name 'supplier_id'.
+-------------------------------
+
+Log Entry : 1:56:42 9 มกราคม 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 2:01:36 9 มกราคม 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 2:09:18 9 มกราคม 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 2:14:23 9 มกราคม 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 16:38:00 9 มกราคม 2561
+  :
+Exception Message:Could not find stored procedure 'udp_MAS_Product_ups'.
+-------------------------------
+
+Log Entry : 16:45:00 9 มกราคม 2561
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 16:47:41 9 มกราคม 2561
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 18:21:45 9 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'categories_id' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 18:42:44 9 มกราคม 2561
+  :
+Exception Message:Procedure or function 'udp_MAS_Product_Price_ups' expects parameter '@product_id', which was not supplied.
+-------------------------------
+
+Log Entry : 18:46:55 9 มกราคม 2561
+  :
+Exception Message:Procedure or function 'udp_MAS_Product_Price_ups' expects parameter '@product_id', which was not supplied.
+-------------------------------
+
+Log Entry : 19:19:39 9 มกราคม 2561
+  :
+Exception Message:@price_CashExtra is not a parameter for procedure udp_MAS_Product_Price_ups.
+-------------------------------

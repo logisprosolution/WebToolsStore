@@ -1,0 +1,15 @@
+
+Log Entry : 18:09:33 14 ธันวาคม 2560
+  :
+Exception Message:Input string was not in a correct format.
+-------------------------------
+
+Log Entry : 18:11:09 14 ธันวาคม 2560
+  :
+Exception Message:Input string was not in a correct format.
+-------------------------------
+
+Log Entry : 18:12:56 14 ธันวาคม 2560
+  :
+Exception Message:Input string was not in a correct format.
+-------------------------------

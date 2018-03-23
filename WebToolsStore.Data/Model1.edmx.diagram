@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="75aa687c4f184f7087c8831893ae0b41" Name="Diagram1">
+        <EntityTypeShape EntityType="WebToolsStoreModel.DOC_Detail" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.DOC_Doctype" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.DOC_Header" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.DOC_Product_Move" Width="1.5" PointX="12.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.DOC_Status" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.DOC_SubDocType" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Categories" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Country" Width="1.5" PointX="10.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Customer" Width="1.5" PointX="14.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_District" Width="1.5" PointX="15.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Geography" Width="1.5" PointX="10.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Ingredient" Width="1.5" PointX="7.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Product" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Product_Price" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Province" Width="1.5" PointX="13" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Subcategories" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_SubDistrict" Width="1.5" PointX="17.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Supplier" Width="1.5" PointX="9.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Unit" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MAS_Warehouse" Width="1.5" PointX="16.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.sysdiagrams" Width="1.5" PointX="17.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.USR_Menu" Width="1.5" PointX="1.5" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.USR_Role" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.USR_Role_Submenu" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.USR_Submenu" Width="1.5" PointX="0.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.USR_Title" Width="1.5" PointX="12.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.USR_User" Width="1.5" PointX="3.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.USR_User_Profile" Width="1.5" PointX="15" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.USR_User_Role" Width="1.5" PointX="6" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.v_detailStatus" Width="1.5" PointX="2.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.v_Payment" Width="1.5" PointX="4.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.v_transAll" Width="1.5" PointX="11.75" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.v_vatType" Width="1.5" PointX="17.75" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_DOC_Detail_DOC_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_DOC_Detail_MAS_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_DOC_Detail_MAS_Product_Price" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_DOC_SubDocType_DOC_DocType" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_DOC_Header_DOC_SubDocType" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_MAS_Subcategories_MAS_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_MAS_Province_MAS_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_MAS_District_MAS_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_MAS_SubDistrict_MAS_District" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_MAS_Province_MAS_Geography" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_MAS_Ingredient_MAS_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_MAS_Product_MAS_Subcategories" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_MAS_Product_Price_MAS_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_MAS_Product_Price_MAS_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_USR_Submenu_USR_Menu" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_USR_Role_Submenu_USR_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_USR_User_Role_USR_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_USR_Role_Submenu_USR_Submenu" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_USR_User_Profile_USR_Title" ManuallyRouted="false" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_USR_User_Role_USR_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.DOC_Detail_Ingredient" Width="1.5" PointX="9.75" PointY="0.75" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_DOC_Detail_Ingredient_DOC_Detail" />
+        <AssociationConnector Association="WebToolsStoreModel.FK_DOC_Detail_MAS_Warehouse" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

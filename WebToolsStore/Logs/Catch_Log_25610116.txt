@@ -1,0 +1,45 @@
+
+Log Entry : 0:33:50 16 มกราคม 2561
+  :
+Exception Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'product_id'.
+-------------------------------
+
+Log Entry : 1:02:16 16 มกราคม 2561
+  :
+Exception Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'product_id'.
+-------------------------------
+
+Log Entry : 16:17:36 16 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'product_price_code' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 16:23:12 16 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'product_price_code' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 16:24:13 16 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'product_price_code' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 16:28:36 16 มกราคม 2561
+  :
+Exception Message:Column 'product_price_code' does not belong to table SELECT_DETAIL.
+-------------------------------
+
+Log Entry : 16:33:09 16 มกราคม 2561
+  :
+Exception Message:Column 'product_price_code' does not belong to table SELECT_DETAIL.
+-------------------------------
+
+Log Entry : 17:10:45 16 มกราคม 2561
+  :
+Exception Message:Procedure or function 'udp_DOC_Detail_ups' expects parameter '@product_price_code', which was not supplied.
+-------------------------------
+
+Log Entry : 17:17:10 16 มกราคม 2561
+  :
+Exception Message:Column 'payment_date' does not belong to table SELECT_INFO.
+-------------------------------

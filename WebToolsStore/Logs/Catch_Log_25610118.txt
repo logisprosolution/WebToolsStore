@@ -1,0 +1,60 @@
+
+Log Entry : 13:14:45 18 มกราคม 2561
+  :
+Exception Message:Procedure or function 'udp_SelectProduct_sel' expects parameter '@Supplyer_Id', which was not supplied.
+-------------------------------
+
+Log Entry : 13:31:12 18 มกราคม 2561
+  :
+Exception Message:Procedure or function 'udp_SelectProduct_sel' expects parameter '@Supplyer_Id', which was not supplied.
+-------------------------------
+
+Log Entry : 14:31:44 18 มกราคม 2561
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 14:31:52 18 มกราคม 2561
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 14:32:45 18 มกราคม 2561
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 14:39:45 18 มกราคม 2561
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 15:17:16 18 มกราคม 2561
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 15:18:52 18 มกราคม 2561
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 15:24:33 18 มกราคม 2561
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 15:25:29 18 มกราคม 2561
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 15:52:34 18 มกราคม 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 21:30:59 18 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------

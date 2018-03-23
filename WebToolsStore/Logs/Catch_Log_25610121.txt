@@ -1,0 +1,80 @@
+
+Log Entry : 20:12:24 21 มกราคม 2561
+  :
+Exception Message:Column 'unit_name' does not belong to table SELECT_DETAIL.
+-------------------------------
+
+Log Entry : 20:48:32 21 มกราคม 2561
+  :
+Exception Message:Column 'unit_name' does not belong to table SELECT_DETAIL.
+-------------------------------
+
+Log Entry : 20:49:27 21 มกราคม 2561
+  :
+Exception Message:Column 'unit_name' does not belong to table SELECT_DETAIL.
+-------------------------------
+
+Log Entry : 21:28:21 21 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'product_unit' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 21:33:03 21 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'product_unit' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 22:06:06 21 มกราคม 2561
+  :
+Exception Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'product_unit'.
+-------------------------------
+
+Log Entry : 22:48:34 21 มกราคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.MAS_Ingredient' does not contain a property with the name 'product_price_id'.
+-------------------------------
+
+Log Entry : 22:50:34 21 มกราคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.MAS_Ingredient' does not contain a property with the name 'product_price_id'.
+-------------------------------
+
+Log Entry : 22:53:00 21 มกราคม 2561
+  :
+Exception Message:A field or property with the name 'product_name' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 23:01:07 21 มกราคม 2561
+  :
+Exception Message:Procedure or function 'udp_MAS_Product_ups' expects parameter '@product_unit', which was not supplied.
+-------------------------------
+
+Log Entry : 23:45:58 21 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 23:47:52 21 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 23:52:54 21 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 23:55:23 21 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 23:56:56 21 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 23:57:15 21 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------

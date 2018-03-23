@@ -1,0 +1,35 @@
+
+Log Entry : 18:27:41 30 มกราคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: 14
+-------------------------------
+
+Log Entry : 18:28:10 30 มกราคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: 11
+-------------------------------
+
+Log Entry : 21:46:00 30 มกราคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------
+
+Log Entry : 21:48:50 30 มกราคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------
+
+Log Entry : 22:54:14 30 มกราคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------

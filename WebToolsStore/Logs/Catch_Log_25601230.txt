@@ -1,0 +1,151 @@
+
+Log Entry : 0:33:52 30 ธันวาคม 2560
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 0:35:23 30 ธันวาคม 2560
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 0:35:33 30 ธันวาคม 2560
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 0:48:02 30 ธันวาคม 2560
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 0:51:01 30 ธันวาคม 2560
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 3:41:40 30 ธันวาคม 2560
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 9:19:50 30 ธันวาคม 2560
+  :
+Exception Message:There is no row at position 0.
+-------------------------------
+
+Log Entry : 9:48:21 30 ธันวาคม 2560
+  :
+Exception Message:The IListSource does not contain any data sources.
+-------------------------------
+
+Log Entry : 9:58:14 30 ธันวาคม 2560
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 9:58:21 30 ธันวาคม 2560
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 9:58:41 30 ธันวาคม 2560
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 10:06:58 30 ธันวาคม 2560
+  :
+Exception Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'SubjectNamne'.
+-------------------------------
+
+Log Entry : 10:17:31 30 ธันวาคม 2560
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 11:14:56 30 ธันวาคม 2560
+  :
+Exception Message:'ddl_subdistict' has a SelectedValue which is invalid because it does not exist in the list of items.
+Parameter name: value
+-------------------------------
+
+Log Entry : 11:40:09 30 ธันวาคม 2560
+  :
+Exception Message:Column 'districtID' does not belong to table SelectProvince.
+-------------------------------
+
+Log Entry : 11:43:16 30 ธันวาคม 2560
+  :
+Exception Message:Column 'districtID' does not belong to table SelectProvince.
+-------------------------------
+
+Log Entry : 11:44:01 30 ธันวาคม 2560
+  :
+Exception Message:Column 'districtID' does not belong to table SelectProvince.
+-------------------------------
+
+Log Entry : 11:46:13 30 ธันวาคม 2560
+  :
+Exception Message:Column 'districtID' does not belong to table SelectProvince.
+-------------------------------
+
+Log Entry : 11:47:20 30 ธันวาคม 2560
+  :
+Exception Message:Column 'districtID' does not belong to table SelectProvince.
+-------------------------------
+
+Log Entry : 11:54:16 30 ธันวาคม 2560
+  :
+Exception Message:Incorrect syntax near 'MAS_SubDistrict'.
+-------------------------------
+
+Log Entry : 16:51:02 30 ธันวาคม 2560
+  :
+Exception Message:Operand type clash: nvarchar is incompatible with image
+-------------------------------
+
+Log Entry : 16:56:25 30 ธันวาคม 2560
+  :
+Exception Message:Operand type clash: nvarchar is incompatible with image
+-------------------------------
+
+Log Entry : 16:59:47 30 ธันวาคม 2560
+  :
+Exception Message:Operand type clash: nvarchar is incompatible with image
+-------------------------------
+
+Log Entry : 17:12:55 30 ธันวาคม 2560
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 17:13:40 30 ธันวาคม 2560
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 17:29:18 30 ธันวาคม 2560
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 17:29:49 30 ธันวาคม 2560
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 17:29:54 30 ธันวาคม 2560
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 17:30:50 30 ธันวาคม 2560
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 17:31:53 30 ธันวาคม 2560
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------

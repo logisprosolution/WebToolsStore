@@ -1,0 +1,49 @@
+
+Log Entry : 4:13:11 22 มกราคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :0 header_id: 14
+-------------------------------
+
+Log Entry : 7:58:12 22 มกราคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :12 header_id: 11
+-------------------------------
+
+Log Entry : 8:02:28 22 มกราคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :12 header_id: 14
+-------------------------------
+
+Log Entry : 8:18:49 22 มกราคม 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------
+
+Log Entry : 9:00:39 22 มกราคม 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------
+
+Log Entry : 14:57:51 22 มกราคม 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------
+
+Log Entry : 15:02:50 22 มกราคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :12 header_id: -1
+-------------------------------

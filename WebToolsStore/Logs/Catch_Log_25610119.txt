@@ -1,0 +1,5 @@
+
+Log Entry : 4:51:25 19 มกราคม 2561
+  :
+Exception Message:Column 'unit_name' does not belong to table SELECT_DETAIL.
+-------------------------------

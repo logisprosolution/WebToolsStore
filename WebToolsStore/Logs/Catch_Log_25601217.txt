@@ -1,0 +1,10 @@
+
+Log Entry : 2:48:14 17 ธันวาคม 2560
+  :
+Exception Message:Procedure udp_MAS_Customer_lst has no parameters and arguments were supplied.
+-------------------------------
+
+Log Entry : 4:16:25 17 ธันวาคม 2560
+  :
+Exception Message:Could not find stored procedure 'udp_MAS_MAS_Supplier_lst'.
+-------------------------------

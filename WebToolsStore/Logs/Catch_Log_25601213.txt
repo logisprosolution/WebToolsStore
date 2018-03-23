@@ -1,0 +1,67 @@
+
+Log Entry : 14:45:06 13 ธันวาคม 2560
+  :
+Exception Message:String reference not set to an instance of a String.
+Parameter name: name
+-------------------------------
+
+Log Entry : 14:46:00 13 ธันวาคม 2560
+  :
+Exception Message:String reference not set to an instance of a String.
+Parameter name: name
+-------------------------------
+
+Log Entry : 15:06:32 13 ธันวาคม 2560
+  :
+Exception Message:String reference not set to an instance of a String.
+Parameter name: name
+-------------------------------
+
+Log Entry : 15:07:57 13 ธันวาคม 2560
+  :
+Exception Message:String reference not set to an instance of a String.
+Parameter name: name
+-------------------------------
+
+Log Entry : 15:12:04 13 ธันวาคม 2560
+  :
+Exception Message:String reference not set to an instance of a String.
+Parameter name: name
+-------------------------------
+
+Log Entry : 15:12:34 13 ธันวาคม 2560
+  :
+Exception Message:String reference not set to an instance of a String.
+Parameter name: name
+-------------------------------
+
+Log Entry : 15:13:00 13 ธันวาคม 2560
+  :
+Exception Message:String reference not set to an instance of a String.
+Parameter name: name
+-------------------------------
+
+Log Entry : 15:24:31 13 ธันวาคม 2560
+  :
+Exception Message:A field or property with the name 'header_customer' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 17:10:27 13 ธันวาคม 2560
+  :
+Exception Message:Procedure or function 'udp_DOC_Header_sel' expects parameter '@header_id', which was not supplied.
+-------------------------------
+
+Log Entry : 17:11:57 13 ธันวาคม 2560
+  :
+Exception Message:Column 'header_customer' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 17:13:14 13 ธันวาคม 2560
+  :
+Exception Message:Column 'header_customer' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 17:14:10 13 ธันวาคม 2560
+  :
+Exception Message:Column 'header_customer' does not belong to table SELECT_INFO.
+-------------------------------

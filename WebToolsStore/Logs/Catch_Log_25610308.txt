@@ -1,0 +1,70 @@
+
+Log Entry : 4:07:53 8 มีนาคม 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 4:51:53 8 มีนาคม 2561
+  :
+Exception Message:Procedure or function 'udp_SelectProduct_sel' expects parameter '@WareHouseID', which was not supplied.
+-------------------------------
+
+Log Entry : 5:05:15 8 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:06:55 8 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:25:39 8 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 6:34:00 8 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 6:42:08 8 มีนาคม 2561
+  :
+Exception Message:Procedure or function up_Report_Stock_sel has too many arguments specified.
+-------------------------------
+
+Log Entry : 6:43:43 8 มีนาคม 2561
+  :
+Exception Message:Procedure or function up_Report_Stock_sel has too many arguments specified.
+-------------------------------
+
+Log Entry : 6:44:12 8 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 6:46:38 8 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 6:47:41 8 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 6:58:31 8 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 7:01:38 8 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 7:03:07 8 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------

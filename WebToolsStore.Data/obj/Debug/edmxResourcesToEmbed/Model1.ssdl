@@ -1,0 +1,1658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebToolsStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DOC_Detail">
+    <Key>
+      <PropertyRef Name="detail_id" />
+    </Key>
+    <Property Name="detail_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="header_id" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="product_price_id" Type="int" />
+    <Property Name="product_price_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="product_price_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="unit_id" Type="int" />
+    <Property Name="unit_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="unit_value" Type="int" />
+    <Property Name="detail_qty" Type="int" />
+    <Property Name="detail_price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="detail_discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="detail_total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="detail_status" Type="int" />
+    <Property Name="detail_remark" Type="nvarchar" MaxLength="300" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="detail_warehouse" Type="int" />
+    <Property Name="used_qty" Type="int" />
+  </EntityType>
+  <EntityType Name="DOC_Detail_Ingredient">
+    <Key>
+      <PropertyRef Name="running" />
+    </Key>
+    <Property Name="running" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="detail_id" Type="int" Nullable="false" />
+    <Property Name="ingredient_id" Type="int" Nullable="false" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="product_unit" Type="int" />
+    <Property Name="product_qty" Type="int" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="DOC_Doctype">
+    <Key>
+      <PropertyRef Name="doctype_id" />
+    </Key>
+    <Property Name="doctype_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doctype_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="doctype_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="DOC_Header">
+    <Key>
+      <PropertyRef Name="header_id" />
+    </Key>
+    <Property Name="header_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="header_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="header_date" Type="date" />
+    <Property Name="header_date_from" Type="date" />
+    <Property Name="header_date_to" Type="date" />
+    <Property Name="header_supplier_id" Type="int" />
+    <Property Name="header_supplier_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="header_customer_id" Type="int" />
+    <Property Name="header_customer_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="header_address" Type="nvarchar(max)" />
+    <Property Name="header_remark" Type="nvarchar(max)" />
+    <Property Name="header_status" Type="int" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+    <Property Name="subDocTypeID" Type="int" />
+    <Property Name="vat_id" Type="int" />
+    <Property Name="payment_id" Type="int" />
+    <Property Name="payment_date" Type="datetime" />
+    <Property Name="header_warehouse_from" Type="int" />
+    <Property Name="header_warehouse_to" Type="int" />
+    <Property Name="header_total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="header_receive" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="header_discout" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="header_vat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="header_net" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="header_deposit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="header_refund" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="header_ref" Type="int" />
+  </EntityType>
+  <EntityType Name="DOC_Product_Move">
+    <Key>
+      <PropertyRef Name="detail_id" />
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="detail_id" Type="int" Nullable="false" />
+    <Property Name="product_id" Type="int" Nullable="false" />
+    <Property Name="unit_id" Type="int" />
+    <Property Name="unit_value" Type="int" />
+    <Property Name="detail_qty" Type="int" />
+    <Property Name="product_price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="product_cost" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="prduct_vat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="warehouse_id" Type="int" />
+  </EntityType>
+  <EntityType Name="DOC_Status">
+    <Key>
+      <PropertyRef Name="status_id" />
+    </Key>
+    <Property Name="status_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="status_value" Type="int" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="status_group" Type="int" />
+  </EntityType>
+  <EntityType Name="DOC_SubDocType">
+    <Key>
+      <PropertyRef Name="subDocTypeID" />
+    </Key>
+    <Property Name="subDocTypeID" Type="int" Nullable="false" />
+    <Property Name="subDocTypeCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="subDocTypeName" Type="nvarchar" MaxLength="100" />
+    <Property Name="doctype_id" Type="int" Nullable="false" />
+    <Property Name="seq" Type="int" />
+    <Property Name="description" Type="nvarchar" MaxLength="300" />
+    <Property Name="isEnabled" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="create_ip" Type="nvarchar" MaxLength="20" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+    <Property Name="update_ip" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MAS_Categories">
+    <Key>
+      <PropertyRef Name="categories_id" />
+    </Key>
+    <Property Name="categories_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categories_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="categories_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="categories_index" Type="float" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="MAS_Country">
+    <Key>
+      <PropertyRef Name="countryID" />
+    </Key>
+    <Property Name="countryID" Type="int" Nullable="false" />
+    <Property Name="countryCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="countryNameTH" Type="nvarchar" MaxLength="100" />
+    <Property Name="countryNameEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="isEnabled" Type="bit" />
+    <Property Name="isDeleted" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="create_ip" Type="nvarchar" MaxLength="20" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+    <Property Name="update_ip" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MAS_Customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="customer_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="customer_tel1" Type="nvarchar" MaxLength="10" />
+    <Property Name="customer_tel2" Type="nvarchar(max)" />
+    <Property Name="customer_fax" Type="nvarchar" MaxLength="20" />
+    <Property Name="customer_email" Type="nvarchar" MaxLength="50" />
+    <Property Name="customer_address" Type="nvarchar(max)" />
+    <Property Name="customer_subdistict" Type="int" />
+    <Property Name="customer_distict" Type="int" />
+    <Property Name="customer_province" Type="int" />
+    <Property Name="customer_zipcode" Type="nvarchar" MaxLength="6" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="MAS_District">
+    <Key>
+      <PropertyRef Name="districtID" />
+    </Key>
+    <Property Name="districtID" Type="int" Nullable="false" />
+    <Property Name="districtCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="districtNameTH" Type="nvarchar" MaxLength="100" />
+    <Property Name="districtNameEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="zipCode" Type="varchar" MaxLength="5" />
+    <Property Name="geographyID" Type="int" />
+    <Property Name="provinceID" Type="int" />
+    <Property Name="isEnabled" Type="bit" />
+    <Property Name="isDeleted" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="create_ip" Type="nvarchar" MaxLength="20" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+    <Property Name="update_ip" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MAS_Geography">
+    <Key>
+      <PropertyRef Name="geographyID" />
+    </Key>
+    <Property Name="geographyID" Type="int" Nullable="false" />
+    <Property Name="geographyCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="geographyNameTH" Type="nvarchar" MaxLength="100" />
+    <Property Name="geographyNameEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="isEnabled" Type="bit" />
+    <Property Name="isDeleted" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="create_ip" Type="nvarchar" MaxLength="20" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+    <Property Name="update_ip" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MAS_Ingredient">
+    <Key>
+      <PropertyRef Name="ingredient_id" />
+    </Key>
+    <Property Name="ingredient_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ingredient_product" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="product_unit" Type="int" />
+    <Property Name="product_qty" Type="int" />
+    <Property Name="is_default" Type="bit" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="MAS_Product">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="product_pic" Type="image" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+    <Property Name="subcategories_id" Type="int" />
+    <Property Name="warehouse_default" Type="int" />
+    <Property Name="product_unit" Type="int" />
+  </EntityType>
+  <EntityType Name="MAS_Product_Price">
+    <Key>
+      <PropertyRef Name="product_price_id" />
+    </Key>
+    <Property Name="product_price_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_price_code" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="product_price_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="unit_id" Type="int" Nullable="false" />
+    <Property Name="cost" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="price_Cash" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="price_Credit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="price_CashExtra" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+    <Property Name="product_id" Type="int" />
+  </EntityType>
+  <EntityType Name="MAS_Province">
+    <Key>
+      <PropertyRef Name="provinceID" />
+    </Key>
+    <Property Name="provinceID" Type="int" Nullable="false" />
+    <Property Name="provinceCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="provinceNameTH" Type="nvarchar" MaxLength="100" />
+    <Property Name="provinceNameEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="countryID" Type="int" />
+    <Property Name="geographyID" Type="int" />
+    <Property Name="isEnabled" Type="bit" />
+    <Property Name="isDeleted" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="create_ip" Type="nvarchar" MaxLength="20" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+    <Property Name="update_ip" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MAS_Subcategories">
+    <Key>
+      <PropertyRef Name="subcategories_id" />
+    </Key>
+    <Property Name="subcategories_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="subcategories_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="subcategories_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="subcategories_index" Type="float" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="categories_id" Type="int" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="MAS_SubDistrict">
+    <Key>
+      <PropertyRef Name="subDistrictID" />
+    </Key>
+    <Property Name="subDistrictID" Type="int" Nullable="false" />
+    <Property Name="subDistrictCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="subDistrictNameTH" Type="nvarchar" MaxLength="100" />
+    <Property Name="subDistrictNameEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="districtID" Type="int" />
+    <Property Name="provinceID" Type="int" />
+    <Property Name="geographyID" Type="int" />
+    <Property Name="isEnabled" Type="bit" />
+    <Property Name="isDeleted" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="create_ip" Type="nvarchar" MaxLength="20" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+    <Property Name="update_ip" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MAS_Supplier">
+    <Key>
+      <PropertyRef Name="supplier_id" />
+    </Key>
+    <Property Name="supplier_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="supplier_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="supplier_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="supplier_tel1" Type="nvarchar" MaxLength="10" />
+    <Property Name="supplier_tel2" Type="nvarchar" MaxLength="10" />
+    <Property Name="supplier_fax" Type="nvarchar" MaxLength="20" />
+    <Property Name="supplier_email" Type="nvarchar" MaxLength="50" />
+    <Property Name="supplier_address" Type="nvarchar(max)" />
+    <Property Name="supplier_subdistict" Type="int" />
+    <Property Name="supplier_distict" Type="int" />
+    <Property Name="supplier_province" Type="int" />
+    <Property Name="supplier_zipcode" Type="nvarchar" MaxLength="6" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="MAS_Unit">
+    <Key>
+      <PropertyRef Name="unit_id" />
+    </Key>
+    <Property Name="unit_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unit_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="unit_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="unit_value" Type="int" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="MAS_Warehouse">
+    <Key>
+      <PropertyRef Name="warehouse_id" />
+    </Key>
+    <Property Name="warehouse_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="warehouse_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="warehouse_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="warehouse_address" Type="nvarchar(max)" />
+    <Property Name="warehouse_tel" Type="nvarchar" MaxLength="20" />
+    <Property Name="warehouse_contact" Type="nvarchar" MaxLength="100" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="USR_Menu">
+    <Key>
+      <PropertyRef Name="menu_id" />
+    </Key>
+    <Property Name="menu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="menu_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="menu_name_eng" Type="nvarchar" MaxLength="100" />
+    <Property Name="menu_name_thai" Type="nvarchar" MaxLength="100" />
+    <Property Name="menu_url" Type="nvarchar" MaxLength="100" />
+    <Property Name="menu_index" Type="int" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="USR_Role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="role_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="role_value" Type="int" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="USR_Role_Submenu">
+    <Key>
+      <PropertyRef Name="role_id" />
+      <PropertyRef Name="submenu_id" />
+    </Key>
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="submenu_id" Type="int" Nullable="false" />
+    <Property Name="is_view" Type="bit" />
+    <Property Name="is_add" Type="bit" />
+    <Property Name="is_edit" Type="bit" />
+    <Property Name="is_delete" Type="bit" />
+    <Property Name="is_search" Type="bit" />
+  </EntityType>
+  <EntityType Name="USR_Submenu">
+    <Key>
+      <PropertyRef Name="submenu_id" />
+    </Key>
+    <Property Name="submenu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="submenu_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="submenu_name_eng" Type="nvarchar" MaxLength="100" />
+    <Property Name="submenu_name_thai" Type="nvarchar" MaxLength="100" />
+    <Property Name="submenu_url" Type="nvarchar" MaxLength="100" />
+    <Property Name="submenu_index" Type="int" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="menu_id" Type="int" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="USR_Title">
+    <Key>
+      <PropertyRef Name="title_id" />
+    </Key>
+    <Property Name="title_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="title_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="USR_User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_password" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_namedis" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_type" Type="int" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <EntityType Name="USR_User_Profile">
+    <Key>
+      <PropertyRef Name="user_profile_id" />
+    </Key>
+    <Property Name="user_profile_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title_id" Type="int" />
+    <Property Name="emp_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="lastname" Type="nvarchar" MaxLength="100" />
+    <Property Name="age" Type="int" />
+    <Property Name="bithdate" Type="date" />
+    <Property Name="tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar(max)" />
+    <Property Name="subdistict" Type="int" />
+    <Property Name="distict" Type="int" />
+    <Property Name="province" Type="int" />
+    <Property Name="zipcode" Type="nvarchar" MaxLength="6" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="card" Type="nchar" MaxLength="10" />
+    <Property Name="pic" Type="image" />
+    <Property Name="pic_filename" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="USR_User_Role">
+    <Key>
+      <PropertyRef Name="running_id" />
+    </Key>
+    <Property Name="running_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="is_enabled" Type="bit" />
+    <Property Name="is_del" Type="bit" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_by" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebToolsStore.dbo.v_detailStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_detailStatus">
+    <Key>
+      <PropertyRef Name="StatusID" />
+      <PropertyRef Name="detail_status" />
+    </Key>
+    <Property Name="StatusID" Type="int" Nullable="false" />
+    <Property Name="detail_status" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebToolsStore.dbo.v_Payment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_Payment">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+      <PropertyRef Name="PaymentNameTH" />
+    </Key>
+    <Property Name="PaymentID" Type="int" Nullable="false" />
+    <Property Name="PaymentNameTH" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebToolsStore.dbo.v_transAll' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_transAll">
+    <Key>
+      <PropertyRef Name="header_id" />
+      <PropertyRef Name="detail_id" />
+      <PropertyRef Name="PaymentNameTH" />
+    </Key>
+    <Property Name="header_id" Type="int" Nullable="false" />
+    <Property Name="header_customer_id" Type="int" />
+    <Property Name="header_customer_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="header_supplier_id" Type="int" />
+    <Property Name="header_supplier_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="header_address" Type="nvarchar(max)" />
+    <Property Name="header_date" Type="date" />
+    <Property Name="create_by" Type="int" />
+    <Property Name="header_total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_discout" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_vat" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_net" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_receive" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_deposit" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_refund" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="header_remark" Type="nvarchar(max)" />
+    <Property Name="doctype_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="detail_discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="detail_price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="detail_qty" Type="int" />
+    <Property Name="detail_total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="unit_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="product_price_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="header_date_from" Type="date" />
+    <Property Name="header_date_to" Type="date" />
+    <Property Name="create_date" Type="datetime" />
+    <Property Name="product_price_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="used_qty" Type="int" />
+    <Property Name="PaymentNameTH" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="header_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="detail_id" Type="int" Nullable="false" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="subDocTypeName" Type="nvarchar" MaxLength="100" />
+    <Property Name="subDocTypeID" Type="int" />
+    <Property Name="warehouse_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="detail_warehouse" Type="int" />
+    <Property Name="doctype_id" Type="int" Nullable="false" />
+    <Property Name="payment_id" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebToolsStore.dbo.v_vatType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_vatType">
+    <Key>
+      <PropertyRef Name="vatTypeID" />
+      <PropertyRef Name="vatTypeNameTH" />
+    </Key>
+    <Property Name="vatTypeID" Type="int" Nullable="false" />
+    <Property Name="vatTypeNameTH" Type="varchar" MaxLength="18" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DOC_Detail_DOC_Header">
+    <End Role="DOC_Header" Type="Self.DOC_Header" Multiplicity="0..1" />
+    <End Role="DOC_Detail" Type="Self.DOC_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOC_Header">
+        <PropertyRef Name="header_id" />
+      </Principal>
+      <Dependent Role="DOC_Detail">
+        <PropertyRef Name="header_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOC_Detail_Ingredient_DOC_Detail">
+    <End Role="DOC_Detail" Type="Self.DOC_Detail" Multiplicity="1" />
+    <End Role="DOC_Detail_Ingredient" Type="Self.DOC_Detail_Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOC_Detail">
+        <PropertyRef Name="detail_id" />
+      </Principal>
+      <Dependent Role="DOC_Detail_Ingredient">
+        <PropertyRef Name="detail_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOC_Detail_MAS_Product">
+    <End Role="MAS_Product" Type="Self.MAS_Product" Multiplicity="0..1" />
+    <End Role="DOC_Detail" Type="Self.DOC_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="DOC_Detail">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOC_Detail_MAS_Product_Price">
+    <End Role="MAS_Product_Price" Type="Self.MAS_Product_Price" Multiplicity="0..1" />
+    <End Role="DOC_Detail" Type="Self.DOC_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Product_Price">
+        <PropertyRef Name="product_price_id" />
+      </Principal>
+      <Dependent Role="DOC_Detail">
+        <PropertyRef Name="product_price_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOC_Detail_MAS_Warehouse">
+    <End Role="MAS_Warehouse" Type="Self.MAS_Warehouse" Multiplicity="0..1" />
+    <End Role="DOC_Detail" Type="Self.DOC_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Warehouse">
+        <PropertyRef Name="warehouse_id" />
+      </Principal>
+      <Dependent Role="DOC_Detail">
+        <PropertyRef Name="detail_warehouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOC_Header_DOC_SubDocType">
+    <End Role="DOC_SubDocType" Type="Self.DOC_SubDocType" Multiplicity="0..1" />
+    <End Role="DOC_Header" Type="Self.DOC_Header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOC_SubDocType">
+        <PropertyRef Name="subDocTypeID" />
+      </Principal>
+      <Dependent Role="DOC_Header">
+        <PropertyRef Name="subDocTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOC_SubDocType_DOC_DocType">
+    <End Role="DOC_Doctype" Type="Self.DOC_Doctype" Multiplicity="1" />
+    <End Role="DOC_SubDocType" Type="Self.DOC_SubDocType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOC_Doctype">
+        <PropertyRef Name="doctype_id" />
+      </Principal>
+      <Dependent Role="DOC_SubDocType">
+        <PropertyRef Name="doctype_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_District_MAS_Province">
+    <End Role="MAS_Province" Type="Self.MAS_Province" Multiplicity="0..1" />
+    <End Role="MAS_District" Type="Self.MAS_District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Province">
+        <PropertyRef Name="provinceID" />
+      </Principal>
+      <Dependent Role="MAS_District">
+        <PropertyRef Name="provinceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Ingredient_MAS_Product">
+    <End Role="MAS_Product" Type="Self.MAS_Product" Multiplicity="0..1" />
+    <End Role="MAS_Ingredient" Type="Self.MAS_Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="MAS_Ingredient">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Product_MAS_Subcategories">
+    <End Role="MAS_Subcategories" Type="Self.MAS_Subcategories" Multiplicity="0..1" />
+    <End Role="MAS_Product" Type="Self.MAS_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Subcategories">
+        <PropertyRef Name="subcategories_id" />
+      </Principal>
+      <Dependent Role="MAS_Product">
+        <PropertyRef Name="subcategories_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Product_Price_MAS_Product">
+    <End Role="MAS_Product" Type="Self.MAS_Product" Multiplicity="0..1" />
+    <End Role="MAS_Product_Price" Type="Self.MAS_Product_Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Product">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="MAS_Product_Price">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Product_Price_MAS_Unit">
+    <End Role="MAS_Unit" Type="Self.MAS_Unit" Multiplicity="1" />
+    <End Role="MAS_Product_Price" Type="Self.MAS_Product_Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Unit">
+        <PropertyRef Name="unit_id" />
+      </Principal>
+      <Dependent Role="MAS_Product_Price">
+        <PropertyRef Name="unit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Province_MAS_Country">
+    <End Role="MAS_Country" Type="Self.MAS_Country" Multiplicity="0..1" />
+    <End Role="MAS_Province" Type="Self.MAS_Province" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Country">
+        <PropertyRef Name="countryID" />
+      </Principal>
+      <Dependent Role="MAS_Province">
+        <PropertyRef Name="countryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Province_MAS_Geography">
+    <End Role="MAS_Geography" Type="Self.MAS_Geography" Multiplicity="0..1" />
+    <End Role="MAS_Province" Type="Self.MAS_Province" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Geography">
+        <PropertyRef Name="geographyID" />
+      </Principal>
+      <Dependent Role="MAS_Province">
+        <PropertyRef Name="geographyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_Subcategories_MAS_Categories">
+    <End Role="MAS_Categories" Type="Self.MAS_Categories" Multiplicity="0..1" />
+    <End Role="MAS_Subcategories" Type="Self.MAS_Subcategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_Categories">
+        <PropertyRef Name="categories_id" />
+      </Principal>
+      <Dependent Role="MAS_Subcategories">
+        <PropertyRef Name="categories_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MAS_SubDistrict_MAS_District">
+    <End Role="MAS_District" Type="Self.MAS_District" Multiplicity="0..1" />
+    <End Role="MAS_SubDistrict" Type="Self.MAS_SubDistrict" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAS_District">
+        <PropertyRef Name="districtID" />
+      </Principal>
+      <Dependent Role="MAS_SubDistrict">
+        <PropertyRef Name="districtID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_Role_Submenu_USR_Role">
+    <End Role="USR_Role" Type="Self.USR_Role" Multiplicity="1" />
+    <End Role="USR_Role_Submenu" Type="Self.USR_Role_Submenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_Role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="USR_Role_Submenu">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_Role_Submenu_USR_Submenu">
+    <End Role="USR_Submenu" Type="Self.USR_Submenu" Multiplicity="1" />
+    <End Role="USR_Role_Submenu" Type="Self.USR_Role_Submenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_Submenu">
+        <PropertyRef Name="submenu_id" />
+      </Principal>
+      <Dependent Role="USR_Role_Submenu">
+        <PropertyRef Name="submenu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_Submenu_USR_Menu">
+    <End Role="USR_Menu" Type="Self.USR_Menu" Multiplicity="0..1" />
+    <End Role="USR_Submenu" Type="Self.USR_Submenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_Menu">
+        <PropertyRef Name="menu_id" />
+      </Principal>
+      <Dependent Role="USR_Submenu">
+        <PropertyRef Name="menu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_User_Profile_USR_Title">
+    <End Role="USR_Title" Type="Self.USR_Title" Multiplicity="0..1" />
+    <End Role="USR_User_Profile" Type="Self.USR_User_Profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_Title">
+        <PropertyRef Name="title_id" />
+      </Principal>
+      <Dependent Role="USR_User_Profile">
+        <PropertyRef Name="title_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_User_Role_USR_Role">
+    <End Role="USR_Role" Type="Self.USR_Role" Multiplicity="1" />
+    <End Role="USR_User_Role" Type="Self.USR_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_Role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="USR_User_Role">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_User_Role_USR_User">
+    <End Role="USR_User" Type="Self.USR_User" Multiplicity="1" />
+    <End Role="USR_User_Role" Type="Self.USR_User_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USR_User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="USR_User_Role">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_DOC_Detail_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="detail_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Detail_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_DOC_Detail_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="header_id" Type="int" Mode="In" />
+    <Parameter Name="detail_status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Detail_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="detail_id" Type="int" Mode="InOut" />
+    <Parameter Name="header_id" Type="int" Mode="In" />
+    <Parameter Name="product_id" Type="int" Mode="In" />
+    <Parameter Name="product_price_id" Type="int" Mode="In" />
+    <Parameter Name="product_price_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="product_price_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="unit_id" Type="int" Mode="In" />
+    <Parameter Name="unit_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="detail_qty" Type="int" Mode="In" />
+    <Parameter Name="detail_price" Type="decimal" Mode="In" />
+    <Parameter Name="detail_discount" Type="decimal" Mode="In" />
+    <Parameter Name="detail_total" Type="decimal" Mode="In" />
+    <Parameter Name="detail_status" Type="int" Mode="In" />
+    <Parameter Name="detail_remark" Type="nvarchar" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="used_qty" Type="int" Mode="In" />
+    <Parameter Name="detail_warehouse" Type="int" Mode="In" />
+    <Parameter Name="subDocTypeID" Type="int" Mode="In" />
+    <Parameter Name="unit_value" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Doctype_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="doctype_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Doctype_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_DOC_Doctype_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="doctype_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Header_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="header_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Header_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="searchText" Type="nvarchar" Mode="In" />
+    <Parameter Name="subdoctype_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Header_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="header_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Header_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="header_id" Type="int" Mode="InOut" />
+    <Parameter Name="header_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="header_date" Type="date" Mode="In" />
+    <Parameter Name="header_date_from" Type="date" Mode="In" />
+    <Parameter Name="header_date_to" Type="date" Mode="In" />
+    <Parameter Name="header_supplier_id" Type="int" Mode="In" />
+    <Parameter Name="header_supplier_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="header_customer_id" Type="int" Mode="In" />
+    <Parameter Name="header_customer_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="header_address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="header_remark" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="header_status" Type="int" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+    <Parameter Name="subDocTypeID" Type="int" Mode="In" />
+    <Parameter Name="vat_id" Type="int" Mode="In" />
+    <Parameter Name="payment_id" Type="int" Mode="In" />
+    <Parameter Name="payment_date" Type="date" Mode="In" />
+    <Parameter Name="header_warehouse_from" Type="int" Mode="In" />
+    <Parameter Name="header_warehouse_to" Type="int" Mode="In" />
+    <Parameter Name="header_total" Type="decimal" Mode="In" />
+    <Parameter Name="header_receive" Type="decimal" Mode="In" />
+    <Parameter Name="header_discout" Type="decimal" Mode="In" />
+    <Parameter Name="header_vat" Type="decimal" Mode="In" />
+    <Parameter Name="header_net" Type="decimal" Mode="In" />
+    <Parameter Name="header_deposit" Type="decimal" Mode="In" />
+    <Parameter Name="header_refund" Type="decimal" Mode="In" />
+    <Parameter Name="header_ref" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Product_Move_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="detail_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Product_Move_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_DOC_Product_Move_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="detail_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Product_Move_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="detail_id" Type="int" Mode="InOut" />
+    <Parameter Name="product_id" Type="int" Mode="In" />
+    <Parameter Name="unit_id" Type="int" Mode="In" />
+    <Parameter Name="unit_value" Type="int" Mode="In" />
+    <Parameter Name="detail_qty" Type="int" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Status_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="status_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Status_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_DOC_Status_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="status_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_DOC_Status_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="status_id" Type="int" Mode="InOut" />
+    <Parameter Name="status_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="status_value" Type="int" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Categories_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categories_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Categories_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="searchText" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Categories_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categories_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Categories_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categories_id" Type="int" Mode="InOut" />
+    <Parameter Name="categories_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="categories_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="categories_index" Type="float" Mode="In" />
+    <Parameter Name="description" Type="nvarchar" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Customer_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customer_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Customer_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="searchText" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Customer_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customer_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Customer_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customer_id" Type="int" Mode="InOut" />
+    <Parameter Name="customer_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="customer_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="customer_tel1" Type="nvarchar" Mode="In" />
+    <Parameter Name="customer_tel2" Type="nvarchar" Mode="In" />
+    <Parameter Name="customer_fax" Type="nvarchar" Mode="In" />
+    <Parameter Name="customer_email" Type="nvarchar" Mode="In" />
+    <Parameter Name="customer_address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="customer_subdistict" Type="int" Mode="In" />
+    <Parameter Name="customer_distict" Type="int" Mode="In" />
+    <Parameter Name="customer_province" Type="int" Mode="In" />
+    <Parameter Name="customer_zipcode" Type="nvarchar" Mode="In" />
+    <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Ingredient_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ingredient_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Ingredient_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_MAS_Ingredient_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Ingredient_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ingredient_id" Type="int" Mode="InOut" />
+    <Parameter Name="product_id" Type="int" Mode="In" />
+    <Parameter Name="ingredient_product" Type="int" Mode="In" />
+    <Parameter Name="product_unit" Type="nvarchar" Mode="In" />
+    <Parameter Name="product_qty" Type="nvarchar" Mode="In" />
+    <Parameter Name="is_default" Type="bit" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Product_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Product_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="searchText" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Product_Price_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_price_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Product_Price_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Product_Price_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_price_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Product_Price_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_price_id" Type="int" Mode="InOut" />
+    <Parameter Name="product_price_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="product_price_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="unit_id" Type="int" Mode="In" />
+    <Parameter Name="cost" Type="decimal" Mode="In" />
+    <Parameter Name="price_Cash" Type="decimal" Mode="In" />
+    <Parameter Name="price_Credit" Type="decimal" Mode="In" />
+    <Parameter Name="price_CashExtra" Type="decimal" Mode="In" />
+    <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="categories_id" Type="int" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+    <Parameter Name="product_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Product_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Product_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_id" Type="int" Mode="InOut" />
+    <Parameter Name="product_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="product_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+    <Parameter Name="subcategories_id" Type="int" Mode="In" />
+    <Parameter Name="warehouse_default" Type="int" Mode="In" />
+    <Parameter Name="product_unit" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Subcategories_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="subcategories_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Subcategories_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categories_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Subcategories_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="subcategories_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Subcategories_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="subcategories_id" Type="int" Mode="InOut" />
+    <Parameter Name="subcategories_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="subcategories_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="subcategories_index" Type="float" Mode="In" />
+    <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="categories_id" Type="int" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Supplier_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="supplier_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Supplier_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="searchText" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Supplier_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="supplier_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Supplier_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="supplier_id" Type="int" Mode="InOut" />
+    <Parameter Name="supplier_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="supplier_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="supplier_tel1" Type="nvarchar" Mode="In" />
+    <Parameter Name="supplier_tel2" Type="nvarchar" Mode="In" />
+    <Parameter Name="supplier_fax" Type="nvarchar" Mode="In" />
+    <Parameter Name="supplier_email" Type="nvarchar" Mode="In" />
+    <Parameter Name="supplier_address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="supplier_subdistict" Type="int" Mode="In" />
+    <Parameter Name="supplier_distict" Type="int" Mode="In" />
+    <Parameter Name="supplier_province" Type="int" Mode="In" />
+    <Parameter Name="supplier_zipcode" Type="nvarchar" Mode="In" />
+    <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Unit_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="unit_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Unit_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="searchText" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Unit_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="unit_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MAS_Unit_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="unit_id" Type="int" Mode="InOut" />
+    <Parameter Name="unit_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="unit_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="unit_value" Type="int" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_MaxID_Categories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_MaxID_Customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_MaxID_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_MaxID_Product_Price" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_MaxID_Subcategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_MaxID_Supplier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_MaxID_Title" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_MaxID_Unit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_MaxID_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_SelectAddress_Customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customer_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_SelectAddress_Supplier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="supplier_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_SelectDetail_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="header_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_SelectDocBookink_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchText" Type="nvarchar" Mode="In" />
+    <Parameter Name="Customer_Id" Type="int" Mode="In" />
+    <Parameter Name="SearchDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="udp_SelectDocCus_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchText" Type="nvarchar" Mode="In" />
+    <Parameter Name="Customer_Id" Type="int" Mode="In" />
+    <Parameter Name="SearchDate" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_SelectDocSup_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchText" Type="nvarchar" Mode="In" />
+    <Parameter Name="Supplyer_Id" Type="int" Mode="In" />
+    <Parameter Name="SearchDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="udp_SelectIngredient_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_SelectPrice_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_SelectProduct_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchText" Type="nvarchar" Mode="In" />
+    <Parameter Name="Categories_Id" Type="int" Mode="In" />
+    <Parameter Name="SubCategories_Id" Type="int" Mode="In" />
+    <Parameter Name="WareHouseID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_SelectProductPrice_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_price_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_SelectUser_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchText" Type="nvarchar" Mode="In" />
+    <Parameter Name="SearchName" Type="nvarchar" Mode="In" />
+    <Parameter Name="SearchLastname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_sysdiagrams_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_sysdiagrams_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Menu_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="menu_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Menu_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_USR_Menu_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="menu_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Menu_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="menu_id" Type="int" Mode="InOut" />
+    <Parameter Name="menu_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="menu_name_eng" Type="nvarchar" Mode="In" />
+    <Parameter Name="menu_name_thai" Type="nvarchar" Mode="In" />
+    <Parameter Name="menu_value" Type="int" Mode="In" />
+    <Parameter Name="menu_index" Type="int" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Role_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="role_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Role_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="searchText" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Role_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="role_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Role_Submenu_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_USR_Role_Submenu_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="role_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Role_Submenu_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="role_id" Type="int" Mode="InOut" />
+    <Parameter Name="submenu_id" Type="int" Mode="In" />
+    <Parameter Name="is_view" Type="bit" Mode="In" />
+    <Parameter Name="is_add" Type="bit" Mode="In" />
+    <Parameter Name="is_edit" Type="bit" Mode="In" />
+    <Parameter Name="is_delete" Type="bit" Mode="In" />
+    <Parameter Name="is_search" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Role_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="role_id" Type="int" Mode="InOut" />
+    <Parameter Name="role_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="role_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="role_value" Type="int" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Submenu_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="submenu_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Submenu_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_USR_Submenu_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="submenu_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Submenu_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="submenu_id" Type="int" Mode="InOut" />
+    <Parameter Name="submenu_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="submenu_name_eng" Type="nvarchar" Mode="In" />
+    <Parameter Name="submenu_name_thai" Type="nvarchar" Mode="In" />
+    <Parameter Name="submenu_value" Type="int" Mode="In" />
+    <Parameter Name="submenu_index" Type="int" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="menu_id" Type="int" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Title_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="title_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Title_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="searchText" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Title_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="title_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_Title_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="title_id" Type="int" Mode="InOut" />
+    <Parameter Name="title_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="title_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_User_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_User_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="searchText" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_User_Profile_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_profile_id" Type="int" Mode="In" />
+    <Parameter Name="user_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_User_Profile_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="searchText" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_User_Profile_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_profile_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_User_Profile_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_profile_id" Type="int" Mode="InOut" />
+    <Parameter Name="title_id" Type="int" Mode="In" />
+    <Parameter Name="emp_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastname" Type="nvarchar" Mode="In" />
+    <Parameter Name="age" Type="int" Mode="In" />
+    <Parameter Name="bithdate" Type="date" Mode="In" />
+    <Parameter Name="tel" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="subdistict" Type="int" Mode="In" />
+    <Parameter Name="distict" Type="int" Mode="In" />
+    <Parameter Name="province" Type="int" Mode="In" />
+    <Parameter Name="zipcode" Type="nvarchar" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+    <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="card" Type="nchar" Mode="In" />
+    <Parameter Name="pic" Type="image" Mode="In" />
+    <Parameter Name="pic_filename" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_User_Role_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_User_Role_lst" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="udp_USR_User_Role_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="role_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_User_Role_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="running_id" Type="int" Mode="InOut" />
+    <Parameter Name="role_id" Type="int" Mode="In" />
+    <Parameter Name="user_id" Type="int" Mode="In" />
+    <Parameter Name="user_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_User_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_profile_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="udp_USR_User_ups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_id" Type="int" Mode="InOut" />
+    <Parameter Name="user_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="user_namedis" Type="nvarchar" Mode="In" />
+    <Parameter Name="user_password" Type="nvarchar" Mode="In" />
+    <Parameter Name="user_type" Type="int" Mode="In" />
+    <Parameter Name="is_enabled" Type="bit" Mode="In" />
+    <Parameter Name="is_del" Type="bit" Mode="In" />
+    <Parameter Name="create_date" Type="datetime" Mode="In" />
+    <Parameter Name="create_by" Type="int" Mode="In" />
+    <Parameter Name="update_date" Type="datetime" Mode="In" />
+    <Parameter Name="update_by" Type="int" Mode="In" />
+    <Parameter Name="user_profile_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="up_login_login_sel_byID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="user_password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="up_Report_Bill_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="header_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="up_Report_TransAll_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DocTypeID" Type="int" Mode="In" />
+    <Parameter Name="wareHouseID" Type="int" Mode="In" />
+    <Parameter Name="productID" Type="int" Mode="In" />
+    <Parameter Name="SubDocTypeID" Type="int" Mode="In" />
+    <Parameter Name="header_date_from" Type="nvarchar" Mode="In" />
+    <Parameter Name="header_date_to" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="WebToolsStoreModelStoreContainer">
+    <EntitySet Name="DOC_Detail" EntityType="Self.DOC_Detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOC_Detail_Ingredient" EntityType="Self.DOC_Detail_Ingredient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOC_Doctype" EntityType="Self.DOC_Doctype" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOC_Header" EntityType="Self.DOC_Header" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOC_Product_Move" EntityType="Self.DOC_Product_Move" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOC_Status" EntityType="Self.DOC_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOC_SubDocType" EntityType="Self.DOC_SubDocType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Categories" EntityType="Self.MAS_Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Country" EntityType="Self.MAS_Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Customer" EntityType="Self.MAS_Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_District" EntityType="Self.MAS_District" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Geography" EntityType="Self.MAS_Geography" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Ingredient" EntityType="Self.MAS_Ingredient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Product" EntityType="Self.MAS_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Product_Price" EntityType="Self.MAS_Product_Price" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Province" EntityType="Self.MAS_Province" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Subcategories" EntityType="Self.MAS_Subcategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_SubDistrict" EntityType="Self.MAS_SubDistrict" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Supplier" EntityType="Self.MAS_Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Unit" EntityType="Self.MAS_Unit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAS_Warehouse" EntityType="Self.MAS_Warehouse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USR_Menu" EntityType="Self.USR_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USR_Role" EntityType="Self.USR_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USR_Role_Submenu" EntityType="Self.USR_Role_Submenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USR_Submenu" EntityType="Self.USR_Submenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USR_Title" EntityType="Self.USR_Title" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USR_User" EntityType="Self.USR_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USR_User_Profile" EntityType="Self.USR_User_Profile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USR_User_Role" EntityType="Self.USR_User_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="v_detailStatus" EntityType="Self.v_detailStatus" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_detailStatus].[StatusID] AS [StatusID], 
+[v_detailStatus].[detail_status] AS [detail_status]
+FROM [dbo].[v_detailStatus] AS [v_detailStatus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_Payment" EntityType="Self.v_Payment" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_Payment].[PaymentID] AS [PaymentID], 
+[v_Payment].[PaymentNameTH] AS [PaymentNameTH]
+FROM [dbo].[v_Payment] AS [v_Payment]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_transAll" EntityType="Self.v_transAll" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_transAll].[header_id] AS [header_id], 
+[v_transAll].[header_customer_id] AS [header_customer_id], 
+[v_transAll].[header_customer_name] AS [header_customer_name], 
+[v_transAll].[header_supplier_id] AS [header_supplier_id], 
+[v_transAll].[header_supplier_name] AS [header_supplier_name], 
+[v_transAll].[header_address] AS [header_address], 
+[v_transAll].[header_date] AS [header_date], 
+[v_transAll].[create_by] AS [create_by], 
+[v_transAll].[header_total] AS [header_total], 
+[v_transAll].[header_discout] AS [header_discout], 
+[v_transAll].[header_vat] AS [header_vat], 
+[v_transAll].[header_net] AS [header_net], 
+[v_transAll].[header_receive] AS [header_receive], 
+[v_transAll].[header_deposit] AS [header_deposit], 
+[v_transAll].[header_refund] AS [header_refund], 
+[v_transAll].[header_remark] AS [header_remark], 
+[v_transAll].[doctype_name] AS [doctype_name], 
+[v_transAll].[detail_discount] AS [detail_discount], 
+[v_transAll].[detail_price] AS [detail_price], 
+[v_transAll].[detail_qty] AS [detail_qty], 
+[v_transAll].[detail_total] AS [detail_total], 
+[v_transAll].[unit_name] AS [unit_name], 
+[v_transAll].[product_price_name] AS [product_price_name], 
+[v_transAll].[header_date_from] AS [header_date_from], 
+[v_transAll].[header_date_to] AS [header_date_to], 
+[v_transAll].[create_date] AS [create_date], 
+[v_transAll].[product_price_code] AS [product_price_code], 
+[v_transAll].[used_qty] AS [used_qty], 
+[v_transAll].[PaymentNameTH] AS [PaymentNameTH], 
+[v_transAll].[header_code] AS [header_code], 
+[v_transAll].[detail_id] AS [detail_id], 
+[v_transAll].[product_id] AS [product_id], 
+[v_transAll].[subDocTypeName] AS [subDocTypeName], 
+[v_transAll].[subDocTypeID] AS [subDocTypeID], 
+[v_transAll].[warehouse_name] AS [warehouse_name], 
+[v_transAll].[detail_warehouse] AS [detail_warehouse], 
+[v_transAll].[doctype_id] AS [doctype_id], 
+[v_transAll].[payment_id] AS [payment_id]
+FROM [dbo].[v_transAll] AS [v_transAll]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_vatType" EntityType="Self.v_vatType" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_vatType].[vatTypeID] AS [vatTypeID], 
+[v_vatType].[vatTypeNameTH] AS [vatTypeNameTH]
+FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_DOC_Detail_DOC_Header" Association="Self.FK_DOC_Detail_DOC_Header">
+      <End Role="DOC_Header" EntitySet="DOC_Header" />
+      <End Role="DOC_Detail" EntitySet="DOC_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOC_Detail_Ingredient_DOC_Detail" Association="Self.FK_DOC_Detail_Ingredient_DOC_Detail">
+      <End Role="DOC_Detail" EntitySet="DOC_Detail" />
+      <End Role="DOC_Detail_Ingredient" EntitySet="DOC_Detail_Ingredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOC_Detail_MAS_Product" Association="Self.FK_DOC_Detail_MAS_Product">
+      <End Role="MAS_Product" EntitySet="MAS_Product" />
+      <End Role="DOC_Detail" EntitySet="DOC_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOC_Detail_MAS_Product_Price" Association="Self.FK_DOC_Detail_MAS_Product_Price">
+      <End Role="MAS_Product_Price" EntitySet="MAS_Product_Price" />
+      <End Role="DOC_Detail" EntitySet="DOC_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOC_Detail_MAS_Warehouse" Association="Self.FK_DOC_Detail_MAS_Warehouse">
+      <End Role="MAS_Warehouse" EntitySet="MAS_Warehouse" />
+      <End Role="DOC_Detail" EntitySet="DOC_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOC_Header_DOC_SubDocType" Association="Self.FK_DOC_Header_DOC_SubDocType">
+      <End Role="DOC_SubDocType" EntitySet="DOC_SubDocType" />
+      <End Role="DOC_Header" EntitySet="DOC_Header" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOC_SubDocType_DOC_DocType" Association="Self.FK_DOC_SubDocType_DOC_DocType">
+      <End Role="DOC_Doctype" EntitySet="DOC_Doctype" />
+      <End Role="DOC_SubDocType" EntitySet="DOC_SubDocType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_District_MAS_Province" Association="Self.FK_MAS_District_MAS_Province">
+      <End Role="MAS_Province" EntitySet="MAS_Province" />
+      <End Role="MAS_District" EntitySet="MAS_District" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Ingredient_MAS_Product" Association="Self.FK_MAS_Ingredient_MAS_Product">
+      <End Role="MAS_Product" EntitySet="MAS_Product" />
+      <End Role="MAS_Ingredient" EntitySet="MAS_Ingredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Product_MAS_Subcategories" Association="Self.FK_MAS_Product_MAS_Subcategories">
+      <End Role="MAS_Subcategories" EntitySet="MAS_Subcategories" />
+      <End Role="MAS_Product" EntitySet="MAS_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Product_Price_MAS_Product" Association="Self.FK_MAS_Product_Price_MAS_Product">
+      <End Role="MAS_Product" EntitySet="MAS_Product" />
+      <End Role="MAS_Product_Price" EntitySet="MAS_Product_Price" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Product_Price_MAS_Unit" Association="Self.FK_MAS_Product_Price_MAS_Unit">
+      <End Role="MAS_Unit" EntitySet="MAS_Unit" />
+      <End Role="MAS_Product_Price" EntitySet="MAS_Product_Price" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Province_MAS_Country" Association="Self.FK_MAS_Province_MAS_Country">
+      <End Role="MAS_Country" EntitySet="MAS_Country" />
+      <End Role="MAS_Province" EntitySet="MAS_Province" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Province_MAS_Geography" Association="Self.FK_MAS_Province_MAS_Geography">
+      <End Role="MAS_Geography" EntitySet="MAS_Geography" />
+      <End Role="MAS_Province" EntitySet="MAS_Province" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_Subcategories_MAS_Categories" Association="Self.FK_MAS_Subcategories_MAS_Categories">
+      <End Role="MAS_Categories" EntitySet="MAS_Categories" />
+      <End Role="MAS_Subcategories" EntitySet="MAS_Subcategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MAS_SubDistrict_MAS_District" Association="Self.FK_MAS_SubDistrict_MAS_District">
+      <End Role="MAS_District" EntitySet="MAS_District" />
+      <End Role="MAS_SubDistrict" EntitySet="MAS_SubDistrict" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_Role_Submenu_USR_Role" Association="Self.FK_USR_Role_Submenu_USR_Role">
+      <End Role="USR_Role" EntitySet="USR_Role" />
+      <End Role="USR_Role_Submenu" EntitySet="USR_Role_Submenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_Role_Submenu_USR_Submenu" Association="Self.FK_USR_Role_Submenu_USR_Submenu">
+      <End Role="USR_Submenu" EntitySet="USR_Submenu" />
+      <End Role="USR_Role_Submenu" EntitySet="USR_Role_Submenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_Submenu_USR_Menu" Association="Self.FK_USR_Submenu_USR_Menu">
+      <End Role="USR_Menu" EntitySet="USR_Menu" />
+      <End Role="USR_Submenu" EntitySet="USR_Submenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_User_Profile_USR_Title" Association="Self.FK_USR_User_Profile_USR_Title">
+      <End Role="USR_Title" EntitySet="USR_Title" />
+      <End Role="USR_User_Profile" EntitySet="USR_User_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_User_Role_USR_Role" Association="Self.FK_USR_User_Role_USR_Role">
+      <End Role="USR_Role" EntitySet="USR_Role" />
+      <End Role="USR_User_Role" EntitySet="USR_User_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_User_Role_USR_User" Association="Self.FK_USR_User_Role_USR_User">
+      <End Role="USR_User" EntitySet="USR_User" />
+      <End Role="USR_User_Role" EntitySet="USR_User_Role" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

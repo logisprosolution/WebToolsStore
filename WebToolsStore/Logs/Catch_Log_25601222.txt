@@ -1,0 +1,80 @@
+
+Log Entry : 0:16:49 22 ธันวาคม 2560
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_MAS_Subcategories_MAS_Categories". The conflict occurred in database "WebToolsStore", table "dbo.MAS_Categories", column 'categories_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 0:33:05 22 ธันวาคม 2560
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_MAS_Subcategories_MAS_Categories". The conflict occurred in database "WebToolsStore", table "dbo.MAS_Categories", column 'categories_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 0:34:17 22 ธันวาคม 2560
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_MAS_Subcategories_MAS_Categories". The conflict occurred in database "WebToolsStore", table "dbo.MAS_Categories", column 'categories_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 0:34:54 22 ธันวาคม 2560
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_MAS_Subcategories_MAS_Categories". The conflict occurred in database "WebToolsStore", table "dbo.MAS_Categories", column 'categories_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 0:38:24 22 ธันวาคม 2560
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_MAS_Subcategories_MAS_Categories". The conflict occurred in database "WebToolsStore", table "dbo.MAS_Categories", column 'categories_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 0:51:04 22 ธันวาคม 2560
+  :
+Exception Message:Procedure or function 'udp_MAS_Subcategories_sel' expects parameter '@subcategories_id', which was not supplied.
+-------------------------------
+
+Log Entry : 1:09:32 22 ธันวาคม 2560
+  :
+Exception Message:Procedure udp_MAS_Subcategories_lst has no parameters and arguments were supplied.
+-------------------------------
+
+Log Entry : 2:13:46 22 ธันวาคม 2560
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 2:16:23 22 ธันวาคม 2560
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 2:57:11 22 ธันวาคม 2560
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 3:01:46 22 ธันวาคม 2560
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 3:57:06 22 ธันวาคม 2560
+  :
+Exception Message:Column 'title_id' does not belong to table SelectCategories.
+-------------------------------
+
+Log Entry : 15:30:52 22 ธันวาคม 2560
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 15:32:54 22 ธันวาคม 2560
+  :
+Exception Message:Invalid column name 'descrription'.
+-------------------------------
+
+Log Entry : 15:42:10 22 ธันวาคม 2560
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------

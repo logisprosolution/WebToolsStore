@@ -1,0 +1,1593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WebToolsStoreModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="DOC_Detail">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Detail">
+        <MappingFragment StoreEntitySet="DOC_Detail">
+          <ScalarProperty Name="unit_value" ColumnName="unit_value" />
+          <ScalarProperty Name="detail_id" ColumnName="detail_id" />
+          <ScalarProperty Name="header_id" ColumnName="header_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
+          <ScalarProperty Name="product_price_code" ColumnName="product_price_code" />
+          <ScalarProperty Name="product_price_name" ColumnName="product_price_name" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="detail_qty" ColumnName="detail_qty" />
+          <ScalarProperty Name="detail_price" ColumnName="detail_price" />
+          <ScalarProperty Name="detail_discount" ColumnName="detail_discount" />
+          <ScalarProperty Name="detail_total" ColumnName="detail_total" />
+          <ScalarProperty Name="detail_status" ColumnName="detail_status" />
+          <ScalarProperty Name="detail_remark" ColumnName="detail_remark" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="detail_warehouse" ColumnName="detail_warehouse" />
+          <ScalarProperty Name="used_qty" ColumnName="used_qty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOC_Doctype">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Doctype">
+        <MappingFragment StoreEntitySet="DOC_Doctype">
+          <ScalarProperty Name="doctype_id" ColumnName="doctype_id" />
+          <ScalarProperty Name="doctype_code" ColumnName="doctype_code" />
+          <ScalarProperty Name="doctype_name" ColumnName="doctype_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOC_Header">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Header">
+        <MappingFragment StoreEntitySet="DOC_Header">
+          <ScalarProperty Name="header_id" ColumnName="header_id" />
+          <ScalarProperty Name="header_code" ColumnName="header_code" />
+          <ScalarProperty Name="header_date" ColumnName="header_date" />
+          <ScalarProperty Name="header_date_from" ColumnName="header_date_from" />
+          <ScalarProperty Name="header_date_to" ColumnName="header_date_to" />
+          <ScalarProperty Name="header_supplier_id" ColumnName="header_supplier_id" />
+          <ScalarProperty Name="header_supplier_name" ColumnName="header_supplier_name" />
+          <ScalarProperty Name="header_customer_id" ColumnName="header_customer_id" />
+          <ScalarProperty Name="header_customer_name" ColumnName="header_customer_name" />
+          <ScalarProperty Name="header_address" ColumnName="header_address" />
+          <ScalarProperty Name="header_remark" ColumnName="header_remark" />
+          <ScalarProperty Name="header_status" ColumnName="header_status" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="subDocTypeID" ColumnName="subDocTypeID" />
+          <ScalarProperty Name="vat_id" ColumnName="vat_id" />
+          <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+          <ScalarProperty Name="payment_date" ColumnName="payment_date" />
+          <ScalarProperty Name="header_warehouse_from" ColumnName="header_warehouse_from" />
+          <ScalarProperty Name="header_warehouse_to" ColumnName="header_warehouse_to" />
+          <ScalarProperty Name="header_total" ColumnName="header_total" />
+          <ScalarProperty Name="header_receive" ColumnName="header_receive" />
+          <ScalarProperty Name="header_discout" ColumnName="header_discout" />
+          <ScalarProperty Name="header_vat" ColumnName="header_vat" />
+          <ScalarProperty Name="header_net" ColumnName="header_net" />
+          <ScalarProperty Name="header_deposit" ColumnName="header_deposit" />
+          <ScalarProperty Name="header_refund" ColumnName="header_refund" />
+          <ScalarProperty Name="header_ref" ColumnName="header_ref" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOC_Product_Move">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Product_Move">
+        <MappingFragment StoreEntitySet="DOC_Product_Move">
+          <ScalarProperty Name="detail_id" ColumnName="detail_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_value" ColumnName="unit_value" />
+          <ScalarProperty Name="detail_qty" ColumnName="detail_qty" />
+          <ScalarProperty Name="product_price" ColumnName="product_price" />
+          <ScalarProperty Name="product_cost" ColumnName="product_cost" />
+          <ScalarProperty Name="prduct_vat" ColumnName="prduct_vat" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="warehouse_id" ColumnName="warehouse_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOC_Status">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Status">
+        <MappingFragment StoreEntitySet="DOC_Status">
+          <ScalarProperty Name="status_group" ColumnName="status_group" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="status_name" ColumnName="status_name" />
+          <ScalarProperty Name="status_value" ColumnName="status_value" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOC_SubDocType">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_SubDocType">
+        <MappingFragment StoreEntitySet="DOC_SubDocType">
+          <ScalarProperty Name="subDocTypeID" ColumnName="subDocTypeID" />
+          <ScalarProperty Name="subDocTypeCode" ColumnName="subDocTypeCode" />
+          <ScalarProperty Name="subDocTypeName" ColumnName="subDocTypeName" />
+          <ScalarProperty Name="doctype_id" ColumnName="doctype_id" />
+          <ScalarProperty Name="seq" ColumnName="seq" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="isEnabled" ColumnName="isEnabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="create_ip" ColumnName="create_ip" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="update_ip" ColumnName="update_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Categories">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Categories">
+        <MappingFragment StoreEntitySet="MAS_Categories">
+          <ScalarProperty Name="categories_id" ColumnName="categories_id" />
+          <ScalarProperty Name="categories_code" ColumnName="categories_code" />
+          <ScalarProperty Name="categories_name" ColumnName="categories_name" />
+          <ScalarProperty Name="categories_index" ColumnName="categories_index" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Country">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Country">
+        <MappingFragment StoreEntitySet="MAS_Country">
+          <ScalarProperty Name="countryID" ColumnName="countryID" />
+          <ScalarProperty Name="countryCode" ColumnName="countryCode" />
+          <ScalarProperty Name="countryNameTH" ColumnName="countryNameTH" />
+          <ScalarProperty Name="countryNameEN" ColumnName="countryNameEN" />
+          <ScalarProperty Name="isEnabled" ColumnName="isEnabled" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="create_ip" ColumnName="create_ip" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="update_ip" ColumnName="update_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Customer">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Customer">
+        <MappingFragment StoreEntitySet="MAS_Customer">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="customer_code" ColumnName="customer_code" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_tel1" ColumnName="customer_tel1" />
+          <ScalarProperty Name="customer_tel2" ColumnName="customer_tel2" />
+          <ScalarProperty Name="customer_fax" ColumnName="customer_fax" />
+          <ScalarProperty Name="customer_email" ColumnName="customer_email" />
+          <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+          <ScalarProperty Name="customer_subdistict" ColumnName="customer_subdistict" />
+          <ScalarProperty Name="customer_distict" ColumnName="customer_distict" />
+          <ScalarProperty Name="customer_province" ColumnName="customer_province" />
+          <ScalarProperty Name="customer_zipcode" ColumnName="customer_zipcode" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_District">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_District">
+        <MappingFragment StoreEntitySet="MAS_District">
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="districtCode" ColumnName="districtCode" />
+          <ScalarProperty Name="districtNameTH" ColumnName="districtNameTH" />
+          <ScalarProperty Name="districtNameEN" ColumnName="districtNameEN" />
+          <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+          <ScalarProperty Name="geographyID" ColumnName="geographyID" />
+          <ScalarProperty Name="provinceID" ColumnName="provinceID" />
+          <ScalarProperty Name="isEnabled" ColumnName="isEnabled" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="create_ip" ColumnName="create_ip" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="update_ip" ColumnName="update_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Geography">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Geography">
+        <MappingFragment StoreEntitySet="MAS_Geography">
+          <ScalarProperty Name="geographyID" ColumnName="geographyID" />
+          <ScalarProperty Name="geographyCode" ColumnName="geographyCode" />
+          <ScalarProperty Name="geographyNameTH" ColumnName="geographyNameTH" />
+          <ScalarProperty Name="geographyNameEN" ColumnName="geographyNameEN" />
+          <ScalarProperty Name="isEnabled" ColumnName="isEnabled" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="create_ip" ColumnName="create_ip" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="update_ip" ColumnName="update_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Ingredient">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Ingredient">
+        <MappingFragment StoreEntitySet="MAS_Ingredient">
+          <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
+          <ScalarProperty Name="ingredient_product" ColumnName="ingredient_product" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_unit" ColumnName="product_unit" />
+          <ScalarProperty Name="product_qty" ColumnName="product_qty" />
+          <ScalarProperty Name="is_default" ColumnName="is_default" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Product">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Product">
+        <MappingFragment StoreEntitySet="MAS_Product">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_code" ColumnName="product_code" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_pic" ColumnName="product_pic" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="subcategories_id" ColumnName="subcategories_id" />
+          <ScalarProperty Name="warehouse_default" ColumnName="warehouse_default" />
+          <ScalarProperty Name="product_unit" ColumnName="product_unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Product_Price">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Product_Price">
+        <MappingFragment StoreEntitySet="MAS_Product_Price">
+          <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
+          <ScalarProperty Name="product_price_code" ColumnName="product_price_code" />
+          <ScalarProperty Name="product_price_name" ColumnName="product_price_name" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="price_Cash" ColumnName="price_Cash" />
+          <ScalarProperty Name="price_Credit" ColumnName="price_Credit" />
+          <ScalarProperty Name="price_CashExtra" ColumnName="price_CashExtra" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Province">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Province">
+        <MappingFragment StoreEntitySet="MAS_Province">
+          <ScalarProperty Name="provinceID" ColumnName="provinceID" />
+          <ScalarProperty Name="provinceCode" ColumnName="provinceCode" />
+          <ScalarProperty Name="provinceNameTH" ColumnName="provinceNameTH" />
+          <ScalarProperty Name="provinceNameEN" ColumnName="provinceNameEN" />
+          <ScalarProperty Name="countryID" ColumnName="countryID" />
+          <ScalarProperty Name="geographyID" ColumnName="geographyID" />
+          <ScalarProperty Name="isEnabled" ColumnName="isEnabled" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="create_ip" ColumnName="create_ip" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="update_ip" ColumnName="update_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Subcategories">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Subcategories">
+        <MappingFragment StoreEntitySet="MAS_Subcategories">
+          <ScalarProperty Name="subcategories_id" ColumnName="subcategories_id" />
+          <ScalarProperty Name="subcategories_code" ColumnName="subcategories_code" />
+          <ScalarProperty Name="subcategories_name" ColumnName="subcategories_name" />
+          <ScalarProperty Name="subcategories_index" ColumnName="subcategories_index" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="categories_id" ColumnName="categories_id" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_SubDistrict">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_SubDistrict">
+        <MappingFragment StoreEntitySet="MAS_SubDistrict">
+          <ScalarProperty Name="subDistrictID" ColumnName="subDistrictID" />
+          <ScalarProperty Name="subDistrictCode" ColumnName="subDistrictCode" />
+          <ScalarProperty Name="subDistrictNameTH" ColumnName="subDistrictNameTH" />
+          <ScalarProperty Name="subDistrictNameEN" ColumnName="subDistrictNameEN" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="provinceID" ColumnName="provinceID" />
+          <ScalarProperty Name="geographyID" ColumnName="geographyID" />
+          <ScalarProperty Name="isEnabled" ColumnName="isEnabled" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="create_ip" ColumnName="create_ip" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="update_ip" ColumnName="update_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Supplier">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Supplier">
+        <MappingFragment StoreEntitySet="MAS_Supplier">
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="supplier_code" ColumnName="supplier_code" />
+          <ScalarProperty Name="supplier_name" ColumnName="supplier_name" />
+          <ScalarProperty Name="supplier_tel1" ColumnName="supplier_tel1" />
+          <ScalarProperty Name="supplier_tel2" ColumnName="supplier_tel2" />
+          <ScalarProperty Name="supplier_fax" ColumnName="supplier_fax" />
+          <ScalarProperty Name="supplier_email" ColumnName="supplier_email" />
+          <ScalarProperty Name="supplier_address" ColumnName="supplier_address" />
+          <ScalarProperty Name="supplier_subdistict" ColumnName="supplier_subdistict" />
+          <ScalarProperty Name="supplier_distict" ColumnName="supplier_distict" />
+          <ScalarProperty Name="supplier_province" ColumnName="supplier_province" />
+          <ScalarProperty Name="supplier_zipcode" ColumnName="supplier_zipcode" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Unit">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Unit">
+        <MappingFragment StoreEntitySet="MAS_Unit">
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_code" ColumnName="unit_code" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="unit_value" ColumnName="unit_value" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAS_Warehouse">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Warehouse">
+        <MappingFragment StoreEntitySet="MAS_Warehouse">
+          <ScalarProperty Name="warehouse_id" ColumnName="warehouse_id" />
+          <ScalarProperty Name="warehouse_code" ColumnName="warehouse_code" />
+          <ScalarProperty Name="warehouse_name" ColumnName="warehouse_name" />
+          <ScalarProperty Name="warehouse_address" ColumnName="warehouse_address" />
+          <ScalarProperty Name="warehouse_tel" ColumnName="warehouse_tel" />
+          <ScalarProperty Name="warehouse_contact" ColumnName="warehouse_contact" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USR_Menu">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.USR_Menu">
+        <MappingFragment StoreEntitySet="USR_Menu">
+          <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+          <ScalarProperty Name="menu_code" ColumnName="menu_code" />
+          <ScalarProperty Name="menu_name_eng" ColumnName="menu_name_eng" />
+          <ScalarProperty Name="menu_name_thai" ColumnName="menu_name_thai" />
+          <ScalarProperty Name="menu_url" ColumnName="menu_url" />
+          <ScalarProperty Name="menu_index" ColumnName="menu_index" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USR_Role">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.USR_Role">
+        <MappingFragment StoreEntitySet="USR_Role">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_code" ColumnName="role_code" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+          <ScalarProperty Name="role_value" ColumnName="role_value" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USR_Role_Submenu">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.USR_Role_Submenu">
+        <MappingFragment StoreEntitySet="USR_Role_Submenu">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="submenu_id" ColumnName="submenu_id" />
+          <ScalarProperty Name="is_view" ColumnName="is_view" />
+          <ScalarProperty Name="is_add" ColumnName="is_add" />
+          <ScalarProperty Name="is_edit" ColumnName="is_edit" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+          <ScalarProperty Name="is_search" ColumnName="is_search" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USR_Submenu">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.USR_Submenu">
+        <MappingFragment StoreEntitySet="USR_Submenu">
+          <ScalarProperty Name="submenu_id" ColumnName="submenu_id" />
+          <ScalarProperty Name="submenu_code" ColumnName="submenu_code" />
+          <ScalarProperty Name="submenu_name_eng" ColumnName="submenu_name_eng" />
+          <ScalarProperty Name="submenu_name_thai" ColumnName="submenu_name_thai" />
+          <ScalarProperty Name="submenu_url" ColumnName="submenu_url" />
+          <ScalarProperty Name="submenu_index" ColumnName="submenu_index" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USR_Title">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.USR_Title">
+        <MappingFragment StoreEntitySet="USR_Title">
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+          <ScalarProperty Name="title_code" ColumnName="title_code" />
+          <ScalarProperty Name="title_name" ColumnName="title_name" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USR_User">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.USR_User">
+        <MappingFragment StoreEntitySet="USR_User">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_namedis" ColumnName="user_namedis" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USR_User_Profile">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.USR_User_Profile">
+        <MappingFragment StoreEntitySet="USR_User_Profile">
+          <ScalarProperty Name="user_profile_id" ColumnName="user_profile_id" />
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+          <ScalarProperty Name="emp_code" ColumnName="emp_code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="bithdate" ColumnName="bithdate" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="subdistict" ColumnName="subdistict" />
+          <ScalarProperty Name="distict" ColumnName="distict" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="card" ColumnName="card" />
+          <ScalarProperty Name="pic" ColumnName="pic" />
+          <ScalarProperty Name="pic_filename" ColumnName="pic_filename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USR_User_Role">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.USR_User_Role">
+        <MappingFragment StoreEntitySet="USR_User_Role">
+          <ScalarProperty Name="running_id" ColumnName="running_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_detailStatus">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.v_detailStatus">
+        <MappingFragment StoreEntitySet="v_detailStatus">
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="detail_status" ColumnName="detail_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Payment">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.v_Payment">
+        <MappingFragment StoreEntitySet="v_Payment">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="PaymentNameTH" ColumnName="PaymentNameTH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_transAll">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.v_transAll">
+        <MappingFragment StoreEntitySet="v_transAll">
+          <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+          <ScalarProperty Name="detail_warehouse" ColumnName="detail_warehouse" />
+          <ScalarProperty Name="warehouse_name" ColumnName="warehouse_name" />
+          <ScalarProperty Name="subDocTypeID" ColumnName="subDocTypeID" />
+          <ScalarProperty Name="subDocTypeName" ColumnName="subDocTypeName" />
+          <ScalarProperty Name="header_id" ColumnName="header_id" />
+          <ScalarProperty Name="header_customer_id" ColumnName="header_customer_id" />
+          <ScalarProperty Name="header_customer_name" ColumnName="header_customer_name" />
+          <ScalarProperty Name="header_supplier_id" ColumnName="header_supplier_id" />
+          <ScalarProperty Name="header_supplier_name" ColumnName="header_supplier_name" />
+          <ScalarProperty Name="header_address" ColumnName="header_address" />
+          <ScalarProperty Name="header_date" ColumnName="header_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="header_total" ColumnName="header_total" />
+          <ScalarProperty Name="header_discout" ColumnName="header_discout" />
+          <ScalarProperty Name="header_vat" ColumnName="header_vat" />
+          <ScalarProperty Name="header_net" ColumnName="header_net" />
+          <ScalarProperty Name="header_receive" ColumnName="header_receive" />
+          <ScalarProperty Name="header_deposit" ColumnName="header_deposit" />
+          <ScalarProperty Name="header_refund" ColumnName="header_refund" />
+          <ScalarProperty Name="header_remark" ColumnName="header_remark" />
+          <ScalarProperty Name="doctype_name" ColumnName="doctype_name" />
+          <ScalarProperty Name="detail_discount" ColumnName="detail_discount" />
+          <ScalarProperty Name="detail_price" ColumnName="detail_price" />
+          <ScalarProperty Name="detail_qty" ColumnName="detail_qty" />
+          <ScalarProperty Name="detail_total" ColumnName="detail_total" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="product_price_name" ColumnName="product_price_name" />
+          <ScalarProperty Name="header_date_from" ColumnName="header_date_from" />
+          <ScalarProperty Name="header_date_to" ColumnName="header_date_to" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="product_price_code" ColumnName="product_price_code" />
+          <ScalarProperty Name="used_qty" ColumnName="used_qty" />
+          <ScalarProperty Name="PaymentNameTH" ColumnName="PaymentNameTH" />
+          <ScalarProperty Name="doctype_id" ColumnName="doctype_id" />
+          <ScalarProperty Name="header_code" ColumnName="header_code" />
+          <ScalarProperty Name="detail_id" ColumnName="detail_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_vatType">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.v_vatType">
+        <MappingFragment StoreEntitySet="v_vatType">
+          <ScalarProperty Name="vatTypeID" ColumnName="vatTypeID" />
+          <ScalarProperty Name="vatTypeNameTH" ColumnName="vatTypeNameTH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="WebToolsStoreModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="WebToolsStoreModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="WebToolsStoreModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="WebToolsStoreModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="WebToolsStoreModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="WebToolsStoreModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="WebToolsStoreModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="udp_DOC_Detail_del" FunctionName="WebToolsStoreModel.Store.udp_DOC_Detail_del" />
+    <FunctionImportMapping FunctionImportName="udp_DOC_Detail_lst" FunctionName="WebToolsStoreModel.Store.udp_DOC_Detail_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_DOC_Detail_lst_Result">
+          <ScalarProperty Name="detail_id" ColumnName="detail_id" />
+          <ScalarProperty Name="header_id" ColumnName="header_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
+          <ScalarProperty Name="product_price_name" ColumnName="product_price_name" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="detail_qty" ColumnName="detail_qty" />
+          <ScalarProperty Name="detail_price" ColumnName="detail_price" />
+          <ScalarProperty Name="detail_discount" ColumnName="detail_discount" />
+          <ScalarProperty Name="detail_total" ColumnName="detail_total" />
+          <ScalarProperty Name="detail_status" ColumnName="detail_status" />
+          <ScalarProperty Name="detail_remark" ColumnName="detail_remark" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_DOC_Detail_sel" FunctionName="WebToolsStoreModel.Store.udp_DOC_Detail_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_DOC_Detail_sel_Result">
+          <ScalarProperty Name="detail_id" ColumnName="detail_id" />
+          <ScalarProperty Name="header_id" ColumnName="header_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
+          <ScalarProperty Name="product_price_code" ColumnName="product_price_code" />
+          <ScalarProperty Name="product_price_name" ColumnName="product_price_name" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="detail_qty" ColumnName="detail_qty" />
+          <ScalarProperty Name="detail_price" ColumnName="detail_price" />
+          <ScalarProperty Name="detail_discount" ColumnName="detail_discount" />
+          <ScalarProperty Name="detail_total" ColumnName="detail_total" />
+          <ScalarProperty Name="detail_status" ColumnName="detail_status" />
+          <ScalarProperty Name="detail_remark" ColumnName="detail_remark" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="detail_warehouse" ColumnName="detail_warehouse" />
+          <ScalarProperty Name="used_qty" ColumnName="used_qty" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_DOC_Detail_ups" FunctionName="WebToolsStoreModel.Store.udp_DOC_Detail_ups" />
+    <FunctionImportMapping FunctionImportName="udp_DOC_Doctype_del" FunctionName="WebToolsStoreModel.Store.udp_DOC_Doctype_del" />
+    <FunctionImportMapping FunctionImportName="udp_DOC_Doctype_lst" FunctionName="WebToolsStoreModel.Store.udp_DOC_Doctype_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_DOC_Doctype_lst_Result">
+          <ScalarProperty Name="doctype_id" ColumnName="doctype_id" />
+          <ScalarProperty Name="doctype_code" ColumnName="doctype_code" />
+          <ScalarProperty Name="doctype_name" ColumnName="doctype_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_DOC_Doctype_sel" FunctionName="WebToolsStoreModel.Store.udp_DOC_Doctype_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_DOC_Doctype_sel_Result">
+          <ScalarProperty Name="doctype_id" ColumnName="doctype_id" />
+          <ScalarProperty Name="doctype_code" ColumnName="doctype_code" />
+          <ScalarProperty Name="doctype_name" ColumnName="doctype_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_DOC_Header_del" FunctionName="WebToolsStoreModel.Store.udp_DOC_Header_del" />
+    <FunctionImportMapping FunctionImportName="udp_DOC_Header_lst" FunctionName="WebToolsStoreModel.Store.udp_DOC_Header_lst" />
+    <FunctionImportMapping FunctionImportName="udp_DOC_Header_sel" FunctionName="WebToolsStoreModel.Store.udp_DOC_Header_sel" />
+    <FunctionImportMapping FunctionImportName="udp_DOC_Header_ups" FunctionName="WebToolsStoreModel.Store.udp_DOC_Header_ups" />
+    <FunctionImportMapping FunctionImportName="udp_DOC_Product_Move_del" FunctionName="WebToolsStoreModel.Store.udp_DOC_Product_Move_del" />
+    <FunctionImportMapping FunctionImportName="udp_DOC_Product_Move_lst" FunctionName="WebToolsStoreModel.Store.udp_DOC_Product_Move_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_DOC_Product_Move_lst_Result">
+          <ScalarProperty Name="detail_id" ColumnName="detail_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_value" ColumnName="unit_value" />
+          <ScalarProperty Name="detail_qty" ColumnName="detail_qty" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_DOC_Product_Move_sel" FunctionName="WebToolsStoreModel.Store.udp_DOC_Product_Move_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_DOC_Product_Move_sel_Result">
+          <ScalarProperty Name="detail_id" ColumnName="detail_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_value" ColumnName="unit_value" />
+          <ScalarProperty Name="detail_qty" ColumnName="detail_qty" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_DOC_Product_Move_ups" FunctionName="WebToolsStoreModel.Store.udp_DOC_Product_Move_ups" />
+    <FunctionImportMapping FunctionImportName="udp_DOC_Status_del" FunctionName="WebToolsStoreModel.Store.udp_DOC_Status_del" />
+    <FunctionImportMapping FunctionImportName="udp_DOC_Status_lst" FunctionName="WebToolsStoreModel.Store.udp_DOC_Status_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_DOC_Status_lst_Result">
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="status_name" ColumnName="status_name" />
+          <ScalarProperty Name="status_value" ColumnName="status_value" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_DOC_Status_sel" FunctionName="WebToolsStoreModel.Store.udp_DOC_Status_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_DOC_Status_sel_Result">
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="status_name" ColumnName="status_name" />
+          <ScalarProperty Name="status_value" ColumnName="status_value" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_DOC_Status_ups" FunctionName="WebToolsStoreModel.Store.udp_DOC_Status_ups" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Categories_del" FunctionName="WebToolsStoreModel.Store.udp_MAS_Categories_del" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Categories_lst" FunctionName="WebToolsStoreModel.Store.udp_MAS_Categories_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Categories_lst_Result">
+          <ScalarProperty Name="categories_id" ColumnName="categories_id" />
+          <ScalarProperty Name="categories_code" ColumnName="categories_code" />
+          <ScalarProperty Name="categories_name" ColumnName="categories_name" />
+          <ScalarProperty Name="categories_index" ColumnName="categories_index" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Categories_sel" FunctionName="WebToolsStoreModel.Store.udp_MAS_Categories_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Categories_sel_Result">
+          <ScalarProperty Name="categories_id" ColumnName="categories_id" />
+          <ScalarProperty Name="categories_code" ColumnName="categories_code" />
+          <ScalarProperty Name="categories_name" ColumnName="categories_name" />
+          <ScalarProperty Name="categories_index" ColumnName="categories_index" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Categories_ups" FunctionName="WebToolsStoreModel.Store.udp_MAS_Categories_ups" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Customer_del" FunctionName="WebToolsStoreModel.Store.udp_MAS_Customer_del" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Customer_lst" FunctionName="WebToolsStoreModel.Store.udp_MAS_Customer_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Customer_lst_Result">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="customer_code" ColumnName="customer_code" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_tel1" ColumnName="customer_tel1" />
+          <ScalarProperty Name="customer_tel2" ColumnName="customer_tel2" />
+          <ScalarProperty Name="customer_fax" ColumnName="customer_fax" />
+          <ScalarProperty Name="customer_email" ColumnName="customer_email" />
+          <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+          <ScalarProperty Name="customer_subdistict" ColumnName="customer_subdistict" />
+          <ScalarProperty Name="customer_distict" ColumnName="customer_distict" />
+          <ScalarProperty Name="customer_province" ColumnName="customer_province" />
+          <ScalarProperty Name="customer_zipcode" ColumnName="customer_zipcode" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Customer_sel" FunctionName="WebToolsStoreModel.Store.udp_MAS_Customer_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Customer_sel_Result">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="customer_code" ColumnName="customer_code" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_tel1" ColumnName="customer_tel1" />
+          <ScalarProperty Name="customer_tel2" ColumnName="customer_tel2" />
+          <ScalarProperty Name="customer_fax" ColumnName="customer_fax" />
+          <ScalarProperty Name="customer_email" ColumnName="customer_email" />
+          <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+          <ScalarProperty Name="customer_subdistict" ColumnName="customer_subdistict" />
+          <ScalarProperty Name="customer_distict" ColumnName="customer_distict" />
+          <ScalarProperty Name="customer_province" ColumnName="customer_province" />
+          <ScalarProperty Name="customer_zipcode" ColumnName="customer_zipcode" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Customer_ups" FunctionName="WebToolsStoreModel.Store.udp_MAS_Customer_ups" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Ingredient_del" FunctionName="WebToolsStoreModel.Store.udp_MAS_Ingredient_del" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Ingredient_lst" FunctionName="WebToolsStoreModel.Store.udp_MAS_Ingredient_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Ingredient_lst_Result">
+          <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="ingredient_product" ColumnName="ingredient_product" />
+          <ScalarProperty Name="product_unit" ColumnName="product_unit" />
+          <ScalarProperty Name="product_qty" ColumnName="product_qty" />
+          <ScalarProperty Name="is_default" ColumnName="is_default" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Ingredient_sel" FunctionName="WebToolsStoreModel.Store.udp_MAS_Ingredient_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Ingredient_sel_Result">
+          <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
+          <ScalarProperty Name="ingredient_product" ColumnName="ingredient_product" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_unit" ColumnName="product_unit" />
+          <ScalarProperty Name="product_qty" ColumnName="product_qty" />
+          <ScalarProperty Name="is_default" ColumnName="is_default" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="product_code" ColumnName="product_code" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Ingredient_ups" FunctionName="WebToolsStoreModel.Store.udp_MAS_Ingredient_ups" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Product_del" FunctionName="WebToolsStoreModel.Store.udp_MAS_Product_del" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Product_lst" FunctionName="WebToolsStoreModel.Store.udp_MAS_Product_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Product_lst_Result">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_code" ColumnName="product_code" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_pic" ColumnName="product_pic" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="subcategories_name" ColumnName="subcategories_name" />
+          <ScalarProperty Name="categories_name" ColumnName="categories_name" />
+          <ScalarProperty Name="product_unit" ColumnName="product_unit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Product_Price_del" FunctionName="WebToolsStoreModel.Store.udp_MAS_Product_Price_del" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Product_Price_lst" FunctionName="WebToolsStoreModel.Store.udp_MAS_Product_Price_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Product_Price_lst_Result">
+          <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
+          <ScalarProperty Name="product_price_code" ColumnName="product_price_code" />
+          <ScalarProperty Name="product_price_name" ColumnName="product_price_name" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="price_Cash" ColumnName="price_Cash" />
+          <ScalarProperty Name="price_Credit" ColumnName="price_Credit" />
+          <ScalarProperty Name="price_CashExtra" ColumnName="price_CashExtra" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Product_Price_sel" FunctionName="WebToolsStoreModel.Store.udp_MAS_Product_Price_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Product_Price_sel_Result">
+          <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
+          <ScalarProperty Name="product_price_code" ColumnName="product_price_code" />
+          <ScalarProperty Name="product_price_name" ColumnName="product_price_name" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="price_Cash" ColumnName="price_Cash" />
+          <ScalarProperty Name="price_Credit" ColumnName="price_Credit" />
+          <ScalarProperty Name="price_CashExtra" ColumnName="price_CashExtra" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Product_Price_ups" FunctionName="WebToolsStoreModel.Store.udp_MAS_Product_Price_ups" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Product_sel" FunctionName="WebToolsStoreModel.Store.udp_MAS_Product_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Product_sel_Result">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_code" ColumnName="product_code" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_pic" ColumnName="product_pic" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="subcategories_id" ColumnName="subcategories_id" />
+          <ScalarProperty Name="warehouse_default" ColumnName="warehouse_default" />
+          <ScalarProperty Name="product_unit" ColumnName="product_unit" />
+          <ScalarProperty Name="categories_id" ColumnName="categories_id" />
+          <ScalarProperty Name="categories_name" ColumnName="categories_name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Product_ups" FunctionName="WebToolsStoreModel.Store.udp_MAS_Product_ups" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Subcategories_del" FunctionName="WebToolsStoreModel.Store.udp_MAS_Subcategories_del" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Subcategories_lst" FunctionName="WebToolsStoreModel.Store.udp_MAS_Subcategories_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Subcategories_lst_Result">
+          <ScalarProperty Name="subcategories_id" ColumnName="subcategories_id" />
+          <ScalarProperty Name="subcategories_code" ColumnName="subcategories_code" />
+          <ScalarProperty Name="subcategories_name" ColumnName="subcategories_name" />
+          <ScalarProperty Name="subcategories_index" ColumnName="subcategories_index" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="categories_id" ColumnName="categories_id" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Subcategories_sel" FunctionName="WebToolsStoreModel.Store.udp_MAS_Subcategories_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Subcategories_sel_Result">
+          <ScalarProperty Name="subcategories_id" ColumnName="subcategories_id" />
+          <ScalarProperty Name="subcategories_code" ColumnName="subcategories_code" />
+          <ScalarProperty Name="subcategories_name" ColumnName="subcategories_name" />
+          <ScalarProperty Name="subcategories_index" ColumnName="subcategories_index" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="categories_id" ColumnName="categories_id" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Subcategories_ups" FunctionName="WebToolsStoreModel.Store.udp_MAS_Subcategories_ups" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Supplier_del" FunctionName="WebToolsStoreModel.Store.udp_MAS_Supplier_del" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Supplier_lst" FunctionName="WebToolsStoreModel.Store.udp_MAS_Supplier_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Supplier_lst_Result">
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="supplier_code" ColumnName="supplier_code" />
+          <ScalarProperty Name="supplier_name" ColumnName="supplier_name" />
+          <ScalarProperty Name="supplier_tel1" ColumnName="supplier_tel1" />
+          <ScalarProperty Name="supplier_tel2" ColumnName="supplier_tel2" />
+          <ScalarProperty Name="supplier_fax" ColumnName="supplier_fax" />
+          <ScalarProperty Name="supplier_email" ColumnName="supplier_email" />
+          <ScalarProperty Name="supplier_address" ColumnName="supplier_address" />
+          <ScalarProperty Name="supplier_subdistict" ColumnName="supplier_subdistict" />
+          <ScalarProperty Name="supplier_distict" ColumnName="supplier_distict" />
+          <ScalarProperty Name="supplier_province" ColumnName="supplier_province" />
+          <ScalarProperty Name="supplier_zipcode" ColumnName="supplier_zipcode" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Supplier_sel" FunctionName="WebToolsStoreModel.Store.udp_MAS_Supplier_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Supplier_sel_Result">
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="supplier_code" ColumnName="supplier_code" />
+          <ScalarProperty Name="supplier_name" ColumnName="supplier_name" />
+          <ScalarProperty Name="supplier_tel1" ColumnName="supplier_tel1" />
+          <ScalarProperty Name="supplier_tel2" ColumnName="supplier_tel2" />
+          <ScalarProperty Name="supplier_fax" ColumnName="supplier_fax" />
+          <ScalarProperty Name="supplier_email" ColumnName="supplier_email" />
+          <ScalarProperty Name="supplier_address" ColumnName="supplier_address" />
+          <ScalarProperty Name="supplier_subdistict" ColumnName="supplier_subdistict" />
+          <ScalarProperty Name="supplier_distict" ColumnName="supplier_distict" />
+          <ScalarProperty Name="supplier_province" ColumnName="supplier_province" />
+          <ScalarProperty Name="supplier_zipcode" ColumnName="supplier_zipcode" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Supplier_ups" FunctionName="WebToolsStoreModel.Store.udp_MAS_Supplier_ups" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Unit_del" FunctionName="WebToolsStoreModel.Store.udp_MAS_Unit_del" />
+    <FunctionImportMapping FunctionImportName="udp_MAS_Unit_lst" FunctionName="WebToolsStoreModel.Store.udp_MAS_Unit_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Unit_lst_Result">
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_code" ColumnName="unit_code" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="unit_value" ColumnName="unit_value" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Unit_sel" FunctionName="WebToolsStoreModel.Store.udp_MAS_Unit_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_MAS_Unit_sel_Result">
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_code" ColumnName="unit_code" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="unit_value" ColumnName="unit_value" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_MAS_Unit_ups" FunctionName="WebToolsStoreModel.Store.udp_MAS_Unit_ups" />
+    <FunctionImportMapping FunctionImportName="udp_MaxID_Categories" FunctionName="WebToolsStoreModel.Store.udp_MaxID_Categories" />
+    <FunctionImportMapping FunctionImportName="udp_MaxID_Customer" FunctionName="WebToolsStoreModel.Store.udp_MaxID_Customer" />
+    <FunctionImportMapping FunctionImportName="udp_MaxID_Product" FunctionName="WebToolsStoreModel.Store.udp_MaxID_Product" />
+    <FunctionImportMapping FunctionImportName="udp_MaxID_Product_Price" FunctionName="WebToolsStoreModel.Store.udp_MaxID_Product_Price" />
+    <FunctionImportMapping FunctionImportName="udp_MaxID_Subcategories" FunctionName="WebToolsStoreModel.Store.udp_MaxID_Subcategories" />
+    <FunctionImportMapping FunctionImportName="udp_MaxID_Supplier" FunctionName="WebToolsStoreModel.Store.udp_MaxID_Supplier" />
+    <FunctionImportMapping FunctionImportName="udp_MaxID_Title" FunctionName="WebToolsStoreModel.Store.udp_MaxID_Title" />
+    <FunctionImportMapping FunctionImportName="udp_MaxID_Unit" FunctionName="WebToolsStoreModel.Store.udp_MaxID_Unit" />
+    <FunctionImportMapping FunctionImportName="udp_MaxID_User" FunctionName="WebToolsStoreModel.Store.udp_MaxID_User" />
+    <FunctionImportMapping FunctionImportName="udp_SelectAddress_Customer" FunctionName="WebToolsStoreModel.Store.udp_SelectAddress_Customer" />
+    <FunctionImportMapping FunctionImportName="udp_SelectAddress_Supplier" FunctionName="WebToolsStoreModel.Store.udp_SelectAddress_Supplier" />
+    <FunctionImportMapping FunctionImportName="udp_SelectDetail_sel" FunctionName="WebToolsStoreModel.Store.udp_SelectDetail_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_SelectDetail_sel_Result">
+          <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
+          <ScalarProperty Name="product_price_code" ColumnName="product_price_code" />
+          <ScalarProperty Name="product_price_name" ColumnName="product_price_name" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="detail_qty" ColumnName="detail_qty" />
+          <ScalarProperty Name="detail_id" ColumnName="detail_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="header_id" ColumnName="header_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_SelectDocBookink_sel" FunctionName="WebToolsStoreModel.Store.udp_SelectDocBookink_sel" />
+    <FunctionImportMapping FunctionImportName="udp_SelectDocCus_sel" FunctionName="WebToolsStoreModel.Store.udp_SelectDocCus_sel" />
+    <FunctionImportMapping FunctionImportName="udp_SelectDocSup_sel" FunctionName="WebToolsStoreModel.Store.udp_SelectDocSup_sel" />
+    <FunctionImportMapping FunctionImportName="udp_SelectIngredient_sel" FunctionName="WebToolsStoreModel.Store.udp_SelectIngredient_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_SelectIngredient_sel_Result">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_code" ColumnName="product_code" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_pic" ColumnName="product_pic" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="subcategories_id" ColumnName="subcategories_id" />
+          <ScalarProperty Name="warehouse_default" ColumnName="warehouse_default" />
+          <ScalarProperty Name="product_unit" ColumnName="product_unit" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_SelectPrice_sel" FunctionName="WebToolsStoreModel.Store.udp_SelectPrice_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_SelectPrice_sel_Result">
+          <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
+          <ScalarProperty Name="product_price_code" ColumnName="product_price_code" />
+          <ScalarProperty Name="product_price_name" ColumnName="product_price_name" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="price_Cash" ColumnName="price_Cash" />
+          <ScalarProperty Name="price_Credit" ColumnName="price_Credit" />
+          <ScalarProperty Name="price_CashExtra" ColumnName="price_CashExtra" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_SelectProduct_sel" FunctionName="WebToolsStoreModel.Store.udp_SelectProduct_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_SelectProduct_sel_Result">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_code" ColumnName="product_code" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_unit" ColumnName="product_unit" />
+          <ScalarProperty Name="subcategories_name" ColumnName="subcategories_name" />
+          <ScalarProperty Name="categories_name" ColumnName="categories_name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_SelectProductPrice_sel" FunctionName="WebToolsStoreModel.Store.udp_SelectProductPrice_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_SelectProductPrice_sel_Result">
+          <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
+          <ScalarProperty Name="product_price_code" ColumnName="product_price_code" />
+          <ScalarProperty Name="product_price_name" ColumnName="product_price_name" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="price_Cash" ColumnName="price_Cash" />
+          <ScalarProperty Name="price_Credit" ColumnName="price_Credit" />
+          <ScalarProperty Name="price_CashExtra" ColumnName="price_CashExtra" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_code" ColumnName="product_code" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="productPrice" ColumnName="productPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_SelectUser_sel" FunctionName="WebToolsStoreModel.Store.udp_SelectUser_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_SelectUser_sel_Result">
+          <ScalarProperty Name="user_profile_id" ColumnName="user_profile_id" />
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+          <ScalarProperty Name="emp_code" ColumnName="emp_code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="bithdate" ColumnName="bithdate" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="subdistict" ColumnName="subdistict" />
+          <ScalarProperty Name="distict" ColumnName="distict" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="card" ColumnName="card" />
+          <ScalarProperty Name="pic" ColumnName="pic" />
+          <ScalarProperty Name="pic_filename" ColumnName="pic_filename" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_sysdiagrams_lst" FunctionName="WebToolsStoreModel.Store.udp_sysdiagrams_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_sysdiagrams_lst_Result">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_sysdiagrams_sel" FunctionName="WebToolsStoreModel.Store.udp_sysdiagrams_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_sysdiagrams_sel_Result">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_Menu_del" FunctionName="WebToolsStoreModel.Store.udp_USR_Menu_del" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Menu_lst" FunctionName="WebToolsStoreModel.Store.udp_USR_Menu_lst" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Menu_sel" FunctionName="WebToolsStoreModel.Store.udp_USR_Menu_sel" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Menu_ups" FunctionName="WebToolsStoreModel.Store.udp_USR_Menu_ups" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Role_del" FunctionName="WebToolsStoreModel.Store.udp_USR_Role_del" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Role_lst" FunctionName="WebToolsStoreModel.Store.udp_USR_Role_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_Role_lst_Result">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_code" ColumnName="role_code" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+          <ScalarProperty Name="role_value" ColumnName="role_value" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_Role_sel" FunctionName="WebToolsStoreModel.Store.udp_USR_Role_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_Role_sel_Result">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_code" ColumnName="role_code" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+          <ScalarProperty Name="role_value" ColumnName="role_value" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_Role_Submenu_lst" FunctionName="WebToolsStoreModel.Store.udp_USR_Role_Submenu_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_Role_Submenu_lst_Result">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="submenu_id" ColumnName="submenu_id" />
+          <ScalarProperty Name="is_view" ColumnName="is_view" />
+          <ScalarProperty Name="is_add" ColumnName="is_add" />
+          <ScalarProperty Name="is_edit" ColumnName="is_edit" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+          <ScalarProperty Name="is_search" ColumnName="is_search" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_Role_Submenu_sel" FunctionName="WebToolsStoreModel.Store.udp_USR_Role_Submenu_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_Role_Submenu_sel_Result">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="submenu_id" ColumnName="submenu_id" />
+          <ScalarProperty Name="is_view" ColumnName="is_view" />
+          <ScalarProperty Name="is_add" ColumnName="is_add" />
+          <ScalarProperty Name="is_edit" ColumnName="is_edit" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+          <ScalarProperty Name="is_search" ColumnName="is_search" />
+          <ScalarProperty Name="submenu_id1" ColumnName="submenu_id1" />
+          <ScalarProperty Name="submenu_code" ColumnName="submenu_code" />
+          <ScalarProperty Name="submenu_name_eng" ColumnName="submenu_name_eng" />
+          <ScalarProperty Name="submenu_name_thai" ColumnName="submenu_name_thai" />
+          <ScalarProperty Name="submenu_url" ColumnName="submenu_url" />
+          <ScalarProperty Name="submenu_index" ColumnName="submenu_index" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_Role_Submenu_ups" FunctionName="WebToolsStoreModel.Store.udp_USR_Role_Submenu_ups" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Role_ups" FunctionName="WebToolsStoreModel.Store.udp_USR_Role_ups" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Submenu_del" FunctionName="WebToolsStoreModel.Store.udp_USR_Submenu_del" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Submenu_lst" FunctionName="WebToolsStoreModel.Store.udp_USR_Submenu_lst" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Submenu_sel" FunctionName="WebToolsStoreModel.Store.udp_USR_Submenu_sel" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Submenu_ups" FunctionName="WebToolsStoreModel.Store.udp_USR_Submenu_ups" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Title_del" FunctionName="WebToolsStoreModel.Store.udp_USR_Title_del" />
+    <FunctionImportMapping FunctionImportName="udp_USR_Title_lst" FunctionName="WebToolsStoreModel.Store.udp_USR_Title_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_Title_lst_Result">
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+          <ScalarProperty Name="title_code" ColumnName="title_code" />
+          <ScalarProperty Name="title_name" ColumnName="title_name" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_Title_sel" FunctionName="WebToolsStoreModel.Store.udp_USR_Title_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_Title_sel_Result">
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+          <ScalarProperty Name="title_code" ColumnName="title_code" />
+          <ScalarProperty Name="title_name" ColumnName="title_name" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_Title_ups" FunctionName="WebToolsStoreModel.Store.udp_USR_Title_ups" />
+    <FunctionImportMapping FunctionImportName="udp_USR_User_del" FunctionName="WebToolsStoreModel.Store.udp_USR_User_del" />
+    <FunctionImportMapping FunctionImportName="udp_USR_User_lst" FunctionName="WebToolsStoreModel.Store.udp_USR_User_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_User_lst_Result">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_namedis" ColumnName="user_namedis" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_User_Profile_del" FunctionName="WebToolsStoreModel.Store.udp_USR_User_Profile_del" />
+    <FunctionImportMapping FunctionImportName="udp_USR_User_Profile_lst" FunctionName="WebToolsStoreModel.Store.udp_USR_User_Profile_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_User_Profile_lst_Result">
+          <ScalarProperty Name="user_profile_id" ColumnName="user_profile_id" />
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+          <ScalarProperty Name="emp_code" ColumnName="emp_code" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="bithdate" ColumnName="bithdate" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="subdistict" ColumnName="subdistict" />
+          <ScalarProperty Name="distict" ColumnName="distict" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="card" ColumnName="card" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_namedis" ColumnName="user_namedis" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="is_enabled1" ColumnName="is_enabled1" />
+          <ScalarProperty Name="is_del1" ColumnName="is_del1" />
+          <ScalarProperty Name="create_date1" ColumnName="create_date1" />
+          <ScalarProperty Name="create_by1" ColumnName="create_by1" />
+          <ScalarProperty Name="update_date1" ColumnName="update_date1" />
+          <ScalarProperty Name="update_by1" ColumnName="update_by1" />
+          <ScalarProperty Name="title_name" ColumnName="title_name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_User_Profile_sel" FunctionName="WebToolsStoreModel.Store.udp_USR_User_Profile_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_User_Profile_sel_Result">
+          <ScalarProperty Name="user_profile_id" ColumnName="user_profile_id" />
+          <ScalarProperty Name="title_id" ColumnName="title_id" />
+          <ScalarProperty Name="emp_code" ColumnName="emp_code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="bithdate" ColumnName="bithdate" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="subdistict" ColumnName="subdistict" />
+          <ScalarProperty Name="distict" ColumnName="distict" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="card" ColumnName="card" />
+          <ScalarProperty Name="pic" ColumnName="pic" />
+          <ScalarProperty Name="pic_filename" ColumnName="pic_filename" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_namedis" ColumnName="user_namedis" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="is_enabled1" ColumnName="is_enabled1" />
+          <ScalarProperty Name="is_del1" ColumnName="is_del1" />
+          <ScalarProperty Name="create_date1" ColumnName="create_date1" />
+          <ScalarProperty Name="create_by1" ColumnName="create_by1" />
+          <ScalarProperty Name="update_date1" ColumnName="update_date1" />
+          <ScalarProperty Name="update_by1" ColumnName="update_by1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_User_Profile_ups" FunctionName="WebToolsStoreModel.Store.udp_USR_User_Profile_ups" />
+    <FunctionImportMapping FunctionImportName="udp_USR_User_Role_del" FunctionName="WebToolsStoreModel.Store.udp_USR_User_Role_del" />
+    <FunctionImportMapping FunctionImportName="udp_USR_User_Role_lst" FunctionName="WebToolsStoreModel.Store.udp_USR_User_Role_lst">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_User_Role_lst_Result">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_User_Role_sel" FunctionName="WebToolsStoreModel.Store.udp_USR_User_Role_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_User_Role_sel_Result">
+          <ScalarProperty Name="running_id" ColumnName="running_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="user_id1" ColumnName="user_id1" />
+          <ScalarProperty Name="user_name1" ColumnName="user_name1" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_namedis" ColumnName="user_namedis" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="is_enabled1" ColumnName="is_enabled1" />
+          <ScalarProperty Name="is_del1" ColumnName="is_del1" />
+          <ScalarProperty Name="create_date1" ColumnName="create_date1" />
+          <ScalarProperty Name="create_by1" ColumnName="create_by1" />
+          <ScalarProperty Name="update_date1" ColumnName="update_date1" />
+          <ScalarProperty Name="update_by1" ColumnName="update_by1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_User_Role_ups" FunctionName="WebToolsStoreModel.Store.udp_USR_User_Role_ups" />
+    <FunctionImportMapping FunctionImportName="udp_USR_User_sel" FunctionName="WebToolsStoreModel.Store.udp_USR_User_sel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.udp_USR_User_sel_Result">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_namedis" ColumnName="user_namedis" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="udp_USR_User_ups" FunctionName="WebToolsStoreModel.Store.udp_USR_User_ups" />
+    <FunctionImportMapping FunctionImportName="up_login_login_sel_byID" FunctionName="WebToolsStoreModel.Store.up_login_login_sel_byID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebToolsStoreModel.up_login_login_sel_byID_Result">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_namedis" ColumnName="user_namedis" />
+          <ScalarProperty Name="user_profile_id" ColumnName="user_profile_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="up_Report_Bill_sel" FunctionName="WebToolsStoreModel.Store.up_Report_Bill_sel" />
+    <FunctionImportMapping FunctionImportName="up_Report_TransAll_sel" FunctionName="WebToolsStoreModel.Store.up_Report_TransAll_sel" />
+    <EntitySetMapping Name="DOC_Detail_Ingredient">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Detail_Ingredient">
+        <MappingFragment StoreEntitySet="DOC_Detail_Ingredient">
+          <ScalarProperty Name="update_by" ColumnName="update_by" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="is_del" ColumnName="is_del" />
+          <ScalarProperty Name="product_qty" ColumnName="product_qty" />
+          <ScalarProperty Name="product_unit" ColumnName="product_unit" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
+          <ScalarProperty Name="detail_id" ColumnName="detail_id" />
+          <ScalarProperty Name="running" ColumnName="running" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

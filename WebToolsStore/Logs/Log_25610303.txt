@@ -1,0 +1,14 @@
+
+Log Entry : 9:00:50 3 มีนาคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------
+
+Log Entry : 9:03:24 3 มีนาคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------

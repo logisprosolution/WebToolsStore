@@ -1,0 +1,205 @@
+
+Log Entry : 0:06:15 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:12:44 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:13:33 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:15:10 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:16:38 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:19:54 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:20:09 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:20:56 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:29:24 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:30:01 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:30:23 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:37:59 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:38:23 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:40:43 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 0:43:49 11 มีนาคม 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 1:14:10 11 มีนาคม 2561
+  :
+Exception Message:Invalid column name 'doctype_id'.
+-------------------------------
+
+Log Entry : 1:14:26 11 มีนาคม 2561
+  :
+Exception Message:Invalid column name 'doctype_id'.
+-------------------------------
+
+Log Entry : 1:27:54 11 มีนาคม 2561
+  :
+Exception Message:Invalid column name 'doctype_id'.
+-------------------------------
+
+Log Entry : 2:40:45 11 มีนาคม 2561
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 2:47:37 11 มีนาคม 2561
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 2:47:42 11 มีนาคม 2561
+  :
+Exception Message:Method not found: 'System.String WebToolsStore.Data.DOC_Detail.get_subDocTypeID()'.
+-------------------------------
+
+Log Entry : 2:48:07 11 มีนาคม 2561
+  :
+Exception Message:Method not found: 'System.String WebToolsStore.Data.DOC_Detail.get_subDocTypeID()'.
+-------------------------------
+
+Log Entry : 2:48:16 11 มีนาคม 2561
+  :
+Exception Message:Method not found: 'System.String WebToolsStore.Data.DOC_Detail.get_subDocTypeID()'.
+-------------------------------
+
+Log Entry : 3:35:48 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 3:36:49 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 3:37:55 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 3:39:58 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:19:05 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:19:20 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:22:06 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:22:14 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:22:54 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:23:37 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:23:54 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:25:25 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:25:52 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:26:04 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:27:09 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:27:57 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:28:48 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 17:31:57 11 มีนาคม 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------

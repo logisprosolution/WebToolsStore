@@ -1,0 +1,86 @@
+
+Log Entry : 2:23:12 29 ธันวาคม 2560
+  :
+Exception Message:Operand type clash: nvarchar is incompatible with image
+-------------------------------
+
+Log Entry : 3:06:11 29 ธันวาคม 2560
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 3:07:12 29 ธันวาคม 2560
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 3:08:34 29 ธันวาคม 2560
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 3:08:51 29 ธันวาคม 2560
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 3:11:02 29 ธันวาคม 2560
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 3:11:35 29 ธันวาคม 2560
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 3:11:45 29 ธันวาคม 2560
+  :
+Exception Message:Error ToDateTime
+-------------------------------
+
+Log Entry : 5:00:33 29 ธันวาคม 2560
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_USR_User_Profile_USR_User". The conflict occurred in database "WebToolsStore", table "dbo.USR_User", column 'user_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 5:02:40 29 ธันวาคม 2560
+  :
+Exception Message:A field or property with the name 'name + lastname' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 5:22:53 29 ธันวาคม 2560
+  :
+Exception Message:Procedure or function udp_USR_User_Profile_ups has too many arguments specified.
+-------------------------------
+
+Log Entry : 6:12:37 29 ธันวาคม 2560
+  :
+Exception Message:Procedure or function 'udp_USR_User_ups' expects parameter '@user_profile_id', which was not supplied.
+-------------------------------
+
+Log Entry : 6:13:26 29 ธันวาคม 2560
+  :
+Exception Message:Procedure or function 'udp_USR_User_ups' expects parameter '@user_profile_id', which was not supplied.
+-------------------------------
+
+Log Entry : 6:35:13 29 ธันวาคม 2560
+  :
+Exception Message:Column 'birthdat' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 6:37:23 29 ธันวาคม 2560
+  :
+Exception Message:Procedure or function 'udp_USR_User_ups' expects parameter '@value', which was not supplied.
+-------------------------------
+
+Log Entry : 7:11:59 29 ธันวาคม 2560
+  :
+Exception Message:Column 'birthdat' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 22:51:14 29 ธันวาคม 2560
+  :
+Exception Message:A field or property with the name 'lastname' was not found on the selected data source.
+-------------------------------

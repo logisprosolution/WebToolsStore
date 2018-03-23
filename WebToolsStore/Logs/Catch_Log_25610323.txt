@@ -1,0 +1,86 @@
+
+Log Entry : 1:16:50 23 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 2:51:51 23 มีนาคม 2561
+  :
+Exception Message:A field or property with the name 'unit_name' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 2:53:27 23 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.DOC_Detail_Ingredient' does not contain a property with the name 'is_default'.
+-------------------------------
+
+Log Entry : 3:04:33 23 มีนาคม 2561
+  :
+Exception Message:Column 'detail_id' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 3:10:08 23 มีนาคม 2561
+  :
+Exception Message:Procedure or function 'udp_DOC_Detail_Ingredient_ups' expects parameter '@running', which was not supplied.
+-------------------------------
+
+Log Entry : 3:12:39 23 มีนาคม 2561
+  :
+Exception Message:Procedure or function 'udp_DOC_Detail_Ingredient_ups' expects parameter '@running', which was not supplied.
+-------------------------------
+
+Log Entry : 3:14:59 23 มีนาคม 2561
+  :
+Exception Message:Procedure or function 'udp_DOC_Detail_Ingredient_ups' expects parameter '@ingredient_id', which was not supplied.
+-------------------------------
+
+Log Entry : 3:16:26 23 มีนาคม 2561
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 3:17:57 23 มีนาคม 2561
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 3:19:39 23 มีนาคม 2561
+  :
+Exception Message:Procedure or function 'udp_DOC_Detail_Ingredient_ups' expects parameter '@create_by', which was not supplied.
+-------------------------------
+
+Log Entry : 3:29:45 23 มีนาคม 2561
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 3:31:45 23 มีนาคม 2561
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 3:32:58 23 มีนาคม 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_Ingredient_DOC_Detail". The conflict occurred in database "WebToolsStore", table "dbo.DOC_Detail", column 'detail_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 3:47:07 23 มีนาคม 2561
+  :
+Exception Message:The connection is broken and recovery is not possible.  The connection is marked by the server as unrecoverable.  No attempt was made to restore the connection.
+-------------------------------
+
+Log Entry : 16:44:24 23 มีนาคม 2561
+  :
+Exception Message:Column 'unit_value' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 17:24:19 23 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 17:24:36 23 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------

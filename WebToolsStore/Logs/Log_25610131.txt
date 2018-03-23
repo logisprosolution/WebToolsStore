@@ -1,0 +1,21 @@
+
+Log Entry : 21:53:29 31 มกราคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------
+
+Log Entry : 22:46:58 31 มกราคม 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: 34
+-------------------------------
+
+Log Entry : 23:30:39 31 มกราคม 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------

@@ -1,0 +1,60 @@
+
+Log Entry : 1:07:11 25 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:08:55 25 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:09:54 25 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:11:25 25 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:28:58 25 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:31:30 25 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:39:56 25 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 2:23:08 25 มกราคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 17:50:24 25 มกราคม 2561
+  :
+Exception Message:Column 'detail_remark' does not belong to table SelectProductPrice.
+-------------------------------
+
+Log Entry : 17:51:12 25 มกราคม 2561
+  :
+Exception Message:Column 'detail_remark' does not belong to table SelectProductPrice.
+-------------------------------
+
+Log Entry : 17:53:47 25 มกราคม 2561
+  :
+Exception Message:Column 'detail_remark' does not belong to table SelectProductPrice.
+-------------------------------
+
+Log Entry : 18:12:33 25 มกราคม 2561
+  :
+Exception Message:Column 'detail_remark' does not belong to table SelectProductPrice.
+-------------------------------
