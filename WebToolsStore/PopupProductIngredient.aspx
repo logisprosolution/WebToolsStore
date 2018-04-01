@@ -5,7 +5,7 @@
         function GetCheckedRows() {
             var returnValue = '';
             $("#example_wrapper tr").not(':first').each(function () {
-                //debugger
+               // debugger
                 var $checkBox = $(this).find("input[type='checkbox']");
                 var $id = $(this).find("input[type='hidden']").val();
 

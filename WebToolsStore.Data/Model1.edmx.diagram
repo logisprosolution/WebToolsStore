@@ -61,6 +61,14 @@
         <EntityTypeShape EntityType="WebToolsStoreModel.DOC_Detail_Ingredient" Width="1.5" PointX="9.75" PointY="0.75" />
         <AssociationConnector Association="WebToolsStoreModel.FK_DOC_Detail_Ingredient_DOC_Detail" />
         <AssociationConnector Association="WebToolsStoreModel.FK_DOC_Detail_MAS_Warehouse" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MSreplication_queue" Width="1.5" PointX="19.75" PointY="14.75" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MSrepl_queuedtraninfo" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MSreplication_objects" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MSreplication_subscriptions" Width="1.5" PointX="19.75" PointY="18.75" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MSsubscription_agents" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MSsubscription_articlecolumns" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MSsubscription_articles" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WebToolsStoreModel.MSsubscription_properties" Width="1.5" PointX="21.75" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

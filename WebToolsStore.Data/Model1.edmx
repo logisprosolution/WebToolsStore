@@ -38,6 +38,8 @@
           <Property Name="product_id" Type="int" />
           <Property Name="product_unit" Type="int" />
           <Property Name="product_qty" Type="int" />
+          <Property Name="product_price_id" Type="int" />
+          <Property Name="is_enabled" Type="bit" />
           <Property Name="is_del" Type="bit" />
           <Property Name="create_date" Type="datetime" />
           <Property Name="create_by" Type="int" />
@@ -94,6 +96,7 @@
           <Property Name="header_net" Type="decimal" Precision="18" Scale="2" />
           <Property Name="header_deposit" Type="decimal" Precision="18" Scale="2" />
           <Property Name="header_refund" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="header_added" Type="numeric" Precision="18" Scale="2" />
           <Property Name="header_ref" Type="int" />
         </EntityType>
         <EntityType Name="DOC_Product_Move">
@@ -404,6 +407,197 @@
           <Property Name="create_by" Type="int" />
           <Property Name="update_date" Type="datetime" />
           <Property Name="update_by" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WebToolsStore.dbo.MSrepl_queuedtraninfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSrepl_queuedtraninfo">
+          <Key>
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="publisher_db" />
+            <PropertyRef Name="publication" />
+            <PropertyRef Name="tranid" />
+            <PropertyRef Name="maxorderkey" />
+            <PropertyRef Name="commandcount" />
+          </Key>
+          <Property Name="publisher" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publisher_db" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publication" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="tranid" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="maxorderkey" Type="bigint" Nullable="false" />
+          <Property Name="commandcount" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WebToolsStore.dbo.MSreplication_objects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSreplication_objects">
+          <Key>
+            <PropertyRef Name="object_name" />
+            <PropertyRef Name="object_type" />
+          </Key>
+          <Property Name="publisher" Type="nvarchar" MaxLength="128" />
+          <Property Name="publisher_db" Type="nvarchar" MaxLength="128" />
+          <Property Name="publication" Type="nvarchar" MaxLength="128" />
+          <Property Name="object_name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="object_type" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="article" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="MSreplication_queue">
+          <Key>
+            <PropertyRef Name="orderkey" />
+          </Key>
+          <Property Name="publisher" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publisher_db" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publication" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="tranid" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="data" Type="varbinary" MaxLength="8000" />
+          <Property Name="datalen" Type="int" />
+          <Property Name="commandtype" Type="int" />
+          <Property Name="insertdate" Type="datetime" />
+          <Property Name="orderkey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmdstate" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WebToolsStore.dbo.MSreplication_subscriptions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSreplication_subscriptions">
+          <Key>
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="independent_agent" />
+            <PropertyRef Name="subscription_type" />
+            <PropertyRef Name="time" />
+            <PropertyRef Name="transaction_timestamp" />
+            <PropertyRef Name="update_mode" />
+            <PropertyRef Name="immediate_sync" />
+          </Key>
+          <Property Name="publisher" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publisher_db" Type="nvarchar" MaxLength="128" />
+          <Property Name="publication" Type="nvarchar" MaxLength="128" />
+          <Property Name="independent_agent" Type="bit" Nullable="false" />
+          <Property Name="subscription_type" Type="int" Nullable="false" />
+          <Property Name="distribution_agent" Type="nvarchar" MaxLength="128" />
+          <Property Name="time" Type="smalldatetime" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="255" />
+          <Property Name="transaction_timestamp" Type="varbinary" MaxLength="16" Nullable="false" />
+          <Property Name="update_mode" Type="tinyint" Nullable="false" />
+          <Property Name="agent_id" Type="binary" MaxLength="16" />
+          <Property Name="subscription_guid" Type="binary" MaxLength="16" />
+          <Property Name="subid" Type="binary" MaxLength="16" />
+          <Property Name="immediate_sync" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WebToolsStore.dbo.MSsubscription_agents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSsubscription_agents">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="publisher_db" />
+            <PropertyRef Name="publication" />
+            <PropertyRef Name="subscription_type" />
+            <PropertyRef Name="update_mode" />
+            <PropertyRef Name="failover_mode" />
+            <PropertyRef Name="spid" />
+            <PropertyRef Name="login_time" />
+            <PropertyRef Name="allow_subscription_copy" />
+            <PropertyRef Name="attach_state" />
+            <PropertyRef Name="attach_version" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="publisher" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publisher_db" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publication" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="subscription_type" Type="int" Nullable="false" />
+          <Property Name="queue_id" Type="nvarchar" MaxLength="128" />
+          <Property Name="update_mode" Type="tinyint" Nullable="false" />
+          <Property Name="failover_mode" Type="bit" Nullable="false" />
+          <Property Name="spid" Type="int" Nullable="false" />
+          <Property Name="login_time" Type="datetime" Nullable="false" />
+          <Property Name="allow_subscription_copy" Type="bit" Nullable="false" />
+          <Property Name="attach_state" Type="int" Nullable="false" />
+          <Property Name="attach_version" Type="binary" MaxLength="16" Nullable="false" />
+          <Property Name="last_sync_status" Type="int" />
+          <Property Name="last_sync_summary" Type="nvarchar" MaxLength="128" />
+          <Property Name="last_sync_time" Type="datetime" />
+          <Property Name="queue_server" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WebToolsStore.dbo.MSsubscription_articlecolumns' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSsubscription_articlecolumns">
+          <Key>
+            <PropertyRef Name="agent_id" />
+            <PropertyRef Name="artid" />
+            <PropertyRef Name="colid" />
+          </Key>
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="artid" Type="int" Nullable="false" />
+          <Property Name="colid" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WebToolsStore.dbo.MSsubscription_articles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSsubscription_articles">
+          <Key>
+            <PropertyRef Name="agent_id" />
+            <PropertyRef Name="artid" />
+            <PropertyRef Name="article" />
+            <PropertyRef Name="dest_table" />
+            <PropertyRef Name="owner" />
+          </Key>
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="artid" Type="int" Nullable="false" />
+          <Property Name="article" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="dest_table" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="owner" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="cft_table" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WebToolsStore.dbo.MSsubscription_properties' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSsubscription_properties">
+          <Key>
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="publication" />
+            <PropertyRef Name="publication_type" />
+            <PropertyRef Name="publisher_security_mode" />
+            <PropertyRef Name="distributor_security_mode" />
+            <PropertyRef Name="use_ftp" />
+            <PropertyRef Name="dts_package_location" />
+            <PropertyRef Name="enabled_for_syncmgr" />
+            <PropertyRef Name="offload_agent" />
+            <PropertyRef Name="use_web_sync" />
+            <PropertyRef Name="internet_security_mode" />
+            <PropertyRef Name="internet_timeout" />
+          </Key>
+          <Property Name="publisher" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publisher_db" Type="nvarchar" MaxLength="128" />
+          <Property Name="publication" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publication_type" Type="int" Nullable="false" />
+          <Property Name="publisher_login" Type="nvarchar" MaxLength="128" />
+          <Property Name="publisher_password" Type="nvarchar" MaxLength="524" />
+          <Property Name="publisher_security_mode" Type="int" Nullable="false" />
+          <Property Name="distributor" Type="nvarchar" MaxLength="128" />
+          <Property Name="distributor_login" Type="nvarchar" MaxLength="128" />
+          <Property Name="distributor_password" Type="nvarchar" MaxLength="524" />
+          <Property Name="distributor_security_mode" Type="int" Nullable="false" />
+          <Property Name="ftp_address" Type="nvarchar" MaxLength="128" />
+          <Property Name="ftp_port" Type="int" />
+          <Property Name="ftp_login" Type="nvarchar" MaxLength="128" />
+          <Property Name="ftp_password" Type="nvarchar" MaxLength="524" />
+          <Property Name="alt_snapshot_folder" Type="nvarchar" MaxLength="255" />
+          <Property Name="working_directory" Type="nvarchar" MaxLength="255" />
+          <Property Name="use_ftp" Type="bit" Nullable="false" />
+          <Property Name="dts_package_name" Type="nvarchar" MaxLength="128" />
+          <Property Name="dts_package_password" Type="nvarchar" MaxLength="524" />
+          <Property Name="dts_package_location" Type="int" Nullable="false" />
+          <Property Name="enabled_for_syncmgr" Type="bit" Nullable="false" />
+          <Property Name="offload_agent" Type="bit" Nullable="false" />
+          <Property Name="offload_server" Type="nvarchar" MaxLength="128" />
+          <Property Name="dynamic_snapshot_location" Type="nvarchar" MaxLength="255" />
+          <Property Name="use_web_sync" Type="bit" Nullable="false" />
+          <Property Name="internet_url" Type="nvarchar" MaxLength="260" />
+          <Property Name="internet_login" Type="nvarchar" MaxLength="128" />
+          <Property Name="internet_password" Type="nvarchar" MaxLength="524" />
+          <Property Name="internet_security_mode" Type="int" Nullable="false" />
+          <Property Name="internet_timeout" Type="int" Nullable="false" />
+          <Property Name="hostname" Type="nvarchar" MaxLength="128" />
+          <Property Name="publisherlink" Type="nvarchar" MaxLength="128" />
+          <Property Name="publisherlinkuser" Type="nvarchar" MaxLength="128" />
+          <Property Name="job_step_uid" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -1275,7 +1469,7 @@ warning 6002: The table/view 'WebToolsStore.dbo.v_vatType' does not have a prima
           <Parameter Name="SearchDate" Type="datetime" Mode="In" />
         </Function>
         <Function Name="udp_SelectIngredient_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="product_id" Type="int" Mode="In" />
+          <Parameter Name="product_price_id" Type="int" Mode="In" />
         </Function>
         <Function Name="udp_SelectPrice_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="product_id" Type="int" Mode="In" />
@@ -1510,6 +1704,7 @@ warning 6002: The table/view 'WebToolsStore.dbo.v_vatType' does not have a prima
           <EntitySet Name="MAS_Supplier" EntityType="Self.MAS_Supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MAS_Unit" EntityType="Self.MAS_Unit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MAS_Warehouse" EntityType="Self.MAS_Warehouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSreplication_queue" EntityType="Self.MSreplication_queue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USR_Menu" EntityType="Self.USR_Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USR_Role" EntityType="Self.USR_Role" Schema="dbo" store:Type="Tables" />
@@ -1519,6 +1714,121 @@ warning 6002: The table/view 'WebToolsStore.dbo.v_vatType' does not have a prima
           <EntitySet Name="USR_User" EntityType="Self.USR_User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USR_User_Profile" EntityType="Self.USR_User_Profile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USR_User_Role" EntityType="Self.USR_User_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MSrepl_queuedtraninfo" EntityType="Self.MSrepl_queuedtraninfo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MSrepl_queuedtraninfo].[publisher] AS [publisher], 
+[MSrepl_queuedtraninfo].[publisher_db] AS [publisher_db], 
+[MSrepl_queuedtraninfo].[publication] AS [publication], 
+[MSrepl_queuedtraninfo].[tranid] AS [tranid], 
+[MSrepl_queuedtraninfo].[maxorderkey] AS [maxorderkey], 
+[MSrepl_queuedtraninfo].[commandcount] AS [commandcount]
+FROM [dbo].[MSrepl_queuedtraninfo] AS [MSrepl_queuedtraninfo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MSreplication_objects" EntityType="Self.MSreplication_objects" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MSreplication_objects].[publisher] AS [publisher], 
+[MSreplication_objects].[publisher_db] AS [publisher_db], 
+[MSreplication_objects].[publication] AS [publication], 
+[MSreplication_objects].[object_name] AS [object_name], 
+[MSreplication_objects].[object_type] AS [object_type], 
+[MSreplication_objects].[article] AS [article]
+FROM [dbo].[MSreplication_objects] AS [MSreplication_objects]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MSreplication_subscriptions" EntityType="Self.MSreplication_subscriptions" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MSreplication_subscriptions].[publisher] AS [publisher], 
+[MSreplication_subscriptions].[publisher_db] AS [publisher_db], 
+[MSreplication_subscriptions].[publication] AS [publication], 
+[MSreplication_subscriptions].[independent_agent] AS [independent_agent], 
+[MSreplication_subscriptions].[subscription_type] AS [subscription_type], 
+[MSreplication_subscriptions].[distribution_agent] AS [distribution_agent], 
+[MSreplication_subscriptions].[time] AS [time], 
+[MSreplication_subscriptions].[description] AS [description], 
+[MSreplication_subscriptions].[transaction_timestamp] AS [transaction_timestamp], 
+[MSreplication_subscriptions].[update_mode] AS [update_mode], 
+[MSreplication_subscriptions].[agent_id] AS [agent_id], 
+[MSreplication_subscriptions].[subscription_guid] AS [subscription_guid], 
+[MSreplication_subscriptions].[subid] AS [subid], 
+[MSreplication_subscriptions].[immediate_sync] AS [immediate_sync]
+FROM [dbo].[MSreplication_subscriptions] AS [MSreplication_subscriptions]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MSsubscription_agents" EntityType="Self.MSsubscription_agents" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MSsubscription_agents].[id] AS [id], 
+[MSsubscription_agents].[publisher] AS [publisher], 
+[MSsubscription_agents].[publisher_db] AS [publisher_db], 
+[MSsubscription_agents].[publication] AS [publication], 
+[MSsubscription_agents].[subscription_type] AS [subscription_type], 
+[MSsubscription_agents].[queue_id] AS [queue_id], 
+[MSsubscription_agents].[update_mode] AS [update_mode], 
+[MSsubscription_agents].[failover_mode] AS [failover_mode], 
+[MSsubscription_agents].[spid] AS [spid], 
+[MSsubscription_agents].[login_time] AS [login_time], 
+[MSsubscription_agents].[allow_subscription_copy] AS [allow_subscription_copy], 
+[MSsubscription_agents].[attach_state] AS [attach_state], 
+[MSsubscription_agents].[attach_version] AS [attach_version], 
+[MSsubscription_agents].[last_sync_status] AS [last_sync_status], 
+[MSsubscription_agents].[last_sync_summary] AS [last_sync_summary], 
+[MSsubscription_agents].[last_sync_time] AS [last_sync_time], 
+[MSsubscription_agents].[queue_server] AS [queue_server]
+FROM [dbo].[MSsubscription_agents] AS [MSsubscription_agents]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MSsubscription_articlecolumns" EntityType="Self.MSsubscription_articlecolumns" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MSsubscription_articlecolumns].[agent_id] AS [agent_id], 
+[MSsubscription_articlecolumns].[artid] AS [artid], 
+[MSsubscription_articlecolumns].[colid] AS [colid]
+FROM [dbo].[MSsubscription_articlecolumns] AS [MSsubscription_articlecolumns]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MSsubscription_articles" EntityType="Self.MSsubscription_articles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MSsubscription_articles].[agent_id] AS [agent_id], 
+[MSsubscription_articles].[artid] AS [artid], 
+[MSsubscription_articles].[article] AS [article], 
+[MSsubscription_articles].[dest_table] AS [dest_table], 
+[MSsubscription_articles].[owner] AS [owner], 
+[MSsubscription_articles].[cft_table] AS [cft_table]
+FROM [dbo].[MSsubscription_articles] AS [MSsubscription_articles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MSsubscription_properties" EntityType="Self.MSsubscription_properties" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MSsubscription_properties].[publisher] AS [publisher], 
+[MSsubscription_properties].[publisher_db] AS [publisher_db], 
+[MSsubscription_properties].[publication] AS [publication], 
+[MSsubscription_properties].[publication_type] AS [publication_type], 
+[MSsubscription_properties].[publisher_login] AS [publisher_login], 
+[MSsubscription_properties].[publisher_password] AS [publisher_password], 
+[MSsubscription_properties].[publisher_security_mode] AS [publisher_security_mode], 
+[MSsubscription_properties].[distributor] AS [distributor], 
+[MSsubscription_properties].[distributor_login] AS [distributor_login], 
+[MSsubscription_properties].[distributor_password] AS [distributor_password], 
+[MSsubscription_properties].[distributor_security_mode] AS [distributor_security_mode], 
+[MSsubscription_properties].[ftp_address] AS [ftp_address], 
+[MSsubscription_properties].[ftp_port] AS [ftp_port], 
+[MSsubscription_properties].[ftp_login] AS [ftp_login], 
+[MSsubscription_properties].[ftp_password] AS [ftp_password], 
+[MSsubscription_properties].[alt_snapshot_folder] AS [alt_snapshot_folder], 
+[MSsubscription_properties].[working_directory] AS [working_directory], 
+[MSsubscription_properties].[use_ftp] AS [use_ftp], 
+[MSsubscription_properties].[dts_package_name] AS [dts_package_name], 
+[MSsubscription_properties].[dts_package_password] AS [dts_package_password], 
+[MSsubscription_properties].[dts_package_location] AS [dts_package_location], 
+[MSsubscription_properties].[enabled_for_syncmgr] AS [enabled_for_syncmgr], 
+[MSsubscription_properties].[offload_agent] AS [offload_agent], 
+[MSsubscription_properties].[offload_server] AS [offload_server], 
+[MSsubscription_properties].[dynamic_snapshot_location] AS [dynamic_snapshot_location], 
+[MSsubscription_properties].[use_web_sync] AS [use_web_sync], 
+[MSsubscription_properties].[internet_url] AS [internet_url], 
+[MSsubscription_properties].[internet_login] AS [internet_login], 
+[MSsubscription_properties].[internet_password] AS [internet_password], 
+[MSsubscription_properties].[internet_security_mode] AS [internet_security_mode], 
+[MSsubscription_properties].[internet_timeout] AS [internet_timeout], 
+[MSsubscription_properties].[hostname] AS [hostname], 
+[MSsubscription_properties].[publisherlink] AS [publisherlink], 
+[MSsubscription_properties].[publisherlinkuser] AS [publisherlinkuser], 
+[MSsubscription_properties].[job_step_uid] AS [job_step_uid]
+FROM [dbo].[MSsubscription_properties] AS [MSsubscription_properties]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_detailStatus" EntityType="Self.v_detailStatus" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [v_detailStatus].[StatusID] AS [StatusID], 
@@ -1754,6 +2064,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <Property Name="header_ref" Type="Int32" />
           <NavigationProperty Name="DOC_Detail" Relationship="Self.FK_DOC_Detail_DOC_Header" FromRole="DOC_Header" ToRole="DOC_Detail" />
           <NavigationProperty Name="DOC_SubDocType" Relationship="Self.FK_DOC_Header_DOC_SubDocType" FromRole="DOC_Header" ToRole="DOC_SubDocType" />
+          <Property Name="header_added" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="DOC_Product_Move">
           <Key>
@@ -3042,7 +3353,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
             <Parameter Name="SearchDate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="udp_SelectIngredient_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectIngredient_sel_Result)">
-          <Parameter Name="product_id" Mode="In" Type="Int32" />
+          <Parameter Name="product_price_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="udp_SelectPrice_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectPrice_sel_Result)">
           <Parameter Name="product_id" Mode="In" Type="Int32" />
@@ -3264,6 +3575,14 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
             <End Role="MAS_Warehouse" EntitySet="MAS_Warehouse" />
             <End Role="DOC_Detail" EntitySet="DOC_Detail" />
           </AssociationSet>
+          <EntitySet Name="MSreplication_queue" EntityType="WebToolsStoreModel.MSreplication_queue" />
+          <EntitySet Name="MSrepl_queuedtraninfo" EntityType="WebToolsStoreModel.MSrepl_queuedtraninfo" />
+          <EntitySet Name="MSreplication_objects" EntityType="WebToolsStoreModel.MSreplication_objects" />
+          <EntitySet Name="MSreplication_subscriptions" EntityType="WebToolsStoreModel.MSreplication_subscriptions" />
+          <EntitySet Name="MSsubscription_agents" EntityType="WebToolsStoreModel.MSsubscription_agents" />
+          <EntitySet Name="MSsubscription_articlecolumns" EntityType="WebToolsStoreModel.MSsubscription_articlecolumns" />
+          <EntitySet Name="MSsubscription_articles" EntityType="WebToolsStoreModel.MSsubscription_articles" />
+          <EntitySet Name="MSsubscription_properties" EntityType="WebToolsStoreModel.MSsubscription_properties" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -3971,6 +4290,8 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <Property Name="update_date" Type="DateTime" Precision="3" />
           <Property Name="update_by" Type="Int32" />
           <NavigationProperty Name="DOC_Detail" Relationship="WebToolsStoreModel.FK_DOC_Detail_Ingredient_DOC_Detail" FromRole="DOC_Detail_Ingredient" ToRole="DOC_Detail" />
+          <Property Name="product_price_id" Type="Int32" />
+          <Property Name="is_enabled" Type="Boolean" />
         </EntityType>
         <Association Name="FK_DOC_Detail_Ingredient_DOC_Detail">
           <End Type="WebToolsStoreModel.DOC_Detail" Role="DOC_Detail" Multiplicity="1" />
@@ -3996,6 +4317,183 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="MSreplication_queue">
+          <Key>
+            <PropertyRef Name="orderkey" />
+          </Key>
+          <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_db" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publication" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="tranid" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="data" Type="Binary" MaxLength="8000" FixedLength="false" />
+          <Property Name="datalen" Type="Int32" />
+          <Property Name="commandtype" Type="Int32" />
+          <Property Name="insertdate" Type="DateTime" Precision="3" />
+          <Property Name="orderkey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmdstate" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MSrepl_queuedtraninfo">
+          <Key>
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="publisher_db" />
+            <PropertyRef Name="publication" />
+            <PropertyRef Name="tranid" />
+            <PropertyRef Name="maxorderkey" />
+            <PropertyRef Name="commandcount" />
+          </Key>
+          <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_db" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publication" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="tranid" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="maxorderkey" Type="Int64" Nullable="false" />
+          <Property Name="commandcount" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MSreplication_objects">
+          <Key>
+            <PropertyRef Name="object_name" />
+            <PropertyRef Name="object_type" />
+          </Key>
+          <Property Name="publisher" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_db" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publication" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="object_name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="object_type" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="article" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSreplication_subscriptions">
+          <Key>
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="independent_agent" />
+            <PropertyRef Name="subscription_type" />
+            <PropertyRef Name="time" />
+            <PropertyRef Name="transaction_timestamp" />
+            <PropertyRef Name="update_mode" />
+            <PropertyRef Name="immediate_sync" />
+          </Key>
+          <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_db" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publication" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="independent_agent" Type="Boolean" Nullable="false" />
+          <Property Name="subscription_type" Type="Int32" Nullable="false" />
+          <Property Name="distribution_agent" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="transaction_timestamp" Type="Binary" Nullable="false" MaxLength="16" FixedLength="false" />
+          <Property Name="update_mode" Type="Byte" Nullable="false" />
+          <Property Name="agent_id" Type="Binary" MaxLength="16" FixedLength="true" />
+          <Property Name="subscription_guid" Type="Binary" MaxLength="16" FixedLength="true" />
+          <Property Name="subid" Type="Binary" MaxLength="16" FixedLength="true" />
+          <Property Name="immediate_sync" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MSsubscription_agents">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="publisher_db" />
+            <PropertyRef Name="publication" />
+            <PropertyRef Name="subscription_type" />
+            <PropertyRef Name="update_mode" />
+            <PropertyRef Name="failover_mode" />
+            <PropertyRef Name="spid" />
+            <PropertyRef Name="login_time" />
+            <PropertyRef Name="allow_subscription_copy" />
+            <PropertyRef Name="attach_state" />
+            <PropertyRef Name="attach_version" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_db" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publication" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="subscription_type" Type="Int32" Nullable="false" />
+          <Property Name="queue_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="update_mode" Type="Byte" Nullable="false" />
+          <Property Name="failover_mode" Type="Boolean" Nullable="false" />
+          <Property Name="spid" Type="Int32" Nullable="false" />
+          <Property Name="login_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="allow_subscription_copy" Type="Boolean" Nullable="false" />
+          <Property Name="attach_state" Type="Int32" Nullable="false" />
+          <Property Name="attach_version" Type="Binary" Nullable="false" MaxLength="16" FixedLength="true" />
+          <Property Name="last_sync_status" Type="Int32" />
+          <Property Name="last_sync_summary" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="last_sync_time" Type="DateTime" Precision="3" />
+          <Property Name="queue_server" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSsubscription_articlecolumns">
+          <Key>
+            <PropertyRef Name="agent_id" />
+            <PropertyRef Name="artid" />
+            <PropertyRef Name="colid" />
+          </Key>
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="artid" Type="Int32" Nullable="false" />
+          <Property Name="colid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MSsubscription_articles">
+          <Key>
+            <PropertyRef Name="agent_id" />
+            <PropertyRef Name="artid" />
+            <PropertyRef Name="article" />
+            <PropertyRef Name="dest_table" />
+            <PropertyRef Name="owner" />
+          </Key>
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="artid" Type="Int32" Nullable="false" />
+          <Property Name="article" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="dest_table" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="owner" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="cft_table" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSsubscription_properties">
+          <Key>
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="publication" />
+            <PropertyRef Name="publication_type" />
+            <PropertyRef Name="publisher_security_mode" />
+            <PropertyRef Name="distributor_security_mode" />
+            <PropertyRef Name="use_ftp" />
+            <PropertyRef Name="dts_package_location" />
+            <PropertyRef Name="enabled_for_syncmgr" />
+            <PropertyRef Name="offload_agent" />
+            <PropertyRef Name="use_web_sync" />
+            <PropertyRef Name="internet_security_mode" />
+            <PropertyRef Name="internet_timeout" />
+          </Key>
+          <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_db" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publication" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publication_type" Type="Int32" Nullable="false" />
+          <Property Name="publisher_login" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_password" Type="String" MaxLength="524" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_security_mode" Type="Int32" Nullable="false" />
+          <Property Name="distributor" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="distributor_login" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="distributor_password" Type="String" MaxLength="524" FixedLength="false" Unicode="true" />
+          <Property Name="distributor_security_mode" Type="Int32" Nullable="false" />
+          <Property Name="ftp_address" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ftp_port" Type="Int32" />
+          <Property Name="ftp_login" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ftp_password" Type="String" MaxLength="524" FixedLength="false" Unicode="true" />
+          <Property Name="alt_snapshot_folder" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="working_directory" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="use_ftp" Type="Boolean" Nullable="false" />
+          <Property Name="dts_package_name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="dts_package_password" Type="String" MaxLength="524" FixedLength="false" Unicode="true" />
+          <Property Name="dts_package_location" Type="Int32" Nullable="false" />
+          <Property Name="enabled_for_syncmgr" Type="Boolean" Nullable="false" />
+          <Property Name="offload_agent" Type="Boolean" Nullable="false" />
+          <Property Name="offload_server" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="dynamic_snapshot_location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="use_web_sync" Type="Boolean" Nullable="false" />
+          <Property Name="internet_url" Type="String" MaxLength="260" FixedLength="false" Unicode="true" />
+          <Property Name="internet_login" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="internet_password" Type="String" MaxLength="524" FixedLength="false" Unicode="true" />
+          <Property Name="internet_security_mode" Type="Int32" Nullable="false" />
+          <Property Name="internet_timeout" Type="Int32" Nullable="false" />
+          <Property Name="hostname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisherlink" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisherlinkuser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="job_step_uid" Type="Guid" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4045,6 +4543,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <EntitySetMapping Name="DOC_Header">
             <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Header">
               <MappingFragment StoreEntitySet="DOC_Header">
+                <ScalarProperty Name="header_added" ColumnName="header_added" />
                 <ScalarProperty Name="header_id" ColumnName="header_id" />
                 <ScalarProperty Name="header_code" ColumnName="header_code" />
                 <ScalarProperty Name="header_date" ColumnName="header_date" />
@@ -5576,6 +6075,8 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <EntitySetMapping Name="DOC_Detail_Ingredient">
             <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Detail_Ingredient">
               <MappingFragment StoreEntitySet="DOC_Detail_Ingredient">
+                <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+                <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
                 <ScalarProperty Name="update_by" ColumnName="update_by" />
                 <ScalarProperty Name="update_date" ColumnName="update_date" />
                 <ScalarProperty Name="create_by" ColumnName="create_by" />
@@ -5587,6 +6088,151 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
                 <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
                 <ScalarProperty Name="detail_id" ColumnName="detail_id" />
                 <ScalarProperty Name="running" ColumnName="running" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSreplication_queue">
+            <EntityTypeMapping TypeName="WebToolsStoreModel.MSreplication_queue">
+              <MappingFragment StoreEntitySet="MSreplication_queue">
+                <ScalarProperty Name="cmdstate" ColumnName="cmdstate" />
+                <ScalarProperty Name="orderkey" ColumnName="orderkey" />
+                <ScalarProperty Name="insertdate" ColumnName="insertdate" />
+                <ScalarProperty Name="commandtype" ColumnName="commandtype" />
+                <ScalarProperty Name="datalen" ColumnName="datalen" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="tranid" ColumnName="tranid" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+                <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSrepl_queuedtraninfo">
+            <EntityTypeMapping TypeName="WebToolsStoreModel.MSrepl_queuedtraninfo">
+              <MappingFragment StoreEntitySet="MSrepl_queuedtraninfo">
+                <ScalarProperty Name="commandcount" ColumnName="commandcount" />
+                <ScalarProperty Name="maxorderkey" ColumnName="maxorderkey" />
+                <ScalarProperty Name="tranid" ColumnName="tranid" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+                <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSreplication_objects">
+            <EntityTypeMapping TypeName="WebToolsStoreModel.MSreplication_objects">
+              <MappingFragment StoreEntitySet="MSreplication_objects">
+                <ScalarProperty Name="article" ColumnName="article" />
+                <ScalarProperty Name="object_type" ColumnName="object_type" />
+                <ScalarProperty Name="object_name" ColumnName="object_name" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+                <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSreplication_subscriptions">
+            <EntityTypeMapping TypeName="WebToolsStoreModel.MSreplication_subscriptions">
+              <MappingFragment StoreEntitySet="MSreplication_subscriptions">
+                <ScalarProperty Name="immediate_sync" ColumnName="immediate_sync" />
+                <ScalarProperty Name="subid" ColumnName="subid" />
+                <ScalarProperty Name="subscription_guid" ColumnName="subscription_guid" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="update_mode" ColumnName="update_mode" />
+                <ScalarProperty Name="transaction_timestamp" ColumnName="transaction_timestamp" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="distribution_agent" ColumnName="distribution_agent" />
+                <ScalarProperty Name="subscription_type" ColumnName="subscription_type" />
+                <ScalarProperty Name="independent_agent" ColumnName="independent_agent" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+                <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSsubscription_agents">
+            <EntityTypeMapping TypeName="WebToolsStoreModel.MSsubscription_agents">
+              <MappingFragment StoreEntitySet="MSsubscription_agents">
+                <ScalarProperty Name="queue_server" ColumnName="queue_server" />
+                <ScalarProperty Name="last_sync_time" ColumnName="last_sync_time" />
+                <ScalarProperty Name="last_sync_summary" ColumnName="last_sync_summary" />
+                <ScalarProperty Name="last_sync_status" ColumnName="last_sync_status" />
+                <ScalarProperty Name="attach_version" ColumnName="attach_version" />
+                <ScalarProperty Name="attach_state" ColumnName="attach_state" />
+                <ScalarProperty Name="allow_subscription_copy" ColumnName="allow_subscription_copy" />
+                <ScalarProperty Name="login_time" ColumnName="login_time" />
+                <ScalarProperty Name="spid" ColumnName="spid" />
+                <ScalarProperty Name="failover_mode" ColumnName="failover_mode" />
+                <ScalarProperty Name="update_mode" ColumnName="update_mode" />
+                <ScalarProperty Name="queue_id" ColumnName="queue_id" />
+                <ScalarProperty Name="subscription_type" ColumnName="subscription_type" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+                <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSsubscription_articlecolumns">
+            <EntityTypeMapping TypeName="WebToolsStoreModel.MSsubscription_articlecolumns">
+              <MappingFragment StoreEntitySet="MSsubscription_articlecolumns">
+                <ScalarProperty Name="colid" ColumnName="colid" />
+                <ScalarProperty Name="artid" ColumnName="artid" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSsubscription_articles">
+            <EntityTypeMapping TypeName="WebToolsStoreModel.MSsubscription_articles">
+              <MappingFragment StoreEntitySet="MSsubscription_articles">
+                <ScalarProperty Name="cft_table" ColumnName="cft_table" />
+                <ScalarProperty Name="owner" ColumnName="owner" />
+                <ScalarProperty Name="dest_table" ColumnName="dest_table" />
+                <ScalarProperty Name="article" ColumnName="article" />
+                <ScalarProperty Name="artid" ColumnName="artid" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSsubscription_properties">
+            <EntityTypeMapping TypeName="WebToolsStoreModel.MSsubscription_properties">
+              <MappingFragment StoreEntitySet="MSsubscription_properties">
+                <ScalarProperty Name="job_step_uid" ColumnName="job_step_uid" />
+                <ScalarProperty Name="publisherlinkuser" ColumnName="publisherlinkuser" />
+                <ScalarProperty Name="publisherlink" ColumnName="publisherlink" />
+                <ScalarProperty Name="hostname" ColumnName="hostname" />
+                <ScalarProperty Name="internet_timeout" ColumnName="internet_timeout" />
+                <ScalarProperty Name="internet_security_mode" ColumnName="internet_security_mode" />
+                <ScalarProperty Name="internet_password" ColumnName="internet_password" />
+                <ScalarProperty Name="internet_login" ColumnName="internet_login" />
+                <ScalarProperty Name="internet_url" ColumnName="internet_url" />
+                <ScalarProperty Name="use_web_sync" ColumnName="use_web_sync" />
+                <ScalarProperty Name="dynamic_snapshot_location" ColumnName="dynamic_snapshot_location" />
+                <ScalarProperty Name="offload_server" ColumnName="offload_server" />
+                <ScalarProperty Name="offload_agent" ColumnName="offload_agent" />
+                <ScalarProperty Name="enabled_for_syncmgr" ColumnName="enabled_for_syncmgr" />
+                <ScalarProperty Name="dts_package_location" ColumnName="dts_package_location" />
+                <ScalarProperty Name="dts_package_password" ColumnName="dts_package_password" />
+                <ScalarProperty Name="dts_package_name" ColumnName="dts_package_name" />
+                <ScalarProperty Name="use_ftp" ColumnName="use_ftp" />
+                <ScalarProperty Name="working_directory" ColumnName="working_directory" />
+                <ScalarProperty Name="alt_snapshot_folder" ColumnName="alt_snapshot_folder" />
+                <ScalarProperty Name="ftp_password" ColumnName="ftp_password" />
+                <ScalarProperty Name="ftp_login" ColumnName="ftp_login" />
+                <ScalarProperty Name="ftp_port" ColumnName="ftp_port" />
+                <ScalarProperty Name="ftp_address" ColumnName="ftp_address" />
+                <ScalarProperty Name="distributor_security_mode" ColumnName="distributor_security_mode" />
+                <ScalarProperty Name="distributor_password" ColumnName="distributor_password" />
+                <ScalarProperty Name="distributor_login" ColumnName="distributor_login" />
+                <ScalarProperty Name="distributor" ColumnName="distributor" />
+                <ScalarProperty Name="publisher_security_mode" ColumnName="publisher_security_mode" />
+                <ScalarProperty Name="publisher_password" ColumnName="publisher_password" />
+                <ScalarProperty Name="publisher_login" ColumnName="publisher_login" />
+                <ScalarProperty Name="publication_type" ColumnName="publication_type" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+                <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

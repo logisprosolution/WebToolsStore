@@ -42,8 +42,13 @@ namespace WebToolsStore.Data
             get { return _docIngredientList; }
             set { _docIngredientList = value; }
         }
-        
 
+        private List<DOC_Detail_Ingredient> _docIngredientList2 = new List<DOC_Detail_Ingredient>();
+        public virtual List<DOC_Detail_Ingredient> DocIngredientList2
+        {
+            get { return _docIngredientList2; }
+            set { _docIngredientList2 = value; }
+        }
         private string _searchText;
 
         public virtual string SearchText

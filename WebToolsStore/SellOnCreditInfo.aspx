@@ -14,7 +14,7 @@
     <script>
         function ShowDialog() {
             //debugger
-            PopupCenter('PopupProductPriceSelect.aspx', 'popup', '1000', '700');
+            PopupCenter('PopupProductPriceSelect.aspx?dataId=6', 'popup', '1000', '700');
         }
         function resultDialogPopupProductSelect(returnValue) {
             //debugger

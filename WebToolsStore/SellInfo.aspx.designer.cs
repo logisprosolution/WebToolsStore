@@ -112,6 +112,15 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.DropDownList ddl_type_vat;
         
         /// <summary>
+        /// RequiredTypeVat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredTypeVat;
+        
+        /// <summary>
         /// btnOpenPopup control.
         /// </summary>
         /// <remarks>
@@ -173,6 +182,15 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_discout;
+        
+        /// <summary>
+        /// txt_added control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_added;
         
         /// <summary>
         /// ddl_vat control.

@@ -1,0 +1,25 @@
+
+Log Entry : 0:20:20 2 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 0:20:21 2 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 1:40:25 2 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:41:29 2 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:48:28 2 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------

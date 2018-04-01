@@ -26,10 +26,11 @@ namespace WebToolsStore.Data
         public Nullable<int> create_by { get; set; }
         public Nullable<System.DateTime> update_date { get; set; }
         public Nullable<int> update_by { get; set; }
+        public Nullable<int> product_price_id { get; set; }
+        public Nullable<bool> is_enabled { get; set; }
         public string product_code { get; set; }
         public string product_name { get; set; }
         public string unit_name { get; set; }
-        public Nullable<int> seq { get; set; }
         public virtual DOC_Detail DOC_Detail { get; set; }
     }
 }

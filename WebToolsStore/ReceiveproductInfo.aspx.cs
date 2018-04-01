@@ -126,10 +126,10 @@ namespace WebToolsStore
         {
             try
             {
-                Tuple<int, int, decimal, int> value = FunctionSplitValue(txt);
+                Tuple<int, decimal, int, int> value = FunctionSplitValue(txt);
                 int quantity = value.Item1;
-                int product_price_id = value.Item2;
-                decimal price = value.Item3;
+                decimal price = value.Item2;
+                int product_price_id = value.Item3;
                 int unit_value = value.Item4;
 
                 if (quantity < 0)
@@ -193,7 +193,7 @@ namespace WebToolsStore
                 base.HandleException(ex);
             }
         }
-        private Tuple<int, int, decimal, int> FunctionSplitValue(string txt)
+        private Tuple<int, decimal, int, int> FunctionSplitValue(string txt)
         {
             int quantity = 1;
             int product_price_id = 0;
@@ -208,8 +208,8 @@ namespace WebToolsStore
                     {
                         quantity = -1;
                     }
-                    product_price_id = ConvertHelper.ToInt(arr[1]);
-                    price = ConvertHelper.ToDecimal(arr[2]);
+                    price = ConvertHelper.ToDecimal(arr[1]);
+                    product_price_id = ConvertHelper.ToInt(arr[2]);
                     if (arr.Length == 4)
                     {
                         unit_value = ConvertHelper.ToInt(arr[3]);
@@ -220,7 +220,7 @@ namespace WebToolsStore
                     quantity = 1;
                 }
             }
-            return Tuple.Create(quantity, product_price_id, price, unit_value);
+            return Tuple.Create(quantity, price, product_price_id, unit_value);
         }
 
         private void SaveInfo()//บันทึก

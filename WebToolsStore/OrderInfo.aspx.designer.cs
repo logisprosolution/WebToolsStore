@@ -31,6 +31,24 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.HiddenField hdfValue;
         
         /// <summary>
+        /// hdfChk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfChk;
+        
+        /// <summary>
+        /// hdfIngID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfIngID;
+        
+        /// <summary>
         /// txt_header_code control.
         /// </summary>
         /// <remarks>
@@ -85,13 +103,13 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.TextBox txt_PaymentDate;
         
         /// <summary>
-        /// txt_Deposit control.
+        /// txt_deposit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Deposit;
+        protected global::System.Web.UI.WebControls.TextBox txt_deposit;
         
         /// <summary>
         /// ddl_header_status control.
@@ -110,6 +128,15 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredStatus;
+        
+        /// <summary>
+        /// UpdatePanel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
         
         /// <summary>
         /// btnOpenPopup control.
@@ -137,6 +164,78 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgv1;
+        
+        /// <summary>
+        /// lbl_deposit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_deposit;
+        
+        /// <summary>
+        /// txt_total control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_total;
+        
+        /// <summary>
+        /// txt_discout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_discout;
+        
+        /// <summary>
+        /// txt_added control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_added;
+        
+        /// <summary>
+        /// ddl_vat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_vat;
+        
+        /// <summary>
+        /// txt_vat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_vat;
+        
+        /// <summary>
+        /// txt_net control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_net;
+        
+        /// <summary>
+        /// txt_receive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_receive;
         
         /// <summary>
         /// UpdatePanel2 control.

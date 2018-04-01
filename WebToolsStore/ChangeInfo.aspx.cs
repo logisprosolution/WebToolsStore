@@ -21,6 +21,63 @@ namespace WebToolsStore
         const string CartList_ShowState = "CartList_ShowState";
         const string CartList2_SaveState = "CartList2_SaveState";
         const string CartList2_ShowState = "CartList2_ShowState";
+        const string IngredientList_SaveState = "IngredientList_SaveState";
+        const string IngredientList_ShowState = "IngredientList_ShowState";
+        const string IngredientList2_SaveState = "IngredientList2_SaveState";
+        const string IngredientList2_ShowState = "IngredientList2_ShowState";
+        public List<DOC_Detail_Ingredient> IngredientList_Save //ไว้สำหรับsave จะมี row ที่โดนลบด้วย
+        {
+            get
+            {
+                if (!(ViewState[IngredientList_SaveState] is List<DOC_Detail_Ingredient>))
+                {
+                    ViewState[IngredientList_SaveState] = new List<DOC_Detail_Ingredient>();
+                }
+
+                return (List<DOC_Detail_Ingredient>)ViewState[IngredientList_SaveState];
+            }
+            set { ViewState[IngredientList_SaveState] = value; }
+        }
+        public List<DOC_Detail_Ingredient> IngredientList_Show  //ไว้สำหรับ bind ลงกริด จะไม่เห็น row ที่ลบ
+        {
+            get
+            {
+                if (!(ViewState[IngredientList_ShowState] is List<DOC_Detail_Ingredient>))
+                {
+                    ViewState[IngredientList_ShowState] = new List<DOC_Detail_Ingredient>();
+                }
+
+                return (List<DOC_Detail_Ingredient>)ViewState[IngredientList_ShowState];
+            }
+            set { ViewState[IngredientList_ShowState] = value; }
+        }
+        public List<DOC_Detail_Ingredient> IngredientList2_Save //ไว้สำหรับsave จะมี row ที่โดนลบด้วย
+        {
+            get
+            {
+                if (!(ViewState[IngredientList2_SaveState] is List<DOC_Detail_Ingredient>))
+                {
+                    ViewState[IngredientList2_SaveState] = new List<DOC_Detail_Ingredient>();
+                }
+
+                return (List<DOC_Detail_Ingredient>)ViewState[IngredientList2_SaveState];
+            }
+            set { ViewState[IngredientList2_SaveState] = value; }
+        }
+        public List<DOC_Detail_Ingredient> IngredientList2_Show  //ไว้สำหรับ bind ลงกริด จะไม่เห็น row ที่ลบ
+        {
+            get
+            {
+                if (!(ViewState[IngredientList2_ShowState] is List<DOC_Detail_Ingredient>))
+                {
+                    ViewState[IngredientList2_ShowState] = new List<DOC_Detail_Ingredient>();
+                }
+
+                return (List<DOC_Detail_Ingredient>)ViewState[IngredientList2_ShowState];
+            }
+            set { ViewState[IngredientList2_ShowState] = value; }
+        }
+
         public List<DOC_Detail> CartList_Save //ไว้สำหรับsave จะมี row ที่โดนลบด้วย
         {
             get
@@ -95,6 +152,7 @@ namespace WebToolsStore
                 BindControl(dataId);
                 txt_header_code.ReadOnly = true;
             }
+            //BindGridIngredient();
             BindGrid(dataId, ConvertHelper.ToInt(ConfigurationManager.AppSettings["DetailStatusID_IN"].ToString()));
             BindGridRE();
         }
@@ -133,7 +191,29 @@ namespace WebToolsStore
             dgv1.DataSource = CartList_Show;
             dgv1.DataBind();
         }
+        //private void BindGridIngredient()//โหลดตาราง
+        //{
+        //    DataTable dt = biz.SelectDetailIngredient(base.dataId);
+        //    IngredientList_Save = new List<DOC_Detail_Ingredient>();
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        DOC_Detail_Ingredient item = new DOC_Detail_Ingredient()
+        //        {
+        //            ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "ingredient_id")),
+        //            product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_id")),
+        //            product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_unit")),
+        //            product_qty = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_qty")),
+        //            product_code = ConvertHelper.InitialValueDB(row, "product_code"),
+        //            product_name = ConvertHelper.InitialValueDB(row, "product_name"),
+        //            unit_name = ConvertHelper.InitialValueDB(row, "unit_name"),
+        //            product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_price_id")),
+        //            //seq = seq1,
+        //        };
 
+        //        IngredientList_Save.Add(item);
+        //    }
+        //    IngredientList_Show = IngredientList_Save;
+        //}
         private void BindGridRE()//โหลดตาราง 
         {
             biz.dataModel.Detail_status = ConvertHelper.ToInt(ConfigurationManager.AppSettings["DetailStatusID_OT"].ToString());
@@ -161,8 +241,8 @@ namespace WebToolsStore
                 CartList2_Save.Add(item);
             }
             CartList2_Show = CartList2_Save;
-            dgv2.DataSource = CartList2_Show;
-            dgv2.DataBind();
+            dgv3.DataSource = CartList2_Show;
+            dgv3.DataBind();
         }
         private void BindControl(int id)//โหลดข้อมูล
         {
@@ -207,10 +287,12 @@ namespace WebToolsStore
         {
             try
             {
-                Tuple<int, int, decimal> value = FunctionSplitValue(txt);
+                Tuple<int, decimal, int, int> value = FunctionSplitValue(txt);
                 int quantity = value.Item1;
-                int product_price_id = value.Item2;
-                decimal price = value.Item3;
+                decimal price = value.Item2;
+                int product_price_id = value.Item3;
+                int unit_value = value.Item4;
+                decimal total = price * quantity;
 
                 if (quantity < 0)
                 {
@@ -226,37 +308,62 @@ namespace WebToolsStore
                         //ClearTxtProductBarCode("ไม่สามารถใช้สินค้านี้ได้เนื่องจากถูกปิดการใช้งาน กรุณาติดต่อผู้ดูแลระบบ");
                         return;
                     }
-                    decimal total = price * quantity;
-                    DOC_Detail item = new DOC_Detail()
+                    //decimal total = price * quantity;
+                    if (CartList_Show.Find(x => x.product_price_id == product_price_id) == null)
                     {
-                        product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_id")),
-                        product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_id")),
-                        product_price_code = ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_code"),
-                        product_price_name = ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_name"),
-                        unit_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "unit_id")),
-                        unit_name = ConvertHelper.InitialValueDB(dt.Rows[0], "unit_name"),
-                        detail_qty = quantity,
-                        detail_price = price,
-                        detail_discount = 0,
-                        detail_total = total,
-                        detail_remark = null,
-                        detail_status = ConvertHelper.ToInt(ConfigurationManager.AppSettings["DetailStatusID_OT"].ToString()), //สินค้าเปลี่ยนคืน
-                        subDocTypeID = ConvertHelper.ToInt(ConfigurationManager.AppSettings["DocTypeID_RE"].ToString()),
-                    };
-                    if (!IsNewMode)// กรณี แก้ไข แล้วเพิ่ม เข้าไปใหม่
+                        DOC_Detail item = new DOC_Detail()
+                        {
+                            product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_id")),
+                            product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_id")),
+                            product_price_code = ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_code"),
+                            product_price_name = ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_name"),
+                            unit_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "unit_id")),
+                            unit_name = ConvertHelper.InitialValueDB(dt.Rows[0], "unit_name"),
+                            detail_qty = quantity,
+                            detail_price = price,
+                            detail_discount = 0,
+                            detail_total = total,
+                            detail_remark = null,
+                            detail_status = ConvertHelper.ToInt(ConfigurationManager.AppSettings["DetailStatusID_OT"].ToString()), //สินค้าเปลี่ยนคืน
+                            subDocTypeID = ConvertHelper.ToInt(ConfigurationManager.AppSettings["DocTypeID_RE"].ToString()),
+                        };
+                        if (!IsNewMode)// กรณี แก้ไข แล้วเพิ่ม เข้าไปใหม่
+                        {
+                            item.header_id = dataId;
+                        }
+                        CartList2_Save.Add(item);
+                        CartList2_Show.Add(item);
+                    }
+                    else
                     {
-                        item.header_id = dataId;
+                        CartList_Save.Find(x => x.product_price_id == product_price_id).detail_total += total;
+                        CartList_Save.Find(x => x.product_price_id == product_price_id).detail_qty += quantity;
+                        CartList_Show = CartList_Save;
+
+
+                        ProductIngredientBiz biz = new ProductIngredientBiz();
+                        dt = biz.SelectProductIngredient(product_price_id);
+
+                        //List<DOC_Detail_Ingredient> list = new List<DOC_Detail_Ingredient>();
+                        //list = IngredientList_Save.FindAll(x => x.product_price_id == product_price_id); //บวกจำนวนgrid2
+
+                        if (dt != null)
+                        {
+                            foreach (DataRow row in dt.Rows)
+                            {
+                                IngredientList_Save.FindAll(x => x.product_price_id == product_price_id).Find(a => a.ingredient_id == (int)row["ingredient_id"]).product_qty += quantity * (int)row["product_qty"];
+                            }
+                        }
                     }
                     //string logStr = GetStringFromObj(item);
                     //LogFile.WriteLogFile("", "Transfer", "AddProductToCart", logStr);
 
-                    CartList2_Save.Add(item);
-                    CartList2_Show.Add(item);
-                    dgv2.DataSource = CartList2_Show;
-                    dgv2.DataBind();
+                   
+                    dgv3.DataSource = CartList2_Show;
+                    dgv3.DataBind();
 
 
-                    item = null;
+                    //item = null;
                     GC.Collect();
                 }
                 else
@@ -270,11 +377,12 @@ namespace WebToolsStore
                 base.HandleException(ex);
             }
         }
-        private Tuple<int, int, decimal> FunctionSplitValue(string txt)
+        private Tuple<int, decimal, int, int> FunctionSplitValue(string txt)
         {
             int quantity = 1;
             int product_price_id = 0;
             decimal price = 0;
+            int unit_value = 0;
             if (!ConvertHelper.IsStringEmpty(txt))
             {
                 if (txt.Contains("*"))
@@ -284,10 +392,11 @@ namespace WebToolsStore
                     {
                         quantity = -1;
                     }
-                    product_price_id = ConvertHelper.ToInt(arr[1]);
+                    price = ConvertHelper.ToDecimal(arr[1]);
+                    product_price_id = ConvertHelper.ToInt(arr[2]);
                     if (arr.Length == 4)
                     {
-                        price = ConvertHelper.ToDecimal(arr[2]);
+                        unit_value = ConvertHelper.ToInt(arr[3]);
                     }
                 }
                 else
@@ -295,7 +404,7 @@ namespace WebToolsStore
                     quantity = 1;
                 }
             }
-            return Tuple.Create(quantity, product_price_id, price);
+            return Tuple.Create(quantity, price, product_price_id, unit_value);
         }
         private void SaveInfo()//บันทึก
         {
@@ -344,6 +453,8 @@ namespace WebToolsStore
 
                 //product refund
                 model.DocDetailList2 = CartList2_Save;
+                model.DocIngredientList = IngredientList_Save;
+                model.DocIngredientList2 = IngredientList2_Save;
 
                 int newDataId = biz.SaveData(model, base.SAVE_INFO, base.IsNewMode);
                 model = null;
@@ -432,6 +543,9 @@ namespace WebToolsStore
                         CartList_Save.Find(x => x.detail_id == id).is_del = true;
                     }
                     CartList_Show.RemoveAt(index);
+                    int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[index].Values[1]);
+                    IngredientList_Show.RemoveAll(x => x.product_price_id == product_price_id);
+                    IngredientList_Save.RemoveAll(x => x.product_price_id == product_price_id);
                     dgv1.DataSource = CartList_Show;
                     dgv1.DataBind();
                 }
@@ -446,7 +560,7 @@ namespace WebToolsStore
 
         }
 
-        protected void dgv2_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void dgv3_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
             {
@@ -459,12 +573,15 @@ namespace WebToolsStore
                     }
                     else // ลบโดยหาจากไอดี
                     {
-                        int id = ConvertHelper.ToInt(dgv2.DataKeys[index].Value.ToString());
+                        int id = ConvertHelper.ToInt(dgv3.DataKeys[index].Value.ToString());
                         CartList2_Save.Find(x => x.detail_id == id).is_del = true;
                     }
                     CartList2_Show.RemoveAt(index);
-                    dgv2.DataSource = CartList2_Show;
-                    dgv2.DataBind();
+                    int product_price_id = ConvertHelper.ToInt(dgv3.DataKeys[index].Values[1]);
+                    IngredientList2_Show.RemoveAll(x => x.product_price_id == product_price_id);
+                    IngredientList2_Save.RemoveAll(x => x.product_price_id == product_price_id);
+                    dgv3.DataSource = CartList2_Show;
+                    dgv3.DataBind();
                 }
             }
             catch (Exception ex)
@@ -472,7 +589,7 @@ namespace WebToolsStore
                 base.HandleException(ex);
             }
         }
-        protected void dgv2_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void dgv3_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
 
         }
@@ -574,8 +691,95 @@ namespace WebToolsStore
             }
 
         }
+        protected void dgv1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    GridView dgv2 = e.Row.FindControl("dgv2") as GridView;
+                    int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[e.Row.RowIndex].Values[1]);
+                    int id = ConvertHelper.ToInt(hdfDocValue.Value);
+                    DataTable dt = biz.SelectDetailIngredient(id);
+                    //IngredientList_Save = new List<DOC_Detail_Ingredient>();
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        DOC_Detail_Ingredient item = new DOC_Detail_Ingredient()
+                        {
+                            ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "ingredient_id")),
+                            product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_id")),
+                            product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_unit")),
+                            product_qty = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_qty")),
+                            product_code = ConvertHelper.InitialValueDB(row, "product_code"),
+                            product_name = ConvertHelper.InitialValueDB(row, "product_name"),
+                            unit_name = ConvertHelper.InitialValueDB(row, "unit_name"),
+                            product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_price_id")),
+                            //seq = seq1,
+                        };
+
+                        IngredientList_Save.Add(item);
+                    }
+                    IngredientList_Show = IngredientList_Save;
+                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id);
+                    dgv2.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                base.HandleException(ex);
+            }
+        }
+        protected void dgv3_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    GridView dgv4 = e.Row.FindControl("dgv4") as GridView;
+                    //HiddenField hdfSeq = (HiddenField)e.Row.FindControl("hdfSeq");
+                    //int seq1 = ConvertHelper.ToInt(hdfSeq.Value);
+                    HiddenField id = (HiddenField)e.Row.FindControl("hdfProID");
+                    int detail_qty = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfQty")).Value);
+                    int product_id = ConvertHelper.ToInt(id.Value);
+                    ProductIngredientBiz biz = new ProductIngredientBiz();
+                    DataTable dt = biz.SelectInfo(product_id);
+                    int product_price_id = ConvertHelper.ToInt(dgv3.DataKeys[e.Row.RowIndex].Values[1]);
+                    string txt = hdfValue.Value;
+                    Tuple<int, decimal, int, int> value = FunctionSplitValue(txt);
+                    int quantity = value.Item1;
+                    int unit_value = value.Item4;
+
+                    if (IngredientList2_Show.Find(x => x.product_price_id == product_price_id) == null) //ถ้า grid1 new row เข้าเงื่อนไขนี้
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            DOC_Detail_Ingredient item = new DOC_Detail_Ingredient()
+                            {
+                                ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "ingredient_id")),
+                                product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_id")),
+                                product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_unit")),
+                                product_qty = quantity * unit_value * ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_qty")),
+                                product_code = ConvertHelper.InitialValueDB(row, "product_code"),
+                                product_name = ConvertHelper.InitialValueDB(row, "product_name"),
+                                unit_name = ConvertHelper.InitialValueDB(row, "unit_name"),
+                                product_price_id = product_price_id,
+                                //seq = seq1
+                            };
+                            IngredientList2_Save.Add(item);
+                            //IngredientList_Show.Add(item);
+                        }
+                    }
+                    IngredientList2_Show = IngredientList2_Save;
+                    dgv4.DataSource = IngredientList2_Show.FindAll(x => x.product_price_id == product_price_id);
+                    dgv4.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                base.HandleException(ex);
+            }
+        }
+
         #endregion Events
-
-
     }
 }

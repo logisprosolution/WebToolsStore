@@ -44,6 +44,7 @@
     <EntitySetMapping Name="DOC_Header">
       <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Header">
         <MappingFragment StoreEntitySet="DOC_Header">
+          <ScalarProperty Name="header_added" ColumnName="header_added" />
           <ScalarProperty Name="header_id" ColumnName="header_id" />
           <ScalarProperty Name="header_code" ColumnName="header_code" />
           <ScalarProperty Name="header_date" ColumnName="header_date" />
@@ -1575,6 +1576,8 @@
     <EntitySetMapping Name="DOC_Detail_Ingredient">
       <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Detail_Ingredient">
         <MappingFragment StoreEntitySet="DOC_Detail_Ingredient">
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
           <ScalarProperty Name="update_by" ColumnName="update_by" />
           <ScalarProperty Name="update_date" ColumnName="update_date" />
           <ScalarProperty Name="create_by" ColumnName="create_by" />
@@ -1586,6 +1589,151 @@
           <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
           <ScalarProperty Name="detail_id" ColumnName="detail_id" />
           <ScalarProperty Name="running" ColumnName="running" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSreplication_queue">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MSreplication_queue">
+        <MappingFragment StoreEntitySet="MSreplication_queue">
+          <ScalarProperty Name="cmdstate" ColumnName="cmdstate" />
+          <ScalarProperty Name="orderkey" ColumnName="orderkey" />
+          <ScalarProperty Name="insertdate" ColumnName="insertdate" />
+          <ScalarProperty Name="commandtype" ColumnName="commandtype" />
+          <ScalarProperty Name="datalen" ColumnName="datalen" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="tranid" ColumnName="tranid" />
+          <ScalarProperty Name="publication" ColumnName="publication" />
+          <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+          <ScalarProperty Name="publisher" ColumnName="publisher" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSrepl_queuedtraninfo">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MSrepl_queuedtraninfo">
+        <MappingFragment StoreEntitySet="MSrepl_queuedtraninfo">
+          <ScalarProperty Name="commandcount" ColumnName="commandcount" />
+          <ScalarProperty Name="maxorderkey" ColumnName="maxorderkey" />
+          <ScalarProperty Name="tranid" ColumnName="tranid" />
+          <ScalarProperty Name="publication" ColumnName="publication" />
+          <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+          <ScalarProperty Name="publisher" ColumnName="publisher" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSreplication_objects">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MSreplication_objects">
+        <MappingFragment StoreEntitySet="MSreplication_objects">
+          <ScalarProperty Name="article" ColumnName="article" />
+          <ScalarProperty Name="object_type" ColumnName="object_type" />
+          <ScalarProperty Name="object_name" ColumnName="object_name" />
+          <ScalarProperty Name="publication" ColumnName="publication" />
+          <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+          <ScalarProperty Name="publisher" ColumnName="publisher" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSreplication_subscriptions">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MSreplication_subscriptions">
+        <MappingFragment StoreEntitySet="MSreplication_subscriptions">
+          <ScalarProperty Name="immediate_sync" ColumnName="immediate_sync" />
+          <ScalarProperty Name="subid" ColumnName="subid" />
+          <ScalarProperty Name="subscription_guid" ColumnName="subscription_guid" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+          <ScalarProperty Name="update_mode" ColumnName="update_mode" />
+          <ScalarProperty Name="transaction_timestamp" ColumnName="transaction_timestamp" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="distribution_agent" ColumnName="distribution_agent" />
+          <ScalarProperty Name="subscription_type" ColumnName="subscription_type" />
+          <ScalarProperty Name="independent_agent" ColumnName="independent_agent" />
+          <ScalarProperty Name="publication" ColumnName="publication" />
+          <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+          <ScalarProperty Name="publisher" ColumnName="publisher" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSsubscription_agents">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MSsubscription_agents">
+        <MappingFragment StoreEntitySet="MSsubscription_agents">
+          <ScalarProperty Name="queue_server" ColumnName="queue_server" />
+          <ScalarProperty Name="last_sync_time" ColumnName="last_sync_time" />
+          <ScalarProperty Name="last_sync_summary" ColumnName="last_sync_summary" />
+          <ScalarProperty Name="last_sync_status" ColumnName="last_sync_status" />
+          <ScalarProperty Name="attach_version" ColumnName="attach_version" />
+          <ScalarProperty Name="attach_state" ColumnName="attach_state" />
+          <ScalarProperty Name="allow_subscription_copy" ColumnName="allow_subscription_copy" />
+          <ScalarProperty Name="login_time" ColumnName="login_time" />
+          <ScalarProperty Name="spid" ColumnName="spid" />
+          <ScalarProperty Name="failover_mode" ColumnName="failover_mode" />
+          <ScalarProperty Name="update_mode" ColumnName="update_mode" />
+          <ScalarProperty Name="queue_id" ColumnName="queue_id" />
+          <ScalarProperty Name="subscription_type" ColumnName="subscription_type" />
+          <ScalarProperty Name="publication" ColumnName="publication" />
+          <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+          <ScalarProperty Name="publisher" ColumnName="publisher" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSsubscription_articlecolumns">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MSsubscription_articlecolumns">
+        <MappingFragment StoreEntitySet="MSsubscription_articlecolumns">
+          <ScalarProperty Name="colid" ColumnName="colid" />
+          <ScalarProperty Name="artid" ColumnName="artid" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSsubscription_articles">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MSsubscription_articles">
+        <MappingFragment StoreEntitySet="MSsubscription_articles">
+          <ScalarProperty Name="cft_table" ColumnName="cft_table" />
+          <ScalarProperty Name="owner" ColumnName="owner" />
+          <ScalarProperty Name="dest_table" ColumnName="dest_table" />
+          <ScalarProperty Name="article" ColumnName="article" />
+          <ScalarProperty Name="artid" ColumnName="artid" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSsubscription_properties">
+      <EntityTypeMapping TypeName="WebToolsStoreModel.MSsubscription_properties">
+        <MappingFragment StoreEntitySet="MSsubscription_properties">
+          <ScalarProperty Name="job_step_uid" ColumnName="job_step_uid" />
+          <ScalarProperty Name="publisherlinkuser" ColumnName="publisherlinkuser" />
+          <ScalarProperty Name="publisherlink" ColumnName="publisherlink" />
+          <ScalarProperty Name="hostname" ColumnName="hostname" />
+          <ScalarProperty Name="internet_timeout" ColumnName="internet_timeout" />
+          <ScalarProperty Name="internet_security_mode" ColumnName="internet_security_mode" />
+          <ScalarProperty Name="internet_password" ColumnName="internet_password" />
+          <ScalarProperty Name="internet_login" ColumnName="internet_login" />
+          <ScalarProperty Name="internet_url" ColumnName="internet_url" />
+          <ScalarProperty Name="use_web_sync" ColumnName="use_web_sync" />
+          <ScalarProperty Name="dynamic_snapshot_location" ColumnName="dynamic_snapshot_location" />
+          <ScalarProperty Name="offload_server" ColumnName="offload_server" />
+          <ScalarProperty Name="offload_agent" ColumnName="offload_agent" />
+          <ScalarProperty Name="enabled_for_syncmgr" ColumnName="enabled_for_syncmgr" />
+          <ScalarProperty Name="dts_package_location" ColumnName="dts_package_location" />
+          <ScalarProperty Name="dts_package_password" ColumnName="dts_package_password" />
+          <ScalarProperty Name="dts_package_name" ColumnName="dts_package_name" />
+          <ScalarProperty Name="use_ftp" ColumnName="use_ftp" />
+          <ScalarProperty Name="working_directory" ColumnName="working_directory" />
+          <ScalarProperty Name="alt_snapshot_folder" ColumnName="alt_snapshot_folder" />
+          <ScalarProperty Name="ftp_password" ColumnName="ftp_password" />
+          <ScalarProperty Name="ftp_login" ColumnName="ftp_login" />
+          <ScalarProperty Name="ftp_port" ColumnName="ftp_port" />
+          <ScalarProperty Name="ftp_address" ColumnName="ftp_address" />
+          <ScalarProperty Name="distributor_security_mode" ColumnName="distributor_security_mode" />
+          <ScalarProperty Name="distributor_password" ColumnName="distributor_password" />
+          <ScalarProperty Name="distributor_login" ColumnName="distributor_login" />
+          <ScalarProperty Name="distributor" ColumnName="distributor" />
+          <ScalarProperty Name="publisher_security_mode" ColumnName="publisher_security_mode" />
+          <ScalarProperty Name="publisher_password" ColumnName="publisher_password" />
+          <ScalarProperty Name="publisher_login" ColumnName="publisher_login" />
+          <ScalarProperty Name="publication_type" ColumnName="publication_type" />
+          <ScalarProperty Name="publication" ColumnName="publication" />
+          <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+          <ScalarProperty Name="publisher" ColumnName="publisher" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,0 +1,115 @@
+
+Log Entry : 2:49:05 31 มีนาคม 2561
+  :
+Exception Message:Column 'product_code' does not belong to table SelectDetailIngredient.
+-------------------------------
+
+Log Entry : 2:53:13 31 มีนาคม 2561
+  :
+Exception Message:Column 'product_code' does not belong to table SelectDetailIngredient.
+-------------------------------
+
+Log Entry : 16:08:49 31 มีนาคม 2561
+  :
+Exception Message:Column 'unit_name' does not belong to table SelectDetailIngredient.
+-------------------------------
+
+Log Entry : 17:28:26 31 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.DOC_Detail_Ingredient' does not contain a property with the name 'chk_is_enabled'.
+-------------------------------
+
+Log Entry : 17:28:27 31 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.DOC_Detail_Ingredient' does not contain a property with the name 'chk_is_enabled'.
+-------------------------------
+
+Log Entry : 17:30:18 31 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.DOC_Detail_Ingredient' does not contain a property with the name 'chk_is_enabled'.
+-------------------------------
+
+Log Entry : 17:30:19 31 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.DOC_Detail_Ingredient' does not contain a property with the name 'chk_is_enabled'.
+-------------------------------
+
+Log Entry : 17:32:50 31 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.DOC_Detail_Ingredient' does not contain a property with the name 'chk_is_enabled'.
+-------------------------------
+
+Log Entry : 17:32:59 31 มีนาคม 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.DOC_Detail_Ingredient' does not contain a property with the name 'chk_is_enabled'.
+-------------------------------
+
+Log Entry : 18:09:57 31 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 18:10:53 31 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 18:12:14 31 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 18:27:06 31 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 19:03:09 31 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 19:03:43 31 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 19:23:40 31 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 19:24:06 31 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 19:24:20 31 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 19:32:37 31 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 19:46:25 31 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 19:47:24 31 มีนาคม 2561
+  :
+Exception Message:Data source is an invalid type.  It must be either an IListSource, IEnumerable, or IDataSource.
+-------------------------------
+
+Log Entry : 19:54:25 31 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 19:55:24 31 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------

@@ -62,6 +62,14 @@ namespace WebToolsStore.Data
         public DbSet<v_transAll> v_transAll { get; set; }
         public DbSet<v_vatType> v_vatType { get; set; }
         public DbSet<DOC_Detail_Ingredient> DOC_Detail_Ingredient { get; set; }
+        public DbSet<MSreplication_queue> MSreplication_queue { get; set; }
+        public DbSet<MSrepl_queuedtraninfo> MSrepl_queuedtraninfo { get; set; }
+        public DbSet<MSreplication_objects> MSreplication_objects { get; set; }
+        public DbSet<MSreplication_subscriptions> MSreplication_subscriptions { get; set; }
+        public DbSet<MSsubscription_agents> MSsubscription_agents { get; set; }
+        public DbSet<MSsubscription_articlecolumns> MSsubscription_articlecolumns { get; set; }
+        public DbSet<MSsubscription_articles> MSsubscription_articles { get; set; }
+        public DbSet<MSsubscription_properties> MSsubscription_properties { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -1344,13 +1352,13 @@ namespace WebToolsStore.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("udp_SelectDocSup_sel", searchTextParameter, supplyer_IdParameter, searchDateParameter);
         }
     
-        public virtual ObjectResult<udp_SelectIngredient_sel_Result> udp_SelectIngredient_sel(Nullable<int> product_id)
+        public virtual ObjectResult<udp_SelectIngredient_sel_Result> udp_SelectIngredient_sel(Nullable<int> product_price_id)
         {
-            var product_idParameter = product_id.HasValue ?
-                new ObjectParameter("product_id", product_id) :
-                new ObjectParameter("product_id", typeof(int));
+            var product_price_idParameter = product_price_id.HasValue ?
+                new ObjectParameter("product_price_id", product_price_id) :
+                new ObjectParameter("product_price_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<udp_SelectIngredient_sel_Result>("udp_SelectIngredient_sel", product_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<udp_SelectIngredient_sel_Result>("udp_SelectIngredient_sel", product_price_idParameter);
         }
     
         public virtual ObjectResult<udp_SelectPrice_sel_Result> udp_SelectPrice_sel(Nullable<int> product_id)

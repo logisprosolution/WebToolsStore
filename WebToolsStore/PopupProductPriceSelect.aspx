@@ -27,10 +27,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
     <script type="text/javascript">
         function CloseDialog() {
+            debugger
             var num = $("#<%=txtNumber.ClientID %>").val();
-            var returnValue = num + '*' + $("#<%=hdfValue.ClientID %>").val();
+            var price = $("#<%=ddlprice.ClientID %>").val();
+            var returnValue = num + '*' + price + '*' + $("#<%=hdfValue.ClientID %>").val();
             var is_stock = $("#<%=is_stock.ClientID %>").val();
-            if (returnValue == '' || returnValue == null || returnValue == num + '*') {
+            if (returnValue == '' || returnValue == null || returnValue == num + '*' + null + '*') {
                 //if (is_stock == '1') {
                 //    alert('จำนวนสินค้าไม่พอ กรุณาเลือกสินค้าใหม่');
                 //    return false;
@@ -182,26 +184,15 @@
                             <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="cost" HeaderText="ต้นทุน">
                                 <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                             </asp:BoundField>
-                               <asp:TemplateField HeaderText="ราคาเงินสด" HeaderStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <asp:CheckBox runat="server" ID="price_Cash" Text='<%#Eval("price_Cash") %>' />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="ราคาเงินเชื่อ" HeaderStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <asp:CheckBox runat="server" ID="price_Credit" Text='<%#Eval("price_Credit") %>' />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="ราคา่สวนลดพิเศษ" HeaderStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <asp:CheckBox runat="server" ID="price_CashExtra" Text='<%#Eval("price_CashExtra") %>' />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <%--                            <asp:TemplateField HeaderText="ราคา่สวนลดพิเศษ" HeaderStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <asp:RadioButton runat="server" CssClass="checkbox" Text='<%#Eval("price_CashExtra") %>' />
-                                </ItemTemplate>
-                            </asp:TemplateField>--%>
+                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_Cash" DataFormatString="{0:n}" HeaderText="ราคาเงินสด">
+                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                            </asp:BoundField>
+                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_Credit" DataFormatString="{0:n}" HeaderText="ราคาเงินเชื่อ">
+                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                            </asp:BoundField>
+                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_CashExtra"  DataFormatString="{0:n}" HeaderText="ราคาส่วนลดพิเศษ">
+                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                            </asp:BoundField>
                             <asp:TemplateField HeaderText="จำนวน" HeaderStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
                                     <asp:Label ID="lblStock" runat="server" Text='<%#Eval("stock") %>'></asp:Label>
@@ -231,6 +222,12 @@
                 <asp:LinkButton ID="btnSelect" runat="server" class="btn btn-primary pull-right" CausesValidation="False" OnClientClick="CloseDialog();">
                     <i class="fa fa-check"></i>เลือก</asp:LinkButton>
                 <button type="button" class="btn btn-default pull-left" onclick="CancelDialog();">กลับ</button>
+                 <div class="col-sm-1 text-center">
+                    <asp:Label Text="ราคา" runat="server" />
+                </div>
+                <div class="col-sm-3">
+                    <asp:DropDownList class="form-control" ID="ddlprice" runat="server" />
+                </div>
                 <div class="col-sm-1 text-center">
                     <asp:Label Text="จำนวน" runat="server" />
                 </div>

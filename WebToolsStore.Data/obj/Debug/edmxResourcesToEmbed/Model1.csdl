@@ -82,6 +82,7 @@
     <Property Name="header_ref" Type="Int32" />
     <NavigationProperty Name="DOC_Detail" Relationship="Self.FK_DOC_Detail_DOC_Header" FromRole="DOC_Header" ToRole="DOC_Detail" />
     <NavigationProperty Name="DOC_SubDocType" Relationship="Self.FK_DOC_Header_DOC_SubDocType" FromRole="DOC_Header" ToRole="DOC_SubDocType" />
+    <Property Name="header_added" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="DOC_Product_Move">
     <Key>
@@ -1370,7 +1371,7 @@
       <Parameter Name="SearchDate" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="udp_SelectIngredient_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectIngredient_sel_Result)">
-      <Parameter Name="product_id" Mode="In" Type="Int32" />
+      <Parameter Name="product_price_id" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="udp_SelectPrice_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectPrice_sel_Result)">
       <Parameter Name="product_id" Mode="In" Type="Int32" />
@@ -1592,6 +1593,14 @@
       <End Role="MAS_Warehouse" EntitySet="MAS_Warehouse" />
       <End Role="DOC_Detail" EntitySet="DOC_Detail" />
     </AssociationSet>
+    <EntitySet Name="MSreplication_queue" EntityType="WebToolsStoreModel.MSreplication_queue" />
+    <EntitySet Name="MSrepl_queuedtraninfo" EntityType="WebToolsStoreModel.MSrepl_queuedtraninfo" />
+    <EntitySet Name="MSreplication_objects" EntityType="WebToolsStoreModel.MSreplication_objects" />
+    <EntitySet Name="MSreplication_subscriptions" EntityType="WebToolsStoreModel.MSreplication_subscriptions" />
+    <EntitySet Name="MSsubscription_agents" EntityType="WebToolsStoreModel.MSsubscription_agents" />
+    <EntitySet Name="MSsubscription_articlecolumns" EntityType="WebToolsStoreModel.MSsubscription_articlecolumns" />
+    <EntitySet Name="MSsubscription_articles" EntityType="WebToolsStoreModel.MSsubscription_articles" />
+    <EntitySet Name="MSsubscription_properties" EntityType="WebToolsStoreModel.MSsubscription_properties" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -2299,6 +2308,8 @@
     <Property Name="update_date" Type="DateTime" Precision="3" />
     <Property Name="update_by" Type="Int32" />
     <NavigationProperty Name="DOC_Detail" Relationship="WebToolsStoreModel.FK_DOC_Detail_Ingredient_DOC_Detail" FromRole="DOC_Detail_Ingredient" ToRole="DOC_Detail" />
+    <Property Name="product_price_id" Type="Int32" />
+    <Property Name="is_enabled" Type="Boolean" />
   </EntityType>
   <Association Name="FK_DOC_Detail_Ingredient_DOC_Detail">
     <End Type="WebToolsStoreModel.DOC_Detail" Role="DOC_Detail" Multiplicity="1" />
@@ -2324,4 +2335,181 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="MSreplication_queue">
+    <Key>
+      <PropertyRef Name="orderkey" />
+    </Key>
+    <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publisher_db" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publication" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="tranid" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="data" Type="Binary" MaxLength="8000" FixedLength="false" />
+    <Property Name="datalen" Type="Int32" />
+    <Property Name="commandtype" Type="Int32" />
+    <Property Name="insertdate" Type="DateTime" Precision="3" />
+    <Property Name="orderkey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cmdstate" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MSrepl_queuedtraninfo">
+    <Key>
+      <PropertyRef Name="publisher" />
+      <PropertyRef Name="publisher_db" />
+      <PropertyRef Name="publication" />
+      <PropertyRef Name="tranid" />
+      <PropertyRef Name="maxorderkey" />
+      <PropertyRef Name="commandcount" />
+    </Key>
+    <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publisher_db" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publication" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="tranid" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="maxorderkey" Type="Int64" Nullable="false" />
+    <Property Name="commandcount" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MSreplication_objects">
+    <Key>
+      <PropertyRef Name="object_name" />
+      <PropertyRef Name="object_type" />
+    </Key>
+    <Property Name="publisher" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publisher_db" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publication" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="object_name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="object_type" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="article" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MSreplication_subscriptions">
+    <Key>
+      <PropertyRef Name="publisher" />
+      <PropertyRef Name="independent_agent" />
+      <PropertyRef Name="subscription_type" />
+      <PropertyRef Name="time" />
+      <PropertyRef Name="transaction_timestamp" />
+      <PropertyRef Name="update_mode" />
+      <PropertyRef Name="immediate_sync" />
+    </Key>
+    <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publisher_db" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publication" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="independent_agent" Type="Boolean" Nullable="false" />
+    <Property Name="subscription_type" Type="Int32" Nullable="false" />
+    <Property Name="distribution_agent" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="transaction_timestamp" Type="Binary" Nullable="false" MaxLength="16" FixedLength="false" />
+    <Property Name="update_mode" Type="Byte" Nullable="false" />
+    <Property Name="agent_id" Type="Binary" MaxLength="16" FixedLength="true" />
+    <Property Name="subscription_guid" Type="Binary" MaxLength="16" FixedLength="true" />
+    <Property Name="subid" Type="Binary" MaxLength="16" FixedLength="true" />
+    <Property Name="immediate_sync" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MSsubscription_agents">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="publisher" />
+      <PropertyRef Name="publisher_db" />
+      <PropertyRef Name="publication" />
+      <PropertyRef Name="subscription_type" />
+      <PropertyRef Name="update_mode" />
+      <PropertyRef Name="failover_mode" />
+      <PropertyRef Name="spid" />
+      <PropertyRef Name="login_time" />
+      <PropertyRef Name="allow_subscription_copy" />
+      <PropertyRef Name="attach_state" />
+      <PropertyRef Name="attach_version" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publisher_db" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publication" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="subscription_type" Type="Int32" Nullable="false" />
+    <Property Name="queue_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="update_mode" Type="Byte" Nullable="false" />
+    <Property Name="failover_mode" Type="Boolean" Nullable="false" />
+    <Property Name="spid" Type="Int32" Nullable="false" />
+    <Property Name="login_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="allow_subscription_copy" Type="Boolean" Nullable="false" />
+    <Property Name="attach_state" Type="Int32" Nullable="false" />
+    <Property Name="attach_version" Type="Binary" Nullable="false" MaxLength="16" FixedLength="true" />
+    <Property Name="last_sync_status" Type="Int32" />
+    <Property Name="last_sync_summary" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="last_sync_time" Type="DateTime" Precision="3" />
+    <Property Name="queue_server" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MSsubscription_articlecolumns">
+    <Key>
+      <PropertyRef Name="agent_id" />
+      <PropertyRef Name="artid" />
+      <PropertyRef Name="colid" />
+    </Key>
+    <Property Name="agent_id" Type="Int32" Nullable="false" />
+    <Property Name="artid" Type="Int32" Nullable="false" />
+    <Property Name="colid" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MSsubscription_articles">
+    <Key>
+      <PropertyRef Name="agent_id" />
+      <PropertyRef Name="artid" />
+      <PropertyRef Name="article" />
+      <PropertyRef Name="dest_table" />
+      <PropertyRef Name="owner" />
+    </Key>
+    <Property Name="agent_id" Type="Int32" Nullable="false" />
+    <Property Name="artid" Type="Int32" Nullable="false" />
+    <Property Name="article" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="dest_table" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="owner" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="cft_table" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MSsubscription_properties">
+    <Key>
+      <PropertyRef Name="publisher" />
+      <PropertyRef Name="publication" />
+      <PropertyRef Name="publication_type" />
+      <PropertyRef Name="publisher_security_mode" />
+      <PropertyRef Name="distributor_security_mode" />
+      <PropertyRef Name="use_ftp" />
+      <PropertyRef Name="dts_package_location" />
+      <PropertyRef Name="enabled_for_syncmgr" />
+      <PropertyRef Name="offload_agent" />
+      <PropertyRef Name="use_web_sync" />
+      <PropertyRef Name="internet_security_mode" />
+      <PropertyRef Name="internet_timeout" />
+    </Key>
+    <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publisher_db" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publication" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publication_type" Type="Int32" Nullable="false" />
+    <Property Name="publisher_login" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publisher_password" Type="String" MaxLength="524" FixedLength="false" Unicode="true" />
+    <Property Name="publisher_security_mode" Type="Int32" Nullable="false" />
+    <Property Name="distributor" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="distributor_login" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="distributor_password" Type="String" MaxLength="524" FixedLength="false" Unicode="true" />
+    <Property Name="distributor_security_mode" Type="Int32" Nullable="false" />
+    <Property Name="ftp_address" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ftp_port" Type="Int32" />
+    <Property Name="ftp_login" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ftp_password" Type="String" MaxLength="524" FixedLength="false" Unicode="true" />
+    <Property Name="alt_snapshot_folder" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="working_directory" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="use_ftp" Type="Boolean" Nullable="false" />
+    <Property Name="dts_package_name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="dts_package_password" Type="String" MaxLength="524" FixedLength="false" Unicode="true" />
+    <Property Name="dts_package_location" Type="Int32" Nullable="false" />
+    <Property Name="enabled_for_syncmgr" Type="Boolean" Nullable="false" />
+    <Property Name="offload_agent" Type="Boolean" Nullable="false" />
+    <Property Name="offload_server" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="dynamic_snapshot_location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="use_web_sync" Type="Boolean" Nullable="false" />
+    <Property Name="internet_url" Type="String" MaxLength="260" FixedLength="false" Unicode="true" />
+    <Property Name="internet_login" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="internet_password" Type="String" MaxLength="524" FixedLength="false" Unicode="true" />
+    <Property Name="internet_security_mode" Type="Int32" Nullable="false" />
+    <Property Name="internet_timeout" Type="Int32" Nullable="false" />
+    <Property Name="hostname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publisherlink" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="publisherlinkuser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="job_step_uid" Type="Guid" />
+  </EntityType>
 </Schema>

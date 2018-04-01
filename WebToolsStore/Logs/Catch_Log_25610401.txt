@@ -1,0 +1,69 @@
+
+Log Entry : 3:31:31 1 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 3:31:31 1 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 4:13:50 1 เมษายน 2561
+  :
+Exception Message:The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_Ingredient_DOC_Detail". The conflict occurred in database "WebToolsStore", table "dbo.DOC_Detail", column 'detail_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 4:14:35 1 เมษายน 2561
+  :
+Exception Message:The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_Ingredient_DOC_Detail". The conflict occurred in database "WebToolsStore", table "dbo.DOC_Detail", column 'detail_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 4:14:57 1 เมษายน 2561
+  :
+Exception Message:The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_Ingredient_DOC_Detail". The conflict occurred in database "WebToolsStore", table "dbo.DOC_Detail", column 'detail_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 4:15:10 1 เมษายน 2561
+  :
+Exception Message:The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_Ingredient_DOC_Detail". The conflict occurred in database "WebToolsStore", table "dbo.DOC_Detail", column 'detail_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 6:03:14 1 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 18:50:38 1 เมษายน 2561
+  :
+Exception Message:Index and length must refer to a location within the string.
+Parameter name: length
+-------------------------------
+
+Log Entry : 18:51:21 1 เมษายน 2561
+  :
+Exception Message:Index and length must refer to a location within the string.
+Parameter name: length
+-------------------------------
+
+Log Entry : 18:53:25 1 เมษายน 2561
+  :
+Exception Message:Index and length must refer to a location within the string.
+Parameter name: length
+-------------------------------
+
+Log Entry : 18:54:03 1 เมษายน 2561
+  :
+Exception Message:Index and length must refer to a location within the string.
+Parameter name: length
+-------------------------------
+
+Log Entry : 18:54:26 1 เมษายน 2561
+  :
+Exception Message:Index and length must refer to a location within the string.
+Parameter name: length
+-------------------------------

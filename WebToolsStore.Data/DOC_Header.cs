@@ -52,6 +52,7 @@ namespace WebToolsStore.Data
         public Nullable<decimal> header_deposit { get; set; }
         public Nullable<decimal> header_refund { get; set; }
         public Nullable<int> header_ref { get; set; }
+        public Nullable<decimal> header_added { get; set; }
     
         public virtual ICollection<DOC_Detail> DOC_Detail { get; set; }
         public virtual DOC_SubDocType DOC_SubDocType { get; set; }

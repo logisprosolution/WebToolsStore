@@ -84,3 +84,38 @@ Log Entry : 17:24:36 23 มีนาคม 2561
   :
 Exception Message:Object reference not set to an instance of an object.
 -------------------------------
+
+Log Entry : 19:22:35 23 มีนาคม 2561
+  :
+Exception Message:Column 'product_code' does not belong to table SelectDetailIngredient.
+-------------------------------
+
+Log Entry : 19:26:35 23 มีนาคม 2561
+  :
+Exception Message:Column 'product_code' does not belong to table SelectDetailIngredient.
+-------------------------------
+
+Log Entry : 19:29:53 23 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 19:31:13 23 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 19:31:54 23 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 19:34:01 23 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 19:42:43 23 มีนาคม 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------

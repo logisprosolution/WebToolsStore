@@ -107,7 +107,7 @@ namespace WebToolsStore.Biz
             else if (condition == "SelectDetailIngredient")
             {
                 SqlCommand cmd = CreateCommand("udp_DOC_Detail_Ingredient_sel", System.Data.CommandType.StoredProcedure);
-                cmd.Parameters.Add(CreateParameter("detail_id", id));
+                cmd.Parameters.Add(CreateParameter("header_id", id));
                 LoadData(cmd, ds, condition);
             }
             else if (condition == "SelectProductPrice")
@@ -181,6 +181,7 @@ namespace WebToolsStore.Biz
                     cmd.Parameters.Add(CreateParameter("header_vat", model.Doc_Header.header_vat));
                     cmd.Parameters.Add(CreateParameter("header_net", model.Doc_Header.header_net));
                     cmd.Parameters.Add(CreateParameter("header_deposit", model.Doc_Header.header_deposit));
+                    cmd.Parameters.Add(CreateParameter("header_added", model.Doc_Header.header_added));
                     cmd.Parameters.Add(CreateParameter("header_refund", model.Doc_Header.header_refund));
                     cmd.Parameters.Add(CreateParameter("header_ref", model.Doc_Header.header_ref));
                     cmd.ExecuteNonQuery();
@@ -222,7 +223,7 @@ namespace WebToolsStore.Biz
                         cmd2.ExecuteNonQuery();
                         i++;
                         int value2 = ConvertToInt(cmd2.Parameters["detail_id"].Value);
-                        var DocIngredientList = model.DocIngredientList.FindAll(x => x.seq == detail.seq);
+                        var DocIngredientList = model.DocIngredientList.FindAll(x => x.product_price_id == detail.product_price_id);
                         SqlCommand cmd4 = CreateTransactionCommand(System.Data.CommandType.StoredProcedure, "udp_DOC_Detail_Ingredient_ups");
                         i = 1;
                         foreach (DOC_Detail_Ingredient detail_ingredient in DocIngredientList)
@@ -242,6 +243,8 @@ namespace WebToolsStore.Biz
                             cmd4.Parameters.Add(CreateParameter("product_id", detail_ingredient.product_id));
                             cmd4.Parameters.Add(CreateParameter("product_unit", detail_ingredient.product_unit));
                             cmd4.Parameters.Add(CreateParameter("product_qty", detail_ingredient.product_qty));
+                            cmd4.Parameters.Add(CreateParameter("product_price_id", detail_ingredient.product_price_id));
+                            cmd4.Parameters.Add(CreateParameter("is_enabled", detail_ingredient.is_enabled));
                             cmd4.Parameters.Add(CreateParameter("is_del", detail_ingredient.is_del));
                             cmd4.Parameters.Add(CreateParameter("create_date", detail_ingredient.create_date));
                             cmd4.Parameters.Add(CreateParameter("create_by", detail_ingredient.create_by));

@@ -63,18 +63,35 @@ namespace WebToolsStore
             //load goods price
             BindGridPrice(id);
             subtitle.Style.Add("display", "block");
+            ddlprice.Items.Clear();
         }
 
         protected void dgv2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ddlprice.Items.Clear();
             int index = dgv2.SelectedRow.RowIndex;
             GridViewRow row = dgv2.Rows[index];
             int product_price_id = ConvertHelper.ToInt(((HiddenField)row.FindControl("hdfproduct_price_id")).Value);
-            int price = ConvertHelper.ToInt(((HiddenField)row.FindControl("hdfprice")).Value);
+            //int price = ConvertHelper.ToInt(((HiddenField)row.FindControl("hdfprice")).Value);
             int unit_valuue = ConvertHelper.ToInt(((HiddenField)row.FindControl("hdfunit")).Value);
             int stock = ConvertHelper.ToInt(((Label)row.FindControl("lblstock")).Text);
+
+            List<ListItem> items = new List<ListItem>();
+            items.Add(new ListItem(dgv2.HeaderRow.Cells[5].Text + " " + row.Cells[5].Text, row.Cells[5].Text));
+            items.Add(new ListItem(dgv2.HeaderRow.Cells[6].Text + " " + row.Cells[6].Text, row.Cells[6].Text));
+            items.Add(new ListItem(dgv2.HeaderRow.Cells[7].Text + " " + row.Cells[7].Text, row.Cells[7].Text));
+            ddlprice.Items.AddRange(items.ToArray());
+            //if (base.dataId == ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_Sale"].ToString()))
+            //{
+            //    ddlprice.SelectedIndex = 0;
+            //}
+            if (base.dataId == ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString()))
+            {
+                ddlprice.SelectedIndex = 1;
+            }
             is_stock.Value = "0";
             row = null;
+
             if (stock == 0 && base.dataId != ConvertHelper.ToInt(ConfigurationManager.AppSettings["subdoctypeid_bo"].ToString()) && base.dataId != ConvertHelper.ToInt(ConfigurationManager.AppSettings["subdoctypeid_infrombuy"].ToString()))
             {
                 is_stock.Value = "1";
@@ -83,7 +100,7 @@ namespace WebToolsStore
             else
             {
                 is_stock.Value = "0";
-                hdfValue.Value = product_price_id + "*" + price + "*" + unit_valuue;
+                hdfValue.Value = product_price_id + "*" + unit_valuue;
             }
         }
 
