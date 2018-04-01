@@ -161,7 +161,7 @@ namespace WebToolsStore
             IngredientList_Show = IngredientList_Save;
         }
 
-        private void SetEditIngredient()
+        private void SetEditIngredient()//แก้ไขสินค้าส่วนประกอบ ตอน Editmode
         {
             foreach (GridViewRow row in dgv1.Rows)
             {

@@ -163,6 +163,23 @@ namespace WebToolsStore
             }
             IngredientList_Show = IngredientList_Save;
         }
+        private void SetEditIngredient()//แก้ไขสินค้าส่วนประกอบ ตอน Editmode
+        {
+            foreach (GridViewRow row in dgv1.Rows)
+            {
+                GridView dgv2 = row.FindControl("dgv2") as GridView;
+                foreach (GridViewRow row2 in dgv2.Rows)
+                {
+                    TextBox textbox = row2.FindControl("txt_product_qty") as TextBox;
+                    string txt = textbox.Text;
+                    txt = txt.Substring(txt.IndexOf(',') + 1);
+                    int id = ConvertHelper.ToInt(dgv2.DataKeys[row2.RowIndex].Value.ToString());
+                    IngredientList_Save.Find(x => x.ingredient_id == id).product_qty = ConvertHelper.ToInt(txt);
+                    textbox.Text = txt;
+                }
+            }
+        }
+
         private void BindControl(int id)//โหลดข้อมูล
         {
             if (id > 0)

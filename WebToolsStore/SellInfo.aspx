@@ -175,12 +175,12 @@
                                                                             </asp:TextBox>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                    <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                                                                    <%--<asp:TemplateField ItemStyle-HorizontalAlign="Center">
                                                                         <ItemTemplate>
                                                                             <asp:CheckBox runat="server" ID="chk_is_enabled" Checked='<%# Eval("is_enabled") %>' >
                                                                             </asp:CheckBox>
                                                                         </ItemTemplate>
-                                                                    </asp:TemplateField>
+                                                                    </asp:TemplateField>--%>
                                                                 </Columns>
                                                             </asp:GridView>
 
