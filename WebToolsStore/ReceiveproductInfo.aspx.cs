@@ -18,6 +18,35 @@ namespace WebToolsStore
 
         const string CartList_SaveState = "CartList_SaveState";
         const string CartList_ShowState = "CartList_ShowState";
+        const string IngredientList_SaveState = "IngredientList_SaveState";
+        const string IngredientList_ShowState = "IngredientList_ShowState";
+
+        public List<DOC_Detail_Ingredient> IngredientList_Save //ไว้สำหรับsave จะมี row ที่โดนลบด้วย
+        {
+            get
+            {
+                if (!(ViewState[IngredientList_SaveState] is List<DOC_Detail_Ingredient>))
+                {
+                    ViewState[IngredientList_SaveState] = new List<DOC_Detail_Ingredient>();
+                }
+
+                return (List<DOC_Detail_Ingredient>)ViewState[IngredientList_SaveState];
+            }
+            set { ViewState[IngredientList_SaveState] = value; }
+        }
+        public List<DOC_Detail_Ingredient> IngredientList_Show  //ไว้สำหรับ bind ลงกริด จะไม่เห็น row ที่ลบ
+        {
+            get
+            {
+                if (!(ViewState[IngredientList_ShowState] is List<DOC_Detail_Ingredient>))
+                {
+                    ViewState[IngredientList_ShowState] = new List<DOC_Detail_Ingredient>();
+                }
+
+                return (List<DOC_Detail_Ingredient>)ViewState[IngredientList_ShowState];
+            }
+            set { ViewState[IngredientList_ShowState] = value; }
+        }
         public List<DOC_Detail> CartList_Save //ไว้สำหรับsave จะมี row ที่โดนลบด้วย
         {
             get
@@ -98,6 +127,46 @@ namespace WebToolsStore
             dgv1.DataSource = CartList_Show;
             dgv1.DataBind();
         }
+        private void BindGridIngredient(int id)//โหลดตาราง
+        {
+            DataTable dt = biz.SelectDetailIngredient(id);
+            IngredientList_Save = new List<DOC_Detail_Ingredient>();
+            foreach (DataRow row in dt.Rows)
+            {
+                DOC_Detail_Ingredient item = new DOC_Detail_Ingredient()
+                {
+                    ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "ingredient_id")),
+                    product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_id")),
+                    product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_unit")),
+                    product_qty = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_qty")),
+                    product_code = ConvertHelper.InitialValueDB(row, "product_code"),
+                    product_name = ConvertHelper.InitialValueDB(row, "product_name"),
+                    unit_name = ConvertHelper.InitialValueDB(row, "unit_name"),
+                    product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_price_id")),
+                    is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_enabled")),
+                    //seq = seq1,
+                };
+
+                IngredientList_Save.Add(item);
+            }
+            IngredientList_Show = IngredientList_Save;
+        }
+        private void SetEditIngredient()//แก้ไขสินค้าส่วนประกอบ ตอน Editmode
+        {
+            foreach (GridViewRow row in dgv1.Rows)
+            {
+                GridView dgv2 = row.FindControl("dgv2") as GridView;
+                foreach (GridViewRow row2 in dgv2.Rows)
+                {
+                    TextBox textbox = row2.FindControl("txt_product_qty") as TextBox;
+                    string txt = textbox.Text;
+                    txt = txt.Substring(txt.IndexOf(',') + 1);
+                    int id = ConvertHelper.ToInt(dgv2.DataKeys[row2.RowIndex].Value.ToString());
+                    IngredientList_Save.Find(x => x.ingredient_id == id).product_qty = ConvertHelper.ToInt(txt);
+                    textbox.Text = txt;
+                }
+            }
+        }
         private void BindControl(int id)//โหลดข้อมูล
         {
             if (base.dataId != -1)
@@ -121,7 +190,6 @@ namespace WebToolsStore
                 }
             }
         }
-
         private void AddProductToCart(string txt)
         {
             try
@@ -150,36 +218,54 @@ namespace WebToolsStore
                     //decimal price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(dt.Rows[0], "productPrice"));
                     decimal total = price * quantity;
 
-                    DOC_Detail item = new DOC_Detail()
+                    if (CartList_Show.Find(x => x.product_price_id == product_price_id) == null)
                     {
-                        product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_id")),
-                        product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_id")),
-                        product_price_code = ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_code"),
-                        product_price_name = ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_name"),
-                        unit_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "unit_id")),
-                        unit_name = ConvertHelper.InitialValueDB(dt.Rows[0], "unit_name"),
-                        detail_qty = quantity,
-                        detail_price = price,
-                        detail_discount = 0,
-                        detail_total = total,
-                        detail_remark = null,
-                        detail_status = null,
-                    };
-                    if (!IsNewMode)// กรณี แก้ไข แล้วเพิ่ม เข้าไปใหม่
-                    {
-                        item.header_id = dataId;
+                        DOC_Detail item = new DOC_Detail()
+                        {
+                            product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_id")),
+                            product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_id")),
+                            product_price_code = ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_code"),
+                            product_price_name = ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_name"),
+                            unit_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "unit_id")),
+                            unit_name = ConvertHelper.InitialValueDB(dt.Rows[0], "unit_name"),
+                            detail_qty = quantity,
+                            detail_price = price,
+                            detail_discount = 0,
+                            detail_total = total,
+                            detail_remark = null,
+                            detail_status = null,
+                            unit_value = unit_value,
+                        };
+                        if (!IsNewMode)// กรณี แก้ไข แล้วเพิ่ม เข้าไปใหม่
+                        {
+                            item.header_id = dataId;
+                        }
+                        CartList_Save.Add(item);
+                        CartList_Show.Add(item);
                     }
-
-                    //string logStr = GetStringFromObj(item);
-                    //LogFile.WriteLogFile("", "Transfer", "AddProductToCart", logStr);
-
-                    CartList_Save.Add(item);
-                    CartList_Show.Add(item);
+                    else
+                    {
+                        CartList_Save.Find(x => x.product_price_id == product_price_id).detail_total += total;
+                        CartList_Save.Find(x => x.product_price_id == product_price_id).detail_qty += quantity;
+                        CartList_Show = CartList_Save;
+                        ProductIngredientBiz biz = new ProductIngredientBiz();
+                        dt = biz.SelectProductIngredient(product_price_id);
+                        if (dt != null) //ถ้ามี row product_price_id อยู่แล้ว
+                        {
+                            foreach (DataRow row in dt.Rows)
+                            {
+                                if (ConvertHelper.ToBoolean(row["is_default"])) //ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
+                                {
+                                    IngredientList_Save.FindAll(x => x.product_price_id == product_price_id).Find(a => a.ingredient_id == (int)row["ingredient_id"]).product_qty += quantity * (int)row["product_qty"];
+                                }
+                            }
+                        }
+                    }
                     dgv1.DataSource = CartList_Show;
                     dgv1.DataBind();
-                    
 
-                    item = null;
+
+                    //item = null;
                     GC.Collect();
                 }
                 else
@@ -222,7 +308,6 @@ namespace WebToolsStore
             }
             return Tuple.Create(quantity, price, product_price_id, unit_value);
         }
-
         private void SaveInfo()//บันทึก
         {
             try
@@ -235,6 +320,7 @@ namespace WebToolsStore
                 else
                 {
                     model.Doc_Header.header_id = base.dataId;
+                    SetEditIngredient();
                 }
                 model.Doc_Header.header_code = txt_header_code.Text;
                 model.Doc_Header.header_date = ConvertHelper.ToDateTime(txt_header_date.Text, ConfigurationInfo.FORMATE_DATE_DISPLAY, ConfigurationInfo.CULTUREINFO_DISPLAY);
@@ -321,6 +407,9 @@ namespace WebToolsStore
                         CartList_Save.Find(x => x.detail_id == id).is_del = true;
                     }
                     CartList_Show.RemoveAt(index);
+                    int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[index].Values[1]);
+                    IngredientList_Show.RemoveAll(x => x.product_price_id == product_price_id);
+                    IngredientList_Save.RemoveAll(x => x.product_price_id == product_price_id);
                     dgv1.DataSource = CartList_Show;
                     dgv1.DataBind();
                 }
@@ -359,6 +448,62 @@ namespace WebToolsStore
             {
                 RequiredSupplier.Validate();
                 txt_header_address.Text = "";
+            }
+        }
+        protected void dgv1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    GridView dgv2 = e.Row.FindControl("dgv2") as GridView;
+                    //HiddenField hdfSeq = (HiddenField)e.Row.FindControl("hdfSeq");
+                    //int seq1 = ConvertHelper.ToInt(hdfSeq.Value);
+                    HiddenField id = (HiddenField)e.Row.FindControl("hdfProID");
+                    int detail_qty = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfQty")).Value);
+                    int product_id = ConvertHelper.ToInt(id.Value);
+                    ProductIngredientBiz biz = new ProductIngredientBiz();
+                    DataTable dt = biz.SelectInfo(product_id);
+                    int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[e.Row.RowIndex].Values[1]);
+                    string txt = hdfValue.Value;
+                    Tuple<int, decimal, int, int> value = FunctionSplitValue(txt);
+                    int quantity = value.Item1;
+                    int unit_value = value.Item4;
+
+                    if (IngredientList_Show.Find(x => x.product_price_id == product_price_id) == null) //ถ้า grid1 new row เข้าเงื่อนไขนี้
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            DOC_Detail_Ingredient item = new DOC_Detail_Ingredient();
+                            item.ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "ingredient_id"));
+                            item.product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_id"));
+                            item.product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_unit"));
+                            item.product_code = ConvertHelper.InitialValueDB(row, "product_code");
+                            item.product_name = ConvertHelper.InitialValueDB(row, "product_name");
+                            item.unit_name = ConvertHelper.InitialValueDB(row, "unit_name");
+                            item.product_price_id = product_price_id;
+                            item.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_default"));
+                            if (ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_default")))//ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
+                            {
+                                item.product_qty = quantity * unit_value * ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_qty"));
+                            }
+                            else
+                            {
+                                item.product_qty = 0;
+                            }
+                            //seq = seq1
+                            IngredientList_Save.Add(item);
+                            //IngredientList_Show.Add(item);
+                        }
+                    }
+                    IngredientList_Show = IngredientList_Save;
+                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id);
+                    dgv2.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                base.HandleException(ex);
             }
         }
 

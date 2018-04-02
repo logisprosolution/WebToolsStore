@@ -22,14 +22,16 @@
     <Property Name="is_del" Type="bit" />
     <Property Name="detail_warehouse" Type="int" />
     <Property Name="used_qty" Type="int" />
+    <Property Name="PaymentID" Type="int" />
   </EntityType>
   <EntityType Name="DOC_Detail_Ingredient">
     <Key>
       <PropertyRef Name="running" />
     </Key>
     <Property Name="running" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="detail_id" Type="int" Nullable="false" />
     <Property Name="ingredient_id" Type="int" Nullable="false" />
+    <Property Name="detail_id" Type="int" Nullable="false" />
+    <Property Name="detail_price" Type="decimal" Precision="18" Scale="2" />
     <Property Name="product_id" Type="int" />
     <Property Name="product_unit" Type="int" />
     <Property Name="product_qty" Type="int" />
@@ -1141,6 +1143,7 @@ warning 6002: The table/view 'WebToolsStore.dbo.v_vatType' does not have a prima
     <Parameter Name="detail_warehouse" Type="int" Mode="In" />
     <Parameter Name="subDocTypeID" Type="int" Mode="In" />
     <Parameter Name="unit_value" Type="int" Mode="In" />
+    <Parameter Name="PaymentID" Type="int" Mode="In" />
   </Function>
   <Function Name="udp_DOC_Doctype_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="doctype_id" Type="int" Mode="In" />
@@ -1191,6 +1194,7 @@ warning 6002: The table/view 'WebToolsStore.dbo.v_vatType' does not have a prima
     <Parameter Name="header_net" Type="decimal" Mode="In" />
     <Parameter Name="header_deposit" Type="decimal" Mode="In" />
     <Parameter Name="header_refund" Type="decimal" Mode="In" />
+    <Parameter Name="header_added" Type="decimal" Mode="In" />
     <Parameter Name="header_ref" Type="int" Mode="In" />
   </Function>
   <Function Name="udp_DOC_Product_Move_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">

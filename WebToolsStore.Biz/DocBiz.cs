@@ -220,6 +220,7 @@ namespace WebToolsStore.Biz
                         cmd2.Parameters.Add(CreateParameter("detail_warehouse", detail.detail_warehouse));
                         cmd2.Parameters.Add(CreateParameter("subDocTypeID", model.Doc_Header.subDocTypeID));
                         cmd2.Parameters.Add(CreateParameter("unit_value", detail.unit_value));
+                        cmd2.Parameters.Add(CreateParameter("PaymentID", detail.PaymentID));
                         cmd2.ExecuteNonQuery();
                         i++;
                         int value2 = ConvertToInt(cmd2.Parameters["detail_id"].Value);
@@ -239,6 +240,7 @@ namespace WebToolsStore.Biz
                                 cmd4.Parameters.Add(CreateParameter("running", detail_ingredient.running));
                                 cmd4.Parameters.Add(CreateParameter("detail_id", detail_ingredient.detail_id));
                             }
+                            cmd4.Parameters.Add(CreateParameter("detail_price", detail_ingredient.detail_price));
                             cmd4.Parameters.Add(CreateParameter("ingredient_id", detail_ingredient.ingredient_id));
                             cmd4.Parameters.Add(CreateParameter("product_id", detail_ingredient.product_id));
                             cmd4.Parameters.Add(CreateParameter("product_unit", detail_ingredient.product_unit));

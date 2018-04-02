@@ -153,6 +153,7 @@ namespace WebToolsStore
                     unit_name = ConvertHelper.InitialValueDB(row, "unit_name"),
                     product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_price_id")),
                     is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_enabled")),
+                    //detail_price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(row, "detail_price")),
                     //seq = seq1,
                 };
 
@@ -222,11 +223,12 @@ namespace WebToolsStore
         {
             try
             {
-                Tuple<int, decimal, int, int> value = FunctionSplitValue(txt);
+                Tuple<int, int, decimal, int, int> value = FunctionSplitValue(txt);
                 int quantity = value.Item1;
-                decimal price = value.Item2;
-                int product_price_id = value.Item3;
-                int unit_value = value.Item4;
+                int index = value.Item2;
+                decimal price = value.Item3;
+                int product_price_id = value.Item4;
+                int unit_value = value.Item5;
                 decimal total = price * quantity;
 
                 if (quantity < 0)
@@ -244,9 +246,24 @@ namespace WebToolsStore
                         return;
                     }
 
-                    //decimal price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(dt.Rows[0], "productPrice"));
-                    if (CartList_Show.Find(x => x.product_price_id == product_price_id) == null)
+                    bool isNewDetail = false;
+                    DOC_Detail docdetail = CartList_Show.Find(x => x.product_price_id == product_price_id);
+                    if (docdetail != null)
                     {
+                        if (docdetail.PaymentID != index)
+                        {
+                            isNewDetail = true;
+                        }
+                    }
+                    else
+                    {
+                        isNewDetail = true;
+                    }
+
+                    //decimal price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(dt.Rows[0], "productPrice"));
+                    if (isNewDetail)
+                    {
+                        
                         DOC_Detail item = new DOC_Detail()
                         {
                             product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_id")),
@@ -262,8 +279,9 @@ namespace WebToolsStore
                             detail_remark = null,
                             detail_status = null,
                             unit_value = unit_value,
-                            //seq = CartList_Save.Count + 1,
-                        };
+                            PaymentID = index,
+                        //seq = CartList_Save.Count + 1,
+                    };
                         if (!IsNewMode)// กรณี แก้ไข แล้วเพิ่ม เข้าไปใหม่
                         {
                             item.header_id = dataId;
@@ -274,6 +292,38 @@ namespace WebToolsStore
 
                         CartList_Save.Add(item);
                         CartList_Show.Add(item);
+
+
+                        HiddenField id = (HiddenField)dgv1.FindControl("hdfProID");
+                        //int detail_qty = ConvertHelper.ToInt(((HiddenField)dgv1.FindControl("hdfQty")).Value);
+                        int product_id = ConvertHelper.ToInt(id.Value);
+                        ProductIngredientBiz biz = new ProductIngredientBiz();
+                        DataTable dt2 = biz.SelectInfo(product_id);
+
+                        foreach (DataRow row2 in dt.Rows)
+                        {
+                            DOC_Detail_Ingredient item2 = new DOC_Detail_Ingredient();
+                            item2.ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "ingredient_id"));
+                            item2.product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_id"));
+                            item2.product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_unit"));
+                            item2.product_code = ConvertHelper.InitialValueDB(row2, "product_code");
+                            item2.product_name = ConvertHelper.InitialValueDB(row2, "product_name");
+                            item2.unit_name = ConvertHelper.InitialValueDB(row2, "unit_name");
+                            item2.product_price_id = product_price_id;
+                            item2.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default"));
+                            item2.detail_price = price;
+                            if (ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default")))//ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
+                            {
+                                item2.product_qty = quantity * unit_value * ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_qty"));
+                            }
+                            else
+                            {
+                                item2.product_qty = 0;
+                            }
+                            //seq = seq1
+                            IngredientList_Save.Add(item2);
+                            //IngredientList_Show.Add(item2);
+                        }
                     }
                     else
                     {
@@ -288,6 +338,7 @@ namespace WebToolsStore
                         //List<DOC_Detail_Ingredient> list = new List<DOC_Detail_Ingredient>();
                         //list = IngredientList_Save.FindAll(x => x.product_price_id == product_price_id); //บวกจำนวนgrid2
 
+                        //เปลี่ยนจำนวนสินค้าส่วนประกอบตามจำนวนจาก popup
                         if (dt != null)
                         {
                             foreach (DataRow row in dt.Rows)
@@ -317,11 +368,12 @@ namespace WebToolsStore
                 base.HandleException(ex);
             }
         }
-        private Tuple<int, decimal, int, int> FunctionSplitValue(string txt)
+        private Tuple<int, int, decimal, int, int> FunctionSplitValue(string txt)
         {
             int quantity = 1;
-            int product_price_id = 0;
+            int index = 0;
             decimal price = 0;
+            int product_price_id = 0;
             int unit_value = 0;
             if (!ConvertHelper.IsStringEmpty(txt))
             {
@@ -332,11 +384,12 @@ namespace WebToolsStore
                     {
                         quantity = -1;
                     }
-                    price = ConvertHelper.ToDecimal(arr[1]);
-                    product_price_id = ConvertHelper.ToInt(arr[2]);
-                    if (arr.Length == 4)
+                    index = ConvertHelper.ToInt(arr[1]);
+                    price = ConvertHelper.ToDecimal(arr[2]);
+                    product_price_id = ConvertHelper.ToInt(arr[3]);
+                    if (arr.Length == 5)
                     {
-                        unit_value = ConvertHelper.ToInt(arr[3]);
+                        unit_value = ConvertHelper.ToInt(arr[4]);
                     }
                 }
                 else
@@ -344,7 +397,7 @@ namespace WebToolsStore
                     quantity = 1;
                 }
             }
-            return Tuple.Create(quantity, price, product_price_id, unit_value);
+            return Tuple.Create(quantity, index, price, product_price_id, unit_value);
         }
         private void SaveInfo()//บันทึก
         {
@@ -572,45 +625,8 @@ namespace WebToolsStore
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
                     GridView dgv2 = e.Row.FindControl("dgv2") as GridView;
-                    //HiddenField hdfSeq = (HiddenField)e.Row.FindControl("hdfSeq");
-                    //int seq1 = ConvertHelper.ToInt(hdfSeq.Value);
-                    HiddenField id = (HiddenField)e.Row.FindControl("hdfProID");
-                    int detail_qty = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfQty")).Value);
-                    int product_id = ConvertHelper.ToInt(id.Value);
-                    ProductIngredientBiz biz = new ProductIngredientBiz();
-                    DataTable dt = biz.SelectInfo(product_id);
+                    
                     int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[e.Row.RowIndex].Values[1]);
-                    string txt = hdfValue.Value;
-                    Tuple<int, decimal, int, int> value = FunctionSplitValue(txt);
-                    int quantity = value.Item1;
-                    int unit_value = value.Item4;
-
-                    if (IngredientList_Show.Find(x => x.product_price_id == product_price_id) == null) //ถ้า grid1 new row เข้าเงื่อนไขนี้
-                    {
-                        foreach (DataRow row in dt.Rows)
-                        {
-                            DOC_Detail_Ingredient item = new DOC_Detail_Ingredient();
-                            item.ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "ingredient_id"));
-                            item.product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_id"));
-                            item.product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_unit"));
-                            item.product_code = ConvertHelper.InitialValueDB(row, "product_code");
-                            item.product_name = ConvertHelper.InitialValueDB(row, "product_name");
-                            item.unit_name = ConvertHelper.InitialValueDB(row, "unit_name");
-                            item.product_price_id = product_price_id;
-                            item.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_default"));
-                            if (ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_default")))//ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
-                            {
-                                item.product_qty = quantity * unit_value * ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_qty"));
-                            }
-                            else
-                            {
-                                item.product_qty = 0;
-                            }
-                            //seq = seq1
-                            IngredientList_Save.Add(item);
-                            //IngredientList_Show.Add(item);
-                        }
-                    }
                     IngredientList_Show = IngredientList_Save;
                     dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id);
                     dgv2.DataBind();

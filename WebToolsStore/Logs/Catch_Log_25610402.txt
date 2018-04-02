@@ -23,3 +23,66 @@ Log Entry : 1:48:28 2 เมษายน 2561
   :
 Exception Message:Object reference not set to an instance of an object.
 -------------------------------
+
+Log Entry : 13:51:43 2 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 13:53:45 2 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 13:57:50 2 เมษายน 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 13:59:52 2 เมษายน 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 14:00:51 2 เมษายน 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 14:46:05 2 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 15:13:50 2 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 16:54:28 2 เมษายน 2561
+  :
+Exception Message:Column 'detail_price' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 16:56:09 2 เมษายน 2561
+  :
+Exception Message:Column 'detail_price' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 16:56:19 2 เมษายน 2561
+  :
+Exception Message:Column 'detail_price' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 16:57:12 2 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 17:43:30 2 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------

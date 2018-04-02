@@ -30,7 +30,8 @@
             debugger
             var num = $("#<%=txtNumber.ClientID %>").val();
             var price = $("#<%=ddlprice.ClientID %>").val();
-            var returnValue = num + '*' + price + '*' + $("#<%=hdfValue.ClientID %>").val();
+            var index = $("#<%=ddlprice.ClientID %> option:selected").index();
+            var returnValue = num + '*' + index + '*' + +price + '*' + $("#<%=hdfValue.ClientID %>").val();
             var is_stock = $("#<%=is_stock.ClientID %>").val();
             if (returnValue == '' || returnValue == null || returnValue == num + '*' + null + '*') {
                 //if (is_stock == '1') {

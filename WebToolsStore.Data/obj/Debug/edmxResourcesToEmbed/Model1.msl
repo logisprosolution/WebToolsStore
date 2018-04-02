@@ -4,6 +4,7 @@
     <EntitySetMapping Name="DOC_Detail">
       <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Detail">
         <MappingFragment StoreEntitySet="DOC_Detail">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
           <ScalarProperty Name="unit_value" ColumnName="unit_value" />
           <ScalarProperty Name="detail_id" ColumnName="detail_id" />
           <ScalarProperty Name="header_id" ColumnName="header_id" />
@@ -1576,6 +1577,7 @@
     <EntitySetMapping Name="DOC_Detail_Ingredient">
       <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Detail_Ingredient">
         <MappingFragment StoreEntitySet="DOC_Detail_Ingredient">
+          <ScalarProperty Name="detail_price" ColumnName="detail_price" />
           <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
           <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
           <ScalarProperty Name="update_by" ColumnName="update_by" />

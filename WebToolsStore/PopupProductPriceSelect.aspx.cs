@@ -81,10 +81,6 @@ namespace WebToolsStore
             items.Add(new ListItem(dgv2.HeaderRow.Cells[6].Text + " " + row.Cells[6].Text, row.Cells[6].Text));
             items.Add(new ListItem(dgv2.HeaderRow.Cells[7].Text + " " + row.Cells[7].Text, row.Cells[7].Text));
             ddlprice.Items.AddRange(items.ToArray());
-            //if (base.dataId == ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_Sale"].ToString()))
-            //{
-            //    ddlprice.SelectedIndex = 0;
-            //}
             if (base.dataId == ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString()))
             {
                 ddlprice.SelectedIndex = 1;

@@ -26,3 +26,10 @@ title:page:Transfer
 function:SelectProduct
 message:ไม่พบสินค้า
 -------------------------------
+
+Log Entry : 17:43:09 2 เมษายน 2561
+  :
+title:page:Report_TransAll
+function:LoadReport
+message:C:\Git\WebToolsStore\WebToolsStore\Reports\TransAll.rpt
+-------------------------------

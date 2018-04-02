@@ -201,7 +201,7 @@ namespace WebToolsStore.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<udp_DOC_Detail_sel_Result>("udp_DOC_Detail_sel", header_idParameter, detail_statusParameter);
         }
     
-        public virtual int udp_DOC_Detail_ups(ObjectParameter detail_id, Nullable<int> header_id, Nullable<int> product_id, Nullable<int> product_price_id, string product_price_code, string product_price_name, Nullable<int> unit_id, string unit_name, Nullable<int> detail_qty, Nullable<decimal> detail_price, Nullable<decimal> detail_discount, Nullable<decimal> detail_total, Nullable<int> detail_status, string detail_remark, Nullable<bool> is_del, Nullable<int> used_qty, Nullable<int> detail_warehouse, Nullable<int> subDocTypeID, Nullable<int> unit_value)
+        public virtual int udp_DOC_Detail_ups(ObjectParameter detail_id, Nullable<int> header_id, Nullable<int> product_id, Nullable<int> product_price_id, string product_price_code, string product_price_name, Nullable<int> unit_id, string unit_name, Nullable<int> detail_qty, Nullable<decimal> detail_price, Nullable<decimal> detail_discount, Nullable<decimal> detail_total, Nullable<int> detail_status, string detail_remark, Nullable<bool> is_del, Nullable<int> used_qty, Nullable<int> detail_warehouse, Nullable<int> subDocTypeID, Nullable<int> unit_value, Nullable<int> paymentID)
         {
             var header_idParameter = header_id.HasValue ?
                 new ObjectParameter("header_id", header_id) :
@@ -275,7 +275,11 @@ namespace WebToolsStore.Data
                 new ObjectParameter("unit_value", unit_value) :
                 new ObjectParameter("unit_value", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("udp_DOC_Detail_ups", detail_id, header_idParameter, product_idParameter, product_price_idParameter, product_price_codeParameter, product_price_nameParameter, unit_idParameter, unit_nameParameter, detail_qtyParameter, detail_priceParameter, detail_discountParameter, detail_totalParameter, detail_statusParameter, detail_remarkParameter, is_delParameter, used_qtyParameter, detail_warehouseParameter, subDocTypeIDParameter, unit_valueParameter);
+            var paymentIDParameter = paymentID.HasValue ?
+                new ObjectParameter("PaymentID", paymentID) :
+                new ObjectParameter("PaymentID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("udp_DOC_Detail_ups", detail_id, header_idParameter, product_idParameter, product_price_idParameter, product_price_codeParameter, product_price_nameParameter, unit_idParameter, unit_nameParameter, detail_qtyParameter, detail_priceParameter, detail_discountParameter, detail_totalParameter, detail_statusParameter, detail_remarkParameter, is_delParameter, used_qtyParameter, detail_warehouseParameter, subDocTypeIDParameter, unit_valueParameter, paymentIDParameter);
         }
     
         public virtual int udp_DOC_Doctype_del(Nullable<int> doctype_id)
@@ -332,7 +336,7 @@ namespace WebToolsStore.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("udp_DOC_Header_sel", header_idParameter);
         }
     
-        public virtual int udp_DOC_Header_ups(ObjectParameter header_id, string header_code, Nullable<System.DateTime> header_date, Nullable<System.DateTime> header_date_from, Nullable<System.DateTime> header_date_to, Nullable<int> header_supplier_id, string header_supplier_name, Nullable<int> header_customer_id, string header_customer_name, string header_address, string header_remark, Nullable<int> header_status, Nullable<bool> is_enabled, Nullable<bool> is_del, Nullable<System.DateTime> create_date, Nullable<int> create_by, Nullable<System.DateTime> update_date, Nullable<int> update_by, Nullable<int> subDocTypeID, Nullable<int> vat_id, Nullable<int> payment_id, Nullable<System.DateTime> payment_date, Nullable<int> header_warehouse_from, Nullable<int> header_warehouse_to, Nullable<decimal> header_total, Nullable<decimal> header_receive, Nullable<decimal> header_discout, Nullable<decimal> header_vat, Nullable<decimal> header_net, Nullable<decimal> header_deposit, Nullable<decimal> header_refund, Nullable<int> header_ref)
+        public virtual int udp_DOC_Header_ups(ObjectParameter header_id, string header_code, Nullable<System.DateTime> header_date, Nullable<System.DateTime> header_date_from, Nullable<System.DateTime> header_date_to, Nullable<int> header_supplier_id, string header_supplier_name, Nullable<int> header_customer_id, string header_customer_name, string header_address, string header_remark, Nullable<int> header_status, Nullable<bool> is_enabled, Nullable<bool> is_del, Nullable<System.DateTime> create_date, Nullable<int> create_by, Nullable<System.DateTime> update_date, Nullable<int> update_by, Nullable<int> subDocTypeID, Nullable<int> vat_id, Nullable<int> payment_id, Nullable<System.DateTime> payment_date, Nullable<int> header_warehouse_from, Nullable<int> header_warehouse_to, Nullable<decimal> header_total, Nullable<decimal> header_receive, Nullable<decimal> header_discout, Nullable<decimal> header_vat, Nullable<decimal> header_net, Nullable<decimal> header_deposit, Nullable<decimal> header_refund, Nullable<decimal> header_added, Nullable<int> header_ref)
         {
             var header_codeParameter = header_code != null ?
                 new ObjectParameter("header_code", header_code) :
@@ -454,11 +458,15 @@ namespace WebToolsStore.Data
                 new ObjectParameter("header_refund", header_refund) :
                 new ObjectParameter("header_refund", typeof(decimal));
     
+            var header_addedParameter = header_added.HasValue ?
+                new ObjectParameter("header_added", header_added) :
+                new ObjectParameter("header_added", typeof(decimal));
+    
             var header_refParameter = header_ref.HasValue ?
                 new ObjectParameter("header_ref", header_ref) :
                 new ObjectParameter("header_ref", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("udp_DOC_Header_ups", header_id, header_codeParameter, header_dateParameter, header_date_fromParameter, header_date_toParameter, header_supplier_idParameter, header_supplier_nameParameter, header_customer_idParameter, header_customer_nameParameter, header_addressParameter, header_remarkParameter, header_statusParameter, is_enabledParameter, is_delParameter, create_dateParameter, create_byParameter, update_dateParameter, update_byParameter, subDocTypeIDParameter, vat_idParameter, payment_idParameter, payment_dateParameter, header_warehouse_fromParameter, header_warehouse_toParameter, header_totalParameter, header_receiveParameter, header_discoutParameter, header_vatParameter, header_netParameter, header_depositParameter, header_refundParameter, header_refParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("udp_DOC_Header_ups", header_id, header_codeParameter, header_dateParameter, header_date_fromParameter, header_date_toParameter, header_supplier_idParameter, header_supplier_nameParameter, header_customer_idParameter, header_customer_nameParameter, header_addressParameter, header_remarkParameter, header_statusParameter, is_enabledParameter, is_delParameter, create_dateParameter, create_byParameter, update_dateParameter, update_byParameter, subDocTypeIDParameter, vat_idParameter, payment_idParameter, payment_dateParameter, header_warehouse_fromParameter, header_warehouse_toParameter, header_totalParameter, header_receiveParameter, header_discoutParameter, header_vatParameter, header_netParameter, header_depositParameter, header_refundParameter, header_addedParameter, header_refParameter);
         }
     
         public virtual int udp_DOC_Product_Move_del(Nullable<int> detail_id)

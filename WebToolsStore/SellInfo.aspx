@@ -147,14 +147,14 @@
                                     <ContentTemplate>
                                         <asp:GridView ID="dgv1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
                                             AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="detail_id,product_price_id"
-                                            ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting" OnRowEditing="dgv1_RowEditing">
+                                            ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ"
+                                            OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting" OnRowEditing="dgv1_RowEditing">
                                             <Columns>
                                                 <asp:TemplateField>
                                                     <ItemTemplate>
                                                         <img alt="" style="cursor: pointer" src="images/plus.png" />
                                                         <asp:Panel ID="pnlOrders" runat="server" Style="display: none">
-
-                                                            <asp:GridView ID="dgv2" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
+                                                            <asp:GridView ID="dgv2" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server" DataKeyNames="ingredient_id"
                                                                 AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ">
                                                                 <Columns>
                                                                     <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_code" HeaderText="รหัสสินค้า">
@@ -166,9 +166,6 @@
                                                                     <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
                                                                         <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                                                     </asp:BoundField>
-                                                                    <%--<asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_qty" HeaderText="จำนวน">
-                                                                        <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                                                    </asp:BoundField>--%>
                                                                     <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
                                                                         <ItemTemplate>
                                                                             <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
@@ -183,7 +180,6 @@
                                                                     </asp:TemplateField>--%>
                                                                 </Columns>
                                                             </asp:GridView>
-
                                                         </asp:Panel>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>

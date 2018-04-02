@@ -27,6 +27,7 @@
     <Property Name="unit_value" Type="Int32" />
     <NavigationProperty Name="DOC_Detail_Ingredient" Relationship="WebToolsStoreModel.FK_DOC_Detail_Ingredient_DOC_Detail" FromRole="DOC_Detail" ToRole="DOC_Detail_Ingredient" />
     <NavigationProperty Name="MAS_Warehouse" Relationship="WebToolsStoreModel.FK_DOC_Detail_MAS_Warehouse" FromRole="DOC_Detail" ToRole="MAS_Warehouse" />
+    <Property Name="PaymentID" Type="Int32" />
   </EntityType>
   <EntityType Name="DOC_Doctype">
     <Key>
@@ -1056,6 +1057,7 @@
       <Parameter Name="detail_warehouse" Mode="In" Type="Int32" />
       <Parameter Name="subDocTypeID" Mode="In" Type="Int32" />
       <Parameter Name="unit_value" Mode="In" Type="Int32" />
+      <Parameter Name="PaymentID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="udp_DOC_Doctype_del">
       <Parameter Name="doctype_id" Mode="In" Type="Int32" />
@@ -1106,6 +1108,7 @@
       <Parameter Name="header_net" Mode="In" Type="Decimal" />
       <Parameter Name="header_deposit" Mode="In" Type="Decimal" />
       <Parameter Name="header_refund" Mode="In" Type="Decimal" />
+      <Parameter Name="header_added" Mode="In" Type="Decimal" />
       <Parameter Name="header_ref" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="udp_DOC_Product_Move_del">
@@ -2310,6 +2313,7 @@
     <NavigationProperty Name="DOC_Detail" Relationship="WebToolsStoreModel.FK_DOC_Detail_Ingredient_DOC_Detail" FromRole="DOC_Detail_Ingredient" ToRole="DOC_Detail" />
     <Property Name="product_price_id" Type="Int32" />
     <Property Name="is_enabled" Type="Boolean" />
+    <Property Name="detail_price" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
   <Association Name="FK_DOC_Detail_Ingredient_DOC_Detail">
     <End Type="WebToolsStoreModel.DOC_Detail" Role="DOC_Detail" Multiplicity="1" />

@@ -38,12 +38,12 @@ namespace WebToolsStore.Data
         public Nullable<int> detail_warehouse { get; set; }
         public Nullable<int> used_qty { get; set; }
         public Nullable<int> unit_value { get; set; }
-    
+        public Nullable<int> PaymentID { get; set; }
+        public Nullable<int> subDocTypeID { get; set; }
         public virtual DOC_Header DOC_Header { get; set; }
         public virtual MAS_Product MAS_Product { get; set; }
         public virtual MAS_Product_Price MAS_Product_Price { get; set; }
         public virtual ICollection<DOC_Detail_Ingredient> DOC_Detail_Ingredient { get; set; }
         public virtual MAS_Warehouse MAS_Warehouse { get; set; }
-        public Nullable<int> subDocTypeID { get; set; }
     }
 }
