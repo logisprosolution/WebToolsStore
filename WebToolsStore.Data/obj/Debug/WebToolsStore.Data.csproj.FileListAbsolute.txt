@@ -135,6 +135,5 @@ C:\Git\WebToolsStore\WebToolsStore.Data\bin\Microsoft.AI.Web.xml
 C:\Git\WebToolsStore\WebToolsStore.Data\bin\Microsoft.AI.WindowsServer.xml
 C:\Git\WebToolsStore\WebToolsStore.Data\bin\Microsoft.ApplicationInsights.xml
 C:\Git\WebToolsStore\WebToolsStore.Data\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Git\WebToolsStore\WebToolsStore.Data\obj\Debug\WebToolsStore.Data.csprojResolveAssemblyReference.cache
 C:\Git\WebToolsStore\WebToolsStore.Data\obj\Debug\WebToolsStore.Data.dll
 C:\Git\WebToolsStore\WebToolsStore.Data\obj\Debug\WebToolsStore.Data.pdb

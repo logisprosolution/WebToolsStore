@@ -1,0 +1,108 @@
+
+Log Entry : 12:04:29 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:06:16 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:08:47 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:11:09 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:13:21 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:14:45 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:22:37 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:23:37 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:24:07 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:31:13 3 เมษายน 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 12:31:35 3 เมษายน 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 12:31:45 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:33:41 3 เมษายน 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 12:43:50 3 เมษายน 2561
+  :
+Exception Message:Column 'ingredient_id' does not belong to table SelectProductPrice.
+-------------------------------
+
+Log Entry : 12:44:41 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:45:05 3 เมษายน 2561
+  :
+Exception Message:Column 'ingredient_id' does not belong to table SelectProductPrice.
+-------------------------------
+
+Log Entry : 12:45:24 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 12:47:34 3 เมษายน 2561
+  :
+Exception Message:Column 'ingredient_id' does not belong to table SelectProductPrice.
+-------------------------------
+
+Log Entry : 15:09:09 3 เมษายน 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.DOC_Detail' does not contain a property with the name 'PaymentID'.
+-------------------------------
+
+Log Entry : 15:10:09 3 เมษายน 2561
+  :
+Exception Message:DataBinding: 'WebToolsStore.Data.DOC_Detail' does not contain a property with the name 'PaymentID'.
+-------------------------------
+
+Log Entry : 15:16:56 3 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------

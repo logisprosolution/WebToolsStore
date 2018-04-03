@@ -27,7 +27,7 @@
           <Property Name="is_del" Type="bit" />
           <Property Name="detail_warehouse" Type="int" />
           <Property Name="used_qty" Type="int" />
-          <Property Name="PaymentID" Type="int" />
+          <Property Name="PaytypeID" Type="int" />
         </EntityType>
         <EntityType Name="DOC_Detail_Ingredient">
           <Key>
@@ -37,6 +37,7 @@
           <Property Name="ingredient_id" Type="int" Nullable="false" />
           <Property Name="detail_id" Type="int" Nullable="false" />
           <Property Name="detail_price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PaytypeID" Type="int" />
           <Property Name="product_id" Type="int" />
           <Property Name="product_unit" Type="int" />
           <Property Name="product_qty" Type="int" />
@@ -1156,7 +1157,7 @@ warning 6002: The table/view 'WebToolsStore.dbo.v_vatType' does not have a prima
           <Parameter Name="detail_warehouse" Type="int" Mode="In" />
           <Parameter Name="subDocTypeID" Type="int" Mode="In" />
           <Parameter Name="unit_value" Type="int" Mode="In" />
-          <Parameter Name="PaymentID" Type="int" Mode="In" />
+          <Parameter Name="PaytypeID" Type="int" Mode="In" />
         </Function>
         <Function Name="udp_DOC_Doctype_del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="doctype_id" Type="int" Mode="In" />
@@ -2013,7 +2014,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <Property Name="unit_value" Type="Int32" />
           <NavigationProperty Name="DOC_Detail_Ingredient" Relationship="WebToolsStoreModel.FK_DOC_Detail_Ingredient_DOC_Detail" FromRole="DOC_Detail" ToRole="DOC_Detail_Ingredient" />
           <NavigationProperty Name="MAS_Warehouse" Relationship="WebToolsStoreModel.FK_DOC_Detail_MAS_Warehouse" FromRole="DOC_Detail" ToRole="MAS_Warehouse" />
-          <Property Name="PaymentID" Type="Int32" />
+          <Property Name="PaytypeID" Type="Int32" />
         </EntityType>
         <EntityType Name="DOC_Doctype">
           <Key>
@@ -3043,7 +3044,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
             <Parameter Name="detail_warehouse" Mode="In" Type="Int32" />
             <Parameter Name="subDocTypeID" Mode="In" Type="Int32" />
             <Parameter Name="unit_value" Mode="In" Type="Int32" />
-            <Parameter Name="PaymentID" Mode="In" Type="Int32" />
+            <Parameter Name="PaytypeID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="udp_DOC_Doctype_del">
           <Parameter Name="doctype_id" Mode="In" Type="Int32" />
@@ -4300,6 +4301,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <Property Name="product_price_id" Type="Int32" />
           <Property Name="is_enabled" Type="Boolean" />
           <Property Name="detail_price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PaytypeID" Type="Int32" />
         </EntityType>
         <Association Name="FK_DOC_Detail_Ingredient_DOC_Detail">
           <End Type="WebToolsStoreModel.DOC_Detail" Role="DOC_Detail" Multiplicity="1" />
@@ -4511,7 +4513,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <EntitySetMapping Name="DOC_Detail">
             <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Detail">
               <MappingFragment StoreEntitySet="DOC_Detail">
-                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="PaytypeID" ColumnName="PaytypeID" />
                 <ScalarProperty Name="unit_value" ColumnName="unit_value" />
                 <ScalarProperty Name="detail_id" ColumnName="detail_id" />
                 <ScalarProperty Name="header_id" ColumnName="header_id" />
@@ -6084,6 +6086,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <EntitySetMapping Name="DOC_Detail_Ingredient">
             <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Detail_Ingredient">
               <MappingFragment StoreEntitySet="DOC_Detail_Ingredient">
+                <ScalarProperty Name="PaytypeID" ColumnName="PaytypeID" />
                 <ScalarProperty Name="detail_price" ColumnName="detail_price" />
                 <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
                 <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />

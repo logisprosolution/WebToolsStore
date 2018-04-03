@@ -357,12 +357,8 @@ namespace WebToolsStore
                     }
                     //string logStr = GetStringFromObj(item);
                     //LogFile.WriteLogFile("", "Transfer", "AddProductToCart", logStr);
-
-                   
                     dgv3.DataSource = CartList2_Show;
                     dgv3.DataBind();
-
-
                     //item = null;
                     GC.Collect();
                 }
@@ -779,7 +775,6 @@ namespace WebToolsStore
                 base.HandleException(ex);
             }
         }
-
         #endregion Events
     }
 }

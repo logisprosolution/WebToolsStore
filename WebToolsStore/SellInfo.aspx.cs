@@ -81,7 +81,7 @@ namespace WebToolsStore
         {
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
             LoadExHelper loadEx = new LoadExHelper();
-            //loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.All);
+            loadEx.LoadPaymentType(ref ddl_payment, Enumerator.ConditionLoadEx.All);
             loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.All);
             loadEx.LoadCustomer(ref ddl_customer, Enumerator.ConditionLoadEx.All);
             txt_header_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -120,6 +120,11 @@ namespace WebToolsStore
                 item.detail_total = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(row, "detail_total"));
                 item.detail_remark = ConvertHelper.InitialValueDB(row, "detail_remark");
                 item.detail_status = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "detail_status"));
+                //item.detail_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "detail_id"));
+                //item.header_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "header_id"));
+                item.unit_value = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "unit_value"));
+                item.PaytypeID = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "PaytypeID"));
+
                 if (!IsNewMode)
                 {
                     item.detail_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "detail_id"));
@@ -145,20 +150,24 @@ namespace WebToolsStore
             IngredientList_Save = new List<DOC_Detail_Ingredient>();
             foreach (DataRow row in dt.Rows)
             {
-                DOC_Detail_Ingredient item = new DOC_Detail_Ingredient()
-                {
-                    ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "ingredient_id")),
-                    product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_id")),
-                    product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_unit")),
-                    product_qty = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_qty")),
-                    product_code = ConvertHelper.InitialValueDB(row, "product_code"),
-                    product_name = ConvertHelper.InitialValueDB(row, "product_name"),
-                    unit_name = ConvertHelper.InitialValueDB(row, "unit_name"),
-                    product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_price_id")),
-                    is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_enabled")),
-                    //seq = seq1,
-                };
+                DOC_Detail_Ingredient item = new DOC_Detail_Ingredient();
 
+                item.ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "ingredient_id"));
+                item.product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_id"));
+                item.product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_unit"));
+                item.product_qty = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_qty"));
+                item.product_code = ConvertHelper.InitialValueDB(row, "product_code");
+                item.product_name = ConvertHelper.InitialValueDB(row, "product_name");
+                item.unit_name = ConvertHelper.InitialValueDB(row, "unit_name");
+                item.product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_price_id"));
+                item.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_enabled"));
+                item.detail_price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(row, "detail_price"));
+                item.PaytypeID = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "PaytypeID"));
+                if (!IsNewMode)
+                {
+                    item.running = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "running"));
+                    item.detail_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "detail_id"));
+                }
                 IngredientList_Save.Add(item);
             }
             IngredientList_Show = IngredientList_Save;
@@ -194,7 +203,7 @@ namespace WebToolsStore
                         txt_header_date.Text = ConvertHelper.InitialValueDB(row, "header_date");
                         ddl_customer.SelectedValue = ConvertHelper.InitialValueDB(row, "header_customer_id");
                         ddl_type_vat.SelectedValue = ConvertHelper.InitialValueDB(row, "vat_id");
-                        //ddl_is_enabled.Text = ConvertHelper.InitialValueDB(row, "is_enabled");
+                        ddl_payment.SelectedValue = ConvertHelper.InitialValueDB(row, "payment_id");
                         txt_remark.Text = ConvertHelper.InitialValueDB(row, "header_remark");
                         txt_header_address.Text = ConvertHelper.InitialValueDB(row, "header_address");
                         txt_total.Text = ConvertHelper.InitialValueDB(row, "header_total");
@@ -214,11 +223,10 @@ namespace WebToolsStore
                         lbl_deposit.Visible = true;
                         txt_discout.Text = ConvertHelper.InitialValueDB(row, "header_discout");
                         txt_total.Text = ConvertHelper.InitialValueDB(row, "header_total");
-                        txt_receive.Text = ConvertHelper.InitialValueDB(row, "header_receive");
+                        txt_receive.Text = ConvertHelper.InitialValueDB(row, "header_deposit");
                         txt_vat.Text = ConvertHelper.InitialValueDB(row, "header_vat");
                         txt_net.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(row, "header_net")) - ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(row, "header_deposit")))).ToString();
                         txt_added.Text = ConvertHelper.InitialValueDB(row, "header_added");
-
                         //txt_total.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_total.Text) - ConvertHelper.ToDecimal(txt_discout.Text))).ToString();
                         //txt_net.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_net.Text) - ConvertHelper.ToDecimal(txt_discout.Text))).ToString();
                     }
@@ -234,12 +242,14 @@ namespace WebToolsStore
         {
             try
             {
-                Tuple<int, decimal, int, int> value = FunctionSplitValue(txt);
+                Tuple<int, int, decimal, int, int> value = FunctionSplitValue(txt);
                 int quantity = value.Item1;
-                decimal price = value.Item2;
-                int product_price_id = value.Item3;
-                int unit_value = value.Item4;
+                int paytype = value.Item2;
+                decimal price = value.Item3;
+                int product_price_id = value.Item4;
+                int unit_value = value.Item5;
                 decimal total = price * quantity;
+
                 if (quantity < 0)
                 {
                     base.DisplayMessageDialogAndFocus("จำนวนมีค่า 1 ขึ้นไป และระบุให้ถูกต้อง เช่น 2*รหัสสินค้า", "txtProductBarCode");
@@ -249,18 +259,34 @@ namespace WebToolsStore
                 DataTable dt = biz.SelectProductPrice(product_price_id);
                 if (ConvertHelper.IsDataExists(dt))
                 {
+                    int product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_id"));
                     if (!ConvertHelper.ToBoolean(dt.Rows[0], "is_enabled"))
                     {
                         //ClearTxtProductBarCode("ไม่สามารถใช้สินค้านี้ได้เนื่องจากถูกปิดการใช้งาน กรุณาติดต่อผู้ดูแลระบบ");
                         return;
                     }
 
-                    //decimal price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(dt.Rows[0], "productPrice"));
-                    if (CartList_Show.Find(x => x.product_price_id == product_price_id) == null)
+                    bool isNewDetail = false;
+                    DOC_Detail docdetail = CartList_Show.Find(x => x.product_price_id == product_price_id);
+                    if (docdetail != null)
                     {
+                        if (docdetail.PaytypeID != paytype)
+                        {
+                            isNewDetail = true;
+                        }
+                    }
+                    else
+                    {
+                        isNewDetail = true;
+                    }
+
+                    //decimal price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(dt.Rows[0], "productPrice"));
+                    if (isNewDetail)
+                    {
+
                         DOC_Detail item = new DOC_Detail()
                         {
-                            product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_id")),
+                            product_id = product_id,
                             product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_id")),
                             product_price_code = ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_code"),
                             product_price_name = ConvertHelper.InitialValueDB(dt.Rows[0], "product_price_name"),
@@ -273,38 +299,78 @@ namespace WebToolsStore
                             detail_remark = null,
                             detail_status = null,
                             unit_value = unit_value,
+                            PaytypeID = paytype,
+                            //seq = CartList_Save.Count + 1,
                         };
                         if (!IsNewMode)// กรณี แก้ไข แล้วเพิ่ม เข้าไปใหม่
                         {
                             item.header_id = dataId;
                         }
+
+                        //string logStr = GetStringFromObj(item);
+                        //LogFile.WriteLogFile("", "Transfer", "AddProductToCart", logStr);
+
                         CartList_Save.Add(item);
                         CartList_Show.Add(item);
+
+                        ProductIngredientBiz biz = new ProductIngredientBiz();
+                        DataTable dt2 = biz.SelectInfo(product_id);
+
+                        foreach (DataRow row2 in dt2.Rows)
+                        {
+                            DOC_Detail_Ingredient item2 = new DOC_Detail_Ingredient();
+                            item2.ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "ingredient_id"));
+                            item2.product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_id"));
+                            item2.product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_unit"));
+                            item2.product_code = ConvertHelper.InitialValueDB(row2, "product_code");
+                            item2.product_name = ConvertHelper.InitialValueDB(row2, "product_name");
+                            item2.unit_name = ConvertHelper.InitialValueDB(row2, "unit_name");
+                            item2.product_price_id = product_price_id;
+                            item2.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default"));
+                            item2.detail_price = price;
+                            item2.PaytypeID = paytype;
+                            if (ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default")))//ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
+                            {
+                                item2.product_qty = quantity * unit_value * ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_qty"));
+                            }
+                            else
+                            {
+                                item2.product_qty = 0;
+                            }
+                            //seq = seq1
+                            IngredientList_Save.Add(item2);
+                            //IngredientList_Show.Add(item2);
+                        }
                     }
                     else
                     {
                         CartList_Save.Find(x => x.product_price_id == product_price_id).detail_total += total;
                         CartList_Save.Find(x => x.product_price_id == product_price_id).detail_qty += quantity;
                         CartList_Show = CartList_Save;
+
+
                         ProductIngredientBiz biz = new ProductIngredientBiz();
                         dt = biz.SelectProductIngredient(product_price_id);
-                        if (dt != null) //ถ้ามี row product_price_id อยู่แล้ว
+
+                        //List<DOC_Detail_Ingredient> list = new List<DOC_Detail_Ingredient>();
+                        //list = IngredientList_Save.FindAll(x => x.product_price_id == product_price_id); //บวกจำนวนgrid2
+
+                        //เปลี่ยนจำนวนสินค้าส่วนประกอบตามจำนวนจาก popup
+                        if (dt != null)
                         {
                             foreach (DataRow row in dt.Rows)
                             {
                                 if (ConvertHelper.ToBoolean(row["is_default"])) //ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
                                 {
-                                    IngredientList_Save.FindAll(x => x.product_price_id == product_price_id).Find(a => a.ingredient_id == (int)row["ingredient_id"]).product_qty += quantity * (int)row["product_qty"];
+                                    IngredientList_Save.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == paytype).Find(a => a.ingredient_id == (int)row["ingredient_id"]).product_qty += quantity * (int)row["product_qty"];
                                 }
                             }
                         }
                     }
-                    txt_total.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_total.Text) + total)).ToString();
-                    txt_net.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_net.Text) + total)).ToString();
                     dgv1.DataSource = CartList_Show;
                     dgv1.DataBind();
-
-
+                    txt_total.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_total.Text) + total)).ToString();
+                    txt_net.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_net.Text) + total)).ToString();
                     //item = null;
                     GC.Collect();
                 }
@@ -319,11 +385,12 @@ namespace WebToolsStore
                 base.HandleException(ex);
             }
         }
-        private Tuple<int, decimal, int, int> FunctionSplitValue(string txt)
+        private Tuple<int, int, decimal, int, int> FunctionSplitValue(string txt)
         {
             int quantity = 1;
-            int product_price_id = 0;
+            int paytype = 0;
             decimal price = 0;
+            int product_price_id = 0;
             int unit_value = 0;
             if (!ConvertHelper.IsStringEmpty(txt))
             {
@@ -334,11 +401,12 @@ namespace WebToolsStore
                     {
                         quantity = -1;
                     }
-                    price = ConvertHelper.ToDecimal(arr[1]);
-                    product_price_id = ConvertHelper.ToInt(arr[2]);
-                    if (arr.Length == 4)
+                    paytype = ConvertHelper.ToInt(arr[1]);
+                    price = ConvertHelper.ToDecimal(arr[2]);
+                    product_price_id = ConvertHelper.ToInt(arr[3]);
+                    if (arr.Length == 5)
                     {
-                        unit_value = ConvertHelper.ToInt(arr[3]);
+                        unit_value = ConvertHelper.ToInt(arr[4]);
                     }
                 }
                 else
@@ -346,7 +414,7 @@ namespace WebToolsStore
                     quantity = 1;
                 }
             }
-            return Tuple.Create(quantity, price, product_price_id, unit_value);
+            return Tuple.Create(quantity, paytype, price, product_price_id, unit_value);
         }
         private void SaveInfo(int id)//บันทึก
         {
@@ -367,7 +435,7 @@ namespace WebToolsStore
                 model.Doc_Header.header_customer_id = ConvertHelper.ToInt(ddl_customer.SelectedValue);
                 model.Doc_Header.header_customer_name = ddl_customer.SelectedItem.Text;
                 model.Doc_Header.vat_id = ConvertHelper.ToInt(ddl_type_vat.SelectedValue);
-                //model.Doc_Header.payment_date = converthelper.todatetime(txt_paymentdate.text, configurationinfo.formate_date_display, configurationinfo.cultureinfo_display);
+                model.Doc_Header.payment_id = ConvertHelper.ToInt(ddl_payment.SelectedValue);
                 model.Doc_Header.is_del = false;
                 model.Doc_Header.is_enabled = true;
                 model.Doc_Header.header_remark = txt_remark.Text;
@@ -484,24 +552,30 @@ namespace WebToolsStore
                 if (e.CommandName == "DeleteCart") // ลบออกเฉพาะหน้าจอ ต้องทำการบันทึกก่อนถึงจะอัพเดท
                 {
                     int id = ConvertHelper.ToInt(dgv1.DataKeys[index].Value.ToString());
+                    int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[index].Values[1]);
+                    int PaytypeID = ConvertHelper.ToInt(((HiddenField)dgv1.Rows[index].FindControl("hdfPaytype")).Value);
                     if (base.IsNewMode) // ถ้า new mome ให้ ลบตามลำดับตารางได้เลย
                     {
                         txt_total.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_total.Text) - CartList_Save[index].detail_total)).ToString();
                         txt_net.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_net.Text) - CartList_Save[index].detail_total)).ToString();
                         CartList_Save.RemoveAt(index);
+                        IngredientList_Save.RemoveAll(x => x.product_price_id == product_price_id);
                     }
                     else // ลบโดยหาจากไอดี
                     {
                         txt_total.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_total.Text) - CartList_Save.Find(x => x.detail_id == id).detail_total)).ToString();
                         txt_net.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_net.Text) - CartList_Save.Find(x => x.detail_id == id).detail_total)).ToString();
                         CartList_Save.Find(x => x.detail_id == id).is_del = true;
+                        var detail_Ingredient = IngredientList_Save.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID && x.detail_id == id);
+                        foreach (var item in detail_Ingredient)
+                        {
+                            item.is_del = true;
+                        }
+                        //IngredientList_Save = detail_Ingredient;
                     }
 
 
                     CartList_Show.RemoveAt(index);
-                    int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[index].Values[1]);
-                    IngredientList_Show.RemoveAll(x => x.product_price_id == product_price_id);
-                    IngredientList_Save.RemoveAll(x => x.product_price_id == product_price_id);
                     dgv1.DataSource = CartList_Show;
                     dgv1.DataBind();
                 }
@@ -559,7 +633,6 @@ namespace WebToolsStore
             txt_discout.Text = "0.00";
             Sum();
         }
-
         //protected void txt_net_TextChanged(object sender, EventArgs e)
         //{
         //    Sum();
@@ -617,47 +690,11 @@ namespace WebToolsStore
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
                     GridView dgv2 = e.Row.FindControl("dgv2") as GridView;
-                    //HiddenField hdfSeq = (HiddenField)e.Row.FindControl("hdfSeq");
-                    //int seq1 = ConvertHelper.ToInt(hdfSeq.Value);
-                    HiddenField id = (HiddenField)e.Row.FindControl("hdfProID");
-                    int detail_qty = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfQty")).Value);
-                    int product_id = ConvertHelper.ToInt(id.Value);
-                    ProductIngredientBiz biz = new ProductIngredientBiz();
-                    DataTable dt = biz.SelectInfo(product_id);
-                    int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[e.Row.RowIndex].Values[1]);
-                    string txt = hdfValue.Value;
-                    Tuple<int, decimal, int, int> value = FunctionSplitValue(txt);
-                    int quantity = value.Item1;
-                    int unit_value = value.Item4;
 
-                    if (IngredientList_Show.Find(x => x.product_price_id == product_price_id) == null) //ถ้า grid1 new row เข้าเงื่อนไขนี้
-                    {
-                        foreach (DataRow row in dt.Rows)
-                        {
-                            DOC_Detail_Ingredient item = new DOC_Detail_Ingredient();
-                            item.ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "ingredient_id"));
-                            item.product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_id"));
-                            item.product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_unit"));
-                            item.product_code = ConvertHelper.InitialValueDB(row, "product_code");
-                            item.product_name = ConvertHelper.InitialValueDB(row, "product_name");
-                            item.unit_name = ConvertHelper.InitialValueDB(row, "unit_name");
-                            item.product_price_id = product_price_id;
-                            item.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_default"));
-                            if (ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_default")))//ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
-                            {
-                                item.product_qty = quantity * unit_value * ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_qty"));
-                            }
-                            else
-                            {
-                                item.product_qty = 0;
-                            }
-                            //seq = seq1
-                            IngredientList_Save.Add(item);
-                            //IngredientList_Show.Add(item);
-                        }
-                    }
+                    int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[e.Row.RowIndex].Values[1]);
+                    int PaytypeID = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfPaytype")).Value);
                     IngredientList_Show = IngredientList_Save;
-                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id);
+                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID);
                     dgv2.DataBind();
                 }
             }

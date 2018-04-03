@@ -53,6 +53,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="เพิ่ม" HeaderStyle-Width="100px" HeaderStyle-HorizontalAlign="Center">
                                             <HeaderTemplate>
+                                                <headerstyle horizontalalign="Center"></headerstyle>
                                                 <asp:CheckBox runat="server" ID="all_add" AutoPostBack="true" OnCheckedChanged="all_add_CheckedChanged" />
                                                 <asp:Label runat="server">เพิ่ม</asp:Label>
                                             </HeaderTemplate>
@@ -91,7 +92,7 @@
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
-                                        <asp:TemplateField  HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden">
+                                        <asp:TemplateField HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden">
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("submenu_id") %>' />
                                             </ItemTemplate>

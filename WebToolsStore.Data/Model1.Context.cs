@@ -201,7 +201,7 @@ namespace WebToolsStore.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<udp_DOC_Detail_sel_Result>("udp_DOC_Detail_sel", header_idParameter, detail_statusParameter);
         }
     
-        public virtual int udp_DOC_Detail_ups(ObjectParameter detail_id, Nullable<int> header_id, Nullable<int> product_id, Nullable<int> product_price_id, string product_price_code, string product_price_name, Nullable<int> unit_id, string unit_name, Nullable<int> detail_qty, Nullable<decimal> detail_price, Nullable<decimal> detail_discount, Nullable<decimal> detail_total, Nullable<int> detail_status, string detail_remark, Nullable<bool> is_del, Nullable<int> used_qty, Nullable<int> detail_warehouse, Nullable<int> subDocTypeID, Nullable<int> unit_value, Nullable<int> paymentID)
+        public virtual int udp_DOC_Detail_ups(ObjectParameter detail_id, Nullable<int> header_id, Nullable<int> product_id, Nullable<int> product_price_id, string product_price_code, string product_price_name, Nullable<int> unit_id, string unit_name, Nullable<int> detail_qty, Nullable<decimal> detail_price, Nullable<decimal> detail_discount, Nullable<decimal> detail_total, Nullable<int> detail_status, string detail_remark, Nullable<bool> is_del, Nullable<int> used_qty, Nullable<int> detail_warehouse, Nullable<int> subDocTypeID, Nullable<int> unit_value, Nullable<int> paytypeID)
         {
             var header_idParameter = header_id.HasValue ?
                 new ObjectParameter("header_id", header_id) :
@@ -275,11 +275,11 @@ namespace WebToolsStore.Data
                 new ObjectParameter("unit_value", unit_value) :
                 new ObjectParameter("unit_value", typeof(int));
     
-            var paymentIDParameter = paymentID.HasValue ?
-                new ObjectParameter("PaymentID", paymentID) :
-                new ObjectParameter("PaymentID", typeof(int));
+            var paytypeIDParameter = paytypeID.HasValue ?
+                new ObjectParameter("PaytypeID", paytypeID) :
+                new ObjectParameter("PaytypeID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("udp_DOC_Detail_ups", detail_id, header_idParameter, product_idParameter, product_price_idParameter, product_price_codeParameter, product_price_nameParameter, unit_idParameter, unit_nameParameter, detail_qtyParameter, detail_priceParameter, detail_discountParameter, detail_totalParameter, detail_statusParameter, detail_remarkParameter, is_delParameter, used_qtyParameter, detail_warehouseParameter, subDocTypeIDParameter, unit_valueParameter, paymentIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("udp_DOC_Detail_ups", detail_id, header_idParameter, product_idParameter, product_price_idParameter, product_price_codeParameter, product_price_nameParameter, unit_idParameter, unit_nameParameter, detail_qtyParameter, detail_priceParameter, detail_discountParameter, detail_totalParameter, detail_statusParameter, detail_remarkParameter, is_delParameter, used_qtyParameter, detail_warehouseParameter, subDocTypeIDParameter, unit_valueParameter, paytypeIDParameter);
         }
     
         public virtual int udp_DOC_Doctype_del(Nullable<int> doctype_id)

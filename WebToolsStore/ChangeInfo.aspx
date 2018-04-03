@@ -152,7 +152,7 @@
                                             <ItemTemplate>
                                                 <img alt="" style="cursor: pointer" src="images/plus.png" />
                                                 <asp:Panel ID="pnlOrders" runat="server" Style="display: none">
-                                                    <asp:GridView ID="dgv2" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
+                                                    <asp:GridView ID="dgv2" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server" DataKeyNames="ingredient_id"
                                                         AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ">
                                                         <Columns>
                                                             <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_code" HeaderText="รหัสสินค้า">
@@ -164,12 +164,14 @@
                                                             <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
                                                                 <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                                             </asp:BoundField>
-                                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_qty" HeaderText="จำนวน">
-                                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                                            </asp:BoundField>
+                                                            <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
+                                                                    </asp:TextBox>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
                                                         </Columns>
                                                     </asp:GridView>
-
                                                 </asp:Panel>
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -209,8 +211,7 @@
                                         <asp:TemplateField HeaderStyle-Width="150px">
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
-                                                <asp:HiddenField ID="hdfProID" runat="server" Value='<%# Eval("product_id") %>' />
-                                                <asp:HiddenField ID="hdfQty" runat="server" Value='<%# Eval("detail_qty") %>' />
+                                                <asp:HiddenField ID="hdfPaytype" runat="server" Value='<%# Eval("PaytypeID") %>' />
                                                 <asp:LinkButton ID="btnGridDelete" CausesValidation="False" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -245,7 +246,7 @@
                                             <ItemTemplate>
                                                 <img alt="" style="cursor: pointer" src="images/plus.png" />
                                                 <asp:Panel ID="pnlOrders" runat="server" Style="display: none">
-                                                    <asp:GridView ID="dgv4" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
+                                                    <asp:GridView ID="dgv2" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server" DataKeyNames="ingredient_id"
                                                         AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ">
                                                         <Columns>
                                                             <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_code" HeaderText="รหัสสินค้า">
@@ -257,9 +258,12 @@
                                                             <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
                                                                 <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                                             </asp:BoundField>
-                                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_qty" HeaderText="จำนวน">
-                                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                                            </asp:BoundField>
+                                                            <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
+                                                                    </asp:TextBox>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
                                                         </Columns>
                                                     </asp:GridView>
                                                 </asp:Panel>
@@ -283,8 +287,7 @@
                                         <asp:TemplateField HeaderStyle-Width="150px">
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
-                                                <asp:HiddenField ID="hdfProID" runat="server" Value='<%# Eval("product_id") %>' />
-                                                <asp:HiddenField ID="hdfQty" runat="server" Value='<%# Eval("detail_qty") %>' />
+                                                <asp:HiddenField ID="hdfPaytype" runat="server" Value='<%# Eval("PaytypeID") %>' />
                                                 <asp:LinkButton ID="btnGridDelete" CausesValidation="False" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>
                                         </asp:TemplateField>

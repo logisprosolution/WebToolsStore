@@ -187,7 +187,7 @@ namespace WebToolsStore.Biz
                     cmd.ExecuteNonQuery();
                     value = ConvertToInt(cmd.Parameters["header_id"].Value);
 
-
+                    //save detail
                     SqlCommand cmd2 = CreateTransactionCommand(System.Data.CommandType.StoredProcedure, "udp_DOC_Detail_ups");
                     int i = 1;
                     foreach (DOC_Detail detail in model.DocDetailList)
@@ -220,13 +220,15 @@ namespace WebToolsStore.Biz
                         cmd2.Parameters.Add(CreateParameter("detail_warehouse", detail.detail_warehouse));
                         cmd2.Parameters.Add(CreateParameter("subDocTypeID", model.Doc_Header.subDocTypeID));
                         cmd2.Parameters.Add(CreateParameter("unit_value", detail.unit_value));
-                        cmd2.Parameters.Add(CreateParameter("PaymentID", detail.PaymentID));
+                        cmd2.Parameters.Add(CreateParameter("PaytypeID", detail.PaytypeID));
                         cmd2.ExecuteNonQuery();
-                        i++;
+
+                        //save detail_ingredient
                         int value2 = ConvertToInt(cmd2.Parameters["detail_id"].Value);
-                        var DocIngredientList = model.DocIngredientList.FindAll(x => x.product_price_id == detail.product_price_id);
+                        int index = ConvertToInt(cmd2.Parameters["PaytypeID"].Value);
+                        var DocIngredientList = model.DocIngredientList.FindAll(x => x.product_price_id == detail.product_price_id && x.PaytypeID == index);
                         SqlCommand cmd4 = CreateTransactionCommand(System.Data.CommandType.StoredProcedure, "udp_DOC_Detail_Ingredient_ups");
-                        i = 1;
+                        int a = 1;
                         foreach (DOC_Detail_Ingredient detail_ingredient in DocIngredientList)
                         {
                             cmd4.Parameters.Clear();
@@ -241,6 +243,7 @@ namespace WebToolsStore.Biz
                                 cmd4.Parameters.Add(CreateParameter("detail_id", detail_ingredient.detail_id));
                             }
                             cmd4.Parameters.Add(CreateParameter("detail_price", detail_ingredient.detail_price));
+                            cmd4.Parameters.Add(CreateParameter("PaytypeID", detail_ingredient.PaytypeID));
                             cmd4.Parameters.Add(CreateParameter("ingredient_id", detail_ingredient.ingredient_id));
                             cmd4.Parameters.Add(CreateParameter("product_id", detail_ingredient.product_id));
                             cmd4.Parameters.Add(CreateParameter("product_unit", detail_ingredient.product_unit));
@@ -253,9 +256,10 @@ namespace WebToolsStore.Biz
                             cmd4.Parameters.Add(CreateParameter("update_date", detail_ingredient.update_date));
                             cmd4.Parameters.Add(CreateParameter("update_by", detail_ingredient.update_by));
                             cmd4.ExecuteNonQuery();
-                            i++;
+                            a++;
                         }
                         cmd4 = null;
+                        i++;
                     }
                     cmd2 = null;
 

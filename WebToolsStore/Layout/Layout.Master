@@ -20,7 +20,7 @@
     <!-- iCheck -->
     <link href="../assets/plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
     <!-- Morris chart -->
-    <link href="../assets/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+    <%--<link href="../assets/plugins/morris/morris.css" rel="stylesheet" type="text/css" />--%>
     <!-- jvectormap -->
     <link href="../assets/plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
     <!-- Date Picker -->
@@ -238,7 +238,7 @@
     <!-- Bootstrap 3.3.2 JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- Morris.js charts -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+   <%-- <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>--%>
     <script src="../assets/plugins/morris/morris.min.js" type="text/javascript"></script>
     <!-- Sparkline -->
     <script src="../assets/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>

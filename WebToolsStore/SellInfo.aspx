@@ -109,24 +109,21 @@
                                 </div>
                             </div>
                         </div>
-                        <%-- <div class="form-group">
+                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-2">
                                         <label class="control-label">
-                                            สถานะ
+                                            การชำระเงิน
                             <label style="color: red">*</label></label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <asp:DropDownList ID="ddl_is_enabled" runat="server" class="form-control">
-                                            <asp:ListItem Text="ใช้งาน" Value="True"></asp:ListItem>
-                                            <asp:ListItem Text="ปิดใช้งาน" Value="False"></asp:ListItem>
-                                        </asp:DropDownList>
-                                        <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_is_enabled" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                        <asp:DropDownList ID="ddl_payment" runat="server" class="form-control" />
+                                        <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_payment" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
-                        </div>--%>
+                        </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
                 <hr>
@@ -147,8 +144,7 @@
                                     <ContentTemplate>
                                         <asp:GridView ID="dgv1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
                                             AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="detail_id,product_price_id"
-                                            ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ"
-                                            OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting" OnRowEditing="dgv1_RowEditing">
+                                            ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting">
                                             <Columns>
                                                 <asp:TemplateField>
                                                     <ItemTemplate>
@@ -165,19 +161,12 @@
                                                                     </asp:BoundField>
                                                                     <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
                                                                         <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                                                    </asp:BoundField>
-                                                                    <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
+                                                                    </asp:BoundField>                                                                    <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
                                                                         <ItemTemplate>
                                                                             <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
                                                                             </asp:TextBox>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                    <%--<asp:TemplateField ItemStyle-HorizontalAlign="Center">
-                                                                        <ItemTemplate>
-                                                                            <asp:CheckBox runat="server" ID="chk_is_enabled" Checked='<%# Eval("is_enabled") %>' >
-                                                                            </asp:CheckBox>
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>--%>
                                                                 </Columns>
                                                             </asp:GridView>
                                                         </asp:Panel>
@@ -207,8 +196,7 @@
                                                 <asp:TemplateField HeaderStyle-Width="150px">
                                                     <ItemTemplate>
                                                         <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
-                                                        <asp:HiddenField ID="hdfProID" runat="server" Value='<%# Eval("product_id") %>' />
-                                                        <asp:HiddenField ID="hdfQty" runat="server" Value='<%# Eval("detail_qty") %>' />
+                                                        <asp:HiddenField ID="hdfPaytype" runat="server" Value='<%# Eval("PaytypeID") %>' />
                                                         <asp:LinkButton Visible="false" ID="btnGridEdit" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
                                                         <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CausesValidation="False" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                                     </ItemTemplate>
