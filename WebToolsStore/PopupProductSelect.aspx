@@ -151,17 +151,21 @@
             </div>
         </div>
     </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-12">
-                <asp:LinkButton ID="btnSelect" runat="server" class="btn btn-primary pull-right" CausesValidation="False" OnClientClick="CloseDialog();">
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="box-footer">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <asp:LinkButton ID="btnSelect" runat="server" class="btn btn-primary pull-right" CausesValidation="False" OnClientClick="CloseDialog();">
                     <i class="fa fa-check"></i>เลือก</asp:LinkButton>
-                <button type="button" class="btn btn-default pull-left" onclick="CancelDialog();">กลับ</button>
-                <div class="col-sm-1 text-center">
-                    <asp:Label Text="จำนวน" runat="server" />
-                </div>
-                <div class="col-sm-3">
-                    <asp:TextBox class="form-control" ID="txtNumber" Text="1" TextMode="Number" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
+                        <button type="button" class="btn btn-default pull-left" onclick="CancelDialog();">กลับ</button>
+                        <div class="col-sm-1 text-center">
+                            <asp:Label Text="จำนวน" runat="server" />
+                        </div>
+                        <div class="col-sm-3">
+                            <asp:TextBox class="form-control" ID="txtNumber" Text="1" TextMode="Number" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

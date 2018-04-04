@@ -81,7 +81,7 @@ namespace WebToolsStore
         {
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
             LoadExHelper loadEx = new LoadExHelper();
-            loadEx.LoadPaymentType(ref ddl_payment, Enumerator.ConditionLoadEx.All);
+            loadEx.LoadPaymentType(ref ddl_payment, 2, Enumerator.ConditionLoadEx.All);
             loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.All);
             loadEx.LoadCustomer(ref ddl_customer, Enumerator.ConditionLoadEx.All);
             txt_header_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -230,7 +230,6 @@ namespace WebToolsStore
                         //txt_total.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_total.Text) - ConvertHelper.ToDecimal(txt_discout.Text))).ToString();
                         //txt_net.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_net.Text) - ConvertHelper.ToDecimal(txt_discout.Text))).ToString();
                     }
-
                 }
                 else
                 {
@@ -429,6 +428,7 @@ namespace WebToolsStore
                 else
                 {
                     model.Doc_Header.header_id = base.dataId;
+                    SetEditIngredient();
                 }
                 model.Doc_Header.header_code = txt_header_code.Text;
                 model.Doc_Header.header_date = ConvertHelper.ToDateTime(txt_header_date.Text, ConfigurationInfo.FORMATE_DATE_DISPLAY, ConfigurationInfo.CULTUREINFO_DISPLAY);

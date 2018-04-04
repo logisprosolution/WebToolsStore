@@ -619,9 +619,9 @@ namespace WebToolsStore
             DataSet tds = biz.SelectVatType();
             LoadCondition(tds.Tables[0], ref ddl, condition, "VatTypeID", "VatTypeNameTH");
         }
-        public void LoadPaymentType(ref DropDownList ddl, Enumerator.ConditionLoadEx condition)
+        public void LoadPaymentType(ref DropDownList ddl,int id, Enumerator.ConditionLoadEx condition)
         {
-            DataSet tds = biz.SelectPaymentType();
+            DataSet tds = biz.SelectPaymentType(id);
             LoadCondition(tds.Tables[0], ref ddl, condition, "PaymentID", "PaymentNameTH");
         }
         public void LoadSupplyer(ref DropDownList ddl, Enumerator.ConditionLoadEx condition)

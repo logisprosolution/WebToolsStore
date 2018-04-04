@@ -1,29 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout/LayoutPopup.Master" AutoEventWireup="true" CodeBehind="PopupProductPriceSelect.aspx.cs" Inherits="WebToolsStore.PopupProductPriceSelect" %>
 
-<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-
-        function CloseDialog() {
-            var num = $("#<%=txtSearch.ClientID %>").val();
-            var returnValue = num + '*' + $("#<%=hdfValue.ClientID %>").val();
-
-            if (returnValue == '' || returnValue == null) {
-                alert('กรุณาเลือกราคา');
-                return false;
-            }
-            try {
-                window.opener.resultDialogPopupProductSelect(returnValue);
-            }
-            catch (err) { }
-            window.close();
-            return false;
-        }
-        function CancelDialog() {
-            window.close();
-            return false;
-        }
-    </script>
-</asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
     <script type="text/javascript">
         function CloseDialog() {
@@ -191,7 +167,7 @@
                             <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_Credit" DataFormatString="{0:n}" HeaderText="ราคาเงินเชื่อ">
                                 <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                             </asp:BoundField>
-                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_CashExtra"  DataFormatString="{0:n}" HeaderText="ราคาส่วนลดพิเศษ">
+                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_CashExtra" DataFormatString="{0:n}" HeaderText="ราคาส่วนลดพิเศษ">
                                 <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                             </asp:BoundField>
                             <asp:TemplateField HeaderText="จำนวน" HeaderStyle-HorizontalAlign="Center">
@@ -216,24 +192,27 @@
             </div>
         </div>
     </div>
-    <hr />
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-12">
-                <asp:LinkButton ID="btnSelect" runat="server" class="btn btn-primary pull-right" CausesValidation="False" OnClientClick="CloseDialog();">
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="box-footer">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <asp:LinkButton ID="btnSelect" runat="server" class="btn btn-primary pull-right" CausesValidation="False" OnClientClick="CloseDialog();">
                     <i class="fa fa-check"></i>เลือก</asp:LinkButton>
-                <button type="button" class="btn btn-default pull-left" onclick="CancelDialog();">กลับ</button>
-                 <div class="col-sm-1 text-center">
-                    <asp:Label Text="ราคา" runat="server" />
-                </div>
-                <div class="col-sm-3">
-                    <asp:DropDownList class="form-control" ID="ddlprice" runat="server" />
-                </div>
-                <div class="col-sm-1 text-center">
-                    <asp:Label Text="จำนวน" runat="server" />
-                </div>
-                <div class="col-sm-3">
-                    <asp:TextBox class="form-control" ID="txtNumber" Text="1" TextMode="Number" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
+                        <button type="button" class="btn btn-default pull-left" onclick="CancelDialog();">กลับ</button>
+                        <div class="col-sm-1 text-center">
+                            <asp:Label Text="ราคา" runat="server" />
+                        </div>
+                        <div class="col-sm-3">
+                            <asp:DropDownList class="form-control" ID="ddlprice" runat="server" />
+                        </div>
+                        <div class="col-sm-1 text-center">
+                            <asp:Label Text="จำนวน" runat="server" />
+                        </div>
+                        <div class="col-sm-3">
+                            <asp:TextBox class="form-control" ID="txtNumber" Text="1" TextMode="Number" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

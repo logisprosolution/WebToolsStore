@@ -1,0 +1,85 @@
+
+Log Entry : 13:26:59 4 เมษายน 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 14:03:02 4 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 14:03:02 4 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 14:03:29 4 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 14:03:29 4 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 14:13:20 4 เมษายน 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 14:17:48 4 เมษายน 2561
+  :
+Exception Message:Column 'ingredient_id' does not belong to table SelectProductPrice.
+-------------------------------
+
+Log Entry : 14:18:39 4 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 14:50:44 4 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 14:59:37 4 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 15:02:34 4 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 16:17:18 4 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 16:37:26 4 เมษายน 2561
+  :
+Exception Message:String[0]: the Size property has an invalid size of 0.
+-------------------------------
+
+Log Entry : 20:29:38 4 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 20:29:53 4 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 20:34:50 4 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 20:35:33 4 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------

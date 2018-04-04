@@ -246,7 +246,7 @@
                                             <ItemTemplate>
                                                 <img alt="" style="cursor: pointer" src="images/plus.png" />
                                                 <asp:Panel ID="pnlOrders" runat="server" Style="display: none">
-                                                    <asp:GridView ID="dgv2" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server" DataKeyNames="ingredient_id"
+                                                    <asp:GridView ID="dgv4" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server" DataKeyNames="ingredient_id"
                                                         AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ">
                                                         <Columns>
                                                             <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_code" HeaderText="รหัสสินค้า">
@@ -306,6 +306,23 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-12">
+                                    <div class="col-sm-6">
+                                        <asp:Label runat="server" Visible="false" ID="lbl_deposit" Style="color: red"></asp:Label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label class="control-label pull-right">
+                                            รวมทั้งหมด
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <asp:TextBox ID="txt_total" runat="server" AutoPostBack="true" type="text" Text="0.00" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-12">
                                     <div class="col-sm-6"></div>
                                     <div class="col-sm-2">
                                         <label class="control-label pull-right">
@@ -313,7 +330,7 @@
                                         </label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <asp:TextBox ID="txt_total" runat="server" AutoPostBack="true" type="text" Text="0.00" class="form-control" OnTextChanged="txt_total_TextChanged" />
+                                        <asp:TextBox ID="txt_added" runat="server" AutoPostBack="true" type="text" Text="0.00" class="form-control" OnTextChanged="txt_added_TextChanged" />
                                     </div>
                                 </div>
                             </div>

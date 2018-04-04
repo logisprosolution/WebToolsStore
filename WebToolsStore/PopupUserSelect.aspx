@@ -78,7 +78,7 @@
             </div>
         </div>
     </div>
-<%--    <div class="row">
+    <%--    <div class="row">
         <div class="col-md-12">
             <div class="box-header">
                 <h3 class="box-title"></h3>
@@ -119,13 +119,14 @@
         </div>
     </div>--%>
     <div class="navbar navbar-default navbar-fixed-bottom">
-        <br />
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <asp:LinkButton ID="btnSelect" runat="server" class="btn btn-primary" CausesValidation="False" OnClientClick="CloseDialog();">
+        <div class="box-footer">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <asp:LinkButton ID="btnSelect" runat="server" class="btn btn-primary" CausesValidation="False" OnClientClick="CloseDialog();">
                     <i class="fa fa-check"></i>เลือก</asp:LinkButton>
-                    <button type="button" class="btn btn-default" onclick="CancelDialog();">กลับ</button>
+                        <button type="button" class="btn btn-default" onclick="CancelDialog();">กลับ</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -52,7 +52,7 @@ namespace WebToolsStore
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
             LoadExHelper loadEx = new LoadExHelper();
             //loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.All);
-            loadEx.LoadPaymentType(ref ddl_PaymentID, Enumerator.ConditionLoadEx.All);
+            loadEx.LoadPaymentType(ref ddl_PaymentID, 0, Enumerator.ConditionLoadEx.All);
             loadEx.LoadSupplyer(ref ddl_supplier, Enumerator.ConditionLoadEx.All);
 
         }

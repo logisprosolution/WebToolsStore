@@ -230,7 +230,7 @@ namespace WebToolsStore
             {
                 Tuple<int, int, decimal, int, int> value = FunctionSplitValue(txt);
                 int quantity = value.Item1;
-                int index = value.Item2;
+                int paytype = value.Item2;
                 decimal price = value.Item3;
                 int product_price_id = value.Item4;
                 int unit_value = value.Item5;
@@ -256,7 +256,7 @@ namespace WebToolsStore
                     DOC_Detail docdetail = CartList_Show.Find(x => x.product_price_id == product_price_id);
                     if (docdetail != null)
                     {
-                        if (docdetail.PaytypeID != index)
+                        if (docdetail.PaytypeID != paytype)
                         {
                             isNewDetail = true;
                         }
@@ -285,7 +285,7 @@ namespace WebToolsStore
                             detail_remark = null,
                             detail_status = null,
                             unit_value = unit_value,
-                            PaytypeID = index,
+                            PaytypeID = paytype,
                         //seq = CartList_Save.Count + 1,
                     };
                         if (!IsNewMode)// กรณี แก้ไข แล้วเพิ่ม เข้าไปใหม่
@@ -314,7 +314,7 @@ namespace WebToolsStore
                             item2.product_price_id = product_price_id;
                             item2.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default"));
                             item2.detail_price = price;
-                            item2.PaytypeID = index;
+                            item2.PaytypeID = paytype;
                             if (ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default")))//ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
                             {
                                 item2.product_qty = quantity * unit_value * ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_qty"));
@@ -374,7 +374,7 @@ namespace WebToolsStore
         private Tuple<int, int, decimal, int, int> FunctionSplitValue(string txt)
         {
             int quantity = 1;
-            int index = 0;
+            int paytype = 0;
             decimal price = 0;
             int product_price_id = 0;
             int unit_value = 0;
@@ -387,7 +387,7 @@ namespace WebToolsStore
                     {
                         quantity = -1;
                     }
-                    index = ConvertHelper.ToInt(arr[1]);
+                    paytype = ConvertHelper.ToInt(arr[1]);
                     price = ConvertHelper.ToDecimal(arr[2]);
                     product_price_id = ConvertHelper.ToInt(arr[3]);
                     if (arr.Length == 5)
@@ -400,7 +400,7 @@ namespace WebToolsStore
                     quantity = 1;
                 }
             }
-            return Tuple.Create(quantity, index, price, product_price_id, unit_value);
+            return Tuple.Create(quantity, paytype, price, product_price_id, unit_value);
         }
         private void SaveInfo()//บันทึก
         {
@@ -532,6 +532,8 @@ namespace WebToolsStore
                 if (e.CommandName == "DeleteCart") // ลบออกเฉพาะหน้าจอ ต้องทำการบันทึกก่อนถึงจะอัพเดท
                 {
                     int id = ConvertHelper.ToInt(dgv1.DataKeys[index].Value.ToString());
+                    int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[index].Values[1]);
+                    int PaytypeID = ConvertHelper.ToInt(((HiddenField)dgv1.Rows[index].FindControl("hdfPaytype")).Value);
                     if (base.IsNewMode) // ถ้า new mome ให้ ลบตามลำดับตารางได้เลย
                     {
                         txt_total.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_total.Text) - CartList_Save[index].detail_total)).ToString();
@@ -548,10 +550,8 @@ namespace WebToolsStore
                     CartList_Show.RemoveAt(index);
                     //var removeIndex = IngredientList_Show.FindAll(x => x.seq == index + 1);
                     //IngredientList_Show.Remove(removeIndex);
-                    int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[index].Values[1]);
-                    int index1 = ConvertHelper.ToInt(((HiddenField)dgv1.Rows[index].FindControl("hdfIndex")).Value);
-                    IngredientList_Show.RemoveAll(x => x.product_price_id == product_price_id && x.PaytypeID == index1);
-                    IngredientList_Save.RemoveAll(x => x.product_price_id == product_price_id && x.PaytypeID == index1);
+                    IngredientList_Show.RemoveAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID);
+                    IngredientList_Save.RemoveAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID);
                     dgv1.DataSource = CartList_Show;
                     dgv1.DataBind();
                 }
@@ -631,9 +631,9 @@ namespace WebToolsStore
                     GridView dgv2 = e.Row.FindControl("dgv2") as GridView;
                     
                     int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[e.Row.RowIndex].Values[1]);
-                    int index = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfIndex")).Value);
+                    int PaytypeID = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfPaytype")).Value);
                     IngredientList_Show = IngredientList_Save;
-                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == index);
+                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID);
                     dgv2.DataBind();
                 }
             }

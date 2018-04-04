@@ -1,0 +1,14 @@
+
+Log Entry : 17:21:12 4 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------
+
+Log Entry : 20:35:32 4 เมษายน 2561
+  :
+title:page:Report_TransAll
+function:LoadReport
+message:C:\Git\WebToolsStore\WebToolsStore\Reports\TransAll.rpt
+-------------------------------

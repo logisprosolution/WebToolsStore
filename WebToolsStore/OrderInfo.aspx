@@ -235,7 +235,7 @@
                                                 <asp:TemplateField HeaderStyle-Width="150px">
                                                     <ItemTemplate>
                                                         <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
-                                                        <asp:HiddenField ID="hdfIndex" runat="server" Value='<%# Eval("PaytypeID") %>' />
+                                                        <asp:HiddenField ID="hdfPaytype" runat="server" Value='<%# Eval("PaytypeID") %>' />
                                                         <asp:LinkButton Visible="false" ID="btnGridEdit" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
                                                         <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CausesValidation="False" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                                     </ItemTemplate>

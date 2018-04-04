@@ -37,11 +37,11 @@ namespace WebToolsStore.Biz
             }
         }
 
-        public DataSet SelectPaymentType()
+        public DataSet SelectPaymentType(int id)
         {
             try
             {
-                return base.SelectList("SelectPaymentType");
+                return base.SelectById(id,"SelectPaymentType");
             }
             catch (Exception ex)
             {
@@ -346,13 +346,6 @@ namespace WebToolsStore.Biz
                 SqlCommand cmd = CreateCommand(stringSQL, System.Data.CommandType.Text);
                 LoadData(cmd, ds, "SelectVatType");
             }
-            if (condition == "SelectPaymentType")
-            {
-                stringSQL = "select * from v_Payment";
-                stringSQL = string.Format(stringSQL);
-                SqlCommand cmd = CreateCommand(stringSQL, System.Data.CommandType.Text);
-                LoadData(cmd, ds, "SelectPaymentType");
-            }
             if (condition == "SelectSupplyer")
             {
                 stringSQL = "select * from MAS_Supplier where is_del = 0";
@@ -511,6 +504,13 @@ namespace WebToolsStore.Biz
                 stringSQL = string.Format(stringSQL);
                 SqlCommand cmd = CreateCommand(stringSQL, System.Data.CommandType.Text);
                 LoadData(cmd, ds, "SelectHeaderStatus");
+            }
+            else if (condition == "SelectPaymentType")
+            {
+                stringSQL = "select * from v_Payment where not PaymentID =" + id;
+                stringSQL = string.Format(stringSQL);
+                SqlCommand cmd = CreateCommand(stringSQL, System.Data.CommandType.Text);
+                LoadData(cmd, ds, "SelectPaymentType");
             }
         }
 

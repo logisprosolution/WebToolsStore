@@ -299,7 +299,44 @@ namespace WebToolsStore.Biz
                                 cmd3.Parameters.Add(CreateParameter("detail_warehouse", detail.detail_warehouse));
                                 cmd3.Parameters.Add(CreateParameter("subDocTypeID", detail.subDocTypeID));
                                 cmd3.Parameters.Add(CreateParameter("unit_value", detail.unit_value));
+                                cmd3.Parameters.Add(CreateParameter("PaytypeID", detail.PaytypeID));
                                 cmd3.ExecuteNonQuery();
+
+                                int value3 = ConvertToInt(cmd3.Parameters["detail_id"].Value);
+                                int index = ConvertToInt(cmd3.Parameters["PaytypeID"].Value);
+                                var DocIngredientList2 = model.DocIngredientList2.FindAll(x => x.product_price_id == detail.product_price_id && x.PaytypeID == index);
+                                SqlCommand cmd5 = CreateTransactionCommand(System.Data.CommandType.StoredProcedure, "udp_DOC_detail_ingredient_ups");
+                                int a = 1;
+                                foreach (DOC_Detail_Ingredient detail_ingredient in DocIngredientList2)
+                                {
+                                    cmd5.Parameters.Clear();
+                                    if (detail_ingredient.running == 0)
+                                    {
+                                        cmd5.Parameters.Add(CreateParameter("running", 0, ParameterDirection.Output));
+                                        cmd5.Parameters.Add(CreateParameter("detail_id", value3));
+                                    }
+                                    else
+                                    {
+                                        cmd5.Parameters.Add(CreateParameter("running", detail_ingredient.running));
+                                        cmd5.Parameters.Add(CreateParameter("detail_id", detail_ingredient.detail_id));
+                                    }
+                                    cmd5.Parameters.Add(CreateParameter("detail_price", detail_ingredient.detail_price));
+                                    cmd5.Parameters.Add(CreateParameter("PaytypeID", detail_ingredient.PaytypeID));
+                                    cmd5.Parameters.Add(CreateParameter("ingredient_id", detail_ingredient.ingredient_id));
+                                    cmd5.Parameters.Add(CreateParameter("product_id", detail_ingredient.product_id));
+                                    cmd5.Parameters.Add(CreateParameter("product_unit", detail_ingredient.product_unit));
+                                    cmd5.Parameters.Add(CreateParameter("product_qty", detail_ingredient.product_qty));
+                                    cmd5.Parameters.Add(CreateParameter("product_price_id", detail_ingredient.product_price_id));
+                                    cmd5.Parameters.Add(CreateParameter("is_enabled", detail_ingredient.is_enabled));
+                                    cmd5.Parameters.Add(CreateParameter("is_del", detail_ingredient.is_del));
+                                    cmd5.Parameters.Add(CreateParameter("create_date", detail_ingredient.create_date));
+                                    cmd5.Parameters.Add(CreateParameter("create_by", detail_ingredient.create_by));
+                                    cmd5.Parameters.Add(CreateParameter("update_date", detail_ingredient.update_date));
+                                    cmd5.Parameters.Add(CreateParameter("update_by", detail_ingredient.update_by));
+                                    cmd5.ExecuteNonQuery();
+                                    a++;
+                                }
+                                cmd5 = null;
                                 i++;
                             }
                             cmd3 = null;
