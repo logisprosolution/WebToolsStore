@@ -29,7 +29,7 @@ namespace WebToolsStore.Biz
         }
         public DataSet SelectBill(int id)
         {
-            return base.SelectById(id, "v_bill_1");
+            return base.SelectById(id, "v_bill");
         }
 
         #endregion Biz Methods
@@ -67,11 +67,11 @@ namespace WebToolsStore.Biz
                 cmd.Parameters.Add(CreateParameter("header_date_to", base.dataModel.Header_date_to));
                 LoadData(cmd, ds, "v_transAll");
             }
-            else if (condition == "v_bill_1")
+            else if (condition == "v_bill")
             {
                 SqlCommand cmd = CreateCommand("up_Report_Bill_sel", System.Data.CommandType.StoredProcedure);
                 cmd.Parameters.Add(CreateParameter("header_id", id));
-                LoadData(cmd, ds, "v_bill_1");
+                LoadData(cmd, ds, "v_bill");
             }
             if (condition == "v_stock")
             {

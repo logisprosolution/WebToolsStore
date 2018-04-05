@@ -211,8 +211,26 @@
     <Compile Include="ReportBill.aspx.designer.cs">
       <DependentUpon>ReportBill.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportInvoice.cs">
+      <DependentUpon>ReportInvoice.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\ReportReceive.cs">
       <DependentUpon>ReportReceive.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\ReportChange.cs">
+      <DependentUpon>ReportChange.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\ReportReceive%28old%29.cs">
+      <DependentUpon>ReportReceive%28old%29.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -229,14 +247,14 @@
       <DependentUpon>ReportDailySell.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\ReportChange.cs">
-      <DependentUpon>ReportChange.rpt</DependentUpon>
+    <Compile Include="Reports\ReportChange%28old%29.cs">
+      <DependentUpon>ReportChange%28old%29.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\ReportInvoice.cs">
-      <DependentUpon>ReportInvoice.rpt</DependentUpon>
+    <Compile Include="Reports\ReportInvoice%28old%29.cs">
+      <DependentUpon>ReportInvoice%28old%29.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -621,9 +639,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\ReportInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportReceive.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportReceive.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportChange.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportChange.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportReceive%28old%29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportReceive%28old%29.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportStock.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -633,13 +663,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportDailySell.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportChange.rpt">
+    <EmbeddedResource Include="Reports\ReportChange%28old%29.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReportChange.cs</LastGenOutput>
+      <LastGenOutput>ReportChange%28old%29.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportInvoice.rpt">
+    <EmbeddedResource Include="Reports\ReportInvoice%28old%29.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReportInvoice.cs</LastGenOutput>
+      <LastGenOutput>ReportInvoice%28old%29.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportReceipt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

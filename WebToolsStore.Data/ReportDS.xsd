@@ -157,9 +157,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="header_id" msprop:Generator_ColumnVarNameInTable="columnheader_id" msprop:Generator_ColumnPropNameInRow="header_id" msprop:Generator_ColumnPropNameInTable="header_idColumn" msprop:Generator_UserColumnName="header_id" type="xs:int" minOccurs="0" />
               <xs:element name="header_date" msprop:Generator_ColumnVarNameInTable="columnheader_date" msprop:Generator_ColumnPropNameInRow="header_date" msprop:Generator_ColumnPropNameInTable="header_dateColumn" msprop:Generator_UserColumnName="header_date" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="header_supplier_id" msprop:Generator_ColumnVarNameInTable="columnheader_supplier_id" msprop:Generator_ColumnPropNameInRow="header_supplier_id" msprop:Generator_ColumnPropNameInTable="header_supplier_idColumn" msprop:Generator_UserColumnName="header_supplier_id" type="xs:int" minOccurs="0" />
               <xs:element name="header_supplier_name" msprop:Generator_ColumnVarNameInTable="columnheader_supplier_name" msprop:Generator_ColumnPropNameInRow="header_supplier_name" msprop:Generator_ColumnPropNameInTable="header_supplier_nameColumn" msprop:Generator_UserColumnName="header_supplier_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -167,7 +165,6 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="header_customer_id" msprop:Generator_ColumnVarNameInTable="columnheader_customer_id" msprop:Generator_ColumnPropNameInRow="header_customer_id" msprop:Generator_ColumnPropNameInTable="header_customer_idColumn" msprop:Generator_UserColumnName="header_customer_id" type="xs:int" minOccurs="0" />
               <xs:element name="header_customer_name" msprop:Generator_ColumnVarNameInTable="columnheader_customer_name" msprop:Generator_ColumnPropNameInRow="header_customer_name" msprop:Generator_ColumnPropNameInTable="header_customer_nameColumn" msprop:Generator_UserColumnName="header_customer_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -182,6 +179,14 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="header_remark" msprop:Generator_ColumnVarNameInTable="columnheader_remark" msprop:Generator_ColumnPropNameInRow="header_remark" msprop:Generator_ColumnPropNameInTable="header_remarkColumn" msprop:Generator_UserColumnName="header_remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="header_status" msprop:Generator_ColumnVarNameInTable="columnheader_status" msprop:Generator_ColumnPropNameInRow="header_status" msprop:Generator_ColumnPropNameInTable="header_statusColumn" msprop:Generator_UserColumnName="header_status" type="xs:int" minOccurs="0" />
               <xs:element name="header_total" msprop:Generator_ColumnVarNameInTable="columnheader_total" msprop:Generator_ColumnPropNameInRow="header_total" msprop:Generator_ColumnPropNameInTable="header_totalColumn" msprop:Generator_UserColumnName="header_total" type="xs:decimal" minOccurs="0" />
               <xs:element name="header_receive" msprop:Generator_ColumnVarNameInTable="columnheader_receive" msprop:Generator_ColumnPropNameInRow="header_receive" msprop:Generator_ColumnPropNameInTable="header_receiveColumn" msprop:Generator_UserColumnName="header_receive" type="xs:decimal" minOccurs="0" />
               <xs:element name="header_discout" msprop:Generator_ColumnVarNameInTable="columnheader_discout" msprop:Generator_ColumnPropNameInRow="header_discout" msprop:Generator_ColumnPropNameInTable="header_discoutColumn" msprop:Generator_UserColumnName="header_discout" type="xs:decimal" minOccurs="0" />
@@ -189,14 +194,7 @@
               <xs:element name="header_net" msprop:Generator_ColumnVarNameInTable="columnheader_net" msprop:Generator_ColumnPropNameInRow="header_net" msprop:Generator_ColumnPropNameInTable="header_netColumn" msprop:Generator_UserColumnName="header_net" type="xs:decimal" minOccurs="0" />
               <xs:element name="header_deposit" msprop:Generator_ColumnVarNameInTable="columnheader_deposit" msprop:Generator_ColumnPropNameInRow="header_deposit" msprop:Generator_ColumnPropNameInTable="header_depositColumn" msprop:Generator_UserColumnName="header_deposit" type="xs:decimal" minOccurs="0" />
               <xs:element name="header_refund" msprop:Generator_ColumnVarNameInTable="columnheader_refund" msprop:Generator_ColumnPropNameInRow="header_refund" msprop:Generator_ColumnPropNameInTable="header_refundColumn" msprop:Generator_UserColumnName="header_refund" type="xs:decimal" minOccurs="0" />
-              <xs:element name="create_by" msprop:Generator_ColumnVarNameInTable="columncreate_by" msprop:Generator_ColumnPropNameInRow="create_by" msprop:Generator_ColumnPropNameInTable="create_byColumn" msprop:Generator_UserColumnName="create_by" type="xs:int" minOccurs="0" />
-              <xs:element name="user_namedis" msprop:Generator_ColumnVarNameInTable="columnuser_namedis" msprop:Generator_ColumnPropNameInRow="user_namedis" msprop:Generator_ColumnPropNameInTable="user_namedisColumn" msprop:Generator_UserColumnName="user_namedis" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="header_added" msprop:Generator_ColumnVarNameInTable="columnheader_added" msprop:Generator_ColumnPropNameInRow="header_added" msprop:Generator_ColumnPropNameInTable="header_addedColumn" msprop:Generator_UserColumnName="header_added" type="xs:decimal" minOccurs="0" />
               <xs:element name="product_price_code" msprop:Generator_ColumnVarNameInTable="columnproduct_price_code" msprop:Generator_ColumnPropNameInRow="product_price_code" msprop:Generator_ColumnPropNameInTable="product_price_codeColumn" msprop:Generator_UserColumnName="product_price_code" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -222,7 +220,17 @@
               <xs:element name="detail_price" msprop:Generator_ColumnVarNameInTable="columndetail_price" msprop:Generator_ColumnPropNameInRow="detail_price" msprop:Generator_ColumnPropNameInTable="detail_priceColumn" msprop:Generator_UserColumnName="detail_price" type="xs:decimal" minOccurs="0" />
               <xs:element name="detail_discount" msprop:Generator_ColumnVarNameInTable="columndetail_discount" msprop:Generator_ColumnPropNameInRow="detail_discount" msprop:Generator_ColumnPropNameInTable="detail_discountColumn" msprop:Generator_UserColumnName="detail_discount" type="xs:decimal" minOccurs="0" />
               <xs:element name="detail_total" msprop:Generator_ColumnVarNameInTable="columndetail_total" msprop:Generator_ColumnPropNameInRow="detail_total" msprop:Generator_ColumnPropNameInTable="detail_totalColumn" msprop:Generator_UserColumnName="detail_total" type="xs:decimal" minOccurs="0" />
-              <xs:element name="subDocTypeID" msprop:Generator_ColumnVarNameInTable="columnsubDocTypeID" msprop:Generator_ColumnPropNameInRow="subDocTypeID" msprop:Generator_ColumnPropNameInTable="subDocTypeIDColumn" msprop:Generator_UserColumnName="subDocTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="detail_remark" msprop:Generator_ColumnVarNameInTable="columndetail_remark" msprop:Generator_ColumnPropNameInRow="detail_remark" msprop:Generator_ColumnPropNameInTable="detail_remarkColumn" msprop:Generator_UserColumnName="detail_remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="detail_status" msprop:Generator_ColumnVarNameInTable="columndetail_status" msprop:Generator_ColumnPropNameInRow="detail_status" msprop:Generator_ColumnPropNameInTable="detail_statusColumn" msprop:Generator_UserColumnName="detail_status" type="xs:int" minOccurs="0" />
+              <xs:element name="used_qty" msprop:Generator_ColumnVarNameInTable="columnused_qty" msprop:Generator_ColumnPropNameInRow="used_qty" msprop:Generator_ColumnPropNameInTable="used_qtyColumn" msprop:Generator_UserColumnName="used_qty" type="xs:int" minOccurs="0" />
+              <xs:element name="product_qty" msprop:Generator_ColumnVarNameInTable="columnproduct_qty" msprop:Generator_ColumnPropNameInRow="product_qty" msprop:Generator_ColumnPropNameInTable="product_qtyColumn" msprop:Generator_UserColumnName="product_qty" type="xs:int" minOccurs="0" />
+              <xs:element name="detail_price_ingredient" msprop:Generator_ColumnVarNameInTable="columndetail_price_ingredient" msprop:Generator_ColumnPropNameInRow="detail_price_ingredient" msprop:Generator_ColumnPropNameInTable="detail_price_ingredientColumn" msprop:Generator_UserColumnName="detail_price_ingredient" type="xs:decimal" minOccurs="0" />
               <xs:element name="subDocTypeName" msprop:Generator_ColumnVarNameInTable="columnsubDocTypeName" msprop:Generator_ColumnPropNameInRow="subDocTypeName" msprop:Generator_ColumnPropNameInTable="subDocTypeNameColumn" msprop:Generator_UserColumnName="subDocTypeName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -230,11 +238,56 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="doctype_id" msprop:Generator_ColumnVarNameInTable="columndoctype_id" msprop:Generator_ColumnPropNameInRow="doctype_id" msprop:Generator_ColumnPropNameInTable="doctype_idColumn" msprop:Generator_UserColumnName="doctype_id" type="xs:int" />
               <xs:element name="doctype_name" msprop:Generator_ColumnVarNameInTable="columndoctype_name" msprop:Generator_ColumnPropNameInRow="doctype_name" msprop:Generator_ColumnPropNameInTable="doctype_nameColumn" msprop:Generator_UserColumnName="doctype_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="unit_name_ingredient" msprop:Generator_ColumnVarNameInTable="columnunit_name_ingredient" msprop:Generator_ColumnPropNameInRow="unit_name_ingredient" msprop:Generator_ColumnPropNameInTable="unit_name_ingredientColumn" msprop:Generator_UserColumnName="unit_name_ingredient" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="user_namedis" msprop:Generator_ColumnVarNameInTable="columnuser_namedis" msprop:Generator_ColumnPropNameInRow="user_namedis" msprop:Generator_ColumnPropNameInTable="user_namedisColumn" msprop:Generator_UserColumnName="user_namedis" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="header_id" msprop:Generator_ColumnVarNameInTable="columnheader_id" msprop:Generator_ColumnPropNameInRow="header_id" msprop:Generator_ColumnPropNameInTable="header_idColumn" msprop:Generator_UserColumnName="header_id" type="xs:int" minOccurs="0" />
+              <xs:element name="detail_id" msprop:Generator_ColumnVarNameInTable="columndetail_id" msprop:Generator_ColumnPropNameInRow="detail_id" msprop:Generator_ColumnPropNameInTable="detail_idColumn" msprop:Generator_UserColumnName="detail_id" type="xs:int" />
+              <xs:element name="is_del" msprop:Generator_ColumnVarNameInTable="columnis_del" msprop:Generator_ColumnPropNameInRow="is_del" msprop:Generator_ColumnPropNameInTable="is_delColumn" msprop:Generator_UserColumnName="is_del" type="xs:boolean" minOccurs="0" />
+              <xs:element name="is_del_ingredient" msprop:Generator_ColumnVarNameInTable="columnis_del_ingredient" msprop:Generator_ColumnPropNameInRow="is_del_ingredient" msprop:Generator_ColumnPropNameInTable="is_del_ingredientColumn" msprop:Generator_UserColumnName="is_del_ingredient" type="xs:boolean" minOccurs="0" />
+              <xs:element name="customer_code" msprop:Generator_ColumnVarNameInTable="columncustomer_code" msprop:Generator_ColumnPropNameInRow="customer_code" msprop:Generator_ColumnPropNameInTable="customer_codeColumn" msprop:Generator_UserColumnName="customer_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="supplier_code" msprop:Generator_ColumnVarNameInTable="columnsupplier_code" msprop:Generator_ColumnPropNameInRow="supplier_code" msprop:Generator_ColumnPropNameInTable="supplier_codeColumn" msprop:Generator_UserColumnName="supplier_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="product_code" msprop:Generator_ColumnVarNameInTable="columnproduct_code" msprop:Generator_ColumnPropNameInRow="product_code" msprop:Generator_ColumnPropNameInTable="product_codeColumn" msprop:Generator_UserColumnName="product_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="product_name" msprop:Generator_ColumnVarNameInTable="columnproduct_name" msprop:Generator_ColumnPropNameInRow="product_name" msprop:Generator_ColumnPropNameInTable="product_nameColumn" msprop:Generator_UserColumnName="product_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

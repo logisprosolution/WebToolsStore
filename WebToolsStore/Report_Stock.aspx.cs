@@ -29,7 +29,8 @@ namespace WebToolsStore
                     return ViewState["Header"].ToString();
                 }
             }
-            set {
+            set
+            {
                 ViewState["Header"] = value;
             }
         }
@@ -44,7 +45,7 @@ namespace WebToolsStore
 
         protected override void DoLoadData()
         {
-            
+
         }
         private void BindGridProduct()//โหลดตาราง
         {
@@ -53,7 +54,7 @@ namespace WebToolsStore
             int categoryID = ConvertHelper.ToInt(ddlCategoryID.SelectedValue);
             int subCategoryID = ConvertHelper.ToInt(ddlSubCategoryID.SelectedValue);
             int warehouseID = ConvertHelper.ToInt(ddlWarehouseID.SelectedValue);
-            dgv1.DataSource = biz.SelectProductStock(searchText, categoryID, subCategoryID,warehouseID);
+            dgv1.DataSource = biz.SelectProductStock(searchText, categoryID, subCategoryID, warehouseID);
             dgv1.DataBind();
         }
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -131,30 +132,38 @@ namespace WebToolsStore
         }
         protected void dgv1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ReportBiz biz = new ReportBiz();
-            int index = dgv1.SelectedRow.RowIndex;
-            GridViewRow row = dgv1.Rows[index];
-            int id = ConvertHelper.ToInt(((HiddenField)row.FindControl("hdfID")).Value);
-            //DataSet SearchTransAll = biz.SelectStock(id);
-            ReportDocument crystalReport = new ReportDocument();
-            crystalReport.Load(Server.MapPath("Reports/ReportStock.rpt"));
-            biz.dataModel.SearchText = txtSearch.Text;
-            biz.dataModel.CategoryID = ConvertHelper.ToInt(ddlCategoryID.SelectedValue);
-            biz.dataModel.SubcategoryID = ConvertHelper.ToInt(ddlSubCategoryID.SelectedValue);
-            biz.dataModel.WareHouseID = ConvertHelper.ToInt(ddlWarehouseID.SelectedValue);
-            DataSet ds = biz.SelectStock(id);
-            if (ds.Tables[0].Rows.Count == 0)
+            try
             {
-                base.ShowMessage("ไม่พบเอกสาร");
-            }
-            else
-            {
-                crystalReport.SetDataSource(ds);
-                if (true)
+                ReportBiz biz = new ReportBiz();
+                int index = dgv1.SelectedRow.RowIndex;
+                GridViewRow row = dgv1.Rows[index];
+                int id = ConvertHelper.ToInt(((HiddenField)row.FindControl("hdfID")).Value);
+                //DataSet SearchTransAll = biz.SelectStock(id);
+                ReportDocument crystalReport = new ReportDocument();
+                crystalReport.Load(Server.MapPath("Reports/ReportStock.rpt"));
+                biz.dataModel.SearchText = txtSearch.Text;
+                biz.dataModel.CategoryID = ConvertHelper.ToInt(ddlCategoryID.SelectedValue);
+                biz.dataModel.SubcategoryID = ConvertHelper.ToInt(ddlSubCategoryID.SelectedValue);
+                biz.dataModel.WareHouseID = ConvertHelper.ToInt(ddlWarehouseID.SelectedValue);
+                DataSet ds = biz.SelectStock(id);
+                if (ds.Tables[0].Rows.Count == 0)
                 {
-                    crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, System.Guid.NewGuid().ToString());
+                    base.ShowMessage("ไม่พบเอกสาร");
+                }
+                else
+                {
+                    crystalReport.SetDataSource(ds);
+                    if (true)
+                    {
+                        crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, System.Guid.NewGuid().ToString());
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                base.HandleException(ex);
+            }
+
         }
         //protected void ddlShop_SelectedIndexChanged(object sender, EventArgs e)
         //{

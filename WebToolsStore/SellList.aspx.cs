@@ -95,10 +95,10 @@ namespace WebToolsStore
                 }
                 else if (e.CommandName == "Print")
                 {
-                    LoadExHelperBiz biz = new LoadExHelperBiz();
+                    ReportBiz biz = new ReportBiz();
                     ReportDocument crystalReport = new ReportDocument();
                     crystalReport.Load(Server.MapPath("Reports/ReportReceipt.rpt"));
-                    DataSet ds = biz.SelectReportBill(ConvertHelper.ToInt(id));
+                    DataSet ds = biz.SelectBill(ConvertHelper.ToInt(id));
                     if (ds.Tables[0].Rows.Count == 0)
                     {
                         base.ShowMessage("ไม่พบเอกสาร");
