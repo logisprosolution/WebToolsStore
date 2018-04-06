@@ -1546,6 +1546,12 @@ namespace WebToolsStore.Data {
             
             private global::System.Data.DataColumn columnproduct_name;
             
+            private global::System.Data.DataColumn columnheader_date_from;
+            
+            private global::System.Data.DataColumn columnheader_date_to;
+            
+            private global::System.Data.DataColumn columnpayment_date;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public v_billDataTable() {
@@ -1893,6 +1899,30 @@ namespace WebToolsStore.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn header_date_fromColumn {
+                get {
+                    return this.columnheader_date_from;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn header_date_toColumn {
+                get {
+                    return this.columnheader_date_to;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn payment_dateColumn {
+                get {
+                    return this.columnpayment_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1967,7 +1997,10 @@ namespace WebToolsStore.Data {
                         string customer_code, 
                         string supplier_code, 
                         string product_code, 
-                        string product_name) {
+                        string product_name, 
+                        System.DateTime header_date_from, 
+                        System.DateTime header_date_to, 
+                        System.DateTime payment_date) {
                 v_billRow rowv_billRow = ((v_billRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         header_code,
@@ -2008,7 +2041,10 @@ namespace WebToolsStore.Data {
                         customer_code,
                         supplier_code,
                         product_code,
-                        product_name};
+                        product_name,
+                        header_date_from,
+                        header_date_to,
+                        payment_date};
                 rowv_billRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowv_billRow);
                 return rowv_billRow;
@@ -2070,6 +2106,9 @@ namespace WebToolsStore.Data {
                 this.columnsupplier_code = base.Columns["supplier_code"];
                 this.columnproduct_code = base.Columns["product_code"];
                 this.columnproduct_name = base.Columns["product_name"];
+                this.columnheader_date_from = base.Columns["header_date_from"];
+                this.columnheader_date_to = base.Columns["header_date_to"];
+                this.columnpayment_date = base.Columns["payment_date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2153,6 +2192,12 @@ namespace WebToolsStore.Data {
                 base.Columns.Add(this.columnproduct_code);
                 this.columnproduct_name = new global::System.Data.DataColumn("product_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproduct_name);
+                this.columnheader_date_from = new global::System.Data.DataColumn("header_date_from", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnheader_date_from);
+                this.columnheader_date_to = new global::System.Data.DataColumn("header_date_to", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnheader_date_to);
+                this.columnpayment_date = new global::System.Data.DataColumn("payment_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpayment_date);
                 this.columnheader_code.MaxLength = 20;
                 this.columnheader_supplier_name.MaxLength = 200;
                 this.columnheader_customer_name.MaxLength = 200;
@@ -4115,6 +4160,54 @@ namespace WebToolsStore.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime header_date_from {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablev_bill.header_date_fromColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'header_date_from\' in table \'v_bill\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablev_bill.header_date_fromColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime header_date_to {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablev_bill.header_date_toColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'header_date_to\' in table \'v_bill\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablev_bill.header_date_toColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime payment_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablev_bill.payment_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'payment_date\' in table \'v_bill\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablev_bill.payment_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isheader_codeNull() {
                 return this.IsNull(this.tablev_bill.header_codeColumn);
             }
@@ -4567,6 +4660,42 @@ namespace WebToolsStore.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setproduct_nameNull() {
                 this[this.tablev_bill.product_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isheader_date_fromNull() {
+                return this.IsNull(this.tablev_bill.header_date_fromColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setheader_date_fromNull() {
+                this[this.tablev_bill.header_date_fromColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isheader_date_toNull() {
+                return this.IsNull(this.tablev_bill.header_date_toColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setheader_date_toNull() {
+                this[this.tablev_bill.header_date_toColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispayment_dateNull() {
+                return this.IsNull(this.tablev_bill.payment_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpayment_dateNull() {
+                this[this.tablev_bill.payment_dateColumn] = global::System.Convert.DBNull;
             }
         }
         

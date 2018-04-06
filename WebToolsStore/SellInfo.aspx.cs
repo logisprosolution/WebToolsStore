@@ -514,6 +514,7 @@ namespace WebToolsStore
         }
         private void clear()
         {
+            txt_added.Text = "0.00";
             txt_total.Text = "0.00";
             txt_receive.Text = "0.00";
             txt_discout.Text = "0.00";
@@ -598,21 +599,6 @@ namespace WebToolsStore
             string txt = hdfValue.Value;
             AddProductToCart(txt);
         }
-        //protected void btnAddIgdHidden_Click(object sender, EventArgs e)
-        //{
-        //    string txt = hdfIgdValue.Value;
-        //    AddProductToCart(txt);
-        //    if (txt.Contains("|"))
-        //    {
-        //        string[] strArr = txt.Split('|');
-        //        foreach (var item in strArr)
-        //        {
-        //            string[] itemArr = item.Split('*');
-        //            int id = ConvertHelper.ToInt(itemArr[0]);
-        //            itemArr[1].ToString();
-        //        }
-        //    }
-        //}
         protected void btnAddDocHidden_Click(object sender, EventArgs e)
         {
             clear();
@@ -633,10 +619,6 @@ namespace WebToolsStore
             txt_discout.Text = "0.00";
             Sum();
         }
-        //protected void txt_net_TextChanged(object sender, EventArgs e)
-        //{
-        //    Sum();
-        //}
         protected void ddl_vat_SelectedIndexChanged(object sender, EventArgs e)
         {
             Sum();

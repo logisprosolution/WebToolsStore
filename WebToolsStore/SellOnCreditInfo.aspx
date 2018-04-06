@@ -1,16 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout/Layout.Master" AutoEventWireup="true" CodeBehind="SellOnCreditInfo.aspx.cs" Inherits="WebToolsStore.SellOnCreditInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        $("[src*=plus]").live("click", function () {
-            $(this).closest("tr").after("<tr><td></td><td colspan = '999'>" + $(this).next().html() + "</td></tr>")
-            $(this).attr("src", "images/minus.png");
-        });
-        $("[src*=minus]").live("click", function () {
-            $(this).attr("src", "images/plus.png");
-            $(this).closest("tr").next().remove();
-        });
-    </script>
     <script>
         function ShowDialog() {
             //debugger
@@ -113,7 +103,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="input-group date" data-provide="datepicker" data-date-language="th">
-                                        <asp:TextBox ID="TextBox3" runat="server" type="text" class="form-control" />
+                                        <asp:TextBox ID="txt_payment_date" runat="server" type="text" class="form-control" />
                                         <div class="input-group-addon">
                                             <span class="glyphicon glyphicon-th"></span>
                                         </div>
@@ -147,6 +137,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-2">
+                                        <label class="control-label">
+                                            การชำระเงิน
+                            <label style="color: red">*</label></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <asp:DropDownList ID="ddl_payment" runat="server" class="form-control" />
+                                        <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_payment" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
             <hr>
@@ -163,34 +168,76 @@
                                 <div class="col-xs-6"></div>
                                 <div class="col-xs-6"></div>
                             </div>
-                            <asp:GridView ID="dgv1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
-                                AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="detail_id"
-                                ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting">
-                                <Columns>
-                                    <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_price_code" HeaderText="รหัสสินค้า">
-                                        <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                    </asp:BoundField>
-                                    <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_price_name" HeaderText="ชื่อสินค้า">
-                                        <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                    </asp:BoundField>
-                                    <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="detail_qty" HeaderText="จำนวน">
-                                        <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                    </asp:BoundField>
-                                    <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="detail_price" HeaderText="ราคา" DataFormatString="{0:F}">
-                                        <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                    </asp:BoundField>
-                                    <asp:TemplateField HeaderStyle-Width="150px">
-                                        <ItemTemplate>
-                                            <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
-                                            <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>
-                                <SelectedRowStyle CssClass="selectedRowStyle" BackColor="LightCyan" ForeColor="DarkBlue"
-                                    Font-Bold="true" />
-                                <PagerSettings FirstPageText="Frist Page " LastPageText=" Last Page" Mode="NumericFirstLast"
-                                    NextPageText=" Next " PreviousPageText=" Previous " />
-                            </asp:GridView>
+                            <asp:UpdatePanel runat="server">
+                                <ContentTemplate>
+                                    <asp:GridView ID="dgv1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
+                                        AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="detail_id,product_price_id"
+                                        ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting">
+                                        <Columns>
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <img alt="" style="cursor: pointer" src="images/plus.png" />
+                                                    <asp:Panel ID="pnlOrders" runat="server" Style="display: none">
+                                                        <asp:GridView ID="dgv2" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server" DataKeyNames="ingredient_id"
+                                                            AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ">
+                                                            <Columns>
+                                                                <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_code" HeaderText="รหัสสินค้า">
+                                                                    <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                                                </asp:BoundField>
+                                                                <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_name" HeaderText="ชื่อสินค้า">
+                                                                    <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                                                </asp:BoundField>
+                                                                <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
+                                                                    <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                                                </asp:BoundField>
+                                                                <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
+                                                                    <ItemTemplate>
+                                                                        <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
+                                                                        </asp:TextBox>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </asp:Panel>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_price_code" HeaderText="รหัสสินค้า">
+                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                            </asp:BoundField>
+                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_price_name" HeaderText="ชื่อสินค้า">
+                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                            </asp:BoundField>
+                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
+                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                            </asp:BoundField>
+                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="detail_qty" HeaderText="จำนวน">
+                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                            </asp:BoundField>
+                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="detail_price" HeaderText="ราคาต่อหน่วย" DataFormatString="{0:n}">
+                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                            </asp:BoundField>
+                                            <asp:TemplateField HeaderText="ราคารวม" ItemStyle-HorizontalAlign="Center">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblPrice" runat="server" Text='<%# String.Format( "{0:n}" , ((WebToolsStore.Data.DOC_Detail)Container.DataItem).detail_price * ((WebToolsStore.Data.DOC_Detail)Container.DataItem).detail_qty ) %> '>
+                                                    </asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderStyle-Width="150px">
+                                                <ItemTemplate>
+                                                    <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
+                                                    <asp:HiddenField ID="hdfPaytype" runat="server" Value='<%# Eval("PaytypeID") %>' />
+                                                    <asp:LinkButton Visible="false" ID="btnGridEdit" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
+                                                    <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CausesValidation="False" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                        <SelectedRowStyle CssClass="selectedRowStyle" BackColor="LightCyan" ForeColor="DarkBlue"
+                                            Font-Bold="true" />
+                                        <PagerSettings FirstPageText="Frist Page " LastPageText=" Last Page" Mode="NumericFirstLast"
+                                            NextPageText=" Next " PreviousPageText=" Previous " />
+                                    </asp:GridView>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
                         </div>
                     </div>
                 </div>
@@ -224,6 +271,21 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <asp:TextBox ID="txt_discout" runat="server" AutoPostBack="true" type="text" Text="0.00" class="form-control" OnTextChanged="txt_discout_TextChanged" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-2">
+                                        <label class="control-label pull-right">
+                                            ส่วนเพิ่ม
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <asp:TextBox ID="txt_added" runat="server" AutoPostBack="true" type="text" Text="0.00" class="form-control" OnTextChanged="txt_added_TextChanged" />
                                     </div>
                                 </div>
                             </div>

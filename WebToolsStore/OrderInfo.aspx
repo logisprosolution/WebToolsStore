@@ -9,7 +9,7 @@
 
         function resultDialogPopupProductSelect(returnValue) {
             $("#<%=hdfValue.ClientID %>").val(returnValue);
-            $("#<%=btnAddHidden.ClientID %>").click();
+            $("#<%=btnAddHidden.ClientID %>").clic<a href="OrderInfo.aspx">OrderInfo.aspx</a>k();
         }
         function makeMoney(e, source) {
             //debugger

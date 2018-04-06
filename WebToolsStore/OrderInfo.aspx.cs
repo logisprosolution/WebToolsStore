@@ -493,6 +493,7 @@ namespace WebToolsStore
         }
         private void clear()
         {
+            txt_added.Text = "0.00";
             txt_total.Text = "0.00";
             txt_receive.Text = "0.00";
             txt_discout.Text = "0.00";

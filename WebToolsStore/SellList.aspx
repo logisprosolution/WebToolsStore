@@ -77,7 +77,7 @@
                                         <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="header_remark" HeaderText="หมายเหตุ">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>
-                                        <asp:TemplateField HeaderStyle-Width="250px">
+                                        <asp:TemplateField HeaderStyle-Width="220px">
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
                                                 <asp:LinkButton ID="btnGridPrint" runat="server" Text="พิมพ์" class="btn btn-info btn-circle fa fa-print" CommandName="Print" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />

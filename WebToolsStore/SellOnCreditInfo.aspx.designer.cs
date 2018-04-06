@@ -103,13 +103,13 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredCustomer;
         
         /// <summary>
-        /// TextBox3 control.
+        /// txt_payment_date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txt_payment_date;
         
         /// <summary>
         /// ddl_type_vat control.
@@ -128,6 +128,15 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_header_status;
+        
+        /// <summary>
+        /// ddl_payment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_payment;
         
         /// <summary>
         /// btnOpenPopup control.
@@ -191,6 +200,15 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_discout;
+        
+        /// <summary>
+        /// txt_added control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_added;
         
         /// <summary>
         /// ddl_vat control.

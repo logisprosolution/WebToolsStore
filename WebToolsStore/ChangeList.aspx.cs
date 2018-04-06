@@ -9,6 +9,7 @@ using WebToolsStore.Data;
 using WebToolsStore.Biz;
 using System.Data;
 using System.Configuration;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace WebToolsStore
 {
@@ -90,6 +91,25 @@ namespace WebToolsStore
                     {
                         base.ShowMessage(SuccessMessage);
                         DoLoadData();
+                    }
+                }
+                else if (e.CommandName == "Print")
+                {
+                    ReportBiz biz = new ReportBiz();
+                    ReportDocument crystalReport = new ReportDocument();
+                    crystalReport.Load(Server.MapPath("Reports/ReportChange.rpt"));
+                    DataSet ds = biz.SelectBill(ConvertHelper.ToInt(id));
+                    if (ds.Tables[0].Rows.Count == 0)
+                    {
+                        base.ShowMessage("ไม่พบเอกสาร");
+                    }
+                    else
+                    {
+                        crystalReport.SetDataSource(ds);
+                        if (true)
+                        {
+                            crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, System.Guid.NewGuid().ToString());
+                        }
                     }
                 }
             }

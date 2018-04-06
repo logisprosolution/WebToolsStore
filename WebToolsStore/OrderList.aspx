@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout/Layout.Master" AutoEventWireup="true" CodeBehind="OrderList.aspx.cs" Inherits="WebToolsStore.OrderList" %>
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845DCD8080CC91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
+<%@ Register Assembly="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <h1>สั่งทำสินค้า
@@ -72,9 +75,10 @@
                                         <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="status_name" HeaderText="สถานะเอกสาร">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>
-                                        <asp:TemplateField HeaderStyle-Width="150px">
+                                        <asp:TemplateField HeaderStyle-Width="250px">
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
+                                                <asp:LinkButton ID="btnGridPrint" runat="server" Text="พิมพ์" class="btn btn-info btn-circle fa fa-print" CommandName="Print" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
                                                 <asp:LinkButton ID="btnGridEdit" runat="server" Text="แก้ไข" class="btn btn-warning fa fa-edit" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
                                                 <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="Delete" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>

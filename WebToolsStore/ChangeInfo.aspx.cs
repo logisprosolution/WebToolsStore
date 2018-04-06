@@ -337,9 +337,12 @@ namespace WebToolsStore
                         txt_header_date.Text = ConvertHelper.InitialValueDB(row, "header_date");
                         txt_header_date_to.Text = ConvertHelper.InitialValueDB(row, "header_date_to");
                         ddl_customer.SelectedValue = ConvertHelper.InitialValueDB(row, "header_customer_id");
-                        //ddl_is_enabled.SelectedValue = ConvertHelper.InitialValueDB(row, "is_enabled");
+                        if (ConvertHelper.InitialValueDB(row, "header_status") != "")
+                        {
+                            ddl_header_status.SelectedValue = ConvertHelper.InitialValueDB(row, "header_status");
+
+                        }
                         txt_remark.Text = ConvertHelper.InitialValueDB(row, "header_remark");
-                        ddl_header_status.SelectedValue = ConvertHelper.InitialValueDB(row, "header_status");
                         hdfDocValue.Value = ConvertHelper.InitialValueDB(row, "header_ref");
                         txt_header_address.Text = ConvertHelper.InitialValueDB(row, "header_address");
                         txt_refund.Text = ConvertHelper.InitialValueDB(row, "header_refund");
@@ -356,7 +359,6 @@ namespace WebToolsStore
                         ddl_customer.SelectedValue = ConvertHelper.InitialValueDB(row, "header_customer_id");
                         txt_header_address.Text = ConvertHelper.InitialValueDB(row, "header_address");
                         txt_discout.Text = ConvertHelper.InitialValueDB(row, "header_discout");
-                        //txt_refund.Text = ConvertHelper.InitialValueDB(row, "header_refund");
                         txt_vat.Text = ConvertHelper.InitialValueDB(row, "header_vat");
                         txt_added.Text = ConvertHelper.InitialValueDB(row, "header_added");
                         txt_total.Text = "-" + ConvertHelper.InitialValueDB(row, "header_total");
@@ -567,6 +569,7 @@ namespace WebToolsStore
                 model.Doc_Header.header_remark = txt_remark.Text;
                 model.Doc_Header.header_status = ConvertHelper.ToInt(ddl_header_status.SelectedValue);
                 model.Doc_Header.is_del = false;
+                model.Doc_Header.header_address = txt_header_address.Text;
                 //model.Doc_Header.is_enabled = ConvertHelper.ToBoolean(ddl_is_enabled.SelectedValue);
                 model.Doc_Header.update_by = ApplicationWebInfo.UserID;
                 model.Doc_Header.subDocTypeID = ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_RE"].ToString());

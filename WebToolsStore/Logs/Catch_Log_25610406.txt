@@ -1,0 +1,260 @@
+
+Log Entry : 12:44:50 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:46:36 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:48:50 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:52:03 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:55:32 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 12:56:02 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:05:20 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:06:24 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:07:11 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:08:21 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:08:45 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:09:42 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:12:30 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:14:27 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:19:26 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:23:16 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:30:23 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:33:10 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:35:40 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:40:47 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 13:42:56 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 14:45:17 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 14:45:35 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 14:51:04 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 14:52:06 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 14:52:40 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 14:52:54 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 14:54:16 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 14:56:46 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:10:13 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:10:49 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:13:26 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:13:47 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:18:15 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:19:19 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:19:27 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:38:47 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:43:35 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:45:03 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:46:08 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:46:35 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:47:04 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:47:13 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:47:20 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:47:21 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:53:39 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:56:46 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 15:56:50 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 16:00:42 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 16:01:30 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 16:05:10 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 16:05:44 6 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
