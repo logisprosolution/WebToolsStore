@@ -17,7 +17,6 @@ namespace WebToolsStore.Data
     {
         public int running { get; set; }
         public int detail_id { get; set; }
-        public int ingredient_id { get; set; }
         public Nullable<int> product_id { get; set; }
         public Nullable<int> product_unit { get; set; }
         public Nullable<int> product_qty { get; set; }
@@ -30,6 +29,7 @@ namespace WebToolsStore.Data
         public Nullable<bool> is_enabled { get; set; }
         public Nullable<decimal> detail_price { get; set; }
         public Nullable<int> PaytypeID { get; set; }
+        public int ingredient_id { get; set; }
         public string product_code { get; set; }
         public string product_name { get; set; }
         public string unit_name { get; set; }

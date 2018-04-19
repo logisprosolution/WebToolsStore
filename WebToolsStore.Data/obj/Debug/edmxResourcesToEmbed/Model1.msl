@@ -84,6 +84,7 @@
     <EntitySetMapping Name="DOC_Product_Move">
       <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Product_Move">
         <MappingFragment StoreEntitySet="DOC_Product_Move">
+          <ScalarProperty Name="running_id" ColumnName="running_id" />
           <ScalarProperty Name="detail_id" ColumnName="detail_id" />
           <ScalarProperty Name="product_id" ColumnName="product_id" />
           <ScalarProperty Name="unit_id" ColumnName="unit_id" />
@@ -1577,6 +1578,7 @@
     <EntitySetMapping Name="DOC_Detail_Ingredient">
       <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Detail_Ingredient">
         <MappingFragment StoreEntitySet="DOC_Detail_Ingredient">
+          <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
           <ScalarProperty Name="PaytypeID" ColumnName="PaytypeID" />
           <ScalarProperty Name="detail_price" ColumnName="detail_price" />
           <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
@@ -1589,7 +1591,6 @@
           <ScalarProperty Name="product_qty" ColumnName="product_qty" />
           <ScalarProperty Name="product_unit" ColumnName="product_unit" />
           <ScalarProperty Name="product_id" ColumnName="product_id" />
-          <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
           <ScalarProperty Name="detail_id" ColumnName="detail_id" />
           <ScalarProperty Name="running" ColumnName="running" />
         </MappingFragment>

@@ -29,8 +29,8 @@
       <PropertyRef Name="running" />
     </Key>
     <Property Name="running" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ingredient_id" Type="int" Nullable="false" />
     <Property Name="detail_id" Type="int" Nullable="false" />
+    <Property Name="ingredient_id" Type="int" Nullable="false" />
     <Property Name="detail_price" Type="decimal" Precision="18" Scale="2" />
     <Property Name="PaytypeID" Type="int" />
     <Property Name="product_id" Type="int" />
@@ -94,14 +94,14 @@
     <Property Name="header_net" Type="decimal" Precision="18" Scale="2" />
     <Property Name="header_deposit" Type="decimal" Precision="18" Scale="2" />
     <Property Name="header_refund" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="header_added" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="header_added" Type="decimal" Precision="18" Scale="2" />
     <Property Name="header_ref" Type="int" />
   </EntityType>
   <EntityType Name="DOC_Product_Move">
     <Key>
-      <PropertyRef Name="detail_id" />
-      <PropertyRef Name="product_id" />
+      <PropertyRef Name="running_id" />
     </Key>
+    <Property Name="running_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="detail_id" Type="int" Nullable="false" />
     <Property Name="product_id" Type="int" Nullable="false" />
     <Property Name="unit_id" Type="int" />

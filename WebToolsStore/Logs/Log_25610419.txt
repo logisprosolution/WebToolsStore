@@ -47,3 +47,10 @@ title:page:SellInfo
 function:SaveInfo
 message:User :15 header_id: -1
 -------------------------------
+
+Log Entry : 21:38:16 19 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------

@@ -327,8 +327,8 @@ namespace WebToolsStore
                     }
                     else
                     {
-                        CartList_Save.Find(x => x.product_price_id == product_price_id).detail_total += total;
-                        CartList_Save.Find(x => x.product_price_id == product_price_id).detail_qty += quantity;
+                        CartList_Save.Find(x => x.product_price_id == product_price_id && x.PaytypeID == paytype).detail_total += total;
+                        CartList_Save.Find(x => x.product_price_id == product_price_id && x.PaytypeID == paytype).detail_qty += quantity;
                         CartList_Show = CartList_Save;
 
 
@@ -345,7 +345,7 @@ namespace WebToolsStore
                             {
                                 if (ConvertHelper.ToBoolean(row["is_default"])) //ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
                                 {
-                                    IngredientList_Save.FindAll(x => x.product_price_id == product_price_id).Find(a => a.ingredient_id == (int)row["ingredient_id"]).product_qty += quantity * (int)row["product_qty"];
+                                    IngredientList_Save.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == paytype).Find(a => a.ingredient_id == (int)row["ingredient_id"]).product_qty += quantity * (int)row["product_qty"];
                                 }
                             }
                         }

@@ -402,18 +402,12 @@ namespace WebToolsStore
                         //ClearTxtProductBarCode("ไม่สามารถใช้สินค้านี้ได้เนื่องจากถูกปิดการใช้งาน กรุณาติดต่อผู้ดูแลระบบ");
                         return;
                     }
-                    bool isNewDetail = false;
-                    DOC_Detail docdetail = CartList2_Show.Find(x => x.product_price_id == product_price_id);
+                    //เช็คว่ามี product_price_id และ paytype หรือยัง ถ้ายัง สร้างแถวใหม่ ถ้ามีแล้วบวกเพิ่มจำนวน
+                    bool isNewDetail = true;
+                    DOC_Detail docdetail = CartList_Show.FindAll(x => x.product_price_id == product_price_id).Find(y => y.PaytypeID == paytype);
                     if (docdetail != null)
                     {
-                        if (docdetail.PaytypeID != paytype)
-                        {
-                            isNewDetail = true;
-                        }
-                    }
-                    else
-                    {
-                        isNewDetail = true;
+                        isNewDetail = false;
                     }
                     //decimal total = price * quantity;
                     if (isNewDetail)

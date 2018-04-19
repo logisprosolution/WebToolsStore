@@ -99,3 +99,34 @@ Log Entry : 16:28:21 19 เมษายน 2561
 Exception Message:Violation of PRIMARY KEY constraint 'PK_DOC_Product_Move'. Cannot insert duplicate key in object 'dbo.DOC_Product_Move'. The duplicate key value is (2254, 15).
 The statement has been terminated.
 -------------------------------
+
+Log Entry : 19:49:28 19 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 19:50:00 19 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 20:43:02 19 เมษายน 2561
+  :
+Exception Message:Cannot insert the value NULL into column 'ingredient_id', table 'WebToolsStore.dbo.DOC_Product_Move'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 21:30:38 19 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 21:38:18 19 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 22:00:25 19 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------

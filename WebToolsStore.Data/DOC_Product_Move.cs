@@ -26,5 +26,6 @@ namespace WebToolsStore.Data
         public Nullable<bool> is_del { get; set; }
         public Nullable<System.DateTime> create_date { get; set; }
         public Nullable<int> warehouse_id { get; set; }
+        public int running_id { get; set; }
     }
 }

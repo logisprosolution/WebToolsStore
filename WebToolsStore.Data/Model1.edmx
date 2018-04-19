@@ -34,8 +34,8 @@
             <PropertyRef Name="running" />
           </Key>
           <Property Name="running" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ingredient_id" Type="int" Nullable="false" />
           <Property Name="detail_id" Type="int" Nullable="false" />
+          <Property Name="ingredient_id" Type="int" Nullable="false" />
           <Property Name="detail_price" Type="decimal" Precision="18" Scale="2" />
           <Property Name="PaytypeID" Type="int" />
           <Property Name="product_id" Type="int" />
@@ -99,14 +99,14 @@
           <Property Name="header_net" Type="decimal" Precision="18" Scale="2" />
           <Property Name="header_deposit" Type="decimal" Precision="18" Scale="2" />
           <Property Name="header_refund" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="header_added" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="header_added" Type="decimal" Precision="18" Scale="2" />
           <Property Name="header_ref" Type="int" />
         </EntityType>
         <EntityType Name="DOC_Product_Move">
           <Key>
-            <PropertyRef Name="detail_id" />
-            <PropertyRef Name="product_id" />
+            <PropertyRef Name="running_id" />
           </Key>
+          <Property Name="running_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="detail_id" Type="int" Nullable="false" />
           <Property Name="product_id" Type="int" Nullable="false" />
           <Property Name="unit_id" Type="int" />
@@ -2074,8 +2074,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
         </EntityType>
         <EntityType Name="DOC_Product_Move">
           <Key>
-            <PropertyRef Name="detail_id" />
-            <PropertyRef Name="product_id" />
+            <PropertyRef Name="running_id" />
           </Key>
           <Property Name="detail_id" Type="Int32" Nullable="false" />
           <Property Name="product_id" Type="Int32" Nullable="false" />
@@ -2088,6 +2087,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <Property Name="is_del" Type="Boolean" />
           <Property Name="create_date" Type="DateTime" Precision="3" />
           <Property Name="warehouse_id" Type="Int32" />
+          <Property Name="running_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="DOC_Status">
           <Key>
@@ -4288,7 +4288,6 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           </Key>
           <Property Name="running" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="detail_id" Type="Int32" Nullable="false" />
-          <Property Name="ingredient_id" Type="Int32" Nullable="false" />
           <Property Name="product_id" Type="Int32" />
           <Property Name="product_unit" Type="Int32" />
           <Property Name="product_qty" Type="Int32" />
@@ -4302,6 +4301,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <Property Name="is_enabled" Type="Boolean" />
           <Property Name="detail_price" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PaytypeID" Type="Int32" />
+          <Property Name="ingredient_id" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_DOC_Detail_Ingredient_DOC_Detail">
           <End Type="WebToolsStoreModel.DOC_Detail" Role="DOC_Detail" Multiplicity="1" />
@@ -4593,6 +4593,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <EntitySetMapping Name="DOC_Product_Move">
             <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Product_Move">
               <MappingFragment StoreEntitySet="DOC_Product_Move">
+                <ScalarProperty Name="running_id" ColumnName="running_id" />
                 <ScalarProperty Name="detail_id" ColumnName="detail_id" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="unit_id" ColumnName="unit_id" />
@@ -6086,6 +6087,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <EntitySetMapping Name="DOC_Detail_Ingredient">
             <EntityTypeMapping TypeName="WebToolsStoreModel.DOC_Detail_Ingredient">
               <MappingFragment StoreEntitySet="DOC_Detail_Ingredient">
+                <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
                 <ScalarProperty Name="PaytypeID" ColumnName="PaytypeID" />
                 <ScalarProperty Name="detail_price" ColumnName="detail_price" />
                 <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
@@ -6098,7 +6100,6 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
                 <ScalarProperty Name="product_qty" ColumnName="product_qty" />
                 <ScalarProperty Name="product_unit" ColumnName="product_unit" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
-                <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
                 <ScalarProperty Name="detail_id" ColumnName="detail_id" />
                 <ScalarProperty Name="running" ColumnName="running" />
               </MappingFragment>
