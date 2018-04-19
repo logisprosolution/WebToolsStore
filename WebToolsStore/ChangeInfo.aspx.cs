@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Collections.Generic;
 using System.Configuration;
 using static WebToolsStore.Enumerator;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace WebToolsStore
 {
@@ -140,7 +141,7 @@ namespace WebToolsStore
             //loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.All);
             //loadEx.LoadPaymentType(ref ddl_PaymentID, Enumerator.ConditionLoadEx.All);
             loadEx.LoadCustomer(ref ddl_customer, Enumerator.ConditionLoadEx.All);
-            loadEx.LoadHeaderStatus(ref ddl_header_status, ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_RE"].ToString()), Enumerator.ConditionLoadEx.All);
+            //loadEx.LoadHeaderStatus(ref ddl_header_status, ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_RE"].ToString()), Enumerator.ConditionLoadEx.All);
             txt_header_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txt_header_date_to.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
@@ -337,11 +338,11 @@ namespace WebToolsStore
                         txt_header_date.Text = ConvertHelper.InitialValueDB(row, "header_date");
                         txt_header_date_to.Text = ConvertHelper.InitialValueDB(row, "header_date_to");
                         ddl_customer.SelectedValue = ConvertHelper.InitialValueDB(row, "header_customer_id");
-                        if (ConvertHelper.InitialValueDB(row, "header_status") != "")
-                        {
-                            ddl_header_status.SelectedValue = ConvertHelper.InitialValueDB(row, "header_status");
+                        //if (ConvertHelper.InitialValueDB(row, "header_status") != "")
+                        //{
+                        //    ddl_header_status.SelectedValue = ConvertHelper.InitialValueDB(row, "header_status");
 
-                        }
+                        //}
                         txt_remark.Text = ConvertHelper.InitialValueDB(row, "header_remark");
                         hdfDocValue.Value = ConvertHelper.InitialValueDB(row, "header_ref");
                         txt_header_address.Text = ConvertHelper.InitialValueDB(row, "header_address");
@@ -552,6 +553,11 @@ namespace WebToolsStore
                 DocModel model = new DocModel();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_RE"].ToString()), txt_header_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_header_code");
+                        return;
+                    }
                     model.Doc_Header.create_by = ApplicationWebInfo.UserID;
                     model.Doc_Header.header_ref = ConvertHelper.ToInt(hdfDocValue.Value);
                 }
@@ -561,16 +567,21 @@ namespace WebToolsStore
                     SetEditIngredient();
                     SetEditIngredient2();
                 }
+                if (dgv3.Rows.Count == 0 && txt_refund.Text == "0.00")
+                {
+                    base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากไม่มีรายการเปลี่ยนคืน", "txt_receive");
+                    return;
+                }
                 model.Doc_Header.header_code = txt_header_code.Text;
                 model.Doc_Header.header_date = ConvertHelper.ToDateTime(txt_header_date.Text, ConfigurationInfo.FORMATE_DATE_DISPLAY, ConfigurationInfo.CULTUREINFO_DISPLAY);
                 model.Doc_Header.header_customer_id = ConvertHelper.ToInt(ddl_customer.SelectedValue);
                 model.Doc_Header.header_customer_name = ddl_customer.SelectedItem.Text;
                 model.Doc_Header.header_date_to = ConvertHelper.ToDateTime(txt_header_date_to.Text, ConfigurationInfo.FORMATE_DATE_DISPLAY, ConfigurationInfo.CULTUREINFO_DISPLAY);
                 model.Doc_Header.header_remark = txt_remark.Text;
-                model.Doc_Header.header_status = ConvertHelper.ToInt(ddl_header_status.SelectedValue);
+                model.Doc_Header.header_status = 2;
+                model.Doc_Header.is_enabled = true;
                 model.Doc_Header.is_del = false;
                 model.Doc_Header.header_address = txt_header_address.Text;
-                //model.Doc_Header.is_enabled = ConvertHelper.ToBoolean(ddl_is_enabled.SelectedValue);
                 model.Doc_Header.update_by = ApplicationWebInfo.UserID;
                 model.Doc_Header.subDocTypeID = ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_RE"].ToString());
                 model.Doc_Header.header_added = ConvertHelper.ToDecimal(txt_added.Text);
@@ -596,6 +607,22 @@ namespace WebToolsStore
                 }
                 else
                 {
+                    ReportBiz biz = new ReportBiz();
+                    ReportDocument crystalReport = new ReportDocument();
+                    crystalReport.Load(Server.MapPath("Reports/ReportChange.rpt"));
+                    DataSet ds = biz.SelectBill(ConvertHelper.ToInt(newDataId));
+                    if (ds.Tables[0].Rows.Count == 0)
+                    {
+                        base.ShowMessage("ไม่พบเอกสาร");
+                    }
+                    else
+                    {
+                        crystalReport.SetDataSource(ds);
+                        if (true)
+                        {
+                            crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, System.Guid.NewGuid().ToString());
+                        }
+                    }
                     if (base.IsNewMode)
                     {
                         base.ShowMessageAndRedirect(SuccessMessage, typeof(ChangeList));
@@ -782,13 +809,13 @@ namespace WebToolsStore
                 txt_header_address.Text = "";
             }
         }
-        protected void ddl_header_status_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ddl_header_status.SelectedIndex == 0)
-            {
-                RequiredStatus.Validate();
-            }
-        }
+        //protected void ddl_header_status_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (ddl_header_status.SelectedIndex == 0)
+        //    {
+        //        RequiredStatus.Validate();
+        //    }
+        //}
         protected void txt_receive_TextChanged(object sender, EventArgs e)
         {
 
@@ -846,7 +873,7 @@ namespace WebToolsStore
                     int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[e.Row.RowIndex].Values[1]);
                     int PaytypeID = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfPaytype")).Value);
                     IngredientList_Show = IngredientList_Save;
-                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID && x.detail_id == detail_id);
+                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID && x.detail_id == detail_id && x.is_del == false);
                     dgv2.DataBind();
                 }
             }
@@ -866,7 +893,7 @@ namespace WebToolsStore
                     int product_price_id = ConvertHelper.ToInt(dgv3.DataKeys[e.Row.RowIndex].Values[1]);
                     int PaytypeID = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfPaytype")).Value);
                     IngredientList2_Show = IngredientList2_Save;
-                    dgv4.DataSource = IngredientList2_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID && x.detail_id == detail_id);
+                    dgv4.DataSource = IngredientList2_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID && x.detail_id == detail_id && x.is_del == false);
                     dgv4.DataBind();
                 }
             }

@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-2">
@@ -124,24 +124,20 @@
                                 </div>
                             </div>
                         </div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-                <hr>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="box-header">
-                            <h3 class="box-title"></h3>
-                            <asp:LinkButton runat="server" ID="btnOpenPopup" class="btn btn-primary pull-right" OnClientClick="javascript:ShowDialog(); return false;"> เพิ่ม <i class="fa fa-plus"></i></asp:LinkButton>
-                            <asp:Button ID="btnAddHidden" runat="server" type="button" CssClass="hidden" OnClick="btnAddHidden_Click" CausesValidation="False" />
-                        </div>
-                        <div class="box-body">
-                            <div id="example2_wrapper" class="dataTables_wrapper form-inline" role="grid">
-                                <div class="row">
-                                    <div class="col-xs-6"></div>
-                                    <div class="col-xs-6"></div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-header">
+                                    <h3 class="box-title"></h3>
+                                    <asp:LinkButton runat="server" ID="btnOpenPopup" class="btn btn-primary pull-right" OnClientClick="javascript:ShowDialog(); return false;"> เพิ่ม <i class="fa fa-plus"></i></asp:LinkButton>
+                                    <asp:Button ID="btnAddHidden" runat="server" type="button" CssClass="hidden" OnClick="btnAddHidden_Click" CausesValidation="False" />
                                 </div>
-                                <asp:UpdatePanel runat="server">
-                                    <ContentTemplate>
+                                <div class="box-body">
+                                    <div id="example2_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                                        <div class="row">
+                                            <div class="col-xs-6"></div>
+                                            <div class="col-xs-6"></div>
+                                        </div>
                                         <asp:GridView ID="dgv1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
                                             AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="detail_id,product_price_id"
                                             ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting">
@@ -161,7 +157,8 @@
                                                                     </asp:BoundField>
                                                                     <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
                                                                         <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                                                    </asp:BoundField>                                                                    <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
+                                                                    </asp:BoundField>
+                                                                    <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
                                                                         <ItemTemplate>
                                                                             <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
                                                                             </asp:TextBox>
@@ -207,12 +204,12 @@
                                             <PagerSettings FirstPageText="Frist Page " LastPageText=" Last Page" Mode="NumericFirstLast"
                                                 NextPageText=" Next " PreviousPageText=" Previous " />
                                         </asp:GridView>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
                 <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                     <ContentTemplate>
                         <div class="form-group">

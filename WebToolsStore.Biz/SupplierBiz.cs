@@ -16,7 +16,19 @@ namespace WebToolsStore.Biz
         {
             return base.SelectListTable(searchText);
         }
-
+        public bool CheckContainID(string codeValue)
+        {
+            base.dataModel.supplier_code = codeValue;
+            DataTable dt = base.SelectByIdTable(0, "CheckContainID");
+            if (dt.Rows.Count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public string SelectMaxID()
         {
             DataTable dt = base.SelectByIdTable(0, "SelectMaxID");
@@ -70,6 +82,13 @@ namespace WebToolsStore.Biz
             {
                 SqlCommand cmd = CreateCommand("udp_MaxID_Supplier", System.Data.CommandType.StoredProcedure);
                 LoadData(cmd, ds, "SelectMaxID");
+            }
+            else if (condition == "CheckContainID")
+            {
+                string stringSQL = "select top 1 * from MAS_Supplier where supplier_code = " + "'" + dataModel.supplier_code + "'";
+                stringSQL = string.Format(stringSQL);
+                SqlCommand cmd = CreateCommand(stringSQL, System.Data.CommandType.Text);
+                LoadData(cmd, ds, condition, true);
             }
         }
 

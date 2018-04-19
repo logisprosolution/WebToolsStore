@@ -71,6 +71,11 @@ namespace WebToolsStore
                 MAS_Product_Price model = new MAS_Product_Price();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(txt_product_price_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_product_price_code");
+                        return;
+                    }
                     model.create_by = ApplicationWebInfo.UserID;
                 }
                 else

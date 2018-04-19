@@ -88,7 +88,7 @@ namespace WebToolsStore
             is_stock.Value = "0";
             row = null;
 
-            if (stock == 0 && base.dataId != ConvertHelper.ToInt(ConfigurationManager.AppSettings["subdoctypeid_bo"].ToString()) && base.dataId != ConvertHelper.ToInt(ConfigurationManager.AppSettings["subdoctypeid_infrombuy"].ToString()))
+            if (stock <= 0 && base.dataId != ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_BO"].ToString()) && base.dataId != ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_InFromBuy"].ToString()))
             {
                 is_stock.Value = "1";
                 base.ShowMessage("จำนวนสินค้าไม่พอ");

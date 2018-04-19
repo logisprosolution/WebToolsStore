@@ -35,6 +35,7 @@
     <asp:HiddenField ID="is_stock" runat="server" />
     <h4 class="box-title">ค้นหาสินค้า</h4>
     <hr />
+    <div></div>
     <%--<div class="form-group">
         <div class="row">
             <div class="col-sm-12">
@@ -192,7 +193,7 @@
             </div>
         </div>
     </div>
-    <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="navbar-fixed-bottom">
         <div class="box-footer">
             <div class="form-group">
                 <div class="row">

@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.Collections.Generic;
 using System.Configuration;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace WebToolsStore
 {
@@ -151,7 +152,7 @@ namespace WebToolsStore
             foreach (DataRow row in dt.Rows)
             {
                 DOC_Detail_Ingredient item = new DOC_Detail_Ingredient();
-
+                item.detail_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "detail_id"));
                 item.ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "ingredient_id"));
                 item.product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_id"));
                 item.product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_unit"));
@@ -161,6 +162,7 @@ namespace WebToolsStore
                 item.unit_name = ConvertHelper.InitialValueDB(row, "unit_name");
                 item.product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_price_id"));
                 item.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_enabled"));
+                item.is_del = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_del"));
                 item.detail_price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(row, "detail_price"));
                 item.PaytypeID = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "PaytypeID"));
                 if (!IsNewMode)
@@ -212,20 +214,20 @@ namespace WebToolsStore
                         txt_vat.Text = ConvertHelper.InitialValueDB(row, "header_vat");
                         txt_net.Text = ConvertHelper.InitialValueDB(row, "header_net");
                         txt_added.Text = ConvertHelper.InitialValueDB(row, "header_added");
-                        lbl_deposit.Text = "***หักส่วนลดค่ามัดจำ " + ConvertHelper.InitialValueDB(row, "header_deposit") + " บาท";
+                        lbl_deposit.Text = "***ค่ามัดจำ " + ConvertHelper.InitialValueDB(row, "header_deposit") + " บาท";
                         lbl_deposit.Visible = true;
                     }
                     else
                     {
                         ddl_customer.SelectedValue = ConvertHelper.InitialValueDB(row, "header_customer_id");
                         txt_header_address.Text = ConvertHelper.InitialValueDB(row, "header_address");
-                        lbl_deposit.Text = "***หักส่วนลดค่ามัดจำ " + ConvertHelper.InitialValueDB(row, "header_deposit") + " บาท";
+                        lbl_deposit.Text = "***ค่ามัดจำ " + ConvertHelper.InitialValueDB(row, "header_deposit") + " บาท";
                         lbl_deposit.Visible = true;
                         txt_discout.Text = ConvertHelper.InitialValueDB(row, "header_discout");
                         txt_total.Text = ConvertHelper.InitialValueDB(row, "header_total");
                         txt_receive.Text = ConvertHelper.InitialValueDB(row, "header_deposit");
                         txt_vat.Text = ConvertHelper.InitialValueDB(row, "header_vat");
-                        txt_net.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(row, "header_net")) - ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(row, "header_deposit")))).ToString();
+                        txt_net.Text = ConvertHelper.InitialValueDB(row, "header_net");
                         txt_added.Text = ConvertHelper.InitialValueDB(row, "header_added");
                         //txt_total.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_total.Text) - ConvertHelper.ToDecimal(txt_discout.Text))).ToString();
                         //txt_net.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_net.Text) - ConvertHelper.ToDecimal(txt_discout.Text))).ToString();
@@ -423,6 +425,11 @@ namespace WebToolsStore
                 DocModel model = new DocModel();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_Sale"].ToString()), txt_header_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_header_code");
+                        return;
+                    }
                     model.Doc_Header.create_by = ApplicationWebInfo.UserID;
                 }
                 else
@@ -442,9 +449,17 @@ namespace WebToolsStore
                 model.Doc_Header.header_address = txt_header_address.Text;
                 model.Doc_Header.update_by = ApplicationWebInfo.UserID;
                 model.Doc_Header.subDocTypeID = ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_Sale"].ToString());
+                model.Doc_Header.header_status = 2;
                 model.Doc_Header.header_ref = id;
-                string[] deposit = lbl_deposit.Text.Split(new char[0]);
-                model.Doc_Header.header_deposit = ConvertHelper.ToDecimal(deposit[1]);
+                if (lbl_deposit.Text != "")
+                {
+                    string[] deposit = lbl_deposit.Text.Split(new char[0]);
+                    model.Doc_Header.header_deposit = ConvertHelper.ToDecimal(deposit[1]);
+                }
+                else
+                {
+                    model.Doc_Header.header_deposit = ConvertHelper.ToDecimal(lbl_deposit.Text);
+                }
                 if (ConvertHelper.ToDecimal(txt_receive.Text) < ConvertHelper.ToDecimal(txt_net.Text))
                 {
                     base.DisplayMessageDialogAndFocus("ใส่จำนวนเงินให้ถูกต้อง", "txt_receive");
@@ -475,6 +490,19 @@ namespace WebToolsStore
                 }
                 else
                 {
+                    ReportBiz biz = new ReportBiz();
+                    ReportDocument crystalReport = new ReportDocument();
+                    crystalReport.Load(Server.MapPath("Reports/ReportReceipt.rpt"));
+                    DataSet ds = biz.SelectBill(ConvertHelper.ToInt(newDataId));
+                    if (ds.Tables[0].Rows.Count == 0)
+                    {
+                        base.ShowMessage("ไม่พบเอกสาร");
+                    }
+                    else
+                    {
+                        crystalReport.SetDataSource(ds);
+                        crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, System.Guid.NewGuid().ToString());
+                    }
                     //base.ShowMessage(SuccessMessage);
                     //if (base.IsNewMode)//บันทึกเสร็จแล้ว new mode จะทำการรีเฟรชข้อมูลใหม่
                     //{
@@ -676,7 +704,7 @@ namespace WebToolsStore
                     int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[e.Row.RowIndex].Values[1]);
                     int PaytypeID = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfPaytype")).Value);
                     IngredientList_Show = IngredientList_Save;
-                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID);
+                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID && x.is_del == false);
                     dgv2.DataBind();
                 }
             }

@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.Collections.Generic;
 using System.Configuration;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace WebToolsStore
 {
@@ -85,7 +86,7 @@ namespace WebToolsStore
             loadEx.LoadPaymentType(ref ddl_payment, 1, Enumerator.ConditionLoadEx.All);
             loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.All);
             loadEx.LoadCustomer(ref ddl_customer, Enumerator.ConditionLoadEx.All);
-            loadEx.LoadHeaderStatus(ref ddl_header_status, ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString()), Enumerator.ConditionLoadEx.All);
+            //loadEx.LoadHeaderStatus(ref ddl_header_status, ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString()), Enumerator.ConditionLoadEx.All);
             txt_header_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txt_payment_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
@@ -421,6 +422,11 @@ namespace WebToolsStore
                 DocModel model = new DocModel();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString()), txt_header_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_header_code");
+                        return;
+                    }
                     model.Doc_Header.create_by = ApplicationWebInfo.UserID;
                 }
                 else
@@ -443,8 +449,15 @@ namespace WebToolsStore
                 model.Doc_Header.update_by = ApplicationWebInfo.UserID;
                 model.Doc_Header.subDocTypeID = ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString());
                 model.Doc_Header.header_ref = id;
-                string[] deposit = lbl_deposit.Text.Split(new char[0]);
-                model.Doc_Header.header_deposit = ConvertHelper.ToDecimal(deposit[1]);
+                if (lbl_deposit.Text != "")
+                {
+                    string[] deposit = lbl_deposit.Text.Split(new char[0]);
+                    model.Doc_Header.header_deposit = ConvertHelper.ToDecimal(deposit[1]);
+                }
+                else
+                {
+                    model.Doc_Header.header_deposit = ConvertHelper.ToDecimal(lbl_deposit.Text);
+                }
                 model.Doc_Header.header_total = ConvertHelper.ToDecimal(txt_total.Text);
                 model.Doc_Header.header_receive = ConvertHelper.ToDecimal(txt_receive.Text);
                 model.Doc_Header.header_discout = ConvertHelper.ToDecimal(txt_discout.Text);
@@ -469,7 +482,21 @@ namespace WebToolsStore
                     base.ShowMessage(FailMessage);
                 }
                 else
-                { 
+                {
+                    ReportBiz biz = new ReportBiz();
+                    ReportDocument crystalReport = new ReportDocument();
+                    crystalReport.Load(Server.MapPath("Reports/ReportInvoice.rpt"));
+                    DataSet ds = biz.SelectBill(ConvertHelper.ToInt(id));
+                    if (ds.Tables[0].Rows.Count == 0)
+                    {
+                        base.ShowMessage("ไม่พบเอกสาร");
+                    }
+                    else
+                    {
+                        crystalReport.SetDataSource(ds);
+                        crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, System.Guid.NewGuid().ToString());
+                    }
+
                     //base.ShowMessage(SuccessMessage);
                     //if (base.IsNewMode)//บันทึกเสร็จแล้ว new mode จะทำการรีเฟรชข้อมูลใหม่
                     //{
@@ -525,7 +552,7 @@ namespace WebToolsStore
         {
             try
             {
-               
+
             }
             catch (Exception ex)
             {
@@ -666,7 +693,7 @@ namespace WebToolsStore
                     int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[e.Row.RowIndex].Values[1]);
                     int PaytypeID = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfPaytype")).Value);
                     IngredientList_Show = IngredientList_Save;
-                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID);
+                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID && x.is_del == false);
                     dgv2.DataBind();
                 }
             }

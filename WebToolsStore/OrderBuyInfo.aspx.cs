@@ -225,6 +225,11 @@ namespace WebToolsStore
                 DocModel model = new DocModel();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_InFromBuy"].ToString()), txt_header_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_header_code");
+                        return;
+                    }
                     model.Doc_Header.create_by = ApplicationWebInfo.UserID;
                 }
                 else

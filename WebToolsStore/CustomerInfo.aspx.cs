@@ -75,6 +75,11 @@ namespace WebToolsStore
                 MAS_Customer model = new MAS_Customer();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(txt_customer_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_customer_code");
+                        return;
+                    }
                     model.create_by = ApplicationWebInfo.UserID;
                 }
                 else

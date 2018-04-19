@@ -111,6 +111,11 @@ namespace WebToolsStore
                 UserModel model = new UserModel();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(txt_emp_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_emp_code");
+                        return;
+                    }
                     model.USR_User_Profile.create_by = ApplicationWebInfo.UserID;
                     model.USR_User.create_by = ApplicationWebInfo.UserID;
                 }

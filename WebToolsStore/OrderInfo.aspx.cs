@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.Collections.Generic;
 using System.Configuration;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace WebToolsStore
 {
@@ -83,7 +84,7 @@ namespace WebToolsStore
             //loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.All);
             //loadEx.LoadPaymentType(ref ddl_PaymentID, Enumerator.ConditionLoadEx.All);
             loadEx.LoadCustomer(ref ddl_customer, Enumerator.ConditionLoadEx.All);
-            loadEx.LoadHeaderStatus(ref ddl_header_status, ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_BO"].ToString()), Enumerator.ConditionLoadEx.All);
+            //loadEx.LoadHeaderStatus(ref ddl_header_status, ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_BO"].ToString()), Enumerator.ConditionLoadEx.All);
             txt_header_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txt_PaymentDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
@@ -154,6 +155,7 @@ namespace WebToolsStore
                     unit_name = ConvertHelper.InitialValueDB(row, "unit_name"),
                     product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_price_id")),
                     is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_enabled")),
+                    is_del = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_del")),
                     detail_price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(row, "detail_price")),
                     PaytypeID = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "PaytypeID")),
                     //seq = seq1,
@@ -173,7 +175,7 @@ namespace WebToolsStore
                 {
                     TextBox textbox = row2.FindControl("txt_product_qty") as TextBox;
                     string txt = textbox.Text;
-                    txt = txt.Substring(txt.IndexOf(',') +1);
+                    txt = txt.Substring(txt.IndexOf(',') + 1);
                     int id = ConvertHelper.ToInt(dgv2.DataKeys[row2.RowIndex].Value.ToString());
                     IngredientList_Save.Find(x => x.ingredient_id == id).product_qty = ConvertHelper.ToInt(txt);
                     textbox.Text = txt;
@@ -252,18 +254,12 @@ namespace WebToolsStore
                         return;
                     }
 
-                    bool isNewDetail = false;
-                    DOC_Detail docdetail = CartList_Show.Find(x => x.product_price_id == product_price_id);
+                    //เช็คว่ามี product_price_id และ paytype หรือยัง ถ้ายัง สร้างแถวใหม่ ถ้ามีแล้วบวกเพิ่มจำนวน
+                    bool isNewDetail = true;
+                    DOC_Detail docdetail = CartList_Show.FindAll(x => x.product_price_id == product_price_id).Find(y => y.PaytypeID == paytype);
                     if (docdetail != null)
                     {
-                        if (docdetail.PaytypeID != paytype)
-                        {
-                            isNewDetail = true;
-                        }
-                    }
-                    else
-                    {
-                        isNewDetail = true;
+                        isNewDetail = false;
                     }
 
                     //decimal price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(dt.Rows[0], "productPrice"));
@@ -286,8 +282,8 @@ namespace WebToolsStore
                             detail_status = null,
                             unit_value = unit_value,
                             PaytypeID = paytype,
-                        //seq = CartList_Save.Count + 1,
-                    };
+                            //seq = CartList_Save.Count + 1,
+                        };
                         if (!IsNewMode)// กรณี แก้ไข แล้วเพิ่ม เข้าไปใหม่
                         {
                             item.header_id = dataId;
@@ -298,7 +294,7 @@ namespace WebToolsStore
 
                         CartList_Save.Add(item);
                         CartList_Show.Add(item);
-                        
+
                         ProductIngredientBiz biz = new ProductIngredientBiz();
                         DataTable dt2 = biz.SelectInfo(product_id);
 
@@ -313,6 +309,7 @@ namespace WebToolsStore
                             item2.unit_name = ConvertHelper.InitialValueDB(row2, "unit_name");
                             item2.product_price_id = product_price_id;
                             item2.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default"));
+                            item2.is_del = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_del"));
                             item2.detail_price = price;
                             item2.PaytypeID = paytype;
                             if (ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default")))//ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
@@ -409,6 +406,11 @@ namespace WebToolsStore
                 DocModel model = new DocModel();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_BO"].ToString()), txt_header_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_header_code");
+                        return;
+                    }
                     model.Doc_Header.create_by = ApplicationWebInfo.UserID;
                 }
                 else
@@ -454,6 +456,19 @@ namespace WebToolsStore
                 }
                 else
                 {
+                    ReportBiz biz = new ReportBiz();
+                    ReportDocument crystalReport = new ReportDocument();
+                    crystalReport.Load(Server.MapPath("Reports/ReportReceive.rpt"));
+                    DataSet ds = biz.SelectBill(ConvertHelper.ToInt(newDataId));
+                    if (ds.Tables[0].Rows.Count == 0)
+                    {
+                        base.ShowMessage("ไม่พบเอกสาร");
+                    }
+                    else
+                    {
+                        crystalReport.SetDataSource(ds);
+                        crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, System.Guid.NewGuid().ToString());
+                    }
                     //base.ShowMessage(SuccessMessage);
                     //if (base.IsNewMode)//บันทึกเสร็จแล้ว new mode จะทำการรีเฟรชข้อมูลใหม่
                     //{
@@ -616,13 +631,13 @@ namespace WebToolsStore
                 txt_header_address.Text = "";
             }
         }
-        protected void ddl_header_status_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ddl_header_status.SelectedIndex == 0)
-            {
-                RequiredStatus.Validate();
-            }
-        }
+        //protected void ddl_header_status_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (ddl_header_status.SelectedIndex == 0)
+        //    {
+        //        RequiredStatus.Validate();
+        //    }
+        //}
         protected void dgv1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             try
@@ -630,11 +645,11 @@ namespace WebToolsStore
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
                     GridView dgv2 = e.Row.FindControl("dgv2") as GridView;
-                    
+
                     int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[e.Row.RowIndex].Values[1]);
                     int PaytypeID = ConvertHelper.ToInt(((HiddenField)e.Row.FindControl("hdfPaytype")).Value);
                     IngredientList_Show = IngredientList_Save;
-                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID);
+                    dgv2.DataSource = IngredientList_Show.FindAll(x => x.product_price_id == product_price_id && x.PaytypeID == PaytypeID && x.is_del == false);
                     dgv2.DataBind();
                 }
             }

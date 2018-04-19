@@ -224,6 +224,11 @@ namespace WebToolsStore
                 ProductModel model = new ProductModel();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(txt_product_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_product_code");
+                        return;
+                    }
                     model.MAS_Product.create_by = ApplicationWebInfo.UserID;
                 }
                 else

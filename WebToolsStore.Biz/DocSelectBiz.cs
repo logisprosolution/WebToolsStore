@@ -28,12 +28,12 @@ namespace WebToolsStore.Biz
             dataModel.SearchDate = searchDate;
             return base.SelectListTable("SelectDocCus");
         }
-        public DataTable SelectDocBookung(string searchText, int customer_Id, DateTime? searchDate)
+        public DataTable SelectDocBooking(string searchText, int customer_Id, DateTime? searchDate)
         {
             dataModel.SearchText = searchText;
             dataModel.Customer_Id = customer_Id;
             dataModel.SearchDate = searchDate;
-            return base.SelectListTable("SelectDocBookung");
+            return base.SelectListTable("SelectDocBooking");
         }
         public DataTable SelectDetail(int id)
         {
@@ -62,7 +62,7 @@ namespace WebToolsStore.Biz
                 cmd.Parameters.Add(CreateParameter("SearchDate", dataModel.SearchDate));
                 LoadData(cmd, ds, base.SELECT_LIST);
             }
-            else if (condition == "SelectDocBookung")
+            else if (condition == "SelectDocBooking")
             {
                 SqlCommand cmd = CreateCommand("udp_SelectDocBookink_sel", System.Data.CommandType.StoredProcedure);
                 cmd.Parameters.Add(CreateParameter("SearchText", dataModel.SearchText));

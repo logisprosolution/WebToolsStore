@@ -17,6 +17,19 @@ namespace WebToolsStore.Biz
         {
             return base.SelectListTable(searchText);
         }
+        public bool CheckContainID(int id,string codeValue)
+        {
+            base.dataModel.Doc_Header.header_code = codeValue;
+            DataTable dt = base.SelectByIdTable(id, "CheckContainID");
+            if (dt.Rows.Count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public DataTable SelectInfo(int id)
         {
@@ -134,6 +147,14 @@ namespace WebToolsStore.Biz
                 cmd.Parameters.Add(CreateParameter("customer_id", id));
                 LoadData(cmd, ds, condition);
             }
+            else if (condition == "CheckContainID")
+            {
+                string stringSQL = "select top 1 * from DOC_Header where header_code = " + "'" + dataModel.Doc_Header.header_code+ "'";
+                stringSQL += " and subDocTypeID = " + id;
+                stringSQL = string.Format(stringSQL);
+                SqlCommand cmd = CreateCommand(stringSQL, System.Data.CommandType.Text);
+                LoadData(cmd, ds, condition, true);
+            }
         }
 
         protected override int DoInsertData(DocModel model, string condition, bool isNewMode)
@@ -186,7 +207,7 @@ namespace WebToolsStore.Biz
                     cmd.Parameters.Add(CreateParameter("header_ref", model.Doc_Header.header_ref));
                     cmd.ExecuteNonQuery();
                     value = ConvertToInt(cmd.Parameters["header_id"].Value);
-
+                    int subDocTypeID = ConvertToInt(cmd.Parameters["subDocTypeID"].Value);
                     //save detail
                     SqlCommand cmd2 = CreateTransactionCommand(System.Data.CommandType.StoredProcedure, "udp_DOC_Detail_ups");
                     int i = 1;
@@ -255,6 +276,7 @@ namespace WebToolsStore.Biz
                             cmd4.Parameters.Add(CreateParameter("create_by", detail_ingredient.create_by));
                             cmd4.Parameters.Add(CreateParameter("update_date", detail_ingredient.update_date));
                             cmd4.Parameters.Add(CreateParameter("update_by", detail_ingredient.update_by));
+                            cmd4.Parameters.Add(CreateParameter("subDocTypeID", subDocTypeID));
                             cmd4.ExecuteNonQuery();
                             a++;
                         }

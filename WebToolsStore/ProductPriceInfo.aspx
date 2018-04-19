@@ -11,6 +11,7 @@
     </ol>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="box box-primary">
         <br />
         <%-- <div class="row">
@@ -19,7 +20,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="col-sm-2">
-                        <label class="control-label">บาร์โค๊ดสินค้า
+                        <label class="control-label">
+                            บาร์โค๊ดสินค้า
                             <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
@@ -27,7 +29,8 @@
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_product_price_code" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-sm-2">
-                        <label class="control-label">ชื่อ
+                        <label class="control-label">
+                            ชื่อ
                             <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
@@ -41,7 +44,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="col-sm-2">
-                        <label class="control-label">ต้นทุน
+                        <label class="control-label">
+                            ต้นทุน
                             <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
@@ -49,7 +53,8 @@
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_cost" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-sm-2">
-                        <label class="control-label">เงินสด
+                        <label class="control-label">
+                            เงินสด
                             <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
@@ -63,7 +68,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="col-sm-2">
-                        <label class="control-label">เงินเชื่อ
+                        <label class="control-label">
+                            เงินเชื่อ
                             <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
@@ -71,7 +77,8 @@
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_price_Credit" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-sm-2">
-                        <label class="control-label">เงินสดพิเศษ
+                        <label class="control-label">
+                            เงินสดพิเศษ
                             <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
@@ -81,29 +88,36 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="col-sm-2">
-                        <label class="control-label">หน่วยราคา
+
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                <label class="control-label">
+                                    หน่วยราคา
                             <label style="color: red">*</label></label>
-                    </div>
-                    <div class="col-sm-4">
-                        <asp:DropDownList ID="ddl_unit" runat="server" class="form-control" AutoPostBack="True"></asp:DropDownList>
-                        <asp:RequiredFieldValidator ID="RequiredUnit" InitialValue="0" runat="server" ControlToValidate="ddl_unit" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                    </div>
-                    <label class="col-sm-2 control-label">สถาณะ
+                            </div>
+                            <div class="col-sm-4">
+                                <asp:DropDownList ID="ddl_unit" runat="server" class="form-control" AutoPostBack="True"></asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredUnit" InitialValue="0" runat="server" ControlToValidate="ddl_unit" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            </div>
+                            <label class="col-sm-2 control-label">
+                                สถาณะ
                         <label style="color: red">*</label></label>
-                    <div class="col-sm-4">
-                        <asp:DropDownList ID="ddl_is_enabled" runat="server" class="form-control">
-                            <asp:ListItem Text="ใช้งาน" Value="True"></asp:ListItem>
-                            <asp:ListItem Text="ปิดใช้งาน" Value="False"></asp:ListItem>
-                        </asp:DropDownList>
-                        <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_is_enabled" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            <div class="col-sm-4">
+                                <asp:DropDownList ID="ddl_is_enabled" runat="server" class="form-control">
+                                    <asp:ListItem Text="ใช้งาน" Value="True"></asp:ListItem>
+                                    <asp:ListItem Text="ปิดใช้งาน" Value="False"></asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_is_enabled" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-12">

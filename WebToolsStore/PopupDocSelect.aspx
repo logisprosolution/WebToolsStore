@@ -92,6 +92,9 @@
                             <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="payment_id1" HeaderText="การชำระเงิน">
                                 <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                             </asp:BoundField>
+                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="status_name" HeaderText="สถาณะ">
+                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                            </asp:BoundField>
                             <asp:TemplateField HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden">
                                 <ItemTemplate>
                                     <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />

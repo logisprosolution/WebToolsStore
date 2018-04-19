@@ -40,6 +40,7 @@ namespace WebToolsStore
             //int companyID = ConvertHelper.ToInt(ConfigurationManager.AppSettings["CompanyID"]);
             loadEx.LoadCategories(ref ddlCategoryID, Enumerator.ConditionLoadEx.All);
             loadEx.LoadWarehouse(ref ddlWarehouseID, Enumerator.ConditionLoadEx.None);//คลัง
+            loadEx.LoadSubcategoriesById(ref ddlSubCategoryID, 0, Enumerator.ConditionLoadEx.All);
             loadEx = null;
         }
 

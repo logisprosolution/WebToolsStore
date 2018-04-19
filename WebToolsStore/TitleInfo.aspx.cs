@@ -61,6 +61,11 @@ namespace WebToolsStore
                 USR_Title model = new USR_Title();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(txt_title_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_title_code");
+                        return;
+                    }
                     model.create_by = ApplicationWebInfo.UserID;
                 }
                 else

@@ -121,24 +121,6 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.TextBox txt_header_date_to;
         
         /// <summary>
-        /// ddl_header_status control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_header_status;
-        
-        /// <summary>
-        /// RequiredStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredStatus;
-        
-        /// <summary>
         /// dgv1 control.
         /// </summary>
         /// <remarks>

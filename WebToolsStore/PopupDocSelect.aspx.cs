@@ -19,7 +19,7 @@ namespace WebToolsStore
         {
             //1 = supplier , 2= customer
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
-            if (dataId == 1) //รับเข้าจากใยสั่งซื้อ
+            if (dataId == 1) //รับเข้าจากใบสั่งซื้อ
             {
                 ddl_customer.Visible = false;
                 lblTypeName.Text = "ชื่อบริษัทคู่ค้า";
@@ -54,7 +54,7 @@ namespace WebToolsStore
             DateTime? searchDate = null;
             if (txt_header_date.Text != "")
             {
-                searchDate =ConvertHelper.ToDateTime(txt_header_date.Text);
+                searchDate = ConvertHelper.ToDateTime(txt_header_date.Text);
             } 
             DataTable dt;
             int id;
@@ -72,7 +72,7 @@ namespace WebToolsStore
             else
             {
                 id = ConvertHelper.ToInt(ddl_customer.SelectedValue);
-                dt = biz.SelectDocBookung(searchText, id, searchDate);
+                dt = biz.SelectDocBooking(searchText, id, searchDate);
             }
             dgv1.DataSource = dt;
             dgv1.DataBind();

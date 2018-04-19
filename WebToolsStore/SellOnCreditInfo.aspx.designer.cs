@@ -121,15 +121,6 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.DropDownList ddl_type_vat;
         
         /// <summary>
-        /// ddl_header_status control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_header_status;
-        
-        /// <summary>
         /// ddl_payment control.
         /// </summary>
         /// <remarks>
@@ -137,6 +128,15 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_payment;
+        
+        /// <summary>
+        /// ddl_header_status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_header_status;
         
         /// <summary>
         /// btnOpenPopup control.

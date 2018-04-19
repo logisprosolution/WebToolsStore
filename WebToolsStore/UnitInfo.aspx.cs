@@ -62,6 +62,11 @@ namespace WebToolsStore
                 MAS_Unit model = new MAS_Unit();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(txt_unit_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_unit_code");
+                        return;
+                    }
                     model.create_by = ApplicationWebInfo.UserID;
                 }
                 else

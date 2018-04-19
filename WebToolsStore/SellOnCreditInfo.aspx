@@ -127,31 +127,33 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <label class="control-label">
-                                        สถานะเอกสาร
+                                        การชำระเงิน
                             <label style="color: red">*</label></label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <asp:DropDownList runat="server" ID="ddl_header_status" class="form-control" />
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="ddl_header_status" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                    <asp:DropDownList ID="ddl_payment" runat="server" class="form-control" />
+                                    <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_payment" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="col-sm-2">
-                                        <label class="control-label">
-                                            การชำระเงิน
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-2">
+                                    <label class="control-label">
+                                        สถานะเอกสาร
                             <label style="color: red">*</label></label>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <asp:DropDownList ID="ddl_payment" runat="server" class="form-control" />
-                                        <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_payment" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <asp:DropDownList runat="server" ID="ddl_header_status" class="form-control">
+                                        <asp:ListItem Text="รอวางบิล" Value="5"></asp:ListItem>
+                                        <asp:ListItem Text="เสร็จสมบูรณ์" Value="2"></asp:ListItem>
+                                    </asp:DropDownList>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
             <hr>

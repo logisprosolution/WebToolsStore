@@ -34,7 +34,7 @@ namespace WebToolsStore
         #region Private Methods
         private void BindGrid(string searchText)//โหลดตาราง
         {
-            biz.dataModel.SubDoctype_id = ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString());
+            biz.dataModel.SubDoctype_id = ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_Sale"].ToString());
             dgv1.DataSource = biz.SelectList(searchText);
             dgv1.DataBind();
         }

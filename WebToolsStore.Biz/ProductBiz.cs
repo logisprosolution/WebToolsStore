@@ -17,7 +17,19 @@ namespace WebToolsStore.Biz
         {
             return base.SelectListTable(searchText);
         }
-
+        public bool CheckContainID(string codeValue)
+        {
+            base.dataModel.MAS_Product.product_code = codeValue;
+            DataTable dt = base.SelectByIdTable(0, "CheckContainID");
+            if (dt.Rows.Count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public string SelectMaxID()
         {
             DataTable dt = base.SelectByIdTable(0, "SelectMaxID");
@@ -130,7 +142,13 @@ namespace WebToolsStore.Biz
                 cmd.Parameters.Add(CreateParameter("product_id", id));
                 LoadData(cmd, ds, condition);
             }
-
+            else if (condition == "CheckContainID")
+            {
+                string stringSQL = "select top 1 * from MAS_Product where product_code = " + "'" + dataModel.MAS_Product.product_code + "'";
+                stringSQL = string.Format(stringSQL);
+                SqlCommand cmd = CreateCommand(stringSQL, System.Data.CommandType.Text);
+                LoadData(cmd, ds, condition, true);
+            }
         }
 
         protected override int DoInsertData(ProductModel model, string condition, bool isNewMode)

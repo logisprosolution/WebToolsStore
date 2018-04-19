@@ -63,6 +63,11 @@ namespace WebToolsStore
                 MAS_Subcategories model = new MAS_Subcategories();
                 if (base.IsNewMode)
                 {
+                    if (biz.CheckContainID(txt_subcategories_code.Text))
+                    {
+                        base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากรหัสซ้ำ", "txt_subcategories_code");
+                        return;
+                    }
                     model.create_by = ApplicationWebInfo.UserID;
                 }
                 else

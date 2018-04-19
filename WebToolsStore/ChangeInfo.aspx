@@ -118,15 +118,17 @@
                                         </div>
                                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_date_to" Display="Dynamic" ErrorMessage="กรุณาเลือกวันที่" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                     </div>
-                                    <div class="col-sm-2">
+                                   <%-- <div class="col-sm-2">
                                         <label class="control-label">
                                             สถานะเอกสาร
                             <label style="color: red">*</label></label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <asp:DropDownList runat="server" ID="ddl_header_status" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddl_header_status_SelectedIndexChanged" />
-                                        <asp:RequiredFieldValidator ID="RequiredStatus" InitialValue="0" runat="server" ControlToValidate="ddl_header_status" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                    </div>
+                                        <asp:DropDownList runat="server" ID="ddl_header_status" class="form-control">
+                                            <asp:ListItem Text="อยู่ระหว่างดำเนินการ" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="เสร็จสมบูรณ์" Value="2"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>--%>
                                 </div>
                             </div>
                         </div>

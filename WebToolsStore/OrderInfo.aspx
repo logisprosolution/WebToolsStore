@@ -9,7 +9,7 @@
 
         function resultDialogPopupProductSelect(returnValue) {
             $("#<%=hdfValue.ClientID %>").val(returnValue);
-            $("#<%=btnAddHidden.ClientID %>").clic<a href="OrderInfo.aspx">OrderInfo.aspx</a>k();
+            $("#<%=btnAddHidden.ClientID %>").click();
         }
         function makeMoney(e, source) {
             //debugger
@@ -20,7 +20,7 @@
                 source.value = money.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
             }
         }
-      <%--  function GetCheckedRows(id) {
+        <%--  function GetCheckedRows(id) {
             var returnValue = '';
 
             debugger
@@ -70,42 +70,41 @@
         <br />
         <div class="tab-content">
             <div id="order" class="tab-pane fade in active">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-2">
-                                <label class="control-label">เลขที่เอกสาร</label>
-                            </div>
-                            <div class="col-sm-4">
-                                <asp:TextBox ID="txt_header_code" runat="server" type="text" class="form-control" />
-                            </div>
-                            <div class="col-sm-2">
-                                <label class="control-label">
-                                    วันที่สั่ง
-                           
-                                    <label style="color: red">*</label></label>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="input-group date" data-provide="datepicker" data-date-language="th">
-                                    <asp:TextBox ID="txt_header_date" runat="server" type="text" class="form-control" />
-                                    <div class="input-group-addon">
-                                        <span class="glyphicon glyphicon-th"></span>
-                                    </div>
-                                </div>
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_date" Display="Dynamic" ErrorMessage="กรุณาเลือกวันที่" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-2">
+                                        <label class="control-label">เลขที่เอกสาร</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <asp:TextBox ID="txt_header_code" runat="server" type="text" class="form-control" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label class="control-label">
+                                            วันที่สั่ง
+                           
+                                    <label style="color: red">*</label></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="input-group date" data-provide="datepicker" data-date-language="th">
+                                            <asp:TextBox ID="txt_header_date" runat="server" type="text" class="form-control" />
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
+                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_date" Display="Dynamic" ErrorMessage="กรุณาเลือกวันที่" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-2">
                                         <label class="control-label">
                                             ลูกค้า
-                                       
                                             <label style="color: red">*</label></label>
                                     </div>
                                     <div class="col-sm-4">
@@ -148,8 +147,11 @@
                                             <label style="color: red">*</label></label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <asp:DropDownList runat="server" ID="ddl_header_status" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddl_header_status_SelectedIndexChanged" />
-                                        <asp:RequiredFieldValidator ID="RequiredStatus" InitialValue="0" runat="server" ControlToValidate="ddl_header_status" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                        <asp:DropDownList runat="server" ID="ddl_header_status" class="form-control">
+                                            <asp:ListItem Text="อยู่ระหว่างดำเนินการ" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="รอขาย" Value="6"></asp:ListItem>
+                                        </asp:DropDownList>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredStatus" InitialValue="0" runat="server" ControlToValidate="ddl_header_status" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +165,7 @@
                             <div class="col-md-12">
                                 <div class="box-header">
                                     <h3 class="box-title"></h3>
-                                    <asp:LinkButton runat="server" ID="btnOpenPopup" class="btn btn-primary pull-right" OnClientClick="javascript:ShowDialog(); return false;"> เพิ่ม <i class="fa fa-plus"></i></asp:LinkButton>
+                                    <asp:LinkButton runat="server" CausesValidation="false" ID="btnOpenPopup" class="btn btn-primary pull-right" OnClientClick="javascript:ShowDialog(); return false;"> เพิ่ม <i class="fa fa-plus"></i></asp:LinkButton>
                                     <asp:Button ID="btnAddHidden" runat="server" type="button" CssClass="hidden" OnClick="btnAddHidden_Click" CausesValidation="false" UseSubmitBehavior="false" />
                                 </div>
                                 <div class="box-body">
@@ -201,7 +203,7 @@
                                                                             </asp:TextBox>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                   <%-- <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                                                                    <%-- <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                                                                         <ItemTemplate>
                                                                             <asp:CheckBox runat="server" onclick='<%# "GetCheckedRows(" +  Eval("ingredient_id") + ");" %>' ID="chk_is_enabled" name='<%# Eval("ingredient_id") %>' Checked='<%# Eval("is_enabled") %>'></asp:CheckBox>
                                                                         </ItemTemplate>
@@ -399,85 +401,3 @@
         </div>
     </div>
 </asp:Content>
-<%--        <div class="modal fade" id="mymodal" role="dialog">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <asp:LinkButton runat="server" data-dismiss="modal" class="close">&times;</asp:LinkButton>
-                        <h4 class="modal-title">ค้นหาสินค้า</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-1"></div>
-                            <div class="col-md-1">
-                                <label for="">ค้นหา</label>
-                            </div>
-                            <div class="col-md-2">
-                                <asp:TextBox class="form-control" ID="txtSearch" placeholder="รหัส/ชื่อ" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
-                            </div>
-                            <div class="col-md-1">
-                                <label for="">หมวด</label>
-                            </div>
-                            <div class="col-md-2">
-                                <asp:DropDownList ID="DropDownList1" runat="server" class="form-control"></asp:DropDownList>
-                            </div>
-                            <div class="col-md-1">
-                                <label for="">ประเภท</label>
-                            </div>
-                            <div class="col-md-2">
-                                <asp:DropDownList ID="DropDownList2" runat="server" class="form-control"></asp:DropDownList>
-                            </div>
-                            <div class="col-md-1">
-                                <asp:LinkButton runat="server" ID="brnSearch" class="btn btn-info"> ค้นหา <i class="fa fa-search" aria-hidden="true"></i> </asp:LinkButton>
-                            </div>
-                            <div class="col-md-1"></div>
-                        </div>
-                        <br>
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">รายการสินค้า</h3>
-                            </div>
-                            <div class="box-body">
-                                <div id="example_wrapper" class="dataTables_wrapper form-inline" role="grid">
-                                    <div class="row">
-                                        <div class="col-xs-6"></div>
-                                        <div class="col-xs-6"></div>
-                                    </div>
-                                    <asp:GridView ID="GridView1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
-                                        AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames=""
-                                        ShowHeaderWhenEmpty="true" EmptyDataText="ไม่พบรายการ" OnRowCommand="dgv1_RowCommand">
-                                        <Columns>
-                                            <asp:TemplateField HeaderText="" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:CheckBox ID="chkRow" runat="server" />
-                                                </ItemTemplate>
-                                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                            </asp:TemplateField>
-                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="" HeaderText="รหัสสินค้า">
-                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                            </asp:BoundField>
-                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="" HeaderText="จำนวน">
-                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                            </asp:BoundField>
-                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="" HeaderText="ราคา">
-                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                            </asp:BoundField>
-                                        </Columns>
-                                        <SelectedRowStyle CssClass="selectedRowStyle" BackColor="LightCyan" ForeColor="DarkBlue"
-                                            Font-Bold="true" />
-                                        <PagerSettings FirstPageText="Frist Page " LastPageText=" Last Page" Mode="NumericFirstLast"
-                                            NextPageText=" Next " PreviousPageText=" Previous " />
-                                    </asp:GridView>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <asp:LinkButton runat="server" ID="LinkButton1" class="btn btn-default pull-left" data-dismiss="modal">Close</asp:LinkButton>
-                        <button type="button" class="btn btn-primary">เลือก</button>
-                        <asp:LinkButton runat="server" ID="LinkButton2" class="btn btn-primary">เลือก</asp:LinkButton>
-                    </div>
-                </div>
-            </div>
-        </div>--%>

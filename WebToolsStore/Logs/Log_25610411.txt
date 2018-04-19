@@ -1,0 +1,70 @@
+
+Log Entry : 16:02:22 11 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: 2140
+-------------------------------
+
+Log Entry : 16:09:18 11 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------
+
+Log Entry : 16:13:22 11 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------
+
+Log Entry : 16:16:03 11 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------
+
+Log Entry : 16:19:59 11 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: 2141
+-------------------------------
+
+Log Entry : 16:20:16 11 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: 2141
+-------------------------------
+
+Log Entry : 16:23:15 11 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: 2141
+-------------------------------
+
+Log Entry : 16:34:08 11 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: 2141
+-------------------------------
+
+Log Entry : 16:37:42 11 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: 2141
+-------------------------------
+
+Log Entry : 16:47:12 11 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: 2141
+-------------------------------
