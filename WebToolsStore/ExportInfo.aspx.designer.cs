@@ -10,7 +10,7 @@
 namespace WebToolsStore {
     
     
-    public partial class SellInfo {
+    public partial class ExportInfo {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -31,49 +31,22 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.HiddenField hdfValue;
         
         /// <summary>
-        /// hdfDocValue control.
+        /// hdfChk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfDocValue;
+        protected global::System.Web.UI.WebControls.HiddenField hdfChk;
         
         /// <summary>
-        /// txt_header_code control.
+        /// hdfIngID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_header_code;
-        
-        /// <summary>
-        /// btnOpenDocPopup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnOpenDocPopup;
-        
-        /// <summary>
-        /// btnAddDocHidden control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddDocHidden;
-        
-        /// <summary>
-        /// txt_header_date control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_header_date;
+        protected global::System.Web.UI.WebControls.HiddenField hdfIngID;
         
         /// <summary>
         /// UpdatePanel1 control.
@@ -85,40 +58,31 @@ namespace WebToolsStore {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// ddl_customer control.
+        /// txt_header_code control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_customer;
+        protected global::System.Web.UI.WebControls.TextBox txt_header_code;
         
         /// <summary>
-        /// RequiredCustomer control.
+        /// txt_header_date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredCustomer;
+        protected global::System.Web.UI.WebControls.TextBox txt_header_date;
         
         /// <summary>
-        /// ddl_type_vat control.
+        /// UpdatePanel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_type_vat;
-        
-        /// <summary>
-        /// ddl_payment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_payment;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
         
         /// <summary>
         /// btnOpenPopup control.
@@ -146,15 +110,6 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgv1;
-        
-        /// <summary>
-        /// UpdatePanel3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
         
         /// <summary>
         /// lbl_deposit control.
@@ -227,24 +182,6 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_receive;
-        
-        /// <summary>
-        /// UpdatePanel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-        
-        /// <summary>
-        /// txt_header_address control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_header_address;
         
         /// <summary>
         /// txt_remark control.

@@ -1,0 +1,40 @@
+
+Log Entry : 0:17:36 21 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_SelectIngredient_sel' expects parameter '@product_price_id', which was not supplied.
+-------------------------------
+
+Log Entry : 0:19:07 21 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_SelectIngredient_sel' expects parameter '@product_price_id', which was not supplied.
+-------------------------------
+
+Log Entry : 0:36:17 21 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_SelectIngredient_sel' expects parameter '@product_price_id', which was not supplied.
+-------------------------------
+
+Log Entry : 0:36:55 21 เมษายน 2561
+  :
+Exception Message:Column 'is_enabled' does not belong to table SelectIngredient.
+-------------------------------
+
+Log Entry : 0:42:27 21 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_SelectIngredient_sel' expects parameter '@product_id', which was not supplied.
+-------------------------------
+
+Log Entry : 0:44:30 21 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_SelectIngredient_sel' expects parameter '@product_id', which was not supplied.
+-------------------------------
+
+Log Entry : 1:02:32 21 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_SelectIngredient_sel' expects parameter '@product_price_id', which was not supplied.
+-------------------------------
+
+Log Entry : 1:43:41 21 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_SelectIngredient_sel' expects parameter '@product_id', which was not supplied.
+-------------------------------

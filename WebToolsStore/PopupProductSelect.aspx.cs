@@ -17,6 +17,7 @@ namespace WebToolsStore
 
         protected override void DoPrepareData()
         {
+            base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
             loadEx.LoadCategories(ref ddlCategoryID, Enumerator.ConditionLoadEx.All);
         }
 
@@ -28,10 +29,11 @@ namespace WebToolsStore
 
         private void BindGridProduct()//โหลดตาราง
         {
+            int productId = base.dataId;
             string searchText = txtSearch.Text;
             int categoryID = ConvertHelper.ToInt(ddlCategoryID.SelectedValue);
             int subCategoryID = ConvertHelper.ToInt(ddlSubCategoryID.SelectedValue);
-            dgv1.DataSource = biz.SelectProduct(searchText, categoryID, subCategoryID,0);
+            dgv1.DataSource = biz.SelectProduct(productId, searchText, categoryID, subCategoryID,0);
             dgv1.DataBind();
         }
 

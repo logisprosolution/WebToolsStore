@@ -4,7 +4,7 @@
     <script>
         function ShowDialog() {
             //debugger
-            PopupCenter('PopupProductSelect.aspx', 'popup', '1000', '700');
+            PopupCenter('PopupProductSelect.aspx?dataId=<%= dataId %>', 'popup', '1000', '700');
         }
         function resultDialogPopupProductSelect(returnValue) {
             $("#<%=hdfValue.ClientID %>").val(returnValue);

@@ -135,6 +135,8 @@
     <Content Include="LogIn.aspx" />
     <Content Include="OrderBuyInfo.aspx" />
     <Content Include="OrderBuyList.aspx" />
+    <Content Include="ExportList.aspx" />
+    <Content Include="ExportInfo.aspx" />
     <Content Include="PopupUserSelect.aspx" />
     <Content Include="PopupProductIngredient.aspx" />
     <Content Include="PopupProductPriceSelect.aspx" />
@@ -197,6 +199,20 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExportList.aspx.cs">
+      <DependentUpon>ExportList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExportList.aspx.designer.cs">
+      <DependentUpon>ExportList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExportInfo.aspx.cs">
+      <DependentUpon>ExportInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExportInfo.aspx.designer.cs">
+      <DependentUpon>ExportInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PopupUserSelect.aspx.cs">
       <DependentUpon>PopupUserSelect.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

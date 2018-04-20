@@ -33,7 +33,7 @@ namespace WebToolsStore
             string searchText = txtSearch.Text;
             int categoryID = ConvertHelper.ToInt(ddlCategoryID.SelectedValue);
             int subCategoryID = ConvertHelper.ToInt(ddlSubCategoryID.SelectedValue);
-            dgv1.DataSource = biz.SelectProduct(searchText, categoryID, subCategoryID, 0);
+            dgv1.DataSource = biz.SelectProduct(0,searchText, categoryID, subCategoryID, 0);
             dgv1.DataBind();
         }
 

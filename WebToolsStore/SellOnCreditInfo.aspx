@@ -49,197 +49,195 @@
     <div class="box box-primary">
         <br />
         <div class="tab-content">
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="col-sm-2">
-                            <label class="control-label">เลขที่เอกสาร</label>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="input-group margin" style="margin: 0px;">
-                                <asp:TextBox ID="txt_header_code" runat="server" type="text" class="form-control" />
-                                <div class="input-group-btn">
-                                    <asp:LinkButton runat="server" ID="btnOpenDocPopup" ToolTip="นำเข้าจาก" OnClientClick="javascript:ShowDocDialog(); return false;" class="btn btn-info btn-flat">นำเข้าจาก<i class="fa fa-ellipsis-h" aria-hidden="true" ></i></asp:LinkButton>
-                                    <asp:Button ID="btnAddDocHidden" runat="server" type="btnAddDocHidden" CssClass="hidden" OnClick="btnAddDocHidden_Click" CausesValidation="False" />
-                                </div>
+            <div id="sell" class="tab-pane fade in active">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                <label class="control-label">เลขที่เอกสาร</label>
                             </div>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_code" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                        </div>
-                        <div class="col-sm-2">
-                            <label class="control-label">
-                                วันที่ขาย
+                            <div class="col-sm-4">
+                                <div class="input-group margin" style="margin: 0px;">
+                                    <asp:TextBox ID="txt_header_code" runat="server" type="text" class="form-control" />
+                                    <div class="input-group-btn">
+                                        <asp:LinkButton runat="server" ID="btnOpenDocPopup" ToolTip="นำเข้าจาก" OnClientClick="javascript:ShowDocDialog(); return false;" class="btn btn-info btn-flat">นำเข้าจาก<i class="fa fa-ellipsis-h" aria-hidden="true" ></i></asp:LinkButton>
+                                        <asp:Button ID="btnAddDocHidden" runat="server" type="btnAddDocHidden" CssClass="hidden" OnClick="btnAddDocHidden_Click" CausesValidation="False" />
+                                    </div>
+                                </div>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_code" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            </div>
+                            <div class="col-sm-2">
+                                <label class="control-label">
+                                    วันที่ขาย
                             <label style="color: red">*</label></label>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="input-group date" data-provide="datepicker" data-date-language="th">
-                                <asp:TextBox ID="txt_header_date" runat="server" type="text" class="form-control" />
-                                <div class="input-group-addon">
-                                    <span class="glyphicon glyphicon-th"></span>
-                                </div>
                             </div>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_date" Display="Dynamic" ErrorMessage="กรุณาเลือกวันที่" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            <div class="col-sm-4">
+                                <div class="input-group date" data-provide="datepicker" data-date-language="th">
+                                    <asp:TextBox ID="txt_header_date" runat="server" type="text" class="form-control" />
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_date" Display="Dynamic" ErrorMessage="กรุณาเลือกวันที่" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <ContentTemplate>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="col-sm-2">
-                                    <label class="control-label">
-                                        ลูกค้า
-                            <label style="color: red">*</label></label>
-                                </div>
-                                <div class="col-sm-4">
-                                    <asp:DropDownList ID="ddl_customer" runat="server" class="form-control" />
-                                    <asp:RequiredFieldValidator ID="RequiredCustomer" EnableClientScript="true" InitialValue="0" runat="server" ControlToValidate="ddl_customer" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                </div>
-                                <div class="col-sm-2">
-                                    <label class="control-label">
-                                        วันที่กำหนดชำระเงิน
-                            <label style="color: red">*</label></label>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="input-group date" data-provide="datepicker" data-date-language="th">
-                                        <asp:TextBox ID="txt_payment_date" runat="server" type="text" class="form-control" />
-                                        <div class="input-group-addon">
-                                            <span class="glyphicon glyphicon-th"></span>
-                                        </div>
-                                    </div>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_date" Display="Dynamic" ErrorMessage="กรุณาเลือกวันที่" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="col-sm-2">
-                                    <label class="control-label">
-                                        ประเภทภาษี
-                            <label style="color: red">*</label></label>
-                                </div>
-                                <div class="col-sm-4">
-                                    <asp:DropDownList ID="ddl_type_vat" runat="server" class="form-control"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_type_vat" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                </div>
-                                <div class="col-sm-2">
-                                    <label class="control-label">
-                                        การชำระเงิน
-                            <label style="color: red">*</label></label>
-                                </div>
-                                <div class="col-sm-4">
-                                    <asp:DropDownList ID="ddl_payment" runat="server" class="form-control" />
-                                    <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_payment" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="col-sm-2">
-                                    <label class="control-label">
-                                        สถานะเอกสาร
-                            <label style="color: red">*</label></label>
-                                </div>
-                                <div class="col-sm-4">
-                                    <asp:DropDownList runat="server" ID="ddl_header_status" class="form-control">
-                                        <asp:ListItem Text="รอวางบิล" Value="5"></asp:ListItem>
-                                        <asp:ListItem Text="เสร็จสมบูรณ์" Value="2"></asp:ListItem>
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
-            <hr>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="box-header">
-                        <h3 class="box-title"></h3>
-                        <asp:LinkButton runat="server" ID="btnOpenPopup" class="btn btn-primary pull-right" OnClientClick="javascript:ShowDialog(); return false;"> เพิ่ม <i class="fa fa-plus"></i></asp:LinkButton>
-                        <asp:Button ID="btnAddHidden" runat="server" type="button" CssClass="hidden" OnClick="btnAddHidden_Click" />
-                    </div>
-                    <div class="box-body">
-                        <div id="example2_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <div class="form-group">
                             <div class="row">
-                                <div class="col-xs-6"></div>
-                                <div class="col-xs-6"></div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-2">
+                                        <label class="control-label">
+                                            ลูกค้า
+                            <label style="color: red">*</label></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <asp:DropDownList ID="ddl_customer" AutoPostBack="true" runat="server" class="form-control" OnSelectedIndexChanged="ddl_customer_SelectedIndexChanged" />
+                                        <asp:RequiredFieldValidator ID="RequiredCustomer" EnableClientScript="true" InitialValue="0" runat="server" ControlToValidate="ddl_customer" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label class="control-label">
+                                            วันที่กำหนดชำระเงิน
+                            <label style="color: red">*</label></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="input-group date" data-provide="datepicker" data-date-language="th">
+                                            <asp:TextBox ID="txt_payment_date" runat="server" type="text" class="form-control" />
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
+                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_date" Display="Dynamic" ErrorMessage="กรุณาเลือกวันที่" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
                             </div>
-                            <asp:UpdatePanel runat="server">
-                                <ContentTemplate>
-                                    <asp:GridView ID="dgv1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
-                                        AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="detail_id,product_price_id"
-                                        ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting">
-                                        <Columns>
-                                            <asp:TemplateField>
-                                                <ItemTemplate>
-                                                    <img alt="" style="cursor: pointer" src="images/plus.png" />
-                                                    <asp:Panel ID="pnlOrders" runat="server" Style="display: none">
-                                                        <asp:GridView ID="dgv2" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server" DataKeyNames="ingredient_id"
-                                                            AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ">
-                                                            <Columns>
-                                                                <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_code" HeaderText="รหัสสินค้า">
-                                                                    <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                                                </asp:BoundField>
-                                                                <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_name" HeaderText="ชื่อสินค้า">
-                                                                    <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                                                </asp:BoundField>
-                                                                <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
-                                                                    <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                                                </asp:BoundField>
-                                                                <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
-                                                                    <ItemTemplate>
-                                                                        <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
-                                                                        </asp:TextBox>
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                            </Columns>
-                                                        </asp:GridView>
-                                                    </asp:Panel>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_price_code" HeaderText="รหัสสินค้า">
-                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                            </asp:BoundField>
-                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_price_name" HeaderText="ชื่อสินค้า">
-                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                            </asp:BoundField>
-                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
-                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                            </asp:BoundField>
-                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="detail_qty" HeaderText="จำนวน">
-                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                            </asp:BoundField>
-                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="detail_price" HeaderText="ราคาต่อหน่วย" DataFormatString="{0:n}">
-                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                            </asp:BoundField>
-                                            <asp:TemplateField HeaderText="ราคารวม" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="lblPrice" runat="server" Text='<%# String.Format( "{0:n}" , ((WebToolsStore.Data.DOC_Detail)Container.DataItem).detail_price * ((WebToolsStore.Data.DOC_Detail)Container.DataItem).detail_qty ) %> '>
-                                                    </asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderStyle-Width="150px">
-                                                <ItemTemplate>
-                                                    <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
-                                                    <asp:HiddenField ID="hdfPaytype" runat="server" Value='<%# Eval("PaytypeID") %>' />
-                                                    <asp:LinkButton Visible="false" ID="btnGridEdit" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
-                                                    <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CausesValidation="False" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        </Columns>
-                                        <SelectedRowStyle CssClass="selectedRowStyle" BackColor="LightCyan" ForeColor="DarkBlue"
-                                            Font-Bold="true" />
-                                        <PagerSettings FirstPageText="Frist Page " LastPageText=" Last Page" Mode="NumericFirstLast"
-                                            NextPageText=" Next " PreviousPageText=" Previous " />
-                                    </asp:GridView>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-2">
+                                        <label class="control-label">
+                                            ประเภทภาษี
+                            <label style="color: red">*</label></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <asp:DropDownList ID="ddl_type_vat" runat="server" class="form-control"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_type_vat" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label class="control-label">
+                                            การชำระเงิน
+                            <label style="color: red">*</label></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <asp:DropDownList ID="ddl_payment" runat="server" class="form-control" />
+                                        <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_payment" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-2">
+                                        <label class="control-label">
+                                            สถานะเอกสาร
+                            <label style="color: red">*</label></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <asp:DropDownList runat="server" ID="ddl_header_status" class="form-control">
+                                            <asp:ListItem Text="รอวางบิล" Value="5"></asp:ListItem>
+                                            <asp:ListItem Text="เสร็จสมบูรณ์" Value="2"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-header">
+                            <h3 class="box-title"></h3>
+                            <asp:LinkButton runat="server" ID="btnOpenPopup" class="btn btn-primary pull-right" OnClientClick="javascript:ShowDialog(); return false;"> เพิ่ม <i class="fa fa-plus"></i></asp:LinkButton>
+                            <asp:Button ID="btnAddHidden" runat="server" type="button" CssClass="hidden" OnClick="btnAddHidden_Click" CausesValidation="false" />
+                        </div>
+                        <div class="box-body">
+                            <div id="example2_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                                <div class="row">
+                                    <div class="col-xs-6"></div>
+                                    <div class="col-xs-6"></div>
+                                </div>
+                                <asp:GridView ID="dgv1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
+                                    AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="detail_id,product_price_id"
+                                    ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting">
+                                    <Columns>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <img alt="" style="cursor: pointer" src="images/plus.png" />
+                                                <asp:Panel ID="pnlOrders" runat="server" Style="display: none">
+                                                    <asp:GridView ID="dgv2" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server" DataKeyNames="ingredient_id"
+                                                        AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ">
+                                                        <Columns>
+                                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_code" HeaderText="รหัสสินค้า">
+                                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                                            </asp:BoundField>
+                                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_name" HeaderText="ชื่อสินค้า">
+                                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                                            </asp:BoundField>
+                                                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
+                                                                <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                                            </asp:BoundField>
+                                                            <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
+                                                                    </asp:TextBox>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                        </Columns>
+                                                    </asp:GridView>
+                                                </asp:Panel>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_price_code" HeaderText="รหัสสินค้า">
+                                            <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                        </asp:BoundField>
+                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_price_name" HeaderText="ชื่อสินค้า">
+                                            <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                        </asp:BoundField>
+                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
+                                            <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                        </asp:BoundField>
+                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="detail_qty" HeaderText="จำนวน">
+                                            <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                        </asp:BoundField>
+                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="detail_price" HeaderText="ราคาต่อหน่วย" DataFormatString="{0:n}">
+                                            <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                        </asp:BoundField>
+                                        <asp:TemplateField HeaderText="ราคารวม" ItemStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblPrice" runat="server" Text='<%# String.Format( "{0:n}" , ((WebToolsStore.Data.DOC_Detail)Container.DataItem).detail_price * ((WebToolsStore.Data.DOC_Detail)Container.DataItem).detail_qty ) %> '>
+                                                </asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderStyle-Width="150px">
+                                            <ItemTemplate>
+                                                <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
+                                                <asp:HiddenField ID="hdfPaytype" runat="server" Value='<%# Eval("PaytypeID") %>' />
+                                                <asp:LinkButton Visible="false" ID="btnGridEdit" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
+                                                <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CausesValidation="False" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <SelectedRowStyle CssClass="selectedRowStyle" BackColor="LightCyan" ForeColor="DarkBlue"
+                                        Font-Bold="true" />
+                                    <PagerSettings FirstPageText="Frist Page " LastPageText=" Last Page" Mode="NumericFirstLast"
+                                        NextPageText=" Next " PreviousPageText=" Previous " />
+                                </asp:GridView>
+                            </div>
                         </div>
                     </div>
                 </div>

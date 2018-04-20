@@ -210,6 +210,7 @@ namespace WebToolsStore
                 item.unit_name = ConvertHelper.InitialValueDB(row, "unit_name");
                 item.product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_price_id"));
                 item.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_enabled"));
+                item.is_del = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_del"));
                 item.detail_price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(row, "detail_price"));
                 item.PaytypeID = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "PaytypeID"));
                 if (!IsNewMode)
@@ -450,6 +451,7 @@ namespace WebToolsStore
                             item2.unit_name = ConvertHelper.InitialValueDB(row2, "unit_name");
                             item2.product_price_id = product_price_id;
                             item2.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default"));
+                            item2.is_del = false;
                             item2.detail_price = price;
                             item2.PaytypeID = paytype;
                             if (ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default")))//ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม

@@ -40,6 +40,7 @@ namespace WebToolsStore.Biz
         {
             return base.SelectByIdTable(id, SELECT_DETAIL);
         }
+        
         public DataTable SelectDetailIngredient(int id)
         {
             return base.SelectByIdTable(id, "SelectDetailIngredient");
@@ -47,6 +48,10 @@ namespace WebToolsStore.Biz
         public DataTable SelectProductPrice(int id)
         {
             return base.SelectByIdTable(id, "SelectProductPrice");
+        }
+        public DataTable SelectStock(int id)
+        {
+            return base.SelectByIdTable(id, "SelectStock");
         }
         public DataTable SelectProduct(int id)
         {
@@ -61,6 +66,18 @@ namespace WebToolsStore.Biz
         {
             DataTable dt = base.SelectByIdTable(id, "SelectAddress_Customer");
             return dt.Rows[0]["Address"].ToString();
+        }
+        public DataSet CheckStock(int id)
+        {
+            try
+            {
+                return base.SelectById(id, "CheckStock");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         public int SaveData(DocModel model, string condition, bool isNewMode)
         {
@@ -149,11 +166,23 @@ namespace WebToolsStore.Biz
             }
             else if (condition == "CheckContainID")
             {
-                string stringSQL = "select top 1 * from DOC_Header where header_code = " + "'" + dataModel.Doc_Header.header_code+ "'";
+                string stringSQL = "select top 1 * from DOC_Header where header_code = " + "'" + dataModel.Doc_Header.header_code + "'";
                 stringSQL += " and subDocTypeID = " + id;
                 stringSQL = string.Format(stringSQL);
                 SqlCommand cmd = CreateCommand(stringSQL, System.Data.CommandType.Text);
                 LoadData(cmd, ds, condition, true);
+            }
+            else if (condition == "SelectStock")
+            {
+                SqlCommand cmd = CreateCommand("udp_SelectPrice_sel", System.Data.CommandType.StoredProcedure);
+                cmd.Parameters.Add(CreateParameter("product_id", id));
+                LoadData(cmd, ds, condition);
+            }
+            else if (condition == "CheckStock")
+            {
+                SqlCommand cmd = CreateCommand("udp_CheckStock", System.Data.CommandType.StoredProcedure);
+                cmd.Parameters.Add(CreateParameter("product_id", id));
+                LoadData(cmd, ds, condition);
             }
         }
 

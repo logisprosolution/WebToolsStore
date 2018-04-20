@@ -66,5 +66,11 @@ namespace WebToolsStore.Data
             get { return wareHouseID; }
             set { wareHouseID = value; }
         }
+        private int? productID;
+        public virtual int? ProductID
+        {
+            get { return productID; }
+            set { productID = value; }
+        }
     }
 }

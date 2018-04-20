@@ -13,8 +13,9 @@ namespace WebToolsStore.Biz
         {
 
         }
-        public DataTable SelectProduct(string searchText, int categories_id, int subCategories_id,int warehouseID)
+        public DataTable SelectProduct(int productid,string searchText, int categories_id, int subCategories_id,int warehouseID)
         {
+            dataModel.ProductID = productid;
             dataModel.SearchText = searchText;
             dataModel.Categories_Id = categories_id;
             dataModel.SubCategories_Id = subCategories_id;
@@ -43,6 +44,7 @@ namespace WebToolsStore.Biz
             if (condition == "SelectProduct")
             {
                 SqlCommand cmd = CreateCommand("udp_SelectProduct_sel", System.Data.CommandType.StoredProcedure);
+                cmd.Parameters.Add(CreateParameter("product_id", dataModel.ProductID));
                 cmd.Parameters.Add(CreateParameter("SearchText", dataModel.SearchText));
                 cmd.Parameters.Add(CreateParameter("Categories_Id", dataModel.Categories_Id));
                 cmd.Parameters.Add(CreateParameter("SubCategories_Id", dataModel.SubCategories_Id));

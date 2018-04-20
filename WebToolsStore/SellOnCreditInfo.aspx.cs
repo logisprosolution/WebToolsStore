@@ -83,8 +83,8 @@ namespace WebToolsStore
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
             LoadExHelper loadEx = new LoadExHelper();
             txt_header_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            loadEx.LoadPaymentType(ref ddl_payment, 1, Enumerator.ConditionLoadEx.All);
-            loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.All);
+            loadEx.LoadPaymentType(ref ddl_payment, 1, Enumerator.ConditionLoadEx.Else);
+            loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.Else);
             loadEx.LoadCustomer(ref ddl_customer, Enumerator.ConditionLoadEx.All);
             //loadEx.LoadHeaderStatus(ref ddl_header_status, ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString()), Enumerator.ConditionLoadEx.All);
             txt_header_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -160,6 +160,7 @@ namespace WebToolsStore
                 item.unit_name = ConvertHelper.InitialValueDB(row, "unit_name");
                 item.product_price_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_price_id"));
                 item.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_enabled"));
+                item.is_del = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row, "is_del"));
                 item.detail_price = ConvertHelper.ToDecimal(ConvertHelper.InitialValueDB(row, "detail_price"));
                 item.PaytypeID = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "PaytypeID"));
                 if (!IsNewMode)
@@ -319,6 +320,7 @@ namespace WebToolsStore
                             item2.unit_name = ConvertHelper.InitialValueDB(row2, "unit_name");
                             item2.product_price_id = product_price_id;
                             item2.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default"));
+                            item2.is_del = false;
                             item2.detail_price = price;
                             item2.PaytypeID = paytype;
                             if (ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default")))//ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
