@@ -1,0 +1,49 @@
+
+Log Entry : 1:10:31 25 เมษายน 2561
+  :
+title:page:Report_TransAll
+function:LoadReport
+message:C:\Git\WebToolsStore\WebToolsStore\Reports\TransAll.rpt
+-------------------------------
+
+Log Entry : 1:15:01 25 เมษายน 2561
+  :
+title:page:Report_TransAll
+function:LoadReport
+message:C:\Git\WebToolsStore\WebToolsStore\Reports\TransAll.rpt
+-------------------------------
+
+Log Entry : 1:15:17 25 เมษายน 2561
+  :
+title:page:Report_TransAll
+function:LoadReport
+message:C:\Git\WebToolsStore\WebToolsStore\Reports\TransAll.rpt
+-------------------------------
+
+Log Entry : 10:23:04 25 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :15 header_id: -1
+-------------------------------
+
+Log Entry : 10:35:56 25 เมษายน 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------
+
+Log Entry : 10:36:02 25 เมษายน 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------
+
+Log Entry : 10:36:07 25 เมษายน 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------

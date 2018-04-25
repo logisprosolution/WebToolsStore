@@ -49,15 +49,6 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.HiddenField hdfIngID;
         
         /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
         /// txt_header_code control.
         /// </summary>
         /// <remarks>
@@ -74,6 +65,15 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_header_date;
+        
+        /// <summary>
+        /// txt_remark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_remark;
         
         /// <summary>
         /// UpdatePanel3 control.
@@ -182,15 +182,6 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_receive;
-        
-        /// <summary>
-        /// txt_remark control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_remark;
         
         /// <summary>
         /// btnSave control.

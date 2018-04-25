@@ -36,6 +36,7 @@ namespace WebToolsStore.Data
         public Nullable<int> subcategories_id { get; set; }
         public Nullable<int> warehouse_default { get; set; }
         public Nullable<int> product_unit { get; set; }
+        public string pic_filename { get; set; }
     
         public virtual ICollection<DOC_Detail> DOC_Detail { get; set; }
         public virtual ICollection<MAS_Ingredient> MAS_Ingredient { get; set; }

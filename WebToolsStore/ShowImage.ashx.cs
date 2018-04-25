@@ -22,8 +22,11 @@ namespace WebToolsStore
             else
                 throw new ArgumentException("No parameter specified");
 
+
+            string functionName = context.Request.QueryString["dataId2"];
+
             context.Response.ContentType = "image/jpeg";
-            Stream strm = ShowUploadImage(id);
+            Stream strm = ShowUploadImage(id, functionName);
             if (strm != null)
             {
                 byte[] buffer = new byte[4096];
@@ -38,11 +41,28 @@ namespace WebToolsStore
             }
         }
 
-        public Stream ShowUploadImage(int id)
+        public Stream ShowUploadImage(int id, string functionName)
         {
-            UserBiz biz = new UserBiz();
-            DataTable dt = biz.SelectInfo(id);
-            object img = dt.Rows[0]["pic"];
+            string fieldName = "";
+            DataTable dt = new DataTable();
+            if (functionName == "User")
+            {
+                UserBiz biz = new UserBiz();
+                dt = biz.SelectInfo(id);
+                fieldName = "pic";
+            }
+            else if (functionName == "Product")
+            {
+                ProductBiz biz = new ProductBiz();
+                dt = biz.SelectInfo(id);
+                fieldName = "product_pic";
+            }
+
+            object img = null;
+            if (ConvertHelper.IsDataExists(dt))
+            {
+                img = dt.Rows[0][fieldName];
+            }
             try
             {
                 return new MemoryStream((byte[])img);

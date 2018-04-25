@@ -170,7 +170,8 @@ namespace WebToolsStore.Biz
                     }
                     cmd.Parameters.Add(CreateParameter("product_code", model.MAS_Product.product_code));
                     cmd.Parameters.Add(CreateParameter("product_name", model.MAS_Product.product_name));
-                    //cmd.Parameters.Add(CreateParameter("product_pic", model.product_pic));
+                    cmd.Parameters.Add(CreateParameter("product_pic", model.MAS_Product.product_pic));
+                    cmd.Parameters.Add(CreateParameter("pic_filename", model.MAS_Product.pic_filename));
                     cmd.Parameters.Add(CreateParameter("description", model.MAS_Product.description));
                     cmd.Parameters.Add(CreateParameter("is_del", model.MAS_Product.is_del));
                     cmd.Parameters.Add(CreateParameter("is_enabled", model.MAS_Product.is_enabled));

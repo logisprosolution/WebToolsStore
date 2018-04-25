@@ -53,6 +53,10 @@ namespace WebToolsStore.Biz
         {
             return base.SelectByIdTable(id, "SelectStock");
         }
+        public DataTable SelectPrice(int id)
+        {
+            return base.SelectByIdTable(id, "SelectPrice");
+        }
         public DataTable SelectProduct(int id)
         {
             return base.SelectByIdTable(id, "SelectProduct");
@@ -147,6 +151,12 @@ namespace WebToolsStore.Biz
                 LoadData(cmd, ds, condition);
             }
             else if (condition == "SelectProduct")
+            {
+                SqlCommand cmd = CreateCommand("udp_MAS_Product_sel", System.Data.CommandType.StoredProcedure);
+                cmd.Parameters.Add(CreateParameter("product_id", id));
+                LoadData(cmd, ds, condition);
+            }
+            else if (condition == "SelectPrice")
             {
                 SqlCommand cmd = CreateCommand("udp_SelectPrice_sel", System.Data.CommandType.StoredProcedure);
                 cmd.Parameters.Add(CreateParameter("product_id", id));

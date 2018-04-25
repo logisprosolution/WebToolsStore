@@ -1,0 +1,65 @@
+
+Log Entry : 1:10:38 25 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 1:15:01 25 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 1:15:17 25 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 1:22:30 25 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 3:25:20 25 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 3:26:47 25 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 3:26:52 25 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 3:28:30 25 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 9:26:38 25 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 9:26:51 25 เมษายน 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 9:28:55 25 เมษายน 2561
+  :
+Exception Message:Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 10:22:17 25 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 10:23:05 25 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------

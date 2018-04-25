@@ -1,33 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout/LayoutPopup.Master" AutoEventWireup="true" CodeBehind="PopupProductSelect.aspx.cs" Inherits="WebToolsStore.PopupProductSelect" %>
 
-<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-
-        function CloseDialog() {
-            var num = $("#<%=txtSearch.ClientID %>").val();
-            var returnValue = num + '*' + $("#<%=hdfValue.ClientID %>").val();
-
-            if (returnValue == '' || returnValue == null) {
-                alert('กรุณาเลือกราคา');
-                return false;
-            }
-            try {
-                window.opener.resultDialogPopupProductSelect(returnValue);
-            }
-            catch (err) { }
-            window.close();
-            return false;
-        }
-        function CancelDialog() {
-            window.close();
-            return false;
-        }
-    </script>
-</asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
     <script type="text/javascript">
 
         function CloseDialog() {
+            debugger
             var num = $("#<%=txtNumber.ClientID %>").val();
             var returnValue = num + '*' + $("#<%=hdfValue.ClientID %>").val();
 
@@ -50,33 +27,6 @@
     <asp:HiddenField ID="hdfValue" runat="server" />
     <h4 class="box-title">ค้นหาสินค้า</h4>
     <hr />
-    <%--<div class="form-group">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="col-sm-1">
-                    <label for="">ค้นหา</label>
-                </div>
-                <div class="col-sm-2">
-                    <asp:TextBox class="form-control" ID="txtSearch" placeholder="รหัส/ชื่อ" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
-                </div>
-                <div class="col-sm-2">
-                    <label for="">หมวดหลัก</label>
-                </div>
-                <div class="col-sm-2">
-                    <asp:DropDownList ID="ddlCategoryID" runat="server" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlCategoryID_SelectedIndexChanged"></asp:DropDownList>
-                </div>
-                <div class="col-sm-2">
-                    <label for="">หมวดย่อย</label>
-                </div>
-                <div class="col-sm-2">
-                    <asp:DropDownList ID="ddlSubCategoryID" runat="server" AutoPostBack="true" class="form-control"></asp:DropDownList>
-                </div>
-                <div class="col-sm-1">
-                    <asp:LinkButton runat="server" ID="brnSearch" class="btn btn-info" OnClick="brnSearch_Click"> ค้นหา <i class="fa fa-search" aria-hidden="true"></i> </asp:LinkButton>
-                </div>
-            </div>
-        </div>
-    </div>--%>
     <table style="width: 100%; border: 0">
         <tr style="text-align: center">
             <td>
@@ -151,21 +101,17 @@
             </div>
         </div>
     </div>
-    <div class="navbar navbar-default navbar-fixed-bottom">
-        <div class="box-footer">
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-12">
-                        <asp:LinkButton ID="btnSelect" runat="server" class="btn btn-primary pull-right" CausesValidation="False" OnClientClick="CloseDialog();">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box-footer navbar-fixed-bottom">
+                <asp:LinkButton ID="btnSelect" runat="server" class="btn btn-primary pull-right" CausesValidation="False" OnClientClick="CloseDialog();">
                     <i class="fa fa-check"></i>เลือก</asp:LinkButton>
-                        <button type="button" class="btn btn-default pull-left" onclick="CancelDialog();">กลับ</button>
-                        <div class="col-sm-1 text-center">
-                            <asp:Label Text="จำนวน" runat="server" />
-                        </div>
-                        <div class="col-sm-3">
-                            <asp:TextBox class="form-control" ID="txtNumber" Text="1" TextMode="Number" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
-                        </div>
-                    </div>
+                <button type="button" class="btn btn-default pull-left" onclick="CancelDialog();">กลับ</button>
+                <div class="col-sm-1 text-center">
+                    <asp:Label Text="จำนวน" runat="server" />
+                </div>
+                <div class="col-sm-3">
+                    <asp:TextBox class="form-control" ID="txtNumber" Text="1" TextMode="Number" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
                 </div>
             </div>
         </div>

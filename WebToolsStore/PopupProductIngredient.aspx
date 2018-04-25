@@ -5,7 +5,7 @@
         function GetCheckedRows() {
             var returnValue = '';
             $("#example_wrapper tr").not(':first').each(function () {
-               // debugger
+                // debugger
                 var $checkBox = $(this).find("input[type='checkbox']");
                 var $id = $(this).find("input[type='hidden']").val();
 
@@ -47,58 +47,6 @@
     <asp:HiddenField ID="hdfValue" runat="server" />
     <h4 class="box-title">ส่วนประกอบรายการสินค้า</h4>
     <hr />
-    <%--<div class="form-group">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="col-sm-1">
-                    <label for="">ค้นหา</label>
-                </div>
-                <div class="col-sm-2">
-                    <asp:TextBox class="form-control" ID="txtSearch" placeholder="รหัส/ชื่อ" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
-                </div>
-                <div class="col-sm-2">
-                    <label for="">หมวดหลัก</label>
-                </div>
-                <div class="col-sm-2">
-                    <asp:DropDownList ID="ddlCategoryID" runat="server" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlCategoryID_SelectedIndexChanged"></asp:DropDownList>
-                </div>
-                <div class="col-sm-2">
-                    <label for="">หมวดย่อย</label>
-                </div>
-                <div class="col-sm-2">
-                    <asp:DropDownList ID="ddlSubCategoryID" runat="server" AutoPostBack="true" class="form-control"></asp:DropDownList>
-                </div>
-                <div class="col-sm-1">
-                    <asp:LinkButton runat="server" ID="brnSearch" class="btn btn-info" OnClick="brnSearch_Click"> ค้นหา <i class="fa fa-search" aria-hidden="true"></i> </asp:LinkButton>
-                </div>
-            </div>
-        </div>
-    </div>--%>
-    <%--<table style="width: 100%; border: 0">
-        <tr style="text-align: center">
-            <td>
-                <label for="">ค้นหา</label>
-            </td>
-            <td style="width: 225px">
-                <asp:TextBox class="form-control" ID="txtSearch" placeholder="รหัส/ชื่อ" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" /></td>
-            <td>
-                <label for="">หมวดหลัก</label>
-            </td>
-            <td style="width: 225px">
-                <asp:DropDownList ID="ddlCategoryID" runat="server" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddlCategoryID_SelectedIndexChanged"></asp:DropDownList>
-            </td>
-            <td>
-                <label for="">หมวดย่อย</label>
-            </td>
-            <td style="width: 225px">
-                <asp:DropDownList ID="ddlSubCategoryID" runat="server" AutoPostBack="true" class="form-control"></asp:DropDownList>
-            </td>
-            <td>
-                <asp:LinkButton runat="server" ID="brnSearch" class="btn btn-info" OnClick="brnSearch_Click"> ค้นหา <i class="fa fa-search" aria-hidden="true"></i> </asp:LinkButton>
-            </td>
-        </tr>
-    </table>
-    <br />--%>
     <div class="row">
         <div class="col-md-12">
             <%--<div class="box-header">
@@ -147,13 +95,15 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-12">
+    <%--<div class="form-group">--%>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box-footer navbar-fixed-bottom">
                 <asp:LinkButton ID="btnSelect" runat="server" class="btn btn-primary pull-right" CausesValidation="False" OnClientClick="GetCheckedRows();">
                     <i class="fa fa-check"></i>เลือก</asp:LinkButton>
                 <button type="button" class="btn btn-default pull-left" onclick="CancelDialog();">กลับ</button>
             </div>
         </div>
     </div>
+    <%--</div>--%>
 </asp:Content>

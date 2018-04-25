@@ -1,6 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout/Layout.Master" AutoEventWireup="true" CodeBehind="ProductPriceInfo.aspx.cs" Inherits="WebToolsStore.ProductPriceInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <script>
+        function makeMoney(e, source) {
+            //debugger
+            //if (e.keyCode === 13) {
+                e.preventDefault(); // Ensure it is only this code that rusn
+                var money = parseFloat(source.value, 10).toFixed(2);
+                //Format your value
+                source.value = money.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+            //}
+        }
+    </script>
     <h1>เพิ่มรหัสซื้อขายสินค้า
                 <small>ข้อมูล</small>
     </h1>
@@ -49,7 +60,7 @@
                             <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
-                        <asp:TextBox ID="txt_cost" runat="server" type="text" class="form-control" />
+                        <asp:TextBox ID="txt_cost" runat="server" type="text" class="form-control" onblur='makeMoney(event,this);' />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_cost" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-sm-2">
@@ -58,7 +69,7 @@
                             <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
-                        <asp:TextBox ID="txt_price_Cash" runat="server" type="text" class="form-control" />
+                        <asp:TextBox ID="txt_price_Cash" runat="server" type="text" class="form-control" onblur='makeMoney(event,this);' />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_price_Cash" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                     </div>
                 </div>
@@ -73,7 +84,7 @@
                             <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
-                        <asp:TextBox ID="txt_price_Credit" runat="server" type="text" class="form-control" />
+                        <asp:TextBox ID="txt_price_Credit" runat="server" type="text" class="form-control" onblur='makeMoney(event,this);' />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_price_Credit" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-sm-2">
@@ -82,7 +93,7 @@
                             <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
-                        <asp:TextBox ID="txt_price_CashExtra" runat="server" type="text" class="form-control" />
+                        <asp:TextBox ID="txt_price_CashExtra" runat="server" type="text" class="form-control" onblur='makeMoney(event,this);' />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_price_CashExtra" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                     </div>
                 </div>

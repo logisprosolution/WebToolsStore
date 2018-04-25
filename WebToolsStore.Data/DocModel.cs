@@ -28,7 +28,7 @@ namespace WebToolsStore.Data
             get { return _docDetailList; }
             set { _docDetailList = value; }
         }
-
+        
         private List<DOC_Detail> _docDetailList2 = new List<DOC_Detail>();
         public virtual List<DOC_Detail> DocDetailList2
         {

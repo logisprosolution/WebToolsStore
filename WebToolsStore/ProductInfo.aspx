@@ -59,20 +59,11 @@
                         <label style="color: red">*</label></label>
                             </div>
                             <div class="col-sm-4">
-                                <div class="input-group image-preview">
-                                    <asp:TextBox ID="txt_pic" runat="server" type="text" class="form-control image-preview-filename" ReadOnly="true" />
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-default image-preview-clear" style="display: none;">
-                                            <span class="glyphicon glyphicon-remove"></span>Clear          
-                                        </button>
-                                        <div class="btn btn-default image-preview-input">
-                                            <span class="glyphicon glyphicon-folder-open"></span>
-                                            <span class="image-preview-input-title">Browse</span>
-                                            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" />
-                                        </div>
-                                    </span>
-                                </div>
-                                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="txt_pic" Display="Dynamic" ErrorMessage="กรุณาเลือกรูปภาพ" ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
+                                <asp:TextBox ID="txt_FileName" runat="server" class="form-control" />
+                                <asp:FileUpload ID="imgUpload" runat="server" />
+                                <asp:Button ID="btnUpload" runat="server" OnClick="Upload" Style="display: none" />
+                                <hr />
+                                <asp:Image ID="Image1" Style="width: 200px; height: 200px" runat="server" />
                             </div>
 
                             <label class="col-sm-2 control-label">
@@ -177,13 +168,13 @@
                                         <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="ชื่อสินค้า">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>
-                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_Cash" HeaderText="ราคาเงินสด">
+                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_Cash" DataFormatString="{0:n}" HeaderText="ราคาเงินสด">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>
-                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_Credit" HeaderText="ราคาเงินเชื่อ">
+                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_Credit" DataFormatString="{0:n}" HeaderText="ราคาเงินเชื่อ">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>
-                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_CashExtra" HeaderText="ราคาบัตรเครดิต">
+                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="price_CashExtra" DataFormatString="{0:n}" HeaderText="ราคาบัตรเครดิต">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>
                                         <asp:TemplateField HeaderStyle-Width="150px">

@@ -111,9 +111,24 @@ namespace WebToolsStore
             IngredientList_Show = IngredientList_Save;
             dgv2.DataSource = IngredientList_Show;
             dgv2.DataBind();
-        }
+        } //bindgrid2
 
-        //bindgrid2
+        private byte[] UploadImage()
+        {
+            FileUpload img = (FileUpload)imgUpload;
+            Byte[] imgByte = null;
+            if (img.HasFile && img.PostedFile != null)
+            {
+                //To create a PostedFile
+                HttpPostedFile File = imgUpload.PostedFile;
+                //Create byte Array with file len
+                imgByte = new Byte[File.ContentLength];
+                //force the control to load data in array
+                File.InputStream.Read(imgByte, 0, File.ContentLength);
+                txt_FileName.Text = File.FileName.ToString();
+            }
+            return imgByte;
+        }
         private void BindControl()//โหลดข้อมูล
         {
             if (base.dataId != -1)
@@ -126,12 +141,22 @@ namespace WebToolsStore
                     loadEx.LoadSubcategoriesById(ref ddl_subcategories, CategoriesID, Enumerator.ConditionLoadEx.All);
                     txt_product_code.Text = ConvertHelper.InitialValueDB(row, "product_code");
                     txt_product_name.Text = ConvertHelper.InitialValueDB(row, "product_name");
-                    //txt_product_pic.Text = ConvertHelper.InitialValueDB(row, "product_pic");
                     ddl_unit.SelectedValue = ConvertHelper.InitialValueDB(row, "product_unit");
                     ddl_categories.SelectedValue = ConvertHelper.InitialValueDB(row, "categories_id");
                     ddl_subcategories.SelectedValue = ConvertHelper.InitialValueDB(row, "subcategories_id");
                     ddl_is_enabled.SelectedValue = ConvertHelper.InitialValueDB(row, "is_enabled");
                     txtDescription.Text = ConvertHelper.InitialValueDB(row, "description");
+                    if (ConvertHelper.InitialValueDB(row, "pic_filename") != "")
+                    {
+                        txt_FileName.Text = ConvertHelper.InitialValueDB(row, "pic_filename");
+                    }
+                    if (ConvertHelper.InitialValueDB(row, "product_pic") != "")
+                    {
+                        ViewState["image"] = ConvertHelper.InitialValueDB(row, "product_pic");
+                        Image1.ImageUrl = "~/ShowImage.ashx?dataId=" + base.dataId + "&dataId2=Product";
+                        Image1.Attributes.Add("FileName", "aaaasssss");
+                    }
+
                 }
                 else
                 {
@@ -237,7 +262,12 @@ namespace WebToolsStore
                 }
                 model.MAS_Product.product_code = txt_product_code.Text;
                 model.MAS_Product.product_name = txt_product_name.Text;
-                //model.MAS_Product.product_pic = ;
+                model.MAS_Product.product_pic = UploadImage();
+                if (model.MAS_Product.product_pic == null)
+                {
+                    model.MAS_Product.product_pic = ViewState["image"] != null ? (byte[])ViewState["image"] : null;
+                }
+                model.MAS_Product.pic_filename = txt_FileName.Text;
                 model.MAS_Product.product_unit = ConvertHelper.ToInt(ddl_unit.SelectedValue);
                 model.MAS_Product.subcategories_id = ConvertHelper.ToInt(ddl_subcategories.SelectedValue);
                 model.MAS_Product.is_del = false;
@@ -374,7 +404,11 @@ namespace WebToolsStore
         {
 
         }
+        protected void Upload(object sender, EventArgs e)
+        {
 
+
+        }
         protected void dgv1_RowEditing(object sender, GridViewEditEventArgs e)
         {
 

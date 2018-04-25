@@ -21,6 +21,7 @@ namespace WebToolsStore
         {
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
             loadEx.LoadCategories(ref ddlCategoryID, Enumerator.ConditionLoadEx.All);
+            loadEx.LoadSubcategoriesById(ref ddlSubCategoryID, 0, Enumerator.ConditionLoadEx.All);
         }
 
         protected override void DoLoadData()

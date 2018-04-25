@@ -301,7 +301,7 @@
                                 <asp:FileUpload ID="imgUpload" runat="server" />
                                 <asp:Button ID="btnUpload" runat="server" OnClick="Upload" Style="display: none" />
                                 <hr />
-                                <asp:Image ID="Image1" Style="width: 200px" runat="server" />
+                                <asp:Image ID="Image1" Style="width: 200px;height:200px" runat="server" />
                                 <%--<div class="input-group image-preview">
                                     <asp:TextBox ID="txt_pic" runat="server" type="text" class="form-control image-preview-filename" ReadOnly="true" />
                                     <span class="input-group-btn">

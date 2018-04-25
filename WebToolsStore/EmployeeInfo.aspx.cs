@@ -95,7 +95,7 @@ namespace WebToolsStore
                     //ddl_type.SelectedValue = ConvertHelper.InitialValueDB(row, "user_type");
                     is_enabled.Checked = ConvertHelper.ToBoolean(row, "is_enabled");
                     ViewState["image"] = ConvertHelper.InitialValueDB(row, "pic");
-                    Image1.ImageUrl = "~/ShowImage.ashx?dataId=" + base.dataId;
+                    Image1.ImageUrl = "~/ShowImage.ashx?dataId=" + base.dataId + "&dataId2=User";
                     Image1.Attributes.Add("FileName", "aaaasssss");
                 }
                 else

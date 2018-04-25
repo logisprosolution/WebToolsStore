@@ -250,6 +250,7 @@
     <EntitySetMapping Name="MAS_Product">
       <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Product">
         <MappingFragment StoreEntitySet="MAS_Product">
+          <ScalarProperty Name="pic_filename" ColumnName="pic_filename" />
           <ScalarProperty Name="product_id" ColumnName="product_id" />
           <ScalarProperty Name="product_code" ColumnName="product_code" />
           <ScalarProperty Name="product_name" ColumnName="product_name" />

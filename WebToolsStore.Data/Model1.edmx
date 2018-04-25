@@ -267,6 +267,7 @@
           <Property Name="product_code" Type="nvarchar" MaxLength="50" />
           <Property Name="product_name" Type="nvarchar" MaxLength="200" />
           <Property Name="product_pic" Type="image" />
+          <Property Name="pic_filename" Type="nvarchar" MaxLength="100" />
           <Property Name="description" Type="nvarchar(max)" />
           <Property Name="is_enabled" Type="bit" />
           <Property Name="is_del" Type="bit" />
@@ -1355,6 +1356,8 @@ warning 6002: The table/view 'WebToolsStore.dbo.v_vatType' does not have a prima
           <Parameter Name="product_id" Type="int" Mode="InOut" />
           <Parameter Name="product_code" Type="nvarchar" Mode="In" />
           <Parameter Name="product_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="product_pic" Type="image" Mode="In" />
+          <Parameter Name="pic_filename" Type="nvarchar" Mode="In" />
           <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="is_del" Type="bit" Mode="In" />
           <Parameter Name="is_enabled" Type="bit" Mode="In" />
@@ -1474,12 +1477,13 @@ warning 6002: The table/view 'WebToolsStore.dbo.v_vatType' does not have a prima
           <Parameter Name="SearchDate" Type="datetime" Mode="In" />
         </Function>
         <Function Name="udp_SelectIngredient_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="product_price_id" Type="int" Mode="In" />
+          <Parameter Name="product_id" Type="int" Mode="In" />
         </Function>
         <Function Name="udp_SelectPrice_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="product_id" Type="int" Mode="In" />
         </Function>
         <Function Name="udp_SelectProduct_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="product_id" Type="int" Mode="In" />
           <Parameter Name="SearchText" Type="nvarchar" Mode="In" />
           <Parameter Name="Categories_Id" Type="int" Mode="In" />
           <Parameter Name="SubCategories_Id" Type="int" Mode="In" />
@@ -2259,6 +2263,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <NavigationProperty Name="MAS_Ingredient" Relationship="Self.FK_MAS_Ingredient_MAS_Product" FromRole="MAS_Product" ToRole="MAS_Ingredient" />
           <NavigationProperty Name="MAS_Subcategories" Relationship="Self.FK_MAS_Product_MAS_Subcategories" FromRole="MAS_Product" ToRole="MAS_Subcategories" />
           <NavigationProperty Name="MAS_Product_Price" Relationship="Self.FK_MAS_Product_Price_MAS_Product" FromRole="MAS_Product" ToRole="MAS_Product_Price" />
+          <Property Name="pic_filename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MAS_Product_Price">
           <Key>
@@ -3242,6 +3247,8 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
             <Parameter Name="product_id" Mode="InOut" Type="Int32" />
             <Parameter Name="product_code" Mode="In" Type="String" />
             <Parameter Name="product_name" Mode="In" Type="String" />
+            <Parameter Name="product_pic" Mode="In" Type="Binary" />
+            <Parameter Name="pic_filename" Mode="In" Type="String" />
             <Parameter Name="description" Mode="In" Type="String" />
             <Parameter Name="is_del" Mode="In" Type="Boolean" />
             <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
@@ -3361,12 +3368,13 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
             <Parameter Name="SearchDate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="udp_SelectIngredient_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectIngredient_sel_Result)">
-          <Parameter Name="product_price_id" Mode="In" Type="Int32" />
+          <Parameter Name="product_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="udp_SelectPrice_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectPrice_sel_Result)">
           <Parameter Name="product_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="udp_SelectProduct_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectProduct_sel_Result)">
+            <Parameter Name="product_id" Mode="In" Type="Int32" />
             <Parameter Name="SearchText" Mode="In" Type="String" />
             <Parameter Name="Categories_Id" Mode="In" Type="Int32" />
             <Parameter Name="SubCategories_Id" Mode="In" Type="Int32" />
@@ -4759,6 +4767,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <EntitySetMapping Name="MAS_Product">
             <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Product">
               <MappingFragment StoreEntitySet="MAS_Product">
+                <ScalarProperty Name="pic_filename" ColumnName="pic_filename" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="product_code" ColumnName="product_code" />
                 <ScalarProperty Name="product_name" ColumnName="product_name" />

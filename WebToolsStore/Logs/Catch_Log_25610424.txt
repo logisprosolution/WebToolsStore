@@ -1,0 +1,90 @@
+
+Log Entry : 14:14:53 24 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_MAS_Product_ups' expects parameter '@product_pic', which was not supplied.
+-------------------------------
+
+Log Entry : 14:33:46 24 เมษายน 2561
+  :
+Exception Message:Column 'pic' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 14:48:17 24 เมษายน 2561
+  :
+Exception Message:Column 'pic' does not belong to table SELECT_INFO.
+-------------------------------
+
+Log Entry : 15:25:56 24 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 16:07:14 24 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_MAS_Product_ups' expects parameter '@pic_filename', which was not supplied.
+-------------------------------
+
+Log Entry : 16:24:57 24 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 16:25:02 24 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 16:27:43 24 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 16:28:50 24 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 16:29:20 24 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 16:29:46 24 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 20:32:25 24 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 20:33:39 24 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 20:39:49 24 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 20:51:08 24 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 22:51:23 24 เมษายน 2561
+  :
+Exception Message:Operand type clash: nvarchar is incompatible with image
+-------------------------------
+
+Log Entry : 22:52:02 24 เมษายน 2561
+  :
+Exception Message:Operand type clash: nvarchar is incompatible with image
+-------------------------------
+
+Log Entry : 23:54:38 24 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------

@@ -262,6 +262,7 @@
     <Property Name="product_code" Type="nvarchar" MaxLength="50" />
     <Property Name="product_name" Type="nvarchar" MaxLength="200" />
     <Property Name="product_pic" Type="image" />
+    <Property Name="pic_filename" Type="nvarchar" MaxLength="100" />
     <Property Name="description" Type="nvarchar(max)" />
     <Property Name="is_enabled" Type="bit" />
     <Property Name="is_del" Type="bit" />
@@ -1342,6 +1343,8 @@ warning 6002: The table/view 'WebToolsStore.dbo.v_vatType' does not have a prima
     <Parameter Name="product_id" Type="int" Mode="InOut" />
     <Parameter Name="product_code" Type="nvarchar" Mode="In" />
     <Parameter Name="product_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="product_pic" Type="image" Mode="In" />
+    <Parameter Name="pic_filename" Type="nvarchar" Mode="In" />
     <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="is_del" Type="bit" Mode="In" />
     <Parameter Name="is_enabled" Type="bit" Mode="In" />
@@ -1461,12 +1464,13 @@ warning 6002: The table/view 'WebToolsStore.dbo.v_vatType' does not have a prima
     <Parameter Name="SearchDate" Type="datetime" Mode="In" />
   </Function>
   <Function Name="udp_SelectIngredient_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="product_price_id" Type="int" Mode="In" />
+    <Parameter Name="product_id" Type="int" Mode="In" />
   </Function>
   <Function Name="udp_SelectPrice_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="product_id" Type="int" Mode="In" />
   </Function>
   <Function Name="udp_SelectProduct_sel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="product_id" Type="int" Mode="In" />
     <Parameter Name="SearchText" Type="nvarchar" Mode="In" />
     <Parameter Name="Categories_Id" Type="int" Mode="In" />
     <Parameter Name="SubCategories_Id" Type="int" Mode="In" />

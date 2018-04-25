@@ -272,6 +272,7 @@
     <NavigationProperty Name="MAS_Ingredient" Relationship="Self.FK_MAS_Ingredient_MAS_Product" FromRole="MAS_Product" ToRole="MAS_Ingredient" />
     <NavigationProperty Name="MAS_Subcategories" Relationship="Self.FK_MAS_Product_MAS_Subcategories" FromRole="MAS_Product" ToRole="MAS_Subcategories" />
     <NavigationProperty Name="MAS_Product_Price" Relationship="Self.FK_MAS_Product_Price_MAS_Product" FromRole="MAS_Product" ToRole="MAS_Product_Price" />
+    <Property Name="pic_filename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="MAS_Product_Price">
     <Key>
@@ -1255,6 +1256,8 @@
       <Parameter Name="product_id" Mode="InOut" Type="Int32" />
       <Parameter Name="product_code" Mode="In" Type="String" />
       <Parameter Name="product_name" Mode="In" Type="String" />
+      <Parameter Name="product_pic" Mode="In" Type="Binary" />
+      <Parameter Name="pic_filename" Mode="In" Type="String" />
       <Parameter Name="description" Mode="In" Type="String" />
       <Parameter Name="is_del" Mode="In" Type="Boolean" />
       <Parameter Name="is_enabled" Mode="In" Type="Boolean" />
@@ -1374,12 +1377,13 @@
       <Parameter Name="SearchDate" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="udp_SelectIngredient_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectIngredient_sel_Result)">
-      <Parameter Name="product_price_id" Mode="In" Type="Int32" />
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="udp_SelectPrice_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectPrice_sel_Result)">
       <Parameter Name="product_id" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="udp_SelectProduct_sel" ReturnType="Collection(WebToolsStoreModel.udp_SelectProduct_sel_Result)">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
       <Parameter Name="SearchText" Mode="In" Type="String" />
       <Parameter Name="Categories_Id" Mode="In" Type="Int32" />
       <Parameter Name="SubCategories_Id" Mode="In" Type="Int32" />

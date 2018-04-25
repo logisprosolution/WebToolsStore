@@ -936,7 +936,7 @@ namespace WebToolsStore.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<udp_MAS_Product_sel_Result>("udp_MAS_Product_sel", product_idParameter);
         }
     
-        public virtual int udp_MAS_Product_ups(ObjectParameter product_id, string product_code, string product_name, string description, Nullable<bool> is_del, Nullable<bool> is_enabled, Nullable<System.DateTime> create_date, Nullable<int> create_by, Nullable<System.DateTime> update_date, Nullable<int> update_by, Nullable<int> subcategories_id, Nullable<int> warehouse_default, Nullable<int> product_unit)
+        public virtual int udp_MAS_Product_ups(ObjectParameter product_id, string product_code, string product_name, byte[] product_pic, string pic_filename, string description, Nullable<bool> is_del, Nullable<bool> is_enabled, Nullable<System.DateTime> create_date, Nullable<int> create_by, Nullable<System.DateTime> update_date, Nullable<int> update_by, Nullable<int> subcategories_id, Nullable<int> warehouse_default, Nullable<int> product_unit)
         {
             var product_codeParameter = product_code != null ?
                 new ObjectParameter("product_code", product_code) :
@@ -945,6 +945,14 @@ namespace WebToolsStore.Data
             var product_nameParameter = product_name != null ?
                 new ObjectParameter("product_name", product_name) :
                 new ObjectParameter("product_name", typeof(string));
+    
+            var product_picParameter = product_pic != null ?
+                new ObjectParameter("product_pic", product_pic) :
+                new ObjectParameter("product_pic", typeof(byte[]));
+    
+            var pic_filenameParameter = pic_filename != null ?
+                new ObjectParameter("pic_filename", pic_filename) :
+                new ObjectParameter("pic_filename", typeof(string));
     
             var descriptionParameter = description != null ?
                 new ObjectParameter("description", description) :
@@ -986,7 +994,7 @@ namespace WebToolsStore.Data
                 new ObjectParameter("product_unit", product_unit) :
                 new ObjectParameter("product_unit", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("udp_MAS_Product_ups", product_id, product_codeParameter, product_nameParameter, descriptionParameter, is_delParameter, is_enabledParameter, create_dateParameter, create_byParameter, update_dateParameter, update_byParameter, subcategories_idParameter, warehouse_defaultParameter, product_unitParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("udp_MAS_Product_ups", product_id, product_codeParameter, product_nameParameter, product_picParameter, pic_filenameParameter, descriptionParameter, is_delParameter, is_enabledParameter, create_dateParameter, create_byParameter, update_dateParameter, update_byParameter, subcategories_idParameter, warehouse_defaultParameter, product_unitParameter);
         }
     
         public virtual int udp_MAS_Subcategories_del(Nullable<int> subcategories_id)
@@ -1360,13 +1368,13 @@ namespace WebToolsStore.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("udp_SelectDocSup_sel", searchTextParameter, supplyer_IdParameter, searchDateParameter);
         }
     
-        public virtual ObjectResult<udp_SelectIngredient_sel_Result> udp_SelectIngredient_sel(Nullable<int> product_price_id)
+        public virtual ObjectResult<udp_SelectIngredient_sel_Result> udp_SelectIngredient_sel(Nullable<int> product_id)
         {
-            var product_price_idParameter = product_price_id.HasValue ?
-                new ObjectParameter("product_price_id", product_price_id) :
-                new ObjectParameter("product_price_id", typeof(int));
+            var product_idParameter = product_id.HasValue ?
+                new ObjectParameter("product_id", product_id) :
+                new ObjectParameter("product_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<udp_SelectIngredient_sel_Result>("udp_SelectIngredient_sel", product_price_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<udp_SelectIngredient_sel_Result>("udp_SelectIngredient_sel", product_idParameter);
         }
     
         public virtual ObjectResult<udp_SelectPrice_sel_Result> udp_SelectPrice_sel(Nullable<int> product_id)
@@ -1378,8 +1386,12 @@ namespace WebToolsStore.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<udp_SelectPrice_sel_Result>("udp_SelectPrice_sel", product_idParameter);
         }
     
-        public virtual ObjectResult<udp_SelectProduct_sel_Result> udp_SelectProduct_sel(string searchText, Nullable<int> categories_Id, Nullable<int> subCategories_Id, Nullable<int> wareHouseID)
+        public virtual ObjectResult<udp_SelectProduct_sel_Result> udp_SelectProduct_sel(Nullable<int> product_id, string searchText, Nullable<int> categories_Id, Nullable<int> subCategories_Id, Nullable<int> wareHouseID)
         {
+            var product_idParameter = product_id.HasValue ?
+                new ObjectParameter("product_id", product_id) :
+                new ObjectParameter("product_id", typeof(int));
+    
             var searchTextParameter = searchText != null ?
                 new ObjectParameter("SearchText", searchText) :
                 new ObjectParameter("SearchText", typeof(string));
@@ -1396,7 +1408,7 @@ namespace WebToolsStore.Data
                 new ObjectParameter("WareHouseID", wareHouseID) :
                 new ObjectParameter("WareHouseID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<udp_SelectProduct_sel_Result>("udp_SelectProduct_sel", searchTextParameter, categories_IdParameter, subCategories_IdParameter, wareHouseIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<udp_SelectProduct_sel_Result>("udp_SelectProduct_sel", product_idParameter, searchTextParameter, categories_IdParameter, subCategories_IdParameter, wareHouseIDParameter);
         }
     
         public virtual ObjectResult<udp_SelectProductPrice_sel_Result> udp_SelectProductPrice_sel(Nullable<int> product_price_id)

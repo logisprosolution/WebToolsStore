@@ -13,12 +13,12 @@
         }
         function makeMoney(e, source) {
             //debugger
-            if (e.keyCode === 13) {
+            //if (e.keyCode === 13) {
                 e.preventDefault(); // Ensure it is only this code that rusn
                 var money = parseFloat(source.value, 10).toFixed(2);
                 //Format your value
                 source.value = money.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-            }
+            //}
         }
         <%--  function GetCheckedRows(id) {
             var returnValue = '';
@@ -138,7 +138,7 @@
                                             <label style="color: red">*</label></label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <asp:TextBox ID="txt_deposit" runat="server" Text="0.00" class="form-control" onkeypress='makeMoney(event,this);' />
+                                        <asp:TextBox ID="txt_deposit" runat="server" Text="0.00" class="form-control" onblur='makeMoney(event,this);' />
                                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_deposit" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-sm-2">
@@ -264,7 +264,7 @@
                                         </label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <asp:TextBox ID="txt_total" runat="server" AutoPostBack="true" type="text" Text="0.00" class="form-control" onblur='makeMoney(this);' />
+                                        <asp:TextBox ID="txt_total" runat="server" type="text" Text="0.00" class="form-control" ReadOnly="true" />
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +294,7 @@
                                         </label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <asp:TextBox ID="txt_added" runat="server" AutoPostBack="true" type="text" Text="0.00" class="form-control" onkeypress='makeMoney(event,this);' OnTextChanged="txt_added_TextChanged" />
+                                        <asp:TextBox ID="txt_added" runat="server" AutoPostBack="true" type="text" Text="0.00" class="form-control" onblur='makeMoney(event,this);' OnTextChanged="txt_added_TextChanged" />
                                     </div>
                                 </div>
                             </div>
