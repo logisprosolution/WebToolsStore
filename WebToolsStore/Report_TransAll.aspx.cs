@@ -37,7 +37,7 @@ namespace WebToolsStore
         protected override void DoPrepareData()
         {
             //int companyID = ConvertHelper.ToInt(ConfigurationManager.AppSettings["CompanyID"]);
-            loadEx.LoadDocType(ref ddlDocTypeID, Enumerator.ConditionLoadEx.None);//ประเภทเอกสาร
+            //loadEx.LoadDocType(ref ddlDocTypeID, Enumerator.ConditionLoadEx.None);//ประเภทเอกสาร
             loadEx.LoadWarehouse(ref ddlWarehouseID, Enumerator.ConditionLoadEx.None);//คลัง
             loadEx.LoadProduct(ref ddlProductID, Enumerator.ConditionLoadEx.None);//สินค้า
             loadEx.LoadSubDocType(0, ref ddlSubDocTypeID, Enumerator.ConditionLoadEx.None);//คลัง

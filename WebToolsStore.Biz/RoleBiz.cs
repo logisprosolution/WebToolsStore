@@ -82,6 +82,11 @@ namespace WebToolsStore.Biz
                 cmd.Parameters.Add(CreateParameter("user_id", id));
                 LoadData(cmd, ds, SELECT_OTHERS);
             }
+            else if (condition == "SelectMaxID")
+            {
+                SqlCommand cmd = CreateCommand("udp_MaxID_Role", System.Data.CommandType.StoredProcedure);
+                LoadData(cmd, ds, "SelectMaxID");
+            }
         }
 
         protected override int DoInsertData(RoleModel model, string condition, bool isNewMode)

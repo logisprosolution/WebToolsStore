@@ -31,15 +31,6 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.LinkButton brnSearch;
         
         /// <summary>
-        /// txt_role_code control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_role_code;
-        
-        /// <summary>
         /// txt_role_name control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
+        
+        /// <summary>
+        /// txt_role_code control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_role_code;
         
         /// <summary>
         /// dgv1 control.

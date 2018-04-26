@@ -115,7 +115,7 @@ namespace WebToolsStore.Biz
             //}
             else if (condition == "SelectProductIngredient")
             {
-                SqlCommand cmd = CreateCommand("udp_SelectIngredient_sel", System.Data.CommandType.StoredProcedure);
+                SqlCommand cmd = CreateCommand("udp_SelectProductIngredient_sel", System.Data.CommandType.StoredProcedure);
                 cmd.Parameters.Add(CreateParameter("product_price_id", id));
                 LoadData(cmd, ds, condition);
             }

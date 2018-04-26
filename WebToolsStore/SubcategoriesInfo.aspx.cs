@@ -27,10 +27,10 @@ namespace WebToolsStore
                 BindControl();
                 txt_subcategories_code.ReadOnly = true;
             }
-            else
-            {
-                txt_subcategories_code.Text = biz.SelectMaxID();
-            }
+            //else
+            //{
+            //    txt_subcategories_code.Text = biz.SelectMaxID();
+            //}
         }
 
         #endregion Override Methods
@@ -77,7 +77,7 @@ namespace WebToolsStore
                 model.categories_id = base.dataId2;
                 model.subcategories_code = txt_subcategories_code.Text;
                 model.subcategories_name = txt_subcategories_name.Text;
-                model.subcategories_index = ConvertHelper.ToInt(txt_subcategories_index.Text.Trim());
+                model.subcategories_index = ConvertHelper.ToFloat(txt_subcategories_index.Text);
                 model.is_del = false;
                 model.is_enabled = ConvertHelper.ToBoolean(ddl_is_enabled.SelectedValue);
                 model.description = txtDescription.Text;

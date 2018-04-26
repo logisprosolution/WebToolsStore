@@ -14,7 +14,7 @@ namespace WebToolsStore
     public partial class LogFileList : BasePage
     {
         #region Parameter
-        //CustomerBiz biz = new CustomerBiz();
+        DocBiz biz = new DocBiz();
         #endregion Parameter
 
         #region Override Methods
@@ -24,16 +24,22 @@ namespace WebToolsStore
 
         protected override void DoLoadData()
         {
-            BindGrid("");
+            BindGrid();
         }
 
         #endregion Override Methods
 
         #region Private Methods
-        private void BindGrid(string searchText)//โหลดตาราง
+        private void BindGrid()//โหลดตาราง
         {
-            //dgv1.DataSource = biz.SelectList(searchText);
-            //dgv1.DataBind();
+            string searchText = txtSearch.Text;
+            DateTime? searchDate = null;
+            if (txt_header_date.Text != "")
+            {
+                searchDate = ConvertHelper.ToDateTime(txt_header_date.Text);
+            }
+            dgv1.DataSource = biz.SelectLogFile(searchText,searchDate);
+            dgv1.DataBind();
         }
 
         #endregion Private Methods
@@ -43,7 +49,7 @@ namespace WebToolsStore
         {
             try
             {
-                BindGrid(txtSearch.Text);
+                BindGrid();
             }
             catch (Exception ex)
             {

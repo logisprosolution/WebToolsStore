@@ -22,9 +22,11 @@
                         <label class="control-label">รหัส</label>
                     </div>
                     <div class="col-sm-4">
-                        <asp:TextBox ID="txt_subcategories_code" runat="server" type="text" class="form-control" />
+                        <asp:TextBox ID="txt_subcategories_code" runat="server" type="text" class="form-control" placeholder="ตัวอย่าง ABC-1.5" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_subcategories_code" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                     </div>
-                    <label class="col-sm-2 control-label">ชื่อ <label style="color: red">*</label></label>
+                    <label class="col-sm-2 control-label">ชื่อ
+                        <label style="color: red">*</label></label>
                     <div class="col-sm-4">
                         <asp:TextBox ID="txt_subcategories_name" runat="server" type="text" class="form-control" MaxLength="30" ToolTip="ความยาวไม่เกิน 30 ตัวอักษร" placeholder="ชื่อประเภท" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_subcategories_name" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
@@ -37,14 +39,15 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="col-sm-2">
-                        <label class="control-label">ลำดับการจัดเรียง <label style="color: red">*</label></label>
+                        <label class="control-label">ลำดับการจัดเรียง
+                            <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
-                        <asp:TextBox ID="txt_subcategories_index" runat="server" type="text" class="form-control" TextMode="Number" Text="0" />
+                        <asp:TextBox ID="txt_subcategories_index" runat="server" type="text" class="form-control" Text="0" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_subcategories_index" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                        <asp:RangeValidator Display="Dynamic" runat="server" ControlToValidate="txt_subcategories_index" ErrorMessage="จำนวนต้องมีค่า 1-10000" MaximumValue="10000" MinimumValue="1" Type="Integer" ForeColor="#CC3300"></asp:RangeValidator>
                     </div>
-                    <label class="col-sm-2 control-label">สถาณะ <label style="color: red">*</label></label>
+                    <label class="col-sm-2 control-label">สถาณะ
+                        <label style="color: red">*</label></label>
                     <div class="col-sm-4">
                         <asp:DropDownList ID="ddl_is_enabled" runat="server" class="form-control">
                             <asp:ListItem Text="ใช้งาน" Value="True"></asp:ListItem>

@@ -76,15 +76,17 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-2">
-                                        <label class="control-label">เลขที่เอกสาร</label>
+                                        <label class="control-label">
+                                            เลขที่เอกสาร
+                                            <label style="color: red">*</label></label></label>
                                     </div>
                                     <div class="col-sm-4">
                                         <asp:TextBox ID="txt_header_code" runat="server" type="text" class="form-control" />
+                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_code" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-sm-2">
                                         <label class="control-label">
                                             ชื่อสินค้า
-                           
                                     <label style="color: red">*</label></label>
                                     </div>
                                     <div class="col-sm-4">
@@ -100,7 +102,6 @@
                                     <div class="col-sm-2">
                                         <label class="control-label">
                                             วันที่สั่ง
-                           
                                     <label style="color: red">*</label></label>
                                     </div>
                                     <div class="col-sm-4">
@@ -115,7 +116,6 @@
                                     <div class="col-sm-2">
                                         <label class="control-label">
                                             วันที่รับสินค้า
-                           
                                             <label style="color: red">*</label></label>
                                     </div>
                                     <div class="col-sm-4">
@@ -241,7 +241,7 @@
                                                 <asp:LinkButton Visible="false" ID="btnGridEdit" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
                                                 <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CausesValidation="False" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>
-<%--                                            <FooterTemplate>
+                                            <%--                                            <FooterTemplate>
                                                 <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
                                             </FooterTemplate>
                                             <FooterStyle HorizontalAlign="Right" />--%>
@@ -305,7 +305,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display: none">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-6"></div>

@@ -17,10 +17,10 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="col-sm-2">
+                    <div class="col-sm-2" style="display:none">
                         <label class="control-label">รหัส</label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="display:none">
                         <asp:TextBox ID="txt_unit_code" runat="server" type="text" class="form-control" />
                     </div>
                     <div class="col-sm-2">
@@ -30,13 +30,6 @@
                         <asp:TextBox ID="txt_unit_name" runat="server" type="text" class="form-control" MaxLength="30" ToolTip="ความยาวไม่เกิน 30 ตัวอักษร" placeholder="ชื่อหน่วย X จำนวน" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_unit_name" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                     </div>
-                </div>
-            </div>
-        </div>
-        <%--<br><br>--%>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-sm-12">
                     <div class="col-sm-2">
                         <label class="control-label">จำนวน <label style="color:red">*</label></label>
                     </div>
@@ -45,6 +38,21 @@
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_unit_value" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         <asp:RangeValidator Display="Dynamic" runat="server" ControlToValidate="txt_unit_value" ErrorMessage="จำนวนต้องมีค่า 1-10000" MaximumValue="10000" MinimumValue="1" Type="Integer" ForeColor="#CC3300"></asp:RangeValidator>
                     </div>
+                </div>
+            </div>
+        </div>
+        <%--<br><br>--%>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-12">
+                    <%--<div class="col-sm-2">
+                        <label class="control-label">จำนวน <label style="color:red">*</label></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <asp:TextBox ID="txt_unit_value" runat="server" type="text" class="form-control" TextMode="Number" Text="1" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_unit_value" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                        <asp:RangeValidator Display="Dynamic" runat="server" ControlToValidate="txt_unit_value" ErrorMessage="จำนวนต้องมีค่า 1-10000" MaximumValue="10000" MinimumValue="1" Type="Integer" ForeColor="#CC3300"></asp:RangeValidator>
+                    </div>--%>
                     <div class="col-sm-2">
                         <label class="control-label">สถาณะ</label>
                     </div>

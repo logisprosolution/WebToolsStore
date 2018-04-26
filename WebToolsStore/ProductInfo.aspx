@@ -29,30 +29,66 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="box box-primary">
         <br />
-        <div class="form-group">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="col-sm-2">
-                        <label class="control-label">รหัสสินค้า</label>
-                    </div>
-                    <div class="col-sm-4">
-                        <asp:TextBox ID="txt_product_code" runat="server" type="text" class="form-control" />
-                    </div>
-                    <label class="col-sm-2 control-label">
-                        ชื่อ
-                        <label style="color: red">*</label></label>
-                    <div class="col-sm-4">
-                        <asp:TextBox ID="txt_product_name" runat="server" type="text" class="form-control" MaxLength="30" ToolTip="ความยาวไม่เกิน 30 ตัวอักษร" placeholder="ชื่อสินค้า" />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_product_name" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                    </div>
-                </div>
-            </div>
-        </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                <label class="control-label">
+                                    รหัสสินค้า
+                            <label style="color: red">*</label>
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <asp:TextBox ID="txt_product_code" runat="server" type="text" class="form-control" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_product_code" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            </div>
+                            <label class="col-sm-2 control-label">
+                                ชื่อ
+                        <label style="color: red">*</label></label>
+                            <div class="col-sm-4">
+                                <asp:TextBox ID="txt_product_name" runat="server" type="text" class="form-control" MaxLength="30" ToolTip="ความยาวไม่เกิน 30 ตัวอักษร" placeholder="ชื่อสินค้า" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_product_name" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label class="col-sm-2 control-label">
+                                หมวด
+                        <label style="color: red">*</label></label>
+                            <div class="col-sm-4">
+                                <asp:DropDownList ID="ddl_categories" runat="server" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddl_categories_SelectedIndexChanged"></asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredCategories" InitialValue="0" runat="server" ControlToValidate="ddl_categories" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            </div>
+                            <div class="col-sm-2">
+                                <label class="control-label">
+                                    ประเภท
+                            <label style="color: red">*</label>
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <asp:DropDownList ID="ddl_subcategories" runat="server" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddl_subcategories_SelectedIndexChanged"></asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredSubcategories" InitialValue="0" runat="server" ControlToValidate="ddl_subcategories" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                <label class="control-label">
+                                    หน่วยสินค้า
+                            <label style="color: red">*</label></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <asp:DropDownList ID="ddl_unit" runat="server" class="form-control" AutoPostBack="True"></asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredUnit" EnableClientScript="true" InitialValue="0" runat="server" ControlToValidate="ddl_unit" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            </div>
                             <div class="col-sm-2">
                                 <label class="control-label">
                                     รูปภาพ
@@ -64,40 +100,6 @@
                                 <asp:Button ID="btnUpload" runat="server" OnClick="Upload" Style="display: none" />
                                 <hr />
                                 <asp:Image ID="Image1" Style="width: 200px; height: 200px" runat="server" />
-                            </div>
-
-                            <label class="col-sm-2 control-label">
-                                หมวด
-                        <label style="color: red">*</label></label>
-                            <div class="col-sm-4">
-                                <asp:DropDownList ID="ddl_categories" runat="server" AutoPostBack="true" class="form-control" OnSelectedIndexChanged="ddl_categories_SelectedIndexChanged"></asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredCategories" InitialValue="0" runat="server" ControlToValidate="ddl_categories" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-2">
-                                <label class="control-label">
-                                    ประเภท
-                            <%--<label style="color: red">*</label>--%>
-                                </label>
-                            </div>
-                            <div class="col-sm-4">
-                                <asp:DropDownList ID="ddl_subcategories" runat="server" AutoPostBack="true" class="form-control"></asp:DropDownList>
-                                <%--                                <asp:RequiredFieldValidator ID="RequiredSubcategories" InitialValue="0" runat="server" ControlToValidate="ddl_subcategories" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <label class="control-label">
-                                    หน่วยสินค้า
-                            <label style="color: red">*</label></label>
-                            </div>
-                            <div class="col-sm-4">
-                                <asp:DropDownList ID="ddl_unit" runat="server" class="form-control" AutoPostBack="True"></asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredUnit" EnableClientScript="true" InitialValue="0" runat="server" ControlToValidate="ddl_unit" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                     </div>

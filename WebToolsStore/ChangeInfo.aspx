@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="input-group margin" style="margin: 0px;">
-                                    <asp:TextBox ID="txt_header_ref" runat="server" type="text" class="form-control" />
+                                    <asp:TextBox ID="txt_header_ref" ReadOnly="true" runat="server" type="text" class="form-control" />
                                     <div class="input-group-btn">
                                         <asp:LinkButton runat="server" ID="btnOpenDocPopup" ToolTip="นำเข้าจาก" OnClientClick="javascript:ShowDocDialog(); return false;" class="btn btn-info btn-flat">นำเข้าจาก<i class="fa fa-ellipsis-h" aria-hidden="true" ></i></asp:LinkButton>
                                         <asp:Button ID="btnAddDocHidden" runat="server" type="btnAddDocHidden" CssClass="hidden" OnClick="btnAddDocHidden_Click" CausesValidation="False" />
@@ -352,7 +352,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display:none">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-6"></div>
@@ -406,7 +406,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display:none">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-6"></div>

@@ -61,7 +61,7 @@
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_code" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col-sm-2">
-                                <label class="control-label">เลขที่เอกสารอ้างอิง<label style="color: red">*</label></label>
+                                <label class="control-label">เลขที่เอกสารอ้างอิง</label>
                             </div>
                             <div class="col-sm-4">
                                 <div class="input-group margin" style="margin: 0px;">
@@ -267,7 +267,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display:none">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-6"></div>

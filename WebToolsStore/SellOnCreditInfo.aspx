@@ -61,7 +61,7 @@
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_code" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col-sm-2">
-                                <label class="control-label">เลขที่เอกสารอ้างอิง<label style="color: red">*</label></label>
+                                <label class="control-label">เลขที่เอกสารอ้างอิง</label>
                             </div>
                             <div class="col-sm-4">
                                 <div class="input-group margin" style="margin: 0px;">
@@ -112,22 +112,15 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <%--<div class="col-sm-2">
-                                        <label class="control-label">
-                                            ประเภทภาษี
-                            <label style="color: red">*</label></label>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <asp:DropDownList ID="ddl_type_vat" runat="server" class="form-control"></asp:DropDownList>
-                                        <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_type_vat" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                    </div>--%>
                                     <div class="col-sm-2">
                                         <label class="control-label">
                                             การชำระเงิน
                             <label style="color: red">*</label></label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <asp:DropDownList ID="ddl_payment" runat="server" class="form-control" />
+                                        <asp:DropDownList ID="ddl_payment" runat="server" class="form-control">
+                                            <asp:ListItem Text="เชื่อ" Value="2"></asp:ListItem>
+                                        </asp:DropDownList>
                                         <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_payment" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-sm-2">
@@ -147,7 +140,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                      <%--  <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-2">
@@ -163,7 +156,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
                     </ContentTemplate>
                 </asp:UpdatePanel>
                 <hr>
@@ -299,7 +292,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display:none">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-6"></div>
@@ -338,7 +331,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display:none">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-6"></div>

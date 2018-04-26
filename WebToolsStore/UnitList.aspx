@@ -54,9 +54,9 @@
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
-                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_code" HeaderText="รหัสสินค้า">
+                                     <%--   <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_code" HeaderText="รหัสสินค้า">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                        </asp:BoundField>
+                                        </asp:BoundField>--%>
                                         <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="ชื่อหน่วย">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>

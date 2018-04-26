@@ -32,7 +32,7 @@
                         <label for="">ค้นหา</label>
                     </div>
                     <div class="col-md-3">
-                        <asp:TextBox class="form-control" ID="txtSearch" placeholder="รหัส/ชื่อ" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
+                        <asp:TextBox class="form-control" ID="txtSearch" placeholder="ชื่อ/รายการ" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
                     </div>
                     <div class="col-md-3">
                         <asp:LinkButton runat="server" ID="brnSearch" class="btn btn-info" OnClick="brnSearch_Click"> ค้นหา <i class="fa fa-search" aria-hidden="true"></i> </asp:LinkButton>
@@ -53,7 +53,7 @@
                                     <div class="col-xs-6"></div>
                                 </div>
                                 <asp:GridView ID="dgv1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
-                                    AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="customer_id"
+                                    AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="header_id"
                                     ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ">
                                     <Columns>
                                         <asp:TemplateField HeaderText="ลำดับ" ItemStyle-HorizontalAlign="Center">
@@ -63,13 +63,13 @@
 
                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
-                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="customer_code" HeaderText="ผู้ใช้งาน">
+                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="user_name" HeaderText="ผู้ใช้งาน">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>
-                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="customer_name" HeaderText="รายการ">
+                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="doctype_name" HeaderText="รายการ">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>
-                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="customer_code" HeaderText="วันที่">
+                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="create_date" HeaderText="วันที่">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>                                    </Columns>
                                     <SelectedRowStyle CssClass="selectedRowStyle" BackColor="LightCyan" ForeColor="DarkBlue"

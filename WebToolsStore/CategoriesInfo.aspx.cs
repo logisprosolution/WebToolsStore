@@ -27,10 +27,10 @@ namespace WebToolsStore
                 BindControl();
                 txt_categories_code.ReadOnly = true;
             }
-            else
-            {
-                txt_categories_code.Text = biz.SelectMaxID();
-            }
+            //else
+            //{
+            //    txt_categories_code.Text = biz.SelectMaxID();
+            //}
             BindGrid();
         }
 
@@ -82,7 +82,7 @@ namespace WebToolsStore
                 }
                 model.categories_code = txt_categories_code.Text;
                 model.categories_name = txt_categories_name.Text;
-                model.categories_index = ConvertHelper.ToInt(txt_categories_index.Text.Trim());
+                model.categories_index = ConvertHelper.ToFloat(txt_categories_index.Text.Trim());
                 model.is_del = false;
                 model.is_enabled = ConvertHelper.ToBoolean(ddl_is_enabled.SelectedValue);
                 model.description = txtDescription.Text;

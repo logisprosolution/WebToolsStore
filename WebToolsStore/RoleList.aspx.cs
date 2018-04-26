@@ -24,6 +24,7 @@ namespace WebToolsStore
 
         protected override void DoLoadData()
         {
+            txt_role_code.Text = "role" + biz.SelectMaxID();
             BindGrid("");
         }
 

@@ -151,6 +151,7 @@
     <Property Name="categories_code" Type="nvarchar" MaxLength="20" />
     <Property Name="categories_name" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="categories_index" Type="float" />
+    <Property Name="categories_value" Type="int" />
     <Property Name="description" Type="nvarchar(max)" />
     <Property Name="is_del" Type="bit" />
     <Property Name="is_enabled" Type="bit" />
@@ -322,6 +323,7 @@
     <Property Name="subcategories_code" Type="nvarchar" MaxLength="20" />
     <Property Name="subcategories_name" Type="nvarchar" MaxLength="100" />
     <Property Name="subcategories_index" Type="float" />
+    <Property Name="subcategories_value" Type="int" />
     <Property Name="description" Type="nvarchar(max)" />
     <Property Name="is_del" Type="bit" />
     <Property Name="is_enabled" Type="bit" />

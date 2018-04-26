@@ -194,3 +194,83 @@ Log Entry : 9:27:15 26 เมษายน 2561
   :
 Exception Message:Thread was being aborted.
 -------------------------------
+
+Log Entry : 20:03:23 26 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_SelectIngredient_sel' expects parameter '@product_id', which was not supplied.
+-------------------------------
+
+Log Entry : 20:08:54 26 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_SelectIngredient_sel' expects parameter '@product_id', which was not supplied.
+-------------------------------
+
+Log Entry : 21:48:53 26 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 21:49:25 26 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 21:54:03 26 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 21:54:14 26 เมษายน 2561
+  :
+Exception Message:Unable to cast object of type 'System.String' to type 'System.Byte[]'.
+-------------------------------
+
+Log Entry : 22:06:19 26 เมษายน 2561
+  :
+Exception Message:Operand type clash: nvarchar is incompatible with image
+-------------------------------
+
+Log Entry : 23:35:00 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 23:36:05 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 23:36:27 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 23:37:21 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 23:38:19 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 23:38:29 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 23:39:11 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 23:44:11 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 23:45:02 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------

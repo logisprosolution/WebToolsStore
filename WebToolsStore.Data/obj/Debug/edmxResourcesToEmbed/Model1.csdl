@@ -149,6 +149,7 @@
     <Property Name="update_date" Type="DateTime" Precision="3" />
     <Property Name="update_by" Type="Int32" />
     <NavigationProperty Name="MAS_Subcategories" Relationship="Self.FK_MAS_Subcategories_MAS_Categories" FromRole="MAS_Categories" ToRole="MAS_Subcategories" />
+    <Property Name="categories_value" Type="Int32" />
   </EntityType>
   <EntityType Name="MAS_Country">
     <Key>
@@ -338,6 +339,7 @@
     <Property Name="update_by" Type="Int32" />
     <NavigationProperty Name="MAS_Categories" Relationship="Self.FK_MAS_Subcategories_MAS_Categories" FromRole="MAS_Subcategories" ToRole="MAS_Categories" />
     <NavigationProperty Name="MAS_Product" Relationship="Self.FK_MAS_Product_MAS_Subcategories" FromRole="MAS_Subcategories" ToRole="MAS_Product" />
+    <Property Name="subcategories_value" Type="Int32" />
   </EntityType>
   <EntityType Name="MAS_SubDistrict">
     <Key>

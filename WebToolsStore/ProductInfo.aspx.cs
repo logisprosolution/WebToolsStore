@@ -50,7 +50,7 @@ namespace WebToolsStore
         protected override void DoPrepareData()
         {
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
-            //LoadExHelper loadEx = new LoadExHelper();
+            loadEx.LoadSubcategoriesById(ref ddl_subcategories, 0, Enumerator.ConditionLoadEx.All);
             loadEx.LoadCategories(ref ddl_categories, Enumerator.ConditionLoadEx.All);
             loadEx.LoadUnit(ref ddl_unit, Enumerator.ConditionLoadEx.All);
         }
@@ -61,10 +61,6 @@ namespace WebToolsStore
             {
                 BindControl();
                 txt_product_code.ReadOnly = true;
-            }
-            else
-            {
-                txt_product_code.Text = biz.SelectMaxID();
             }
             BindGrid1();
             BindGrid2();
@@ -146,17 +142,16 @@ namespace WebToolsStore
                     ddl_subcategories.SelectedValue = ConvertHelper.InitialValueDB(row, "subcategories_id");
                     ddl_is_enabled.SelectedValue = ConvertHelper.InitialValueDB(row, "is_enabled");
                     txtDescription.Text = ConvertHelper.InitialValueDB(row, "description");
-                    if (ConvertHelper.InitialValueDB(row, "pic_filename") != "")
+                    if (!ConvertHelper.IsStringEmpty(row, "pic_filename"))
                     {
                         txt_FileName.Text = ConvertHelper.InitialValueDB(row, "pic_filename");
                     }
-                    if (ConvertHelper.InitialValueDB(row, "product_pic") != "")
+                    if (!ConvertHelper.IsStringEmpty(row, "product_pic"))
                     {
-                        ViewState["image"] = ConvertHelper.InitialValueDB(row, "product_pic");
+                        ViewState["image"] = (byte[])(row["product_pic"]);
                         Image1.ImageUrl = "~/ShowImage.ashx?dataId=" + base.dataId + "&dataId2=Product";
                         Image1.Attributes.Add("FileName", "aaaasssss");
                     }
-
                 }
                 else
                 {
@@ -423,11 +418,23 @@ namespace WebToolsStore
             RequiredCategories.Validate();
             int id = ConvertHelper.ToInt(ddl_categories.SelectedValue);
             loadEx.LoadSubcategoriesById(ref ddl_subcategories, id, Enumerator.ConditionLoadEx.All);
+            txt_product_code.Text = "";
         }
-        //protected void ddl_subcategories_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    RequiredSubcategories.Validate();
-        //}
+
+        protected void ddl_subcategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_product_code.Text = "";
+            if (ddl_subcategories.SelectedIndex == 0)
+            {
+                RequiredSubcategories.Validate();
+            }
+            else
+            {
+                int id = ConvertHelper.ToInt(ddl_subcategories.SelectedValue);
+                DataTable dt = biz.SelectCode(id);
+                txt_product_code.Text = ConvertHelper.InitialValueDB(dt.Rows[0], "subcategories_code").ToString() +"-"+ biz.SelectMaxID();
+            }
+        }
 
         protected void btnAddHidden_Click(object sender, EventArgs e)
         {

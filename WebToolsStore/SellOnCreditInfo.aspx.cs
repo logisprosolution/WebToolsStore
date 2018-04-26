@@ -83,7 +83,7 @@ namespace WebToolsStore
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
             LoadExHelper loadEx = new LoadExHelper();
             txt_header_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            loadEx.LoadPaymentType(ref ddl_payment, 1, Enumerator.ConditionLoadEx.Else);
+            //loadEx.LoadPaymentType(ref ddl_payment, 1, Enumerator.ConditionLoadEx.Else);
             //loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.Else);
             loadEx.LoadCustomer(ref ddl_customer, Enumerator.ConditionLoadEx.All);
             //loadEx.LoadHeaderStatus(ref ddl_header_status, ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString()), Enumerator.ConditionLoadEx.All);
@@ -208,7 +208,7 @@ namespace WebToolsStore
                         txt_header_ref.Text = ConvertHelper.InitialValueDB(row, "header_ref_code");
                         //ddl_type_vat.SelectedValue = ConvertHelper.InitialValueDB(row, "vat_id");
                         ddl_payment.SelectedValue = ConvertHelper.InitialValueDB(row, "payment_id");
-                        ddl_header_status.SelectedValue = ConvertHelper.InitialValueDB(row, "header_status");
+                        //ddl_header_status.SelectedValue = ConvertHelper.InitialValueDB(row, "header_status");
                         txt_payment_date.Text = ConvertHelper.InitialValueDB(row, "payment_date");
                         txt_remark.Text = ConvertHelper.InitialValueDB(row, "header_remark");
                         txt_header_address.Text = ConvertHelper.InitialValueDB(row, "header_address");
@@ -218,8 +218,11 @@ namespace WebToolsStore
                         txt_vat.Text = ConvertHelper.InitialValueDB(row, "header_vat");
                         txt_net.Text = ConvertHelper.InitialValueDB(row, "header_net");
                         txt_added.Text = ConvertHelper.InitialValueDB(row, "header_added");
-                        lbl_deposit.Text = "***หักส่วนลดค่ามัดจำ " + ConvertHelper.InitialValueDB(row, "header_deposit") + " บาท";
-                        lbl_deposit.Visible = true;
+                        if (ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "header_deposit")) != 0)
+                        {
+                            lbl_deposit.Text = "***หักส่วนลดค่ามัดจำ " + ConvertHelper.InitialValueDB(row, "header_deposit") + " บาท";
+                            lbl_deposit.Visible = true;
+                        }
                     }
                     else
                     {
@@ -447,7 +450,7 @@ namespace WebToolsStore
                 model.Doc_Header.is_enabled = true;
                 model.Doc_Header.header_remark = txt_remark.Text;
                 model.Doc_Header.header_address = txt_header_address.Text;
-                model.Doc_Header.header_status = ConvertHelper.ToInt(ddl_header_status.SelectedValue);
+                model.Doc_Header.header_status = 5;
                 model.Doc_Header.update_by = ApplicationWebInfo.UserID;
                 model.Doc_Header.subDocTypeID = ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString());
                 model.Doc_Header.header_ref = id;
@@ -485,10 +488,18 @@ namespace WebToolsStore
                 }
                 else
                 {
+                    if (base.IsNewMode)
+                    {
+                        base.ShowMessageAndRedirect(SuccessMessage, typeof(SellOnCreditList));
+                    }
+                    else
+                    {
+                        base.ShowMessage(SuccessMessage);
+                    }
                     ReportBiz biz = new ReportBiz();
                     ReportDocument crystalReport = new ReportDocument();
                     crystalReport.Load(Server.MapPath("Reports/ReportInvoice.rpt"));
-                    DataSet ds = biz.SelectBill(ConvertHelper.ToInt(id));
+                    DataSet ds = biz.SelectBill(ConvertHelper.ToInt(newDataId));
                     if (ds.Tables[0].Rows.Count == 0)
                     {
                         base.ShowMessage("ไม่พบเอกสาร");
@@ -497,20 +508,6 @@ namespace WebToolsStore
                     {
                         crystalReport.SetDataSource(ds);
                         crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, System.Guid.NewGuid().ToString());
-                    }
-
-                    //base.ShowMessage(SuccessMessage);
-                    //if (base.IsNewMode)//บันทึกเสร็จแล้ว new mode จะทำการรีเฟรชข้อมูลใหม่
-                    //{
-                    //    LoadAfterNewMode(newDataId);
-                    //}
-                    if (base.IsNewMode)
-                    {
-                        base.ShowMessageAndRedirect(SuccessMessage, typeof(SellOnCreditList));
-                    }
-                    else
-                    {
-                        base.ShowMessage(SuccessMessage);
                     }
                 }
             }
@@ -521,19 +518,17 @@ namespace WebToolsStore
         }
         private void Sum()
         {
-            int vat = ConvertHelper.ToInt(ddl_vat.SelectedValue);
+            //int vat = ConvertHelper.ToInt(ddl_vat.SelectedValue);
             decimal total = ConvertHelper.ToDecimal(txt_total.Text);
             decimal discount = ConvertHelper.ToDecimal(txt_discout.Text);
             decimal added = ConvertHelper.ToDecimal(txt_added.Text);
             if (discount != 0)
             {
-                txt_vat.Text = String.Format("{0:n}", ((total - discount) * vat / 100)).ToString();
-                txt_net.Text = String.Format("{0:n}", ((total - discount) + (total - discount) * vat / 100)).ToString();
+                txt_net.Text = String.Format("{0:n}", ((total - discount) + (total - discount))).ToString();
             }
             else
             {
-                txt_vat.Text = String.Format("{0:n}", ((total + added) * vat / 100)).ToString();
-                txt_net.Text = String.Format("{0:n}", ((total + added) + (total - added) * vat / 100)).ToString();
+                txt_net.Text = String.Format("{0:n}", ((total + added))).ToString();
             }
         }
         private void clear()

@@ -17,7 +17,7 @@
             <div class="box-body">--%>
         <div class="form-group">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12" style="display:none">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-2">
                         <label class="control-label">รหัสบริษัทคู่ค้า</label>

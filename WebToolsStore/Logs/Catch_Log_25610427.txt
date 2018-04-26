@@ -1,0 +1,40 @@
+
+Log Entry : 0:41:29 27 เมษายน 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 0:42:50 27 เมษายน 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 0:59:35 27 เมษายน 2561
+  :
+Exception Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'customer_id'.
+-------------------------------
+
+Log Entry : 1:49:36 27 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 2:06:37 27 เมษายน 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 2:07:23 27 เมษายน 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 2:16:11 27 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 2:35:36 27 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------

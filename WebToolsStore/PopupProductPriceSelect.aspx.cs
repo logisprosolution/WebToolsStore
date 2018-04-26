@@ -23,6 +23,12 @@ namespace WebToolsStore
             loadEx.LoadCategories(ref ddlCategoryID, Enumerator.ConditionLoadEx.All);
             loadEx.LoadSubcategoriesById(ref ddlSubCategoryID, 0, Enumerator.ConditionLoadEx.All);
             loadEx.LoadPaymentType(ref ddlprice, 0, Enumerator.ConditionLoadEx.NewRowEmpty);
+            if (base.dataId == 2)
+            {
+                lblprice.Visible = false;
+                ddlprice.Visible = false;
+                txtPrice.Visible = false;
+            }
         }
 
         protected override void DoLoadData()
@@ -100,16 +106,30 @@ namespace WebToolsStore
             //ddlprice.Items.AddRange(items.ToArray());
             if (base.dataId == ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString()))
             {
+                ddlprice.SelectedIndex = 2;
+                txtPrice.Text = row.Cells[6].Text;
+            }
+            else if (base.dataId == ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_Sale"].ToString()))
+            {
                 ddlprice.SelectedIndex = 1;
+                txtPrice.Text = row.Cells[5].Text;
             }
             is_stock.Value = "0";
             row = null;
-
-            if (stock <= 0 && base.dataId != ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_BO"].ToString()) && base.dataId != ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_InFromBuy"].ToString()))
+            if (product_id != 17)
             {
-                is_stock.Value = "1";
-                base.ShowMessage("จำนวนสินค้าไม่พอ");
+                if (stock <= 0 && base.dataId != ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_BO"].ToString()) && base.dataId != ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_InFromBuy"].ToString()))
+                {
+                    is_stock.Value = "1";
+                    base.ShowMessage("จำนวนสินค้าไม่พอ");
+                }
+                else
+                {
+                    is_stock.Value = "0";
+                    hdfValue.Value = product_price_id + "*" + unit_valuue;
+                }
             }
+
             else
             {
                 is_stock.Value = "0";

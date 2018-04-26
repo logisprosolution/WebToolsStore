@@ -31,6 +31,7 @@ namespace WebToolsStore.Data
         public Nullable<int> create_by { get; set; }
         public Nullable<System.DateTime> update_date { get; set; }
         public Nullable<int> update_by { get; set; }
+        public Nullable<int> categories_value { get; set; }
     
         public virtual ICollection<MAS_Subcategories> MAS_Subcategories { get; set; }
     }

@@ -17,10 +17,10 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="col-sm-2">
+                    <div class="col-sm-2" style="display:none">
                         <label class="control-label">รหัส</label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="display:none">
                         <asp:TextBox ID="txt_title_code" runat="server" type="text" class="form-control" />
                     </div>
                     <div class="col-sm-2">
@@ -30,11 +30,20 @@
                         <asp:TextBox ID="txt_title_name" runat="server" type="text" class="form-control" MaxLength="30" ToolTip="ความยาวไม่เกิน 30 ตัวอักษร" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_title_name" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                     </div>
+                    <div class="col-sm-2">
+                        <label class="control-label">สถาณะ</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <asp:DropDownList ID="ddl_is_enabled" runat="server" class="form-control">
+                            <asp:ListItem Text="ใช้งาน" Value="True"></asp:ListItem>
+                            <asp:ListItem Text="ปิดใช้งาน" Value="False"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
                 </div>
             </div>
         </div>
         <%--<br><br>--%>
-        <div class="form-group">
+        <%--<div class="form-group">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="col-sm-2">
@@ -48,7 +57,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
         <%--</div>--%>
 
         <%-- </div>--%>

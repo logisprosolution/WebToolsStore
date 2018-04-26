@@ -39,7 +39,7 @@
             <%-- <div class="row">
             <div class="box-body">--%>
             <div id="home" class="tab-pane fade in active">
-                <div class="form-group">
+                <div class="form-group" style="display:none">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="col-sm-3"></div>

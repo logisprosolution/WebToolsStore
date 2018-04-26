@@ -68,12 +68,12 @@
                                                 <asp:Label ID="lblheader_date" runat="server" Text='<%#string.Format("{0:d/M/yyyy}",Eval("header_date")) %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="vat_id" HeaderText="ประเภทบิล">
+                                   <%--     <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="vat_id" HeaderText="ประเภทบิล">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>
                                         <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="payment_id" HeaderText="ประเภทการจ่ายเงิน">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                        </asp:BoundField>
+                                        </asp:BoundField>--%>
                                         <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="header_remark" HeaderText="หมายเหตุ">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>

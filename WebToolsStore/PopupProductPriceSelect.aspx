@@ -7,11 +7,16 @@
             var num = $("#<%=txtNumber.ClientID %>").val();
             var price = $("#<%=txtPrice.ClientID %>").val();
             var index = $("#<%=ddlprice.ClientID %> option:selected").index();
+            if (index == -1) {
+                index = 0;
+            }
             var returnValue = num + '*' + index + '*' + price + '*' + $("#<%=hdfValue.ClientID %>").val();
             var is_stock = $("#<%=is_stock.ClientID %>").val();
-            if (returnValue == '' || returnValue == null || index == '0') {
-                alert('กรุณาเลือกราคา');
-                return false;
+            if (<%= dataId %> != 2) {
+                if (returnValue == '' || returnValue == null || index == '0') {
+                    alert('กรุณาเลือกราคา');
+                    return false;
+                }
             }
 
             try {
@@ -177,7 +182,7 @@
                     <i class="fa fa-check"></i>เลือก</asp:LinkButton>
                         <button type="button" class="btn btn-default pull-left" onclick="CancelDialog();">กลับ</button>
                         <div class="col-sm-1 text-center">
-                            <asp:Label Text="ราคา" runat="server" />
+                            <asp:Label Text="ราคา" ID="lblprice" runat="server" />
                         </div>
                         <div class="col-sm-2">
                             <asp:DropDownList class="form-control" ID="ddlprice" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlprice_SelectedIndexChanged" />

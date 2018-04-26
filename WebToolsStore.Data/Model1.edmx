@@ -156,6 +156,7 @@
           <Property Name="categories_code" Type="nvarchar" MaxLength="20" />
           <Property Name="categories_name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="categories_index" Type="float" />
+          <Property Name="categories_value" Type="int" />
           <Property Name="description" Type="nvarchar(max)" />
           <Property Name="is_del" Type="bit" />
           <Property Name="is_enabled" Type="bit" />
@@ -327,6 +328,7 @@
           <Property Name="subcategories_code" Type="nvarchar" MaxLength="20" />
           <Property Name="subcategories_name" Type="nvarchar" MaxLength="100" />
           <Property Name="subcategories_index" Type="float" />
+          <Property Name="subcategories_value" Type="int" />
           <Property Name="description" Type="nvarchar(max)" />
           <Property Name="is_del" Type="bit" />
           <Property Name="is_enabled" Type="bit" />
@@ -2140,6 +2142,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <Property Name="update_date" Type="DateTime" Precision="3" />
           <Property Name="update_by" Type="Int32" />
           <NavigationProperty Name="MAS_Subcategories" Relationship="Self.FK_MAS_Subcategories_MAS_Categories" FromRole="MAS_Categories" ToRole="MAS_Subcategories" />
+          <Property Name="categories_value" Type="Int32" />
         </EntityType>
         <EntityType Name="MAS_Country">
           <Key>
@@ -2329,6 +2332,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <Property Name="update_by" Type="Int32" />
           <NavigationProperty Name="MAS_Categories" Relationship="Self.FK_MAS_Subcategories_MAS_Categories" FromRole="MAS_Subcategories" ToRole="MAS_Categories" />
           <NavigationProperty Name="MAS_Product" Relationship="Self.FK_MAS_Product_MAS_Subcategories" FromRole="MAS_Subcategories" ToRole="MAS_Product" />
+          <Property Name="subcategories_value" Type="Int32" />
         </EntityType>
         <EntityType Name="MAS_SubDistrict">
           <Key>
@@ -4650,6 +4654,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <EntitySetMapping Name="MAS_Categories">
             <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Categories">
               <MappingFragment StoreEntitySet="MAS_Categories">
+                <ScalarProperty Name="categories_value" ColumnName="categories_value" />
                 <ScalarProperty Name="categories_id" ColumnName="categories_id" />
                 <ScalarProperty Name="categories_code" ColumnName="categories_code" />
                 <ScalarProperty Name="categories_name" ColumnName="categories_name" />
@@ -4830,6 +4835,7 @@ FROM [dbo].[v_vatType] AS [v_vatType]</DefiningQuery>
           <EntitySetMapping Name="MAS_Subcategories">
             <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Subcategories">
               <MappingFragment StoreEntitySet="MAS_Subcategories">
+                <ScalarProperty Name="subcategories_value" ColumnName="subcategories_value" />
                 <ScalarProperty Name="subcategories_id" ColumnName="subcategories_id" />
                 <ScalarProperty Name="subcategories_code" ColumnName="subcategories_code" />
                 <ScalarProperty Name="subcategories_name" ColumnName="subcategories_name" />

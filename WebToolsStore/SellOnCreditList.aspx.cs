@@ -38,7 +38,19 @@ namespace WebToolsStore
             dgv1.DataSource = biz.SelectList(searchText);
             dgv1.DataBind();
         }
-
+        private void UpdateStatus()//โหลดข้อมูล
+        {
+            int result = biz.SaveData(biz.dataModel, "done", false);
+            if (result < 0)
+            {
+                base.ShowMessage(FailMessage);
+            }
+            else
+            {
+                base.ShowMessage(SuccessMessage);
+                DoLoadData();
+            }
+        }
         #endregion Private Methods
 
         #region Events
@@ -74,6 +86,7 @@ namespace WebToolsStore
                 int index = Convert.ToInt16(e.CommandArgument);
                 GridViewRow row = dgv1.Rows[index];
                 string id = ((HiddenField)row.FindControl("hdfID")).Value;
+                biz.dataModel.Doc_Header.header_id = ConvertHelper.ToInt(id);
                 row = null;
                 if (e.CommandName == "Edit")
                 {
@@ -111,6 +124,44 @@ namespace WebToolsStore
                             crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, System.Guid.NewGuid().ToString());
                         }
                     }
+                }
+                else if (e.CommandName == "Success")
+                {
+                    biz.dataModel.Doc_Header.header_status = 2;
+                    UpdateStatus();
+                }
+            }
+            catch (Exception ex)
+            {
+                base.HandleException(ex);
+            }
+        }
+        protected void dgv1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    Label staus = e.Row.FindControl("lbl_status") as Label;
+                    //if (staus.Text == "รอวางบิล")
+                    //{
+                    //    LinkButton btn = e.Row.FindControl("btnGridSuccess") as LinkButton;
+                    //    btn.Attributes.Add("disabled", "true");
+                    //}
+                    //else
+                    //{
+                    if (staus.Text == "เสร็จสมบูรณ์")
+                    {
+                        LinkButton btn = e.Row.FindControl("btnGridSuccess") as LinkButton;
+                        btn.Attributes.Add("disabled", "true");
+                    }
+                    //    LinkButton btnWait = e.Row.FindControl("btnGridWait") as LinkButton;
+                    //    btnWait.Attributes.Add("disabled", "true");
+                    //    LinkButton btnEdit = e.Row.FindControl("btnGridEdit") as LinkButton;
+                    //    btnEdit.Attributes.Add("disabled", "true");
+                    //    LinkButton btnDelete = e.Row.FindControl("btnGridDelete") as LinkButton;
+                    //    btnDelete.Attributes.Add("disabled", "true");
+                    //}
                 }
             }
             catch (Exception ex)

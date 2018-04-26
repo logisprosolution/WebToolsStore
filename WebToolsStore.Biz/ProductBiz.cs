@@ -60,6 +60,10 @@ namespace WebToolsStore.Biz
         {
             return base.SelectByIdTable(id, "SelectIngredient");
         }
+        public DataTable SelectCode(int id)
+        {
+            return base.SelectByIdTable(id, "SelectCode");
+        }
 
         public int SaveData(ProductModel model, string condition, bool isNewMode)
         {
@@ -149,6 +153,13 @@ namespace WebToolsStore.Biz
                 SqlCommand cmd = CreateCommand(stringSQL, System.Data.CommandType.Text);
                 LoadData(cmd, ds, condition, true);
             }
+            else if (condition == "SelectCode")
+            {
+                SqlCommand cmd = CreateCommand("udp_SelectCode_sel", System.Data.CommandType.StoredProcedure);
+                cmd.Parameters.Add(CreateParameter("subcategories_id", id));
+                LoadData(cmd, ds, condition);
+            }
+            
         }
 
         protected override int DoInsertData(ProductModel model, string condition, bool isNewMode)

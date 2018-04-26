@@ -36,7 +36,7 @@ namespace WebToolsStore
             }
             else
             {
-                txt_emp_code.Text = biz.SelectMaxID();
+                txt_emp_code.Text = "EMP" + biz.SelectMaxID();
             }
         }
 

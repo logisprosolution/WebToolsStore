@@ -55,9 +55,9 @@
 
                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
-                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="customer_code" HeaderText="รหัสลูกค้า">
+                                        <%--<asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="customer_code" HeaderText="รหัสลูกค้า">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                        </asp:BoundField>
+                                        </asp:BoundField>--%>
                                         <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="customer_name" HeaderText="ชื่อบริษัท/ชื่อลูกค้า">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>

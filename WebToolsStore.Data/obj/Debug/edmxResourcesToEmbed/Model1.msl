@@ -133,6 +133,7 @@
     <EntitySetMapping Name="MAS_Categories">
       <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Categories">
         <MappingFragment StoreEntitySet="MAS_Categories">
+          <ScalarProperty Name="categories_value" ColumnName="categories_value" />
           <ScalarProperty Name="categories_id" ColumnName="categories_id" />
           <ScalarProperty Name="categories_code" ColumnName="categories_code" />
           <ScalarProperty Name="categories_name" ColumnName="categories_name" />
@@ -313,6 +314,7 @@
     <EntitySetMapping Name="MAS_Subcategories">
       <EntityTypeMapping TypeName="WebToolsStoreModel.MAS_Subcategories">
         <MappingFragment StoreEntitySet="MAS_Subcategories">
+          <ScalarProperty Name="subcategories_value" ColumnName="subcategories_value" />
           <ScalarProperty Name="subcategories_id" ColumnName="subcategories_id" />
           <ScalarProperty Name="subcategories_code" ColumnName="subcategories_code" />
           <ScalarProperty Name="subcategories_name" ColumnName="subcategories_name" />

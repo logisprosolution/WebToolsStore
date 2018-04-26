@@ -46,7 +46,7 @@
                                 </div>
                                 <asp:GridView ID="dgv1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
                                     AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="header_id"
-                                    ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting" OnRowEditing="dgv1_RowEditing">
+                                    ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting" OnRowEditing="dgv1_RowEditing">
                                     <Columns>
                                         <asp:TemplateField HeaderText="ลำดับ" ItemStyle-HorizontalAlign="Center">
                                             <ItemTemplate>
@@ -65,21 +65,24 @@
                                                 <asp:Label ID="lblheader_date" runat="server" Text='<%#string.Format("{0:d/M/yyyy}",Eval("header_date")) %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="vat_id" HeaderText="ประเภทบิล">
+                                        <%-- <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="vat_id" HeaderText="ประเภทบิล">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>
                                         <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="payment_id" HeaderText="ประเภทการจ่ายเงิน">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                        </asp:BoundField>
-                                    <%--    <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="header_remark" HeaderText="หมายเหตุ">
+                                        </asp:BoundField>--%>
+                                        <%--    <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="header_remark" HeaderText="หมายเหตุ">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>--%>
-                                        <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="status_name" HeaderText="สถานะเอกสาร">
-                                            <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                                        </asp:BoundField>
-                                        <asp:TemplateField HeaderStyle-Width="220px">
+                                        <asp:TemplateField HeaderText="สถานะเอกสาร" HeaderStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbl_status" runat="server" Text='<%#Eval("status_name") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderStyle-Width="290px">
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
+                                                <asp:LinkButton ID="btnGridSuccess" runat="server" Text="เสร็จ" class="btn btn-success fa fa-check" CommandName="Success" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
                                                 <asp:LinkButton ID="btnGridPrint" runat="server" Text="พิมพ์" class="btn btn-default btn-circle fa fa-print" CommandName="Print" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
                                                 <asp:LinkButton ID="btnGridEdit" runat="server" Text="แก้ไข" class="btn btn-warning fa fa-edit" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
                                                 <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="Delete" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />

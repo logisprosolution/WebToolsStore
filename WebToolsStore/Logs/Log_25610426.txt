@@ -40,3 +40,38 @@ title:page:SellInfo
 function:SaveInfo
 message:User :17 header_id: -1
 -------------------------------
+
+Log Entry : 20:25:52 26 เมษายน 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------
+
+Log Entry : 23:37:12 26 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :17 header_id: 2215
+-------------------------------
+
+Log Entry : 23:44:09 26 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :17 header_id: 2213
+-------------------------------
+
+Log Entry : 23:44:55 26 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :17 header_id: 2213
+-------------------------------
+
+Log Entry : 23:45:00 26 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :17 header_id: 2213
+-------------------------------

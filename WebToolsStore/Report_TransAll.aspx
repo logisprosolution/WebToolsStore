@@ -23,7 +23,13 @@
                         <label class="control-label">หวมดเอกสาร</label>
                     </div>
                     <div class="col-sm-4">
-                        <asp:DropDownList ID="ddlDocTypeID" AutoPostBack="true" runat="server" class="form-control" OnSelectedIndexChanged="ddlDocTypeID_SelectedIndexChanged"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlDocTypeID" AutoPostBack="true" runat="server" class="form-control" OnSelectedIndexChanged="ddlDocTypeID_SelectedIndexChanged">
+                            <asp:ListItem Text="เลือกทั้งหมด" Value="0"></asp:ListItem>
+                            <asp:ListItem Text="สั่งทำ" Value="8"></asp:ListItem>
+                            <asp:ListItem Text="รับเข้า" Value="5"></asp:ListItem>
+                            <asp:ListItem Text="ขาย" Value="2"></asp:ListItem>
+                            <asp:ListItem Text="เปลี่ยน" Value="4"></asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                     <div class="col-sm-2 text-right">
                         <label class="control-label">ประเภทเอกสาร</label>
@@ -37,10 +43,10 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="col-sm-2 text-right">
+                    <div class="col-sm-2 text-right" style="display:none">
                         <label class="control-label">คลัง</label>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="display:none">
                         <asp:DropDownList ID="ddlWarehouseID" runat="server" class="form-control"></asp:DropDownList>
                     </div>
                     <div class="col-sm-2 text-right">

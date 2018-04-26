@@ -232,11 +232,14 @@ namespace WebToolsStore
                         txt_total.Text = ConvertHelper.InitialValueDB(row, "header_total");
                         txt_receive.Text = ConvertHelper.InitialValueDB(row, "header_receive");
                         txt_discout.Text = ConvertHelper.InitialValueDB(row, "header_discout");
-                        txt_vat.Text = ConvertHelper.InitialValueDB(row, "header_vat");
+                        //txt_vat.Text = ConvertHelper.InitialValueDB(row, "header_vat");
                         txt_net.Text = ConvertHelper.InitialValueDB(row, "header_net");
                         txt_added.Text = ConvertHelper.InitialValueDB(row, "header_added");
-                        lbl_deposit.Text = "***ค่ามัดจำ " + ConvertHelper.InitialValueDB(row, "header_deposit") + " บาท";
-                        lbl_deposit.Visible = true;
+                        if (ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "header_deposit")) != 0)
+                        {
+                            lbl_deposit.Text = "***หักส่วนลดค่ามัดจำ " + ConvertHelper.InitialValueDB(row, "header_deposit") + " บาท";
+                            lbl_deposit.Visible = true;
+                        }
                     }
                     else
                     {
@@ -248,7 +251,7 @@ namespace WebToolsStore
                         txt_discout.Text = ConvertHelper.InitialValueDB(row, "header_discout");
                         txt_total.Text = ConvertHelper.InitialValueDB(row, "header_total");
                         txt_receive.Text = ConvertHelper.InitialValueDB(row, "header_deposit");
-                        txt_vat.Text = ConvertHelper.InitialValueDB(row, "header_vat");
+                        //txt_vat.Text = ConvertHelper.InitialValueDB(row, "header_vat");
                         txt_net.Text = ConvertHelper.InitialValueDB(row, "header_net");
                         txt_added.Text = ConvertHelper.InitialValueDB(row, "header_added");
                         //txt_total.Text = String.Format("{0:n}", (ConvertHelper.ToDecimal(txt_total.Text) - ConvertHelper.ToDecimal(txt_discout.Text))).ToString();
@@ -486,7 +489,7 @@ namespace WebToolsStore
                 model.Doc_Header.header_receive = ConvertHelper.ToDecimal(txt_receive.Text);
                 model.Doc_Header.header_discout = ConvertHelper.ToDecimal(txt_discout.Text);
                 model.Doc_Header.header_added = ConvertHelper.ToDecimal(txt_added.Text);
-                model.Doc_Header.header_vat = ConvertHelper.ToDecimal(txt_vat.Text);
+                //model.Doc_Header.header_vat = ConvertHelper.ToDecimal(txt_vat.Text);
                 if (ConvertHelper.ToDecimal(txt_net.Text) < 0)
                 {
                     base.DisplayMessageDialogAndFocus("ไม่สามารถบันทึกรายการได้เนื่องจากจำนวนเงินสุทธิติดลบ", "txt_discout");
@@ -507,6 +510,14 @@ namespace WebToolsStore
                 }
                 else
                 {
+                    if (base.IsNewMode)
+                    {
+                        base.ShowMessageAndRedirect(SuccessMessage, typeof(SellList));
+                    }
+                    else
+                    {
+                        base.ShowMessage(SuccessMessage);
+                    }
                     ReportBiz biz = new ReportBiz();
                     ReportDocument crystalReport = new ReportDocument();
                     crystalReport.Load(Server.MapPath("Reports/ReportReceipt.rpt"));
@@ -520,19 +531,6 @@ namespace WebToolsStore
                         crystalReport.SetDataSource(ds);
                         crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, true, System.Guid.NewGuid().ToString());
                     }
-                    //base.ShowMessage(SuccessMessage);
-                    //if (base.IsNewMode)//บันทึกเสร็จแล้ว new mode จะทำการรีเฟรชข้อมูลใหม่
-                    //{
-                    //    LoadAfterNewMode(newDataId);
-                    //}
-                    if (base.IsNewMode)
-                    {
-                        base.ShowMessageAndRedirect(SuccessMessage, typeof(SellList));
-                    }
-                    else
-                    {
-                        base.ShowMessage(SuccessMessage);
-                    }
                 }
             }
             catch (Exception ex)
@@ -542,19 +540,21 @@ namespace WebToolsStore
         }
         private void Sum()
         {
-            int vat = ConvertHelper.ToInt(ddl_vat.SelectedValue);
+            //int vat = ConvertHelper.ToInt(ddl_vat.SelectedValue);
             decimal total = ConvertHelper.ToDecimal(txt_total.Text);
             decimal discount = ConvertHelper.ToDecimal(txt_discout.Text);
             decimal added = ConvertHelper.ToDecimal(txt_added.Text);
             if (discount != 0)
             {
-                txt_vat.Text = String.Format("{0:n}", ((total - discount) * vat / 100)).ToString();
-                txt_net.Text = String.Format("{0:n}", ((total - discount) + (total - discount) * vat / 100)).ToString();
+                //txt_vat.Text = String.Format("{0:n}", ((total - discount) * vat / 100)).ToString();
+                //txt_net.Text = String.Format("{0:n}", ((total - discount) + (total - discount) * vat / 100)).ToString();
+                 txt_net.Text = String.Format("{0:n}", ((total - discount) + (total - discount))).ToString();
             }
             else
             {
-                txt_vat.Text = String.Format("{0:n}", ((total + added) * vat / 100)).ToString();
-                txt_net.Text = String.Format("{0:n}", ((total + added) + (total - added) * vat / 100)).ToString();
+                //txt_vat.Text = String.Format("{0:n}", ((total + added) * vat / 100)).ToString();
+                //txt_net.Text = String.Format("{0:n}", ((total + added) + (total - added) * vat / 100)).ToString();
+                txt_net.Text = String.Format("{0:n}", ((total + added))).ToString();
             }
         }
         private void clear()

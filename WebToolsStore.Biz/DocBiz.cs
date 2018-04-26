@@ -17,6 +17,12 @@ namespace WebToolsStore.Biz
         {
             return base.SelectListTable(searchText);
         }
+        public DataTable SelectLogFile(string searchText, DateTime? date)
+        {
+            dataModel.SearchText = searchText;
+            dataModel.SearchDate = date;
+            return base.SelectListTable("SelectLogFile");
+        }
         public bool CheckContainID(int id,string codeValue)
         {
             base.dataModel.Doc_Header.header_code = codeValue;
@@ -141,10 +147,20 @@ namespace WebToolsStore.Biz
 
         protected override void DoSelectList(ref DataSet ds, string condition)
         {
-            SqlCommand cmd = CreateCommand("udp_DOC_Header_lst", System.Data.CommandType.StoredProcedure);
-            cmd.Parameters.Add(CreateParameter("searchText", condition));
-            cmd.Parameters.Add(CreateParameter("subdoctype_id", dataModel.SubDoctype_id));
-            LoadData(cmd, ds, base.SELECT_LIST);
+            if (condition == "SelectLogFile")
+            {
+                SqlCommand cmd = CreateCommand("udp_SelectLogFile_sel", System.Data.CommandType.StoredProcedure);
+                cmd.Parameters.Add(CreateParameter("SearchDate", dataModel.SearchDate));
+                cmd.Parameters.Add(CreateParameter("SearchText", dataModel.SearchText));;
+                LoadData(cmd, ds, condition);
+            }
+            else
+            {
+                SqlCommand cmd = CreateCommand("udp_DOC_Header_lst", System.Data.CommandType.StoredProcedure);
+                cmd.Parameters.Add(CreateParameter("searchText", condition));
+                cmd.Parameters.Add(CreateParameter("subdoctype_id", dataModel.SubDoctype_id));
+                LoadData(cmd, ds, base.SELECT_LIST);
+            }
         }
 
         protected override void DoSelectById(int id, ref DataSet ds, string condition)
@@ -235,7 +251,7 @@ namespace WebToolsStore.Biz
                 if (model != null)
                 {
                     SqlCommand cmd = CreateTransactionCommand(System.Data.CommandType.StoredProcedure, "udp_DOC_Header_ups");
-                    if (model.Doc_Header.header_id <= 0)
+                    if (isNewMode)
                     {
                         cmd.Parameters.Add(CreateParameter("header_id", 0, ParameterDirection.Output));
                     }

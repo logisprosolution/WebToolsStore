@@ -640,19 +640,17 @@ namespace WebToolsStore
         }
         private void Sum()
         {
-            int vat = ConvertHelper.ToInt(ddl_vat.SelectedValue);
+            //int vat = ConvertHelper.ToInt(ddl_vat.SelectedValue);
             decimal total = ConvertHelper.ToDecimal(txt_total.Text);
             decimal discount = ConvertHelper.ToDecimal(txt_discout.Text);
             decimal added = ConvertHelper.ToDecimal(txt_added.Text);
             if (discount != 0)
             {
-                txt_vat.Text = String.Format("{0:n}", ((total - discount) * vat / 100)).ToString();
-                txt_net.Text = String.Format("{0:n}", ((total - discount) + (total - discount) * vat / 100)).ToString();
+                txt_net.Text = String.Format("{0:n}", ((total - discount) + (total - discount))).ToString();
             }
             else
             {
-                txt_vat.Text = String.Format("{0:n}", ((total + added) * vat / 100)).ToString();
-                txt_net.Text = String.Format("{0:n}", ((total + added) + (total - added) * vat / 100)).ToString();
+                txt_net.Text = String.Format("{0:n}", ((total + added))).ToString();
             }
         }
         private void clear()

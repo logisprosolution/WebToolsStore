@@ -208,7 +208,6 @@ namespace WebToolsStore
                 {
                     biz.dataModel.Doc_Header.header_status = 2;
                     UpdateStatus();
-
                 }
             }
             catch (Exception ex)
