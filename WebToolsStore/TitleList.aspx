@@ -14,28 +14,33 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <br />
-                <%--<div class="box-body">--%>
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-1">
-                            <label for="">ค้นหา</label>
-                        </div>
-                        <div class="col-md-4">
-                            <asp:TextBox class="form-control" ID="txtSearch" placeholder="รหัส/ชื่อ" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
-                        </div>
-                        <div class="col-md-3">
-                            <asp:LinkButton runat="server" ID="brnSearch" class="btn btn-info" OnClick="brnSearch_Click"> ค้นหา <i class="fa fa-search" aria-hidden="true"></i> </asp:LinkButton>
-                        </div>
+
+                <% if ((roleMenu != null ? roleMenu.is_search : false) == true)
+                    { %>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-1">
+                        <label for="">ค้นหา</label>
                     </div>
-                    <div class="col-md-1"></div>
-                <%--</div>--%>
+                    <div class="col-md-4">
+                        <asp:TextBox class="form-control" ID="txtSearch" placeholder="รหัส/ชื่อ" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
+                    </div>
+                    <div class="col-md-3">
+                        <asp:LinkButton runat="server" ID="brnSearch" class="btn btn-info" OnClick="brnSearch_Click"> ค้นหา <i class="fa fa-search" aria-hidden="true"></i> </asp:LinkButton>
+                    </div>
+                </div>
+                <% } %>
+                <div class="col-md-1"></div>
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="box-header">
                             <h3 class="box-title">รายการสินค้า</h3>
                             <div class="pull-right box-tools">
+                                <% if ((roleMenu != null ? roleMenu.is_add : false) == true)
+                                    { %>
                                 <asp:LinkButton runat="server" ID="btnAdd" class="btn btn-primary" OnClick="btnAdd_Click"> เพิ่ม <i class="fa fa-plus" aria-hidden="true"></i></asp:LinkButton>
+                                <% } %>
                             </div>
                         </div>
                         <div class="box-body">
@@ -45,8 +50,8 @@
                                     <div class="col-xs-6"></div>
                                 </div>
                                 <asp:GridView ID="dgv1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
-                                    AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="title_id"
-                                    ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting" OnRowEditing="dgv1_RowEditing">
+                                    AutoGenerateColumns="False" AllowSorting="True" PageSize="50" DataKeyNames="title_id"
+                                    ShowHeaderWhenEmpty="True" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting" OnRowEditing="dgv1_RowEditing">
                                     <Columns>
                                         <asp:TemplateField HeaderText="ลำดับ" ItemStyle-HorizontalAlign="Center">
                                             <ItemTemplate>
@@ -65,17 +70,25 @@
                                             <ItemTemplate>
                                                 <asp:Label ID="lblTotal" runat="server" Text='<%#string.Format("{0:#,###.##}",Eval("is_enabled")) %>'></asp:Label>
                                             </ItemTemplate>
+
+<HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderStyle-Width="150px">
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("title_id") %>' />
-                                                <asp:LinkButton ID="btnGridEdit" runat="server" Text="แก้ไข" class="btn btn-warning fa fa-edit" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"/>
-                                                <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="Delete" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');"/>
+                                                <asp:LinkButton ID="btnGridView" runat="server" Text="ดู" class="btn btn-info fa fa-eye" Visible="<%# roleMenu != null ? roleMenu.is_view : false %>" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
+                                                <asp:LinkButton ID="btnGridEdit" runat="server" Text="แก้ไข" class="btn btn-warning fa fa-edit" Visible="<%# roleMenu != null ? roleMenu.is_edit : false %>" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
+                                                <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" Visible="<%# roleMenu != null ? roleMenu.is_delete : false %>" CommandName="Delete" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>
+
+<HeaderStyle Width="150px"></HeaderStyle>
                                         </asp:TemplateField>
                                     </Columns>
                                     <SelectedRowStyle CssClass="selectedRowStyle" BackColor="LightCyan" ForeColor="DarkBlue"
                                         Font-Bold="true" />
+
+<EmptyDataRowStyle HorizontalAlign="Center"></EmptyDataRowStyle>
+
                                     <PagerSettings FirstPageText="Frist Page " LastPageText=" Last Page" Mode="NumericFirstLast"
                                         NextPageText=" Next " PreviousPageText=" Previous " />
                                 </asp:GridView>

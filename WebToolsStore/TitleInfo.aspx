@@ -24,7 +24,8 @@
                         <asp:TextBox ID="txt_title_code" runat="server" type="text" class="form-control" />
                     </div>
                     <div class="col-sm-2">
-                        <label class="control-label">คำนำหน้า <label style="color:red">*</label></label>
+                        <label class="control-label">คำนำหน้า
+                            <label style="color: red">*</label></label>
                     </div>
                     <div class="col-sm-4">
                         <asp:TextBox ID="txt_title_name" runat="server" type="text" class="form-control" MaxLength="30" ToolTip="ความยาวไม่เกิน 30 ตัวอักษร" />
@@ -64,7 +65,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box-footer" style="text-align: center;">
+                    <% if ((roleMenu != null ? roleMenu.is_add : false) == true || (roleMenu != null ? roleMenu.is_edit : false) == true)
+                        { %>
                     <asp:Button ID="btnSave" runat="server" Text="บันทึก" type="button" class="btn btn-success" OnClick="btnSave_Click"></asp:Button>
+                    <% } %>
                     <asp:Button ID="btnCancel" runat="server" Text="กลับ" type="button" class="btn" OnClick="btnCancel_Click" CausesValidation="False"></asp:Button>
                     <div class="col-sm-offset-1">
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server"

@@ -14,6 +14,7 @@ namespace WebToolsStore
     {
         #region Parameter
         ProductBiz biz = new ProductBiz();
+        public USR_Role_Submenu roleMenu;
         LoadExHelper loadEx = new LoadExHelper();
         const string IngredientList_SaveState = "IngredientList_SaveState";
         const string IngredientList_ShowState = "IngredientList_ShowState";
@@ -53,6 +54,8 @@ namespace WebToolsStore
             loadEx.LoadSubcategoriesById(ref ddl_subcategories, 0, Enumerator.ConditionLoadEx.All);
             loadEx.LoadCategories(ref ddl_categories, Enumerator.ConditionLoadEx.All);
             loadEx.LoadUnit(ref ddl_unit, Enumerator.ConditionLoadEx.All);
+
+            roleMenu = ApplicationWebInfo.RoleMenuList.Find(x => x.submenu_id == (int)Enumerator.SubMenu.Product);
         }
 
         protected override void DoLoadData()
