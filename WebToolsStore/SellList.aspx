@@ -80,7 +80,7 @@
                                         <asp:TemplateField HeaderStyle-Width="220px">
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
-                                                <asp:LinkButton ID="btnGridPrint" runat="server" Text="พิมพ์" class="btn btn-info btn-circle fa fa-print" CommandName="Print" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
+                                                <asp:LinkButton ID="btnGridPrint" runat="server" Text="พิมพ์" class="btn btn-default btn-circle fa fa-print" CommandName="Print" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
                                                 <asp:LinkButton ID="btnGridEdit" runat="server" Text="แก้ไข" class="btn btn-warning fa fa-edit" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
                                                 <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="Delete" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>

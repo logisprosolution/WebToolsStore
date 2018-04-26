@@ -84,7 +84,7 @@ namespace WebToolsStore
             LoadExHelper loadEx = new LoadExHelper();
             txt_header_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
             loadEx.LoadPaymentType(ref ddl_payment, 1, Enumerator.ConditionLoadEx.Else);
-            loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.Else);
+            //loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.Else);
             loadEx.LoadCustomer(ref ddl_customer, Enumerator.ConditionLoadEx.All);
             //loadEx.LoadHeaderStatus(ref ddl_header_status, ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString()), Enumerator.ConditionLoadEx.All);
             txt_header_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -97,6 +97,10 @@ namespace WebToolsStore
             {
                 BindControl(dataId);
                 txt_header_code.ReadOnly = true;
+            }
+            else
+            {
+                txt_header_code.Text = "SC" + DateTime.Now.ToString("yyyyMMdd") + "-" + biz.SelectMaxID(ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString()));
             }
             BindGridIngredient(dataId);
             BindGrid(dataId);
@@ -201,7 +205,8 @@ namespace WebToolsStore
                         txt_header_code.Text = ConvertHelper.InitialValueDB(row, "header_code");
                         txt_header_date.Text = ConvertHelper.InitialValueDB(row, "header_date");
                         ddl_customer.SelectedValue = ConvertHelper.InitialValueDB(row, "header_customer_id");
-                        ddl_type_vat.SelectedValue = ConvertHelper.InitialValueDB(row, "vat_id");
+                        txt_header_ref.Text = ConvertHelper.InitialValueDB(row, "header_ref_code");
+                        //ddl_type_vat.SelectedValue = ConvertHelper.InitialValueDB(row, "vat_id");
                         ddl_payment.SelectedValue = ConvertHelper.InitialValueDB(row, "payment_id");
                         ddl_header_status.SelectedValue = ConvertHelper.InitialValueDB(row, "header_status");
                         txt_payment_date.Text = ConvertHelper.InitialValueDB(row, "payment_date");
@@ -218,6 +223,7 @@ namespace WebToolsStore
                     }
                     else
                     {
+                        txt_header_ref.Text = ConvertHelper.InitialValueDB(row, "header_code");
                         ddl_customer.SelectedValue = ConvertHelper.InitialValueDB(row, "header_customer_id");
                         txt_header_address.Text = ConvertHelper.InitialValueDB(row, "header_address");
                         lbl_deposit.Text = "***หักส่วนลดค่ามัดจำ " + ConvertHelper.InitialValueDB(row, "header_deposit") + " บาท";
@@ -434,7 +440,7 @@ namespace WebToolsStore
                 model.Doc_Header.header_date = ConvertHelper.ToDateTime(txt_header_date.Text, ConfigurationInfo.FORMATE_DATE_DISPLAY, ConfigurationInfo.CULTUREINFO_DISPLAY);
                 model.Doc_Header.header_customer_id = ConvertHelper.ToInt(ddl_customer.SelectedValue);
                 model.Doc_Header.header_customer_name = ddl_customer.SelectedItem.Text;
-                model.Doc_Header.vat_id = ConvertHelper.ToInt(ddl_type_vat.SelectedValue);
+                //model.Doc_Header.vat_id = ConvertHelper.ToInt(ddl_type_vat.SelectedValue);
                 model.Doc_Header.payment_id = ConvertHelper.ToInt(ddl_payment.SelectedValue);
                 model.Doc_Header.payment_date = ConvertHelper.ToDateTime(txt_payment_date.Text, ConfigurationInfo.FORMATE_DATE_DISPLAY, ConfigurationInfo.CULTUREINFO_DISPLAY);
                 model.Doc_Header.is_del = false;
@@ -666,17 +672,17 @@ namespace WebToolsStore
         }
         protected void ddl_type_vat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddl_type_vat.SelectedIndex == 1 || ddl_type_vat.SelectedIndex == 2)
-            {
-                ddl_vat.SelectedIndex = 0;
-                //ddl_vat.Enabled = false;
-                ddl_vat.Attributes.Add("disabled", "disabled");
-                txt_vat.Text = "0.00";
-            }
-            else
-            {
-                ddl_vat.Attributes.Remove("disabled");
-            }
+            //if (ddl_type_vat.SelectedIndex == 1 || ddl_type_vat.SelectedIndex == 2)
+            //{
+            //    ddl_vat.SelectedIndex = 0;
+            //    //ddl_vat.Enabled = false;
+            //    ddl_vat.Attributes.Add("disabled", "disabled");
+            //    txt_vat.Text = "0.00";
+            //}
+            //else
+            //{
+            //    ddl_vat.Attributes.Remove("disabled");
+            //}
         }
         protected void dgv1_RowDataBound(object sender, GridViewRowEventArgs e)
         {

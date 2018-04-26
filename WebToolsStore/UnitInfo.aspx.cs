@@ -28,7 +28,7 @@ namespace WebToolsStore
             }
             else
             {
-                txt_unit_code.Text = biz.SelectMaxID();
+                txt_unit_code.Text = "Unit" + biz.SelectMaxID();
             }
         }
 

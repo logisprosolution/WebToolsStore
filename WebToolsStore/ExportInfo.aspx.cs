@@ -91,6 +91,10 @@ namespace WebToolsStore
                 BindControl();
                 txt_header_code.ReadOnly = true;
             }
+            else
+            {
+                txt_header_code.Text = "OU" + DateTime.Now.ToString("yyyyMMdd") + "-" + biz.SelectMaxID(ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_OT"].ToString()));
+            }
             BindGridIngredient();
             BindGrid();
         }

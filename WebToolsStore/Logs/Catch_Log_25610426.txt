@@ -1,0 +1,196 @@
+
+Log Entry : 0:14:46 26 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 0:15:38 26 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 2:04:17 26 เมษายน 2561
+  :
+Exception Message:The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_MAS_Warehouse". The conflict occurred in database "WebToolsStore", table "dbo.MAS_Warehouse", column 'warehouse_id'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 2:22:23 26 เมษายน 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_DOC_Header". The conflict occurred in database "WebToolsStore", table "dbo.DOC_Header", column 'header_id'.
+Cannot insert the value NULL into column 'detail_id', table 'WebToolsStore.dbo.DOC_Product_Move'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 2:22:33 26 เมษายน 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_DOC_Header". The conflict occurred in database "WebToolsStore", table "dbo.DOC_Header", column 'header_id'.
+Cannot insert the value NULL into column 'detail_id', table 'WebToolsStore.dbo.DOC_Product_Move'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 2:22:45 26 เมษายน 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_DOC_Header". The conflict occurred in database "WebToolsStore", table "dbo.DOC_Header", column 'header_id'.
+Cannot insert the value NULL into column 'detail_id', table 'WebToolsStore.dbo.DOC_Product_Move'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 2:24:02 26 เมษายน 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_DOC_Header". The conflict occurred in database "WebToolsStore", table "dbo.DOC_Header", column 'header_id'.
+Cannot insert the value NULL into column 'detail_id', table 'WebToolsStore.dbo.DOC_Product_Move'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 2:24:52 26 เมษายน 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_DOC_Header". The conflict occurred in database "WebToolsStore", table "dbo.DOC_Header", column 'header_id'.
+Cannot insert the value NULL into column 'detail_id', table 'WebToolsStore.dbo.DOC_Product_Move'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 2:28:29 26 เมษายน 2561
+  :
+Exception Message:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_DOC_Detail_DOC_Header". The conflict occurred in database "WebToolsStore", table "dbo.DOC_Header", column 'header_id'.
+Cannot insert the value NULL into column 'detail_id', table 'WebToolsStore.dbo.DOC_Product_Move'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 2:30:03 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 2:53:05 26 เมษายน 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 2:53:12 26 เมษายน 2561
+  :
+Exception Message:Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+-------------------------------
+
+Log Entry : 3:22:48 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 3:24:37 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 3:26:19 26 เมษายน 2561
+  :
+Exception Message:Procedure or function udp_CheckStock has too many arguments specified.
+-------------------------------
+
+Log Entry : 3:26:27 26 เมษายน 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 3:29:42 26 เมษายน 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 3:30:10 26 เมษายน 2561
+  :
+Exception Message:Transaction object not create.
+-------------------------------
+
+Log Entry : 3:31:38 26 เมษายน 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 3:33:35 26 เมษายน 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 3:34:59 26 เมษายน 2561
+  :
+Exception Message:Cannot find table 0.
+-------------------------------
+
+Log Entry : 4:41:31 26 เมษายน 2561
+  :
+Exception Message:Procedure or function udp_DOC_Order_Move_ups has too many arguments specified.
+-------------------------------
+
+Log Entry : 4:42:33 26 เมษายน 2561
+  :
+Exception Message:Procedure or function udp_DOC_Order_Move_ups has too many arguments specified.
+-------------------------------
+
+Log Entry : 4:52:41 26 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 4:54:53 26 เมษายน 2561
+  :
+Exception Message:Procedure or function 'udp_DOC_Order_Move_ups' expects parameter '@header_id', which was not supplied.
+-------------------------------
+
+Log Entry : 5:02:12 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:04:33 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:06:56 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:13:18 26 เมษายน 2561
+  :
+Exception Message:Operand type clash: nvarchar is incompatible with image
+-------------------------------
+
+Log Entry : 5:17:08 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 5:39:38 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 8:53:03 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------
+
+Log Entry : 9:16:43 26 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 9:16:55 26 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 9:27:15 26 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------

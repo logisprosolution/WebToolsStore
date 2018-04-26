@@ -153,6 +153,10 @@ namespace WebToolsStore
                 BindControl(dataId);
                 txt_header_code.ReadOnly = true;
             }
+            else
+            {
+                txt_header_code.Text = "RE" + DateTime.Now.ToString("yyyyMMdd") + "-" + biz.SelectMaxID(ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_RE"].ToString()));
+            }
             BindGridIngredient(dataId);
             BindGrid(dataId, ConvertHelper.ToInt(ConfigurationManager.AppSettings["DetailStatusID_IN"].ToString()));
             BindGridIngredientRE();

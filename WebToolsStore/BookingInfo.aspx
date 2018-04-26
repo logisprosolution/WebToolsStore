@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout/Layout.Master" AutoEventWireup="true" CodeBehind="OrderInfo.aspx.cs" Inherits="WebToolsStore.OrderInfo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout/Layout.Master" AutoEventWireup="true" CodeBehind="BookingInfo.aspx.cs" Inherits="WebToolsStore.BookingInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
@@ -14,10 +14,10 @@
         function makeMoney(e, source) {
             //debugger
             //if (e.keyCode === 13) {
-            e.preventDefault(); // Ensure it is only this code that rusn
-            var money = parseFloat(source.value, 10).toFixed(2);
-            //Format your value
-            source.value = money.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+                e.preventDefault(); // Ensure it is only this code that rusn
+                var money = parseFloat(source.value, 10).toFixed(2);
+                //Format your value
+                source.value = money.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
             //}
         }
         <%--  function GetCheckedRows(id) {
@@ -83,22 +83,6 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <label class="control-label">
-                                            ชื่อสินค้า
-                           
-                                    <label style="color: red">*</label></label>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <asp:TextBox ID="txt_product" runat="server" type="text" class="form-control" />
-                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_product" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="col-sm-2">
-                                        <label class="control-label">
                                             วันที่สั่ง
                            
                                     <label style="color: red">*</label></label>
@@ -111,6 +95,21 @@
                                             </div>
                                         </div>
                                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_date" Display="Dynamic" ErrorMessage="กรุณาเลือกวันที่" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-2">
+                                        <label class="control-label">
+                                            ลูกค้า
+                                            <label style="color: red">*</label></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <asp:DropDownList ID="ddl_customer" runat="server" AutoPostBack="True" class="form-control" OnSelectedIndexChanged="ddl_customer_SelectedIndexChanged" />
+                                        <asp:RequiredFieldValidator ID="RequiredCustomer" EnableClientScript="true" InitialValue="0" runat="server" ControlToValidate="ddl_customer" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-sm-2">
                                         <label class="control-label">
@@ -135,15 +134,6 @@
                                 <div class="col-sm-12">
                                     <div class="col-sm-2">
                                         <label class="control-label">
-                                            ลูกค้า
-                                            <label style="color: red">*</label></label>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <asp:DropDownList ID="ddl_customer" runat="server" AutoPostBack="True" class="form-control" OnSelectedIndexChanged="ddl_customer_SelectedIndexChanged" />
-                                        <asp:RequiredFieldValidator ID="RequiredCustomer" EnableClientScript="true" InitialValue="0" runat="server" ControlToValidate="ddl_customer" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <label class="control-label">
                                             ค่ามัดจำ
                                             <label style="color: red">*</label></label>
                                     </div>
@@ -151,7 +141,7 @@
                                         <asp:TextBox ID="txt_deposit" runat="server" Text="0.00" class="form-control" onblur='makeMoney(event,this);' />
                                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_deposit" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                     </div>
-                                    <%--   <div class="col-sm-2">
+                                    <div class="col-sm-2">
                                         <label class="control-label">
                                             สถานะเอกสาร
                                             <label style="color: red">*</label></label>
@@ -161,8 +151,8 @@
                                             <asp:ListItem Text="อยู่ระหว่างดำเนินการ" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="รอขาย" Value="6"></asp:ListItem>
                                         </asp:DropDownList>
-                                        <%--<asp:RequiredFieldValidator ID="RequiredStatus" InitialValue="0" runat="server" ControlToValidate="ddl_header_status" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                    </div>--%>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredStatus" InitialValue="0" runat="server" ControlToValidate="ddl_header_status" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +176,7 @@
                                     AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="detail_id,product_price_id"
                                     ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting">
                                     <Columns>
-                                        <%-- <asp:TemplateField>
+                                        <asp:TemplateField>
                                             <ItemTemplate>
                                                 <img alt="" style="cursor: pointer" src="images/plus.png" />
                                                 <asp:Panel ID="pnlOrders" runat="server" Style="display: none">
@@ -202,17 +192,25 @@
                                                             <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
                                                                 <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                                             </asp:BoundField>
+                                                            <%--<asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_qty" HeaderText="จำนวน">
+                                                                        <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                                                    </asp:BoundField>--%>
                                                             <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
                                                                     <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
                                                                     </asp:TextBox>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
+                                                            <%-- <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                                                                        <ItemTemplate>
+                                                                            <asp:CheckBox runat="server" onclick='<%# "GetCheckedRows(" +  Eval("ingredient_id") + ");" %>' ID="chk_is_enabled" name='<%# Eval("ingredient_id") %>' Checked='<%# Eval("is_enabled") %>'></asp:CheckBox>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>--%>
                                                         </Columns>
                                                     </asp:GridView>
                                                 </asp:Panel>
                                             </ItemTemplate>
-                                        </asp:TemplateField>--%>
+                                        </asp:TemplateField>
                                         <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_price_code" HeaderText="รหัสสินค้า">
                                             <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:BoundField>
@@ -241,10 +239,6 @@
                                                 <asp:LinkButton Visible="false" ID="btnGridEdit" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
                                                 <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CausesValidation="False" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>
-<%--                                            <FooterTemplate>
-                                                <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
-                                            </FooterTemplate>
-                                            <FooterStyle HorizontalAlign="Right" />--%>
                                         </asp:TemplateField>
                                     </Columns>
                                     <SelectedRowStyle CssClass="selectedRowStyle" BackColor="LightCyan" ForeColor="DarkBlue"

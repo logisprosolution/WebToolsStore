@@ -5,18 +5,13 @@
         function CloseDialog() {
             debugger
             var num = $("#<%=txtNumber.ClientID %>").val();
-            var price = $("#<%=ddlprice.ClientID %>").val();
-            var index = $("#<%=ddlprice.ClientID %> option:selected").index() + 1;
+            var price = $("#<%=txtPrice.ClientID %>").val();
+            var index = $("#<%=ddlprice.ClientID %> option:selected").index();
             var returnValue = num + '*' + index + '*' + price + '*' + $("#<%=hdfValue.ClientID %>").val();
             var is_stock = $("#<%=is_stock.ClientID %>").val();
-            if (returnValue == '' || returnValue == null || returnValue == num + '*' + null + '*') {
-                //if (is_stock == '1') {
-                //    alert('จำนวนสินค้าไม่พอ กรุณาเลือกสินค้าใหม่');
-                //    return false;
-                //} else {
+            if (returnValue == '' || returnValue == null || index == '0') {
                 alert('กรุณาเลือกราคา');
                 return false;
-                //}
             }
 
             try {
@@ -31,6 +26,7 @@
             return false;
         }
     </script>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:HiddenField ID="hdfValue" runat="server" />
     <asp:HiddenField ID="is_stock" runat="server" />
     <h4 class="box-title">ค้นหาสินค้า</h4>
@@ -151,6 +147,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderStyle-CssClass="hidden" ItemStyle-CssClass="hidden">
                                     <ItemTemplate>
+                                        <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("product_id") %>' />
                                         <asp:HiddenField ID="hdfProduct_price_id" runat="server" Value='<%# Eval("product_price_id") %>' />
                                         <asp:HiddenField ID="hdfPrice" runat="server" Value='<%# Eval("price_Cash") %>' />
                                         <asp:HiddenField ID="hdfUnit" runat="server" Value='<%# Eval("unit_value") %>' />
@@ -169,8 +166,10 @@
     </div>
     <%--<div class="navbar-fixed-bottom">--%>
     <%--<footer>--%>
-        <%--<div class="">--%>
-        <%--<div class="form-group">--%>
+    <%--<div class="">--%>
+    <%--<div class="form-group">--%>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
             <div class="row">
                 <div class="col-md-12">
                     <div class="box-footer navbar-fixed-bottom">
@@ -180,20 +179,25 @@
                         <div class="col-sm-1 text-center">
                             <asp:Label Text="ราคา" runat="server" />
                         </div>
-                        <div class="col-sm-3">
-                            <asp:DropDownList class="form-control" ID="ddlprice" runat="server" />
+                        <div class="col-sm-2">
+                            <asp:DropDownList class="form-control" ID="ddlprice" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlprice_SelectedIndexChanged" />
+                        </div>
+                        <div class="col-sm-2">
+                            <asp:TextBox class="form-control" ID="txtPrice" ReadOnly="true" Text="0.00" TextMode="Number" runat="server" MaxLength="50" />
                         </div>
                         <div class="col-sm-1 text-center">
                             <asp:Label Text="จำนวน" runat="server" />
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <asp:TextBox class="form-control" ID="txtNumber" Text="1" TextMode="Number" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
                         </div>
                     </div>
                 </div>
             </div>
-        <%--</div>--%>
-        <%--</div>--%>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <%--</div>--%>
+    <%--</div>--%>
     <%--</footer>--%>
     <%--</div>--%>
 </asp:Content>

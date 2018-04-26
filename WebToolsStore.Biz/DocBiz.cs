@@ -30,7 +30,11 @@ namespace WebToolsStore.Biz
                 return false;
             }
         }
-
+        public string SelectMaxID(int id)
+        {
+            DataTable dt = base.SelectByIdTable(id, "SelectMaxID");
+            return dt.Rows[0]["maxID"].ToString();
+        }
         public DataTable SelectInfo(int id)
         {
             return base.SelectByIdTable(id, SELECT_INFO);
@@ -40,7 +44,7 @@ namespace WebToolsStore.Biz
         {
             return base.SelectByIdTable(id, SELECT_DETAIL);
         }
-        
+       
         public DataTable SelectDetailIngredient(int id)
         {
             return base.SelectByIdTable(id, "SelectDetailIngredient");
@@ -90,9 +94,16 @@ namespace WebToolsStore.Biz
             {
                 result = base.InsertData(model, condition, isNewMode);
             }
+            else if (condition == "draw")
+            {
+                result = base.InsertData(model, "draw", false);
+            }
+            else if (condition == "done")
+            {
+                result = base.InsertData(model, "done", false);
+            }
             return result;
         }
-
         public int DeleteData(int id, string user, string condition)
         {
             int result = -1;
@@ -108,6 +119,19 @@ namespace WebToolsStore.Biz
             if (condition == base.DELETE_DETAIL)
             {
                 result = base.DeleteData(id, user, condition);
+            }
+            return result;
+        }
+        public int UpdateStatus(DocModel model, string condition, bool isNewMode)
+        {
+            int result = -1;
+            if (condition == "draw")
+            {
+                result = base.InsertData(model, "draw", false);
+            }
+            if (condition == "done")
+            {
+                result = base.InsertData(model, "done", false);
             }
             return result;
         }
@@ -130,6 +154,12 @@ namespace WebToolsStore.Biz
                 SqlCommand cmd = CreateCommand("udp_DOC_Header_sel", System.Data.CommandType.StoredProcedure);
                 cmd.Parameters.Add(CreateParameter("header_id", id));
                 LoadData(cmd, ds, SELECT_INFO);
+            }
+            else if (condition == "SelectMaxID")
+            {
+                SqlCommand cmd = CreateCommand("udp_MaxID_Header", System.Data.CommandType.StoredProcedure);
+                cmd.Parameters.Add(CreateParameter("subDocTypeID", id));
+                LoadData(cmd, ds, "SelectMaxID");
             }
             else if (condition == SELECT_DETAIL)
             {
@@ -194,6 +224,7 @@ namespace WebToolsStore.Biz
                 cmd.Parameters.Add(CreateParameter("product_id", id));
                 LoadData(cmd, ds, condition);
             }
+            
         }
 
         protected override int DoInsertData(DocModel model, string condition, bool isNewMode)
@@ -204,7 +235,7 @@ namespace WebToolsStore.Biz
                 if (model != null)
                 {
                     SqlCommand cmd = CreateTransactionCommand(System.Data.CommandType.StoredProcedure, "udp_DOC_Header_ups");
-                    if (isNewMode)
+                    if (model.Doc_Header.header_id <= 0)
                     {
                         cmd.Parameters.Add(CreateParameter("header_id", 0, ParameterDirection.Output));
                     }
@@ -407,6 +438,28 @@ namespace WebToolsStore.Biz
 
                 }
             }
+            else if (condition == "draw")
+            {
+                SqlCommand cmd = CreateTransactionCommand(System.Data.CommandType.StoredProcedure, "udp_UpdateStatus");
+                cmd.Parameters.Add(CreateParameter("header_id", model.Doc_Header.header_id));
+                cmd.Parameters.Add(CreateParameter("header_status", model.Doc_Header.header_status));
+                cmd.ExecuteNonQuery();
+
+                //store move
+                SqlCommand cmd1 = CreateTransactionCommand(System.Data.CommandType.StoredProcedure, "udp_DOC_Order_Move_ups");
+                cmd1.Parameters.Add(CreateParameter("header_id", model.Doc_Header.header_id));
+                cmd1.ExecuteNonQuery();
+                value = 1;
+            }
+            else if (condition == "done")
+            {
+                SqlCommand cmd = CreateTransactionCommand(System.Data.CommandType.StoredProcedure, "udp_UpdateStatus");
+                cmd.Parameters.Add(CreateParameter("header_id", model.Doc_Header.header_id));
+                cmd.Parameters.Add(CreateParameter("header_status", model.Doc_Header.header_status));
+                cmd.ExecuteNonQuery();
+
+                value = 1;
+            }
             return value;
         }
 
@@ -425,10 +478,10 @@ namespace WebToolsStore.Biz
                 cmd.Parameters.Add(CreateParameter("header_id", id));
                 result = cmd.ExecuteNonQuery();
             }
+           
 
             return result;
         }
-
         #endregion Override Methods
     }
 }

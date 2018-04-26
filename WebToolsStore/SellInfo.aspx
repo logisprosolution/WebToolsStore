@@ -57,28 +57,22 @@
                                 <label class="control-label">เลขที่เอกสาร<label style="color: red">*</label></label>
                             </div>
                             <div class="col-sm-4">
-                                <div class="input-group margin" style="margin: 0px;">
-                                    <asp:TextBox ID="txt_header_code" runat="server" type="text" class="form-control" />
-                                    <div class="input-group-btn">
-                                        <asp:LinkButton runat="server" ID="btnOpenDocPopup" ToolTip="นำเข้าจาก" OnClientClick="javascript:ShowDocDialog(); return false;" class="btn btn-info btn-flat">นำเข้าจาก<i class="fa fa-ellipsis-h" aria-hidden="true" ></i></asp:LinkButton>
-                                        <asp:Button ID="btnAddDocHidden" runat="server" type="btnAddDocHidden" CssClass="hidden" OnClick="btnAddDocHidden_Click" CausesValidation="False" />
-                                    </div>
-                                </div>
+                                <asp:TextBox ID="txt_header_code" runat="server" type="text" class="form-control" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_code" Display="Dynamic" ErrorMessage="กรุณากรอกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col-sm-2">
-                                <label class="control-label">
-                                    วันที่ขาย
-                            <label style="color: red">*</label></label>
+                                <label class="control-label">เลขที่เอกสารอ้างอิง<label style="color: red">*</label></label>
                             </div>
                             <div class="col-sm-4">
-                                <div class="input-group date" data-provide="datepicker" data-date-language="th">
-                                    <asp:TextBox ID="txt_header_date" runat="server" type="text" class="form-control" />
-                                    <div class="input-group-addon">
-                                        <span class="glyphicon glyphicon-th"></span>
+                                <div class="input-group margin" style="margin: 0px;">
+                                    <asp:TextBox ID="txt_header_ref" ReadOnly="true" runat="server" type="text" class="form-control" />
+                                    <div class="input-group-btn">
+                                        <div class="input-group-btn">
+                                            <asp:LinkButton runat="server" ID="btnOpenDocPopup" ToolTip="นำเข้าจาก" OnClientClick="javascript:ShowDocDialog(); return false;" class="btn btn-info btn-flat">นำเข้าจาก<i class="fa fa-ellipsis-h" aria-hidden="true" ></i></asp:LinkButton>
+                                            <asp:Button ID="btnAddDocHidden" runat="server" type="btnAddDocHidden" CssClass="hidden" OnClick="btnAddDocHidden_Click" CausesValidation="False" />
+                                        </div>
                                     </div>
                                 </div>
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_date" Display="Dynamic" ErrorMessage="กรุณาเลือกวันที่" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                     </div>
@@ -99,13 +93,27 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <label class="control-label">
+                                            วันที่ขาย
+                            <label style="color: red">*</label></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="input-group date" data-provide="datepicker" data-date-language="th">
+                                            <asp:TextBox ID="txt_header_date" runat="server" type="text" class="form-control" />
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
+                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_date" Display="Dynamic" ErrorMessage="กรุณาเลือกวันที่" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <%--<div class="col-sm-2">
+                                        <label class="control-label">
                                             ประเภทภาษี
                             <label style="color: red">*</label></label>
                                     </div>
                                     <div class="col-sm-4">
                                         <asp:DropDownList ID="ddl_type_vat" runat="server" class="form-control"></asp:DropDownList>
                                         <asp:RequiredFieldValidator InitialValue="0" runat="server" ControlToValidate="ddl_type_vat" Display="Dynamic" ErrorMessage="กรุณาเลือกข้อมูล" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                    </div>
+                                    </div>--%>
                                 </div>
                             </div>
                         </div>

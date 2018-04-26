@@ -47,3 +47,31 @@ title:page:Transfer
 function:SelectProduct
 message:ไม่พบสินค้า
 -------------------------------
+
+Log Entry : 21:59:37 25 เมษายน 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------
+
+Log Entry : 22:00:54 25 เมษายน 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------
+
+Log Entry : 22:01:53 25 เมษายน 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------
+
+Log Entry : 22:03:24 25 เมษายน 2561
+  :
+title:page:Transfer
+function:SelectProduct
+message:ไม่พบสินค้า
+-------------------------------

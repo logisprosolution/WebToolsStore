@@ -67,6 +67,15 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.TextBox txt_header_code;
         
         /// <summary>
+        /// txt_product control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_product;
+        
+        /// <summary>
         /// txt_header_date control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_header_date;
+        
+        /// <summary>
+        /// txt_PaymentDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_PaymentDate;
         
         /// <summary>
         /// ddl_customer control.
@@ -94,15 +112,6 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredCustomer;
         
         /// <summary>
-        /// txt_PaymentDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_PaymentDate;
-        
-        /// <summary>
         /// txt_deposit control.
         /// </summary>
         /// <remarks>
@@ -110,15 +119,6 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_deposit;
-        
-        /// <summary>
-        /// ddl_header_status control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_header_status;
         
         /// <summary>
         /// btnOpenPopup control.

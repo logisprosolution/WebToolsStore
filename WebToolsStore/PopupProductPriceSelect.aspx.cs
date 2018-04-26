@@ -22,11 +22,16 @@ namespace WebToolsStore
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
             loadEx.LoadCategories(ref ddlCategoryID, Enumerator.ConditionLoadEx.All);
             loadEx.LoadSubcategoriesById(ref ddlSubCategoryID, 0, Enumerator.ConditionLoadEx.All);
+            loadEx.LoadPaymentType(ref ddlprice, 0, Enumerator.ConditionLoadEx.NewRowEmpty);
         }
 
         protected override void DoLoadData()
         {
             BindGridProduct();
+            if (txtPrice.Text != "0.00")
+            {
+                txtPrice.ReadOnly = false;
+            }
         }
 
         private void BindGridProduct()//โหลดตาราง
@@ -34,7 +39,7 @@ namespace WebToolsStore
             string searchText = txtSearch.Text;
             int categoryID = ConvertHelper.ToInt(ddlCategoryID.SelectedValue);
             int subCategoryID = ConvertHelper.ToInt(ddlSubCategoryID.SelectedValue);
-            dgv1.DataSource = biz.SelectProduct(0,searchText, categoryID, subCategoryID, 0);
+            dgv1.DataSource = biz.SelectProduct(0, searchText, categoryID, subCategoryID, 0);
             dgv1.DataBind();
         }
 
@@ -64,24 +69,35 @@ namespace WebToolsStore
             //load goods price
             BindGridPrice(id);
             subtitle.Style.Add("display", "block");
-            ddlprice.Items.Clear();
+            loadEx.LoadPaymentType(ref ddlprice, 0, Enumerator.ConditionLoadEx.NewRowEmpty);
+            txtPrice.Text = "0.00";
         }
 
         protected void dgv2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ddlprice.Items.Clear();
+            txtPrice.Text = "0.00";
             int index = dgv2.SelectedRow.RowIndex;
             GridViewRow row = dgv2.Rows[index];
             int product_price_id = ConvertHelper.ToInt(((HiddenField)row.FindControl("hdfproduct_price_id")).Value);
+            int product_id = ConvertHelper.ToInt(((HiddenField)row.FindControl("hdfID")).Value);
             //int price = ConvertHelper.ToInt(((HiddenField)row.FindControl("hdfprice")).Value);
             int unit_valuue = ConvertHelper.ToInt(((HiddenField)row.FindControl("hdfunit")).Value);
             int stock = ConvertHelper.ToInt(((Label)row.FindControl("lblstock")).Text);
+            loadEx.LoadPaymentType(ref ddlprice, 0, Enumerator.ConditionLoadEx.All);
 
-            List<ListItem> items = new List<ListItem>();
-            items.Add(new ListItem(dgv2.HeaderRow.Cells[5].Text + " " + row.Cells[5].Text, row.Cells[5].Text));
-            items.Add(new ListItem(dgv2.HeaderRow.Cells[6].Text + " " + row.Cells[6].Text, row.Cells[6].Text));
-            items.Add(new ListItem(dgv2.HeaderRow.Cells[7].Text + " " + row.Cells[7].Text, row.Cells[7].Text));
-            ddlprice.Items.AddRange(items.ToArray());
+            if (product_price_id == 17)
+            {
+                txtPrice.ReadOnly = false;
+            }
+            else
+            {
+                txtPrice.ReadOnly = true;
+            }
+            //List<ListItem> items = new List<ListItem>();
+            //items.Add(new ListItem(dgv2.HeaderRow.Cells[5].Text + " " + row.Cells[5].Text, row.Cells[5].Text));
+            //items.Add(new ListItem(dgv2.HeaderRow.Cells[6].Text + " " + row.Cells[6].Text, row.Cells[6].Text));
+            //items.Add(new ListItem(dgv2.HeaderRow.Cells[7].Text + " " + row.Cells[7].Text, row.Cells[7].Text));
+            //ddlprice.Items.AddRange(items.ToArray());
             if (base.dataId == ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_SaleCredit"].ToString()))
             {
                 ddlprice.SelectedIndex = 1;
@@ -100,7 +116,24 @@ namespace WebToolsStore
                 hdfValue.Value = product_price_id + "*" + unit_valuue;
             }
         }
-
+        protected void ddlprice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtPrice.Text = "0.00";
+            int index = dgv2.SelectedRow.RowIndex;
+            GridViewRow row = dgv2.Rows[index];
+            if (ddlprice.SelectedIndex == 1)
+            {
+                txtPrice.Text = row.Cells[5].Text;
+            }
+            else if (ddlprice.SelectedIndex == 2)
+            {
+                txtPrice.Text = row.Cells[6].Text;
+            }
+            else if (ddlprice.SelectedIndex == 3)
+            {
+                txtPrice.Text = row.Cells[7].Text;
+            }
+        }
         protected void ddlCategoryID_SelectedIndexChanged(object sender, EventArgs e)
         {
             ddlSubCategoryID.SelectedIndex = -1;

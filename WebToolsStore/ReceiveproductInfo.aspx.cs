@@ -93,6 +93,10 @@ namespace WebToolsStore
                 BindControl(dataId);
                 txt_header_code.ReadOnly = true;
             }
+            else
+            {
+                txt_header_code.Text = "IN" + DateTime.Now.ToString("yyyyMMdd") + "-" + biz.SelectMaxID(ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_InFromBuy"].ToString()));
+            }
             BindGridIngredient(dataId);
             BindGrid(dataId);
         }

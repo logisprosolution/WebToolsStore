@@ -83,7 +83,7 @@ namespace WebToolsStore
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
             LoadExHelper loadEx = new LoadExHelper();
             loadEx.LoadPaymentType(ref ddl_payment, 2, Enumerator.ConditionLoadEx.Else);
-            loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.Else);
+            //loadEx.LoadVatType(ref ddl_type_vat, Enumerator.ConditionLoadEx.Else);
             loadEx.LoadCustomer(ref ddl_customer, Enumerator.ConditionLoadEx.All);
             txt_header_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
@@ -94,6 +94,10 @@ namespace WebToolsStore
             {
                 BindControl(dataId);
                 txt_header_code.ReadOnly = true;
+            }
+            else
+            {
+                txt_header_code.Text = "SO" + DateTime.Now.ToString("yyyyMMdd") + "-" + biz.SelectMaxID(ConvertHelper.ToInt(ConfigurationManager.AppSettings["SubDocTypeID_Sale"].ToString()));
             }
             BindGridIngredient(dataId);
             BindGrid(dataId);
@@ -220,7 +224,8 @@ namespace WebToolsStore
                         txt_header_code.Text = ConvertHelper.InitialValueDB(row, "header_code");
                         txt_header_date.Text = ConvertHelper.InitialValueDB(row, "header_date");
                         ddl_customer.SelectedValue = ConvertHelper.InitialValueDB(row, "header_customer_id");
-                        ddl_type_vat.SelectedValue = ConvertHelper.InitialValueDB(row, "vat_id");
+                        txt_header_ref.Text = ConvertHelper.InitialValueDB(row, "header_ref_code");
+                        //ddl_type_vat.SelectedValue = ConvertHelper.InitialValueDB(row, "vat_id");
                         ddl_payment.SelectedValue = ConvertHelper.InitialValueDB(row, "payment_id");
                         txt_remark.Text = ConvertHelper.InitialValueDB(row, "header_remark");
                         txt_header_address.Text = ConvertHelper.InitialValueDB(row, "header_address");
@@ -235,6 +240,7 @@ namespace WebToolsStore
                     }
                     else
                     {
+                        txt_header_ref.Text = ConvertHelper.InitialValueDB(row, "header_code");
                         ddl_customer.SelectedValue = ConvertHelper.InitialValueDB(row, "header_customer_id");
                         txt_header_address.Text = ConvertHelper.InitialValueDB(row, "header_address");
                         lbl_deposit.Text = "***ค่ามัดจำ " + ConvertHelper.InitialValueDB(row, "header_deposit") + " บาท";
@@ -452,7 +458,7 @@ namespace WebToolsStore
                 model.Doc_Header.header_date = ConvertHelper.ToDateTime(txt_header_date.Text, ConfigurationInfo.FORMATE_DATE_DISPLAY, ConfigurationInfo.CULTUREINFO_DISPLAY);
                 model.Doc_Header.header_customer_id = ConvertHelper.ToInt(ddl_customer.SelectedValue);
                 model.Doc_Header.header_customer_name = ddl_customer.SelectedItem.Text;
-                model.Doc_Header.vat_id = ConvertHelper.ToInt(ddl_type_vat.SelectedValue);
+                //model.Doc_Header.vat_id = ConvertHelper.ToInt(ddl_type_vat.SelectedValue);
                 model.Doc_Header.payment_id = ConvertHelper.ToInt(ddl_payment.SelectedValue);
                 model.Doc_Header.is_del = false;
                 model.Doc_Header.is_enabled = true;

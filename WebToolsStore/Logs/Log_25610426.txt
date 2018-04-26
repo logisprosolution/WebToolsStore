@@ -1,0 +1,42 @@
+
+Log Entry : 5:39:38 26 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :17 header_id: -1
+-------------------------------
+
+Log Entry : 8:53:02 26 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :17 header_id: -1
+-------------------------------
+
+Log Entry : 8:54:16 26 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :17 header_id: -1
+-------------------------------
+
+Log Entry : 8:55:14 26 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :17 header_id: -1
+-------------------------------
+
+Log Entry : 8:56:19 26 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :17 header_id: -1
+-------------------------------
+
+Log Entry : 9:27:14 26 เมษายน 2561
+  :
+title:page:SellInfo
+function:SaveInfo
+message:User :17 header_id: -1
+-------------------------------

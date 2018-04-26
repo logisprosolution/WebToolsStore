@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="box-header">
-                            <h3 class="box-title">รายการสั่งซื้อสินค้า</h3>
+                            <h3 class="box-title">รายการรับเข้าสินค้า</h3>
                             <div class="pull-right box-tools">
                                 <asp:LinkButton runat="server" ID="btnAdd" class="btn btn-primary" OnClick="btnAdd_Click"> เพิ่ม <i class="fa fa-plus" aria-hidden="true"></i></asp:LinkButton>
                             </div>

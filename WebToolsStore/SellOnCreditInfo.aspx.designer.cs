@@ -49,6 +49,15 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.TextBox txt_header_code;
         
         /// <summary>
+        /// txt_header_ref control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_header_ref;
+        
+        /// <summary>
         /// btnOpenDocPopup control.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddDocHidden;
-        
-        /// <summary>
-        /// txt_header_date control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_header_date;
         
         /// <summary>
         /// UpdatePanel1 control.
@@ -103,22 +103,13 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredCustomer;
         
         /// <summary>
-        /// txt_payment_date control.
+        /// txt_header_date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_payment_date;
-        
-        /// <summary>
-        /// ddl_type_vat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_type_vat;
+        protected global::System.Web.UI.WebControls.TextBox txt_header_date;
         
         /// <summary>
         /// ddl_payment control.
@@ -128,6 +119,15 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_payment;
+        
+        /// <summary>
+        /// txt_payment_date control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_payment_date;
         
         /// <summary>
         /// ddl_header_status control.

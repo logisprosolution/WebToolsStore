@@ -137,6 +137,8 @@
     <Content Include="OrderBuyList.aspx" />
     <Content Include="ExportList.aspx" />
     <Content Include="ExportInfo.aspx" />
+    <Content Include="BookingInfo.aspx" />
+    <Content Include="BookingList.aspx" />
     <Content Include="PopupUserSelect.aspx" />
     <Content Include="PopupProductIngredient.aspx" />
     <Content Include="PopupProductPriceSelect.aspx" />
@@ -212,6 +214,20 @@
     </Compile>
     <Compile Include="ExportInfo.aspx.designer.cs">
       <DependentUpon>ExportInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookingInfo.aspx.cs">
+      <DependentUpon>BookingInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookingInfo.aspx.designer.cs">
+      <DependentUpon>BookingInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookingList.aspx.cs">
+      <DependentUpon>BookingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookingList.aspx.designer.cs">
+      <DependentUpon>BookingList.aspx</DependentUpon>
     </Compile>
     <Compile Include="PopupUserSelect.aspx.cs">
       <DependentUpon>PopupUserSelect.aspx</DependentUpon>

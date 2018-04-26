@@ -30,7 +30,7 @@ namespace WebToolsStore
             }
             else
             {
-                txt_supplier_code.Text = biz.SelectMaxID();
+                txt_supplier_code.Text = "SUP" + biz.SelectMaxID();
             }
         }
 
