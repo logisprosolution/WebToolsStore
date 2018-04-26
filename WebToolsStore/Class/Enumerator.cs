@@ -176,5 +176,21 @@ namespace WebToolsStore
             Update = 2,
             VerifyData = 3,
         }
+
+        public enum SubMenu
+        {
+            Title = 1,
+            Employee = 2,
+            Supplier = 3,
+            Customer = 4,
+            Unit = 5,
+            Categories = 6,
+            Product = 7,
+            Order = 8,
+            Receiveproduct = 9,
+            Sell = 10,
+            SellOnCredit = 11,
+            Change = 12
+        }
     }
 }

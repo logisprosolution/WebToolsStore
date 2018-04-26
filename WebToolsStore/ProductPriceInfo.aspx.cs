@@ -11,6 +11,7 @@ namespace WebToolsStore
     {
         #region Parameter
         ProductPriceBiz biz = new ProductPriceBiz();
+        public USR_Role_Submenu roleMenu;
         LoadExHelper loadEx = new LoadExHelper();
         #endregion Parameter
 
@@ -20,6 +21,8 @@ namespace WebToolsStore
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
             base.dataId2 = ConvertHelper.ToInt(Request.QueryString["dataId2"]);
             loadEx.LoadUnit(ref ddl_unit, Enumerator.ConditionLoadEx.All);
+
+            roleMenu = ApplicationWebInfo.RoleMenuList.Find(x => x.submenu_id == (int)Enumerator.SubMenu.Product);
         }
 
         protected override void DoLoadData()

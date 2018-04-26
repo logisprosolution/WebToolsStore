@@ -91,6 +91,21 @@ namespace WebToolsStore
 
         }
 
+        const string _RoleMenuList = "RoleMenuList";
+        public static List<USR_Role_Submenu> RoleMenuList
+        {
+            get
+            {
+                if (!(HttpContext.Current.Session[_RoleMenuList] is List<USR_Role_Submenu>))
+                {
+                    HttpContext.Current.Session[_RoleMenuList] = new List<USR_Role_Submenu>();
+                }
+
+                return (List<USR_Role_Submenu>)HttpContext.Current.Session[_RoleMenuList];
+            }
+            set { HttpContext.Current.Session[_RoleMenuList] = value; }
+        }
+
         public static int ShopID
         {
             get
