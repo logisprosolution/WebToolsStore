@@ -19,9 +19,15 @@ namespace WebToolsStore
         #endregion Parameter
 
         #region Override Methods
-        protected override void DoPrepareData()
+
+        protected override void OnPreLoad(EventArgs e)
         {
             roleMenu = ApplicationWebInfo.RoleMenuList.Find(x => x.submenu_id == (int)Enumerator.SubMenu.Title);
+        }
+
+        protected override void DoPrepareData()
+        {
+            
         }
 
         protected override void DoLoadData()
@@ -74,7 +80,13 @@ namespace WebToolsStore
                 GridViewRow row = dgv1.Rows[index];
                 string id = ((HiddenField)row.FindControl("hdfID")).Value;
                 row = null;
-                if (e.CommandName == "Edit")
+                if (e.CommandName == "View")
+                {
+                    base.SetBackURL();
+                    string queryString = "view=1";
+                    base.RedirectToPage(typeof(TitleInfo), null, queryString);
+                }
+                else if (e.CommandName == "Edit")
                 {
                     base.SetBackURL();
                     base.RedirectToPage(typeof(TitleInfo), id);

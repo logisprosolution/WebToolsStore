@@ -190,7 +190,8 @@ namespace WebToolsStore
             Receiveproduct = 9,
             Sell = 10,
             SellOnCredit = 11,
-            Change = 12
+            Change = 12,
+            Role = 13
         }
     }
 }

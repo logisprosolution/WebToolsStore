@@ -71,23 +71,23 @@
                                                 <asp:Label ID="lblTotal" runat="server" Text='<%#string.Format("{0:#,###.##}",Eval("is_enabled")) %>'></asp:Label>
                                             </ItemTemplate>
 
-<HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                                            <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderStyle-Width="150px">
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("title_id") %>' />
-                                                <asp:LinkButton ID="btnGridView" runat="server" Text="ดู" class="btn btn-info fa fa-eye" Visible="<%# roleMenu != null ? roleMenu.is_view : false %>" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
+                                                <asp:LinkButton ID="btnGridView" runat="server" Text="ดู" class="btn btn-info fa fa-eye" Visible="<%# roleMenu != null ? roleMenu.is_view : false %>" CommandName="View" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
                                                 <asp:LinkButton ID="btnGridEdit" runat="server" Text="แก้ไข" class="btn btn-warning fa fa-edit" Visible="<%# roleMenu != null ? roleMenu.is_edit : false %>" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
                                                 <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" Visible="<%# roleMenu != null ? roleMenu.is_delete : false %>" CommandName="Delete" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>
 
-<HeaderStyle Width="150px"></HeaderStyle>
+                                            <HeaderStyle Width="150px"></HeaderStyle>
                                         </asp:TemplateField>
                                     </Columns>
                                     <SelectedRowStyle CssClass="selectedRowStyle" BackColor="LightCyan" ForeColor="DarkBlue"
                                         Font-Bold="true" />
 
-<EmptyDataRowStyle HorizontalAlign="Center"></EmptyDataRowStyle>
+                                    <EmptyDataRowStyle HorizontalAlign="Center"></EmptyDataRowStyle>
 
                                     <PagerSettings FirstPageText="Frist Page " LastPageText=" Last Page" Mode="NumericFirstLast"
                                         NextPageText=" Next " PreviousPageText=" Previous " />
