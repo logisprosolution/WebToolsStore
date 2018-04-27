@@ -32,8 +32,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <asp:HiddenField ID="hdfValue" runat="server" />
+    <asp:HiddenField ID="hdfValue" runat="server" />    
+    <asp:HiddenField ID="hdfIgdValue" runat="server" />
     <asp:HiddenField ID="hdfDocValue" runat="server" />
+    <asp:Button ID="btnAddIgdHidden" runat="server" type="btnAddIgdHidden" CssClass="hidden" OnClick="btnAddIgdHidden_Click" CausesValidation="False" />
+
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#receive">รับเข้า</a></li>
         <li><a data-toggle="tab" href="#detail">ข้อมูลเพิ่มเติม</a></li>
@@ -172,7 +175,7 @@
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
                                                 <asp:HiddenField ID="hdfPaytype" runat="server" Value='<%# Eval("PaytypeID") %>' />
-                                                <asp:LinkButton Visible="false" ID="btnGridEdit" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
+                                                <asp:LinkButton ID="btnGridEdit" CausesValidation="false" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" Visible="<%# roleMenu != null ? roleMenu.is_delete : false %>" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
                                                 <asp:LinkButton ID="btnGridDelete" CausesValidation="false" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" Visible="<%# roleMenu != null ? roleMenu.is_delete : false %>" CommandName="Delete" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>
                                         </asp:TemplateField>

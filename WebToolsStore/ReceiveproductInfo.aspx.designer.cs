@@ -31,6 +31,15 @@ namespace WebToolsStore {
         protected global::System.Web.UI.WebControls.HiddenField hdfValue;
         
         /// <summary>
+        /// hdfIgdValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfIgdValue;
+        
+        /// <summary>
         /// hdfDocValue control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace WebToolsStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdfDocValue;
+        
+        /// <summary>
+        /// btnAddIgdHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddIgdHidden;
         
         /// <summary>
         /// txt_header_code control.
