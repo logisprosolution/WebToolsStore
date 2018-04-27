@@ -16,7 +16,7 @@ namespace WebToolsStore
     {
         #region Parameter
         DocBiz biz = new DocBiz();
-
+        public USR_Role_Submenu roleMenu;
         const string CartList_SaveState = "CartList_SaveState";
         const string CartList_ShowState = "CartList_ShowState";
         const string IngredientList_SaveState = "IngredientList_SaveState";
@@ -78,6 +78,10 @@ namespace WebToolsStore
         #endregion Parameter
 
         #region Override Methods
+        protected override void OnPreLoad(EventArgs e)
+        {
+            roleMenu = ApplicationWebInfo.RoleMenuList.Find(x => x.submenu_id == (int)Enumerator.SubMenu.Sell);
+        }
         protected override void DoPrepareData()
         {
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);
@@ -108,7 +112,7 @@ namespace WebToolsStore
         private int CheckStock(int id)
         {
             DataSet ds = biz.CheckStock(id);
-            int stock =  (int)ds.Tables[0].Rows[0]["stock"];
+            int stock = (int)ds.Tables[0].Rows[0]["stock"];
             return stock;
         }
         private void BindGrid(int id)//โหลดตาราง
@@ -122,7 +126,7 @@ namespace WebToolsStore
                 int stock = CheckStock(ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "product_id")));
                 int unit_value = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "unit_value"));
                 int detail_qty = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row, "detail_qty"));
-                int total  = detail_qty * unit_value;
+                int total = detail_qty * unit_value;
                 if (total > stock)
                 {
                     base.ShowMessage("มีรายการที่สินค้าในสต็อคไม่พอ ไม่สามารถขายได้");
@@ -338,29 +342,33 @@ namespace WebToolsStore
 
                         foreach (DataRow row2 in dt2.Rows)
                         {
-                            DOC_Detail_Ingredient item2 = new DOC_Detail_Ingredient();
-                            item2.ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "ingredient_id"));
-                            item2.product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_id"));
-                            item2.product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_unit"));
-                            item2.product_code = ConvertHelper.InitialValueDB(row2, "product_code");
-                            item2.product_name = ConvertHelper.InitialValueDB(row2, "product_name");
-                            item2.unit_name = ConvertHelper.InitialValueDB(row2, "unit_name");
-                            item2.product_price_id = product_price_id;
-                            item2.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default"));
-                            item2.is_del = false;
-                            item2.detail_price = price;
-                            item2.PaytypeID = paytype;
-                            if (ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default")))//ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
+                            if (ConvertHelper.ToBoolean(row2, "is_default"))
                             {
-                                item2.product_qty = quantity * unit_value * ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_qty"));
+                                DOC_Detail_Ingredient item2 = new DOC_Detail_Ingredient();
+                                item2.ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "ingredient_id"));
+                                item2.product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_id"));
+                                item2.product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_unit"));
+                                item2.product_code = ConvertHelper.InitialValueDB(row2, "product_code");
+                                item2.product_name = ConvertHelper.InitialValueDB(row2, "product_name");
+                                item2.unit_name = ConvertHelper.InitialValueDB(row2, "unit_name");
+                                item2.product_price_id = product_price_id;
+                                item2.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default"));
+                                item2.is_del = false;
+                                item2.detail_price = 0;
+                                item2.PaytypeID = paytype;
+                                if (ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default")))//ถ้าตั้งเป็นสินค้าส่วนประกอบตั้งต้นถึงจะบวกจำนวนเพิ่ม
+                                {
+                                    item2.product_qty = quantity * unit_value * ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_qty"));
+                                }
+                                else
+                                {
+                                    item2.product_qty = 0;
+                                }
+                                //seq = seq1
+                                IngredientList_Save.Add(item2);
+                                //IngredientList_Show.Add(item2);
                             }
-                            else
-                            {
-                                item2.product_qty = 0;
-                            }
-                            //seq = seq1
-                            IngredientList_Save.Add(item2);
-                            //IngredientList_Show.Add(item2);
+
                         }
                     }
                     else
@@ -548,7 +556,7 @@ namespace WebToolsStore
             {
                 //txt_vat.Text = String.Format("{0:n}", ((total - discount) * vat / 100)).ToString();
                 //txt_net.Text = String.Format("{0:n}", ((total - discount) + (total - discount) * vat / 100)).ToString();
-                 txt_net.Text = String.Format("{0:n}", ((total - discount) + (total - discount))).ToString();
+                txt_net.Text = String.Format("{0:n}", ((total - discount) + (total - discount))).ToString();
             }
             else
             {
@@ -651,6 +659,43 @@ namespace WebToolsStore
             BindGridIngredient(id);
             BindGrid(id);
             BindControl(id);
+        }
+        protected void btnAddIgdHidden_Click(object sender, EventArgs e)
+        {
+            int index = dgv1.SelectedIndex + 1;
+            GridViewRow row = dgv1.Rows[index];
+            int product_price_id = ConvertHelper.ToInt(dgv1.DataKeys[row.RowIndex].Values[1]);
+            int PaytypeID = ConvertHelper.ToInt(((HiddenField)row.FindControl("hdfPaytype")).Value);
+
+            string ids = hdfIgdValue.Value;//popup
+
+            ProductIngredientBiz biz = new ProductIngredientBiz();
+            DataTable dt2 = biz.SelectInfo(ids);
+
+            IngredientList_Save = new List<DOC_Detail_Ingredient>();
+
+            foreach (DataRow row2 in dt2.Rows)
+            {
+                DOC_Detail_Ingredient item2 = new DOC_Detail_Ingredient();
+                item2.ingredient_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "ingredient_id"));
+                item2.product_id = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_id"));
+                item2.product_unit = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_unit"));
+                item2.product_code = ConvertHelper.InitialValueDB(row2, "product_code");
+                item2.product_name = ConvertHelper.InitialValueDB(row2, "product_name");
+                item2.unit_name = ConvertHelper.InitialValueDB(row2, "unit_name");
+                item2.product_price_id = product_price_id;
+                item2.is_enabled = ConvertHelper.ToBoolean(ConvertHelper.InitialValueDB(row2, "is_default"));
+                item2.is_del = false;
+                item2.detail_price = 0;
+                item2.PaytypeID = PaytypeID;
+                item2.product_qty = ConvertHelper.ToInt(ConvertHelper.InitialValueDB(row2, "product_qty"));
+
+                IngredientList_Save.Add(item2);
+
+                dgv1.DataSource = CartList_Show;
+                dgv1.DataBind();
+
+            }
         }
         protected void txt_discout_TextChanged(object sender, EventArgs e)
         {

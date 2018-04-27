@@ -15,9 +15,14 @@ namespace WebToolsStore
     {
         #region Parameter
         UserBiz biz = new UserBiz();
+        public USR_Role_Submenu roleMenu;
         #endregion Parameter
 
         #region Override Methods
+        protected override void OnPreLoad(EventArgs e)
+        {
+            roleMenu = ApplicationWebInfo.RoleMenuList.Find(x => x.submenu_id == (int)Enumerator.SubMenu.Employee);
+        }
         protected override void DoPrepareData()
         {
         }

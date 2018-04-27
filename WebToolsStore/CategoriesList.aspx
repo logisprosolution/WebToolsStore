@@ -35,7 +35,10 @@
                         <div class="box-header">
                             <h3 class="box-title">รายการหมวดสินค้า</h3>
                             <div class="pull-right box-tools">
+                                <% if ((roleMenu != null ? roleMenu.is_add : false) == true)
+                                    { %>
                                 <asp:LinkButton runat="server" ID="btnAdd" class="btn btn-primary" OnClick="btnAdd_Click"> เพิ่ม <i class="fa fa-plus" aria-hidden="true"></i></asp:LinkButton>
+                            <% } %>
                             </div>
                         </div>
                         <div class="box-body">
@@ -68,8 +71,9 @@
                                         <asp:TemplateField HeaderStyle-Width="150px">
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("categories_id") %>' />
-                                                <asp:LinkButton ID="btnGridEdit" runat="server" Text="แก้ไข" class="btn btn-warning fa fa-edit" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"/>
-                                                <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="Delete" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');"/>
+                                                <asp:LinkButton ID="btnGridView" runat="server" Text="ดู" class="btn btn-info fa fa-eye" Visible="<%# roleMenu != null ? roleMenu.is_view : false %>" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
+                                                <asp:LinkButton ID="btnGridEdit" runat="server" Text="แก้ไข" class="btn btn-warning fa fa-edit" Visible="<%# roleMenu != null ? roleMenu.is_edit : false %>" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
+                                                <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" Visible="<%# roleMenu != null ? roleMenu.is_delete : false %>" CommandName="Delete" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>

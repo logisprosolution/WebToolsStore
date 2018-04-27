@@ -14,9 +14,14 @@ namespace WebToolsStore
         #region Parameter
         UserBiz biz = new UserBiz();
         LoadExHelper loadEx = new LoadExHelper();
+        public USR_Role_Submenu roleMenu;
         #endregion Parameter
 
         #region Override Methods
+        protected override void OnPreLoad(EventArgs e)
+        {
+            roleMenu = ApplicationWebInfo.RoleMenuList.Find(x => x.submenu_id == (int)Enumerator.SubMenu.Employee);
+        }
         protected override void DoPrepareData()
         {
 
@@ -24,7 +29,6 @@ namespace WebToolsStore
             loadEx.LoadTitle(ref ddl_title, Enumerator.ConditionLoadEx.All);
             loadEx.LoadProvince(ref ddl_province, Enumerator.ConditionLoadEx.All);
             txt_user_password.Attributes["type"] = "password";
-            //Image1.Attributes["onchange"] = "UploadFile(this)";
         }
 
         protected override void DoLoadData()

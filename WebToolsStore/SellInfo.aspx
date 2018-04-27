@@ -4,7 +4,7 @@
     <script>
         function ShowDialog() {
             //debugger
-            PopupCenter('PopupProductPriceSelect.aspx?dataId=5', 'popup', '1000', '700');
+            PopupCenter('PopupProductPriceSelect.aspx?dataId=5', 'popup', '1000', '500');
         }
         function resultDialogPopupProductSelect(returnValue) {
             //debugger
@@ -14,21 +14,21 @@
 
         function ShowDocDialog() {
             //debugger
-            PopupCenter('PopupDocSelect.aspx?dataId=8', 'popup', '1000', '700');
+            PopupCenter('PopupDocSelect.aspx?dataId=8', 'popup', '1000', '500');
         }
         function resultDialogPopupDocSelect(returnValue) {
             $("#<%=hdfDocValue.ClientID %>").val(returnValue);
             $("#<%=btnAddDocHidden.ClientID %>").click();
         }
 
-        <%--function ShowDetailDialog(product_id) {
+       function ShowDetailDialog(product_id) {
             debugger
-            PopupCenter('PopupProductIngredient.aspx?dataId=' + product_id, 'popup', '1000', '700');
+            PopupCenter('PopupProductIngredient.aspx?dataId=' + product_id, 'popup', '1000', '500');
         }
         function resultDialogPopupProductIngredient(returnValue) {
             $("#<%=hdfIgdValue.ClientID %>").val(returnValue);
             $("#<%=btnAddIgdHidden.ClientID %>").click();
-        }--%>
+        }
     </script>
     <h1>ขายสินค้า
                 <small>ข้อมูล</small>
@@ -41,7 +41,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:HiddenField ID="hdfValue" runat="server" />
+    <asp:HiddenField ID="hdfIgdValue" runat="server" />
     <asp:HiddenField ID="hdfDocValue" runat="server" />
+    <asp:Button ID="btnAddIgdHidden" runat="server" type="btnAddIgdHidden" CssClass="hidden" OnClick="btnAddIgdHidden_Click" CausesValidation="False" />
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#sell">ขาย</a></li>
         <li><a data-toggle="tab" href="#detail">ข้อมูลเพิ่มเติม</a></li>
@@ -68,7 +70,10 @@
                                     <asp:TextBox ID="txt_header_ref" ReadOnly="true" runat="server" type="text" class="form-control" />
                                     <div class="input-group-btn">
                                         <div class="input-group-btn">
+                                            <% if ((roleMenu != null ? roleMenu.is_add : false) == true)
+                                                { %>
                                             <asp:LinkButton runat="server" ID="btnOpenDocPopup" ToolTip="นำเข้าจาก" OnClientClick="javascript:ShowDocDialog(); return false;" class="btn btn-info btn-flat">นำเข้าจาก<i class="fa fa-ellipsis-h" aria-hidden="true" ></i></asp:LinkButton>
+                                            <% } %>
                                             <asp:Button ID="btnAddDocHidden" runat="server" type="btnAddDocHidden" CssClass="hidden" OnClick="btnAddDocHidden_Click" CausesValidation="False" />
                                         </div>
                                     </div>
@@ -150,7 +155,7 @@
                                 </div>
                                 <asp:GridView ID="dgv1" class="table table-bordered table-hover dataTable" aria-describedby="example2_info" runat="server"
                                     AutoGenerateColumns="false" AllowSorting="True" PageSize="50" DataKeyNames="detail_id,product_price_id"
-                                    ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowDeleting="dgv1_RowDeleting">
+                                    ShowHeaderWhenEmpty="true" EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataText="ไม่พบรายการ" OnRowDataBound="dgv1_RowDataBound" OnRowCommand="dgv1_RowCommand" OnRowEditing="dgv1_RowEditing" OnRowDeleting="dgv1_RowDeleting">
                                     <Columns>
                                         <asp:TemplateField>
                                             <ItemTemplate>
@@ -168,12 +173,12 @@
                                                             <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
                                                                 <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                                                             </asp:BoundField>
-                                                            <asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
+                                                            <%--<asp:TemplateField HeaderStyle-Width="100px" HeaderText="จำนวน" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
                                                                     <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
                                                                     </asp:TextBox>
                                                                 </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                            </asp:TemplateField>--%>
                                                         </Columns>
                                                     </asp:GridView>
                                                 </asp:Panel>
@@ -204,8 +209,8 @@
                                             <ItemTemplate>
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
                                                 <asp:HiddenField ID="hdfPaytype" runat="server" Value='<%# Eval("PaytypeID") %>' />
-                                                <asp:LinkButton Visible="false" ID="btnGridEdit" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
-                                                <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CausesValidation="False" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
+                                                <asp:LinkButton ID="btnGridEdit" CausesValidation="false" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
+                                                <asp:LinkButton ID="btnGridDelete" CausesValidation="false" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" Visible="<%# roleMenu != null ? roleMenu.is_delete : false %>" CommandName="DeleteCart" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
@@ -267,7 +272,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group" style="display:none">
+                        <div class="form-group" style="display: none">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-6"></div>
@@ -357,7 +362,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="box-footer" style="text-align: center;">
+                        <% if ((roleMenu != null ? roleMenu.is_add : false) == true || (roleMenu != null ? roleMenu.is_edit : false) == true)
+                            { %>
                         <asp:Button ID="btnSave" runat="server" Text="บันทึก" type="button" class="btn btn-success" OnClick="btnSave_Click"></asp:Button>
+                        <% } %>
                         <asp:Button ID="btnCancel" runat="server" Text="กลับ" type="button" class="btn" OnClick="btnCancel_Click" CausesValidation="False"></asp:Button>
                         <div class="col-sm-offset-1">
                             <asp:ValidationSummary ID="ValidationSummary1" runat="server"

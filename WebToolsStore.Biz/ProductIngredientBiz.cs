@@ -28,6 +28,11 @@ namespace WebToolsStore.Biz
         {
             return base.SelectByIdTable(id, SELECT_INFO);
         }
+        public DataTable SelectInfo(string ids)
+        {
+            dataModel.ids = ids;
+            return base.SelectByIdTable(0, "SELECT_INFO_IDS");
+        }
 
         public DataTable SelectDetail(int id)
         {
@@ -102,6 +107,13 @@ namespace WebToolsStore.Biz
                 cmd.Parameters.Add(CreateParameter("product_id", id));
                 LoadData(cmd, ds, SELECT_DETAIL);
             }
+            else if (condition == "SELECT_INFO_IDS")
+            {
+                SqlCommand cmd = CreateCommand("udp_MAS_Ingredient_sel_ids", System.Data.CommandType.StoredProcedure);
+                cmd.Parameters.Add(CreateParameter("ids", dataModel.ids));
+                LoadData(cmd, ds, condition);
+            }
+            
             //else if (condition == "SelectMaxID")
             //{
             //    SqlCommand cmd = CreateCommand("udp_MaxID_Product", System.Data.CommandType.StoredProcedure);

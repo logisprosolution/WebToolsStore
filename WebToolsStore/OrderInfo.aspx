@@ -4,7 +4,7 @@
     <script>
         function ShowDialog() {
             //debugger
-            PopupCenter('PopupProductPriceSelect.aspx?dataId=11', 'popup', '1000', '700');
+            PopupCenter('PopupProductPriceSelect.aspx?dataId=11', 'popup', '1000', '500');
         }
 
         function resultDialogPopupProductSelect(returnValue) {
@@ -58,6 +58,7 @@
     </ol>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
+    
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:HiddenField ID="hdfValue" runat="server" />
     <asp:HiddenField ID="hdfChk" runat="server" />
@@ -173,7 +174,10 @@
                     <div class="col-md-12">
                         <div class="box-header">
                             <h3 class="box-title"></h3>
+                            <% if ((roleMenu != null ? roleMenu.is_add : false) == true)
+                                { %>
                             <asp:LinkButton runat="server" CausesValidation="false" ID="btnOpenPopup" class="btn btn-primary pull-right" OnClientClick="javascript:ShowDialog(); return false;"> เพิ่ม <i class="fa fa-plus"></i></asp:LinkButton>
+                            <% } %>
                             <asp:Button ID="btnAddHidden" runat="server" type="button" CssClass="hidden" OnClick="btnAddHidden_Click" CausesValidation="false" UseSubmitBehavior="false" />
                         </div>
                         <div class="box-body">
@@ -239,7 +243,7 @@
                                                 <asp:HiddenField ID="hdfID" runat="server" Value='<%# Eval("header_id") %>' />
                                                 <asp:HiddenField ID="hdfPaytype" runat="server" Value='<%# Eval("PaytypeID") %>' />
                                                 <asp:LinkButton Visible="false" ID="btnGridEdit" runat="server" ToolTip="รายละเอียดส่วนประกอบสินค้า" Text="" class="btn btn-warning fa fa-cog" CommandName="Edit" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick='<%# "ShowDetailDialog(\""+Eval("product_id")+"\"); return false;" %>' />
-                                                <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" CommandName="DeleteCart" CausesValidation="False" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
+                                                <asp:LinkButton ID="btnGridDelete" runat="server" Text="ลบ" class="btn btn-danger fa fa-trash-o" Visible="<%# roleMenu != null ? roleMenu.is_delete : false %>" CommandName="DeleteCart" CausesValidation="False" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('ทำการยืนยัน ที่จะลบข้อมูล ?');" />
                                             </ItemTemplate>
                                             <%--                                            <FooterTemplate>
                                                 <asp:TextBox ID="txt_product_qty" Width="100px" TextMode="Number" CssClass="form-control" runat="server" Text='<%# Eval("product_qty") %>'>
@@ -395,7 +399,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="box-footer" style="text-align: center;">
+                        <% if ((roleMenu != null ? roleMenu.is_add : false) == true || (roleMenu != null ? roleMenu.is_edit : false) == true)
+                            { %>
                         <asp:Button ID="btnSave" runat="server" Text="บันทึก" type="button" class="btn btn-success" OnClick="btnSave_Click" UseSubmitBehavior="false"></asp:Button>
+                        <% } %>
                         <asp:Button ID="btnCancel" runat="server" Text="กลับ" type="button" class="btn" OnClick="btnCancel_Click" CausesValidation="False" UseSubmitBehavior="false"></asp:Button>
                         <div class="col-sm-offset-1">
                             <asp:ValidationSummary ID="ValidationSummary1" runat="server"

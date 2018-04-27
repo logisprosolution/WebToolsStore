@@ -17,40 +17,17 @@ namespace WebToolsStore
     {
         #region Parameter
         DocBiz biz = new DocBiz();
-        const string CartList_SaveState = "CartList_SaveState";
-        const string CartList_ShowState = "CartList_ShowState";
-        public List<DOC_Detail> CartList_Save //ไว้สำหรับsave จะมี row ที่โดนลบด้วย
-        {
-            get
-            {
-                if (!(ViewState[CartList_SaveState] is List<DOC_Detail>))
-                {
-                    ViewState[CartList_SaveState] = new List<DOC_Detail>();
-                }
-
-                return (List<DOC_Detail>)ViewState[CartList_SaveState];
-            }
-            set { ViewState[CartList_SaveState] = value; }
-        }
-        public List<DOC_Detail> CartList_Show  //ไว้สำหรับ bind ลงกริด จะไม่เห็น row ที่ลบ
-        {
-            get
-            {
-                if (!(ViewState[CartList_ShowState] is List<DOC_Detail>))
-                {
-                    ViewState[CartList_ShowState] = new List<DOC_Detail>();
-                }
-
-                return (List<DOC_Detail>)ViewState[CartList_ShowState];
-            }
-            set { ViewState[CartList_ShowState] = value; }
-        }
-
+        public USR_Role_Submenu roleMenu;
         #endregion Parameter
 
         #region Override Methods
+        protected override void OnPreLoad(EventArgs e)
+        {
+            roleMenu = ApplicationWebInfo.RoleMenuList.Find(x => x.submenu_id == (int)Enumerator.SubMenu.Order);
+        }
         protected override void DoPrepareData()
         {
+
         }
 
         protected override void DoLoadData()

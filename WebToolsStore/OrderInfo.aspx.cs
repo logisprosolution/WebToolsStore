@@ -16,7 +16,7 @@ namespace WebToolsStore
     {
         #region Parameter
         DocBiz biz = new DocBiz();
-
+        public USR_Role_Submenu roleMenu;
         const string CartList_SaveState = "CartList_SaveState";
         const string CartList_ShowState = "CartList_ShowState";
         const string IngredientList_SaveState = "IngredientList_SaveState";
@@ -77,6 +77,11 @@ namespace WebToolsStore
         #endregion Parameter
 
         #region Override Methods
+        protected override void OnPreLoad(EventArgs e)
+        {
+            roleMenu = ApplicationWebInfo.RoleMenuList.Find(x => x.submenu_id == (int)Enumerator.SubMenu.Order);
+        }
+
         protected override void DoPrepareData()
         {
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);

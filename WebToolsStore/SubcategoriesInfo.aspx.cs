@@ -11,9 +11,14 @@ namespace WebToolsStore
     {
         #region Parameter
         SubcategoriesBiz biz = new SubcategoriesBiz();
+        public USR_Role_Submenu roleMenu;
         #endregion Parameter
 
         #region Override Methods
+        protected override void OnPreLoad(EventArgs e)
+        {
+            roleMenu = ApplicationWebInfo.RoleMenuList.Find(x => x.submenu_id == (int)Enumerator.SubMenu.Categories);
+        }
         protected override void DoPrepareData()
         {
             base.dataId = ConvertHelper.ToInt(Request.QueryString["dataId"]);

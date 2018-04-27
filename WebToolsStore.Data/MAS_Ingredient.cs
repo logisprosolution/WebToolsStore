@@ -31,5 +31,6 @@ namespace WebToolsStore.Data
         public string product_name { get; set; }
         public string unit_name { get; set; }
         public virtual MAS_Product MAS_Product { get; set; }
+        public string ids { get; set; }
     }
 }

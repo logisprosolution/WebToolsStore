@@ -38,3 +38,33 @@ Log Entry : 2:35:36 27 เมษายน 2561
   :
 Exception Message:Object reference not set to an instance of an object.
 -------------------------------
+
+Log Entry : 6:08:14 27 เมษายน 2561
+  :
+Exception Message:Column 'is_default' does not belong to table SelectProductPrice.
+-------------------------------
+
+Log Entry : 6:08:59 27 เมษายน 2561
+  :
+Exception Message:Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 8:27:01 27 เมษายน 2561
+  :
+Exception Message:A field or property with the name 'doctype_name' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 8:27:16 27 เมษายน 2561
+  :
+Exception Message:A field or property with the name 'doctype_name' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 8:29:48 27 เมษายน 2561
+  :
+Exception Message:A field or property with the name 'doctype_name' was not found on the selected data source.
+-------------------------------
+
+Log Entry : 8:45:22 27 เมษายน 2561
+  :
+Exception Message:Thread was being aborted.
+-------------------------------

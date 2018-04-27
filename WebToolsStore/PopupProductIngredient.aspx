@@ -5,12 +5,12 @@
         function GetCheckedRows() {
             var returnValue = '';
             $("#example_wrapper tr").not(':first').each(function () {
-                // debugger
+                debugger
                 var $checkBox = $(this).find("input[type='checkbox']");
                 var $id = $(this).find("input[type='hidden']").val();
 
                 if ($checkBox.is(':checked')) {
-                    returnValue = returnValue + $id + '*' + '1|';
+                    returnValue = returnValue + $id + ',';
                 }
                 //else {
                 //    returnValue = returnValue + $id + '*' + '0|';
@@ -71,9 +71,9 @@
                             <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="unit_name" HeaderText="หน่วยสินค้า">
                                 <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
                             </asp:BoundField>
-                            <asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_qty" HeaderText="จำนวน">
+                            <%--<asp:BoundField HeaderStyle-HorizontalAlign="Center" DataField="product_qty" HeaderText="จำนวน">
                                 <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
-                            </asp:BoundField>
+                            </asp:BoundField>--%>
                             <asp:TemplateField HeaderText="ค่าตั้งต้น" HeaderStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
                                     <asp:CheckBox ID="chkDefault" runat="server" Checked='<%# Eval("is_default") %>' />

@@ -4,7 +4,7 @@
     <script>
         function ShowDialog() {
             //debugger
-            PopupCenter('PopupProductPriceSelect.aspx', 'popup', '1000', '700');
+            PopupCenter('PopupProductPriceSelect.aspx', 'popup', '1000', '500');
         }
 
         function resultDialogPopupProductSelect(returnValue) {
@@ -61,7 +61,10 @@
                                 <div class="input-group margin" style="margin: 0px;">
                                     <asp:TextBox ID="txt_header_ref" ReadOnly="true" runat="server" type="text" class="form-control" />
                                     <div class="input-group-btn">
+                                        <% if ((roleMenu != null ? roleMenu.is_add : false) == true)
+                                            { %>
                                         <asp:LinkButton runat="server" ID="btnOpenDocPopup" ToolTip="นำเข้าจาก" OnClientClick="javascript:ShowDocDialog(); return false;" class="btn btn-info btn-flat">นำเข้าจาก<i class="fa fa-ellipsis-h" aria-hidden="true" ></i></asp:LinkButton>
+                                        <% } %>
                                         <asp:Button ID="btnAddDocHidden" runat="server" type="btnAddDocHidden" CssClass="hidden" OnClick="btnAddDocHidden_Click" CausesValidation="False" />
                                     </div>
                                 </div>
@@ -118,7 +121,7 @@
                                         </div>
                                         <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_header_date_to" Display="Dynamic" ErrorMessage="กรุณาเลือกวันที่" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                     </div>
-                                   <%-- <div class="col-sm-2">
+                                    <%-- <div class="col-sm-2">
                                         <label class="control-label">
                                             สถานะเอกสาร
                             <label style="color: red">*</label></label>
@@ -231,7 +234,10 @@
                     <div class="col-md-12">
                         <div class="box-header">
                             <h3 class="box-title">ตารางเปลี่ยนคืน</h3>
+                            <% if ((roleMenu != null ? roleMenu.is_add : false) == true)
+                                { %>
                             <asp:LinkButton runat="server" ID="btnOpenPopup" class="btn btn-primary pull-right" OnClientClick="javascript:ShowDialog(); return false;"> เพิ่ม <i class="fa fa-plus"></i></asp:LinkButton>
+                            <% } %>
                             <asp:Button ID="btnAddHidden" runat="server" type="button" CssClass="hidden" OnClick="btnAddHidden_Click" CausesValidation="False" />
                         </div>
                         <div class="box-body">
@@ -352,7 +358,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group" style="display:none">
+                        <div class="form-group" style="display: none">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-6"></div>
@@ -406,7 +412,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group" style="display:none">
+                        <div class="form-group" style="display: none">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="col-sm-6"></div>
@@ -457,7 +463,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="box-footer" style="text-align: center;">
+                        <% if ((roleMenu != null ? roleMenu.is_add : false) == true || (roleMenu != null ? roleMenu.is_edit : false) == true)
+                            { %>
                         <asp:Button ID="btnSave" runat="server" Text="บันทึก" type="button" class="btn btn-success" OnClick="btnSave_Click"></asp:Button>
+                        <% } %>
                         <asp:Button ID="btnCancel" runat="server" Text="กลับ" type="button" class="btn" OnClick="btnCancel_Click" CausesValidation="False"></asp:Button>
                         <div class="col-sm-offset-1">
                             <asp:ValidationSummary ID="ValidationSummary1" runat="server"

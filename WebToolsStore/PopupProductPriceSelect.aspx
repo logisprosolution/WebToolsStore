@@ -188,13 +188,13 @@
                             <asp:DropDownList class="form-control" ID="ddlprice" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlprice_SelectedIndexChanged" />
                         </div>
                         <div class="col-sm-2">
-                            <asp:TextBox class="form-control" ID="txtPrice" ReadOnly="true" Text="0.00" TextMode="Number" runat="server" MaxLength="50" />
+                            <asp:TextBox class="form-control" ID="txtPrice" ReadOnly="true" Text="0.00" runat="server" />
                         </div>
                         <div class="col-sm-1 text-center">
                             <asp:Label Text="จำนวน" runat="server" />
                         </div>
                         <div class="col-sm-2">
-                            <asp:TextBox class="form-control" ID="txtNumber" Text="1" TextMode="Number" runat="server" MaxLength="50" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
+                            <asp:TextBox class="form-control" ID="txtNumber" Text="1" TextMode="Number" MaxLength="50" runat="server" ToolTip="ความยาวไม่เกิน 50 ตัวอักษร" />
                         </div>
                     </div>
                 </div>
