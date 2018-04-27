@@ -80,7 +80,13 @@ namespace WebToolsStore
                 GridViewRow row = dgv1.Rows[index];
                 string id = ((HiddenField)row.FindControl("hdfID")).Value;
                 row = null;
-                if (e.CommandName == "Edit")
+                if (e.CommandName == "View")
+                {
+                    base.SetBackURL();
+                    string queryString = "view=1";
+                    base.RedirectToPage(typeof(TitleInfo), null, queryString);
+                }
+                else if (e.CommandName == "Edit")
                 {
                     base.SetBackURL();
                     base.RedirectToPage(typeof(TitleInfo), id);

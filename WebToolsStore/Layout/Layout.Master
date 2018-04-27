@@ -41,9 +41,11 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body class="skin-blue">
     <div class="wrapper">
         <form id="form1" runat="server">
+            <%@ Import Namespace="WebToolsStore" %>
             <header class="main-header">
                 <!-- Logo -->
                 <a href="Main.aspx" class="logo"><b>ToolsStore</b> JDSteel</a>
@@ -100,19 +102,28 @@
                 <section class="sidebar">
                     <ul class="sidebar-menu">
                         <li class="header">งานประจำวัน</li>
+<<<<<<< HEAD
                         <li><a href="OrderList.aspx"><i class="fa fa-book text-danger"></i>สั่งทำสินค้า</a></li>
                         <%--<li><a href="ExportList.aspx"><i class="fa fa-upload text-danger"></i>นำออก</a></li>--%>
                         <li><a href="ReceiveproductList.aspx"><i class="fa fa-download text-danger"></i>รับเข้าสินค้า</a></li>
+=======
+>>>>>>> master
                         <li class="treeview">
+                            <%--<li><a href="OrderList.aspx"><i class="fa fa-book text-danger"></i>สั่งทำสินค้า</a></li>
+                                <li><a href="ReceiveproductList.aspx"><i class="fa fa-inbox text-danger"></i>รับเข้าสินค้า</a></li>--%>
+                                <asp:LinkButton ID="LinkOrderList" PostBackUrl="~/OrderList.aspx" runat="server" CausesValidation="false" ><i class="fa fa-calculator text-danger"></i> สั่งทำสินค้า </asp:LinkButton>
+                                 <asp:LinkButton ID="LinkReceiveproductList" PostBackUrl="~/ReceiveproductList.aspx" runat="server" CausesValidation="false"><i class="fa fa-inbox text-danger"></i> รับเข้าสินค้า </asp:LinkButton>
                             <a href="#">
                                 <i class="fa fa-calculator text-danger"></i><span>การขาย</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="SellList.aspx"><i class="fa fa-arrow-circle-right"></i>การขาย</a></li>
-                                <li><a href="SellOnCreditList.aspx"><i class="fa fa-arrow-circle-right"></i>การขายเชื่อ</a></li>
+                                <%--<li><a href="SellList.aspx"><i class="fa fa-arrow-circle-right"></i>การขาย</a></li>
+                                <li><a href="SellOnCreditList.aspx"><i class="fa fa-arrow-circle-right"></i>การขายเชื่อ</a></li>--%>
+                                 <li><asp:LinkButton ID="LinkSellList" PostBackUrl="~/SellList.aspx" runat="server" CausesValidation="false" > <i class="fa fa-arrow-circle-right sidebar-menu"></i> การขาย </asp:LinkButton></li>
+                                 <li><asp:LinkButton ID="LinkSellOnCreditList" PostBackUrl="~/SellOnCreditList.aspx" runat="server" CausesValidation="false" > <i class="fa fa-arrow-circle-right sidebar-menu"></i> การขายเชื่อ </asp:LinkButton></li>
                             </ul>
                         </li>
-                        <li><a href="ChangeList.aspx"><i class="fa fa-repeat text-danger"></i>เปลี่ยนสินค้า</a></li>
+                        <li><asp:LinkButton ID="LinkChangeList" PostBackUrl="~/ChangeList.aspx" runat="server" CausesValidation="false" > <i class="fa fa-repeat text-danger"></i> เปลี่ยนสินค้า </asp:LinkButton></li>
                         <li class="header">รายงาน</li>
                         <li><a href="Report_TransAll.aspx"><i class="fa fa-file text-gray"></i>รายงาน</a></li>
                         <li><a href="Report_Stock.aspx"><i class="fa fa-file text-gray"></i>รายงานสต็อก</a></li>
@@ -123,11 +134,16 @@
                                 <i class="fa fa-user text-info"></i><span>บุคคล</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="RoleList.aspx"><i class="fa fa-arrow-circle-right"></i>กำหนดสิทธิ์ใช้งาน</a></li>
+                                <%--<li><a href="RoleList.aspx"><i class="fa fa-arrow-circle-right"></i>กำหนดสิทธิ์ใช้งาน</a></li>
                                 <li><a href="TitleList.aspx"><i class="fa fa-arrow-circle-right"></i>คำนำหน้า</a></li>
                                 <li><a href="EmployeeList.aspx"><i class="fa fa-arrow-circle-right"></i>พนักงาน</a></li>
                                 <li><a href="SupplierList.aspx"><i class="fa fa-arrow-circle-right"></i>บริษัทคู่ค้า</a></li>
-                                <li><a href="CustomerList.aspx"><i class="fa fa-arrow-circle-right"></i>ลูกค้า</a></li>
+                                <li><a href="CustomerList.aspx"><i class="fa fa-arrow-circle-right"></i>ลูกค้า</a></li>--%>
+                                <li><asp:LinkButton ID="LinkRoleList" PostBackUrl="~/RoleList.aspx" runat="server" CausesValidation="false" > <i class="fa fa-arrow-circle-right sidebar-menu"></i> กำหนดสิทธิ์ใช้งาน </asp:LinkButton></li>
+                                <li><asp:LinkButton ID="LinkTitleList" PostBackUrl="~/TitleList.aspx" runat="server" CausesValidation="false" > <i class="fa fa-arrow-circle-right sidebar-menu"></i> คำนำหน้า </asp:LinkButton></li>
+                                <li><asp:LinkButton ID="LinkEmployeeList" PostBackUrl="~/EmployeeList.aspx" runat="server" CausesValidation="false" > <i class="fa fa-arrow-circle-right sidebar-menu"></i> พนักงาน </asp:LinkButton></li>
+                                <li><asp:LinkButton ID="LinkSupplierList" PostBackUrl="~/SupplierList.aspx" runat="server" CausesValidation="false" > <i class="fa fa-arrow-circle-right sidebar-menu"></i> บริษัทคู่ค้า </asp:LinkButton></li>
+                                <li><asp:LinkButton ID="LinkCustomerList" PostBackUrl="~/CustomerList.aspx" runat="server" CausesValidation="false" > <i class="fa fa-arrow-circle-right sidebar-menu"></i> ลูกค้า </asp:LinkButton></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -135,9 +151,12 @@
                                 <i class="fa fa-tasks text-info"></i><span>สินค้า</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="UnitList.aspx"><i class="fa fa-arrow-circle-right"></i>หน่วยแสดงผล</a></li>
+                                       <%--      <li><a href="UnitList.aspx"><i class="fa fa-arrow-circle-right"></i>หน่วยแสดงผล</a></li>
                                 <li><a href="CategoriesList.aspx"><i class="fa fa-arrow-circle-right"></i>หมวดสินค้า</a></li>
-                                <li><a href="ProductList.aspx"><i class="fa fa-arrow-circle-right"></i>สินค้า</a></li>
+                                <li><a href="ProductList.aspx"><i class="fa fa-arrow-circle-right"></i>สินค้า</a></li>--%>
+                                <li><asp:LinkButton ID="LinkUnitList" PostBackUrl="~/UnitList.aspx" runat="server" CausesValidation="false" > <i class="fa fa-arrow-circle-right sidebar-menu"></i> หน่วยแสดงผล </asp:LinkButton></li>
+                                <li><asp:LinkButton ID="LinkCategoriesList" PostBackUrl="~/CategoriesList.aspx" runat="server" CausesValidation="false" > <i class="fa fa-arrow-circle-right sidebar-menu"></i> หมวดสินค้า </asp:LinkButton></li>
+                                <li><asp:LinkButton ID="LinkProductList" PostBackUrl="~/ProductList.aspx" runat="server" CausesValidation="false" > <i class="fa fa-arrow-circle-right sidebar-menu"></i> สินค้า </asp:LinkButton></li>
                             </ul>
                         </li>
                     </ul>
